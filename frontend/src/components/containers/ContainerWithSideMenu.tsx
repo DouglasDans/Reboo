@@ -6,7 +6,7 @@ export default function ContainerWithSideMenu({ children }: PropsWithChildren) {
   return (
     <div className={style.containerMain}>
       <SideMenu />
-      <div>{children}</div>
+      <div className={style.contentMain}>{children}</div>
     </div>
   )
 }

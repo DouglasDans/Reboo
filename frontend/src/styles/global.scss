@@ -1,4 +1,5 @@
 @use 'color-variables';
+@use 'global-sizes';
 
 * {
   box-sizing: border-box;
@@ -9,4 +10,33 @@
 body {
   background-color: color-variables.$background-body-color;
   color: color-variables.$text-primary-color;
+  font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+h6 {
+  font-size: global-sizes.$font-h6-size;
+}
+h5 {
+  font-size: global-sizes.$font-h5-size;
+}
+h4 {
+  font-size: global-sizes.$font-h4-size;
+}
+h3 {
+  font-size: global-sizes.$font-h3-size;
+}
+h2 {
+  font-size: global-sizes.$font-h2-size;
+}
+h1 {
+  font-size: global-sizes.$font-h1-size;
 }

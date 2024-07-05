@@ -1,3 +1,4 @@
+import Header from '@/components/layout/Header'
 import React, { Fragment } from 'react'
 
 type Props = {}
@@ -5,7 +6,9 @@ type Props = {}
 export default function Dashboard({ }: Props) {
   return (
     <Fragment>
-      <div>Hello Dashboard</div>
+      <Header titlePage="Dashboard" />
+
+      Dash
     </Fragment>
   )
 }

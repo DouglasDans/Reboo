@@ -4,3 +4,11 @@
   display: grid;
   grid-template-columns: global-sizes.$sidebar-size 1fr;
 }
+
+.contentMain {
+  padding: 30px 50px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

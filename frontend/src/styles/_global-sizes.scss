@@ -1,3 +1,14 @@
+@use 'sass:math';
+
 $sidebar-size: 220px;
 
 $nav-link-radius-size: 6px;
+
+$font-sm-size: 0.889rem; // 14.22px
+$font-md-size: 1rem; // 16px
+$font-h6-size: 1.125rem; // 18px
+$font-h5-size: 1.266rem; // 20.25px
+$font-h4-size: 1.424rem; // 22.78px
+$font-h3-size: 1.602rem; // 25.63px
+$font-h2-size: 1.802rem; // 28.83px
+$font-h1-size: 2.027rem; // 32.44px
