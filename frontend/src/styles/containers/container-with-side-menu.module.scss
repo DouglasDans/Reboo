@@ -1,0 +1,6 @@
+@use '../global-sizes';
+
+.containerMain {
+  display: grid;
+  grid-template-columns: global-sizes.$sidebar-size 1fr;
+}
