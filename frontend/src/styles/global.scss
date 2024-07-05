@@ -1,5 +1,6 @@
 @use 'color-variables';
 @use 'global-sizes';
+@use 'fonts';
 
 * {
   box-sizing: border-box;
@@ -11,6 +12,8 @@ body {
   background-color: color-variables.$background-body-color;
   color: color-variables.$text-primary-color;
   font-weight: 500;
+
+  @extend %font-family-open-sans;
 }
 
 h1,
@@ -19,7 +22,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
+  @extend %font-family-poppins;
+  font-weight: 600;
 }
 
 h6 {
