@@ -44,3 +44,15 @@ h2 {
 h1 {
   font-size: global-sizes.$font-h1-size;
 }
+
+p {
+  font-size: global-sizes.$font-md-size;
+}
+
+span {
+  font-size: global-sizes.$font-sm-size;
+}
+
+small {
+  font-size: global-sizes.$font-xsm-size;
+}
