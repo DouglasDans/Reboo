@@ -1,19 +1,16 @@
 import React from 'react'
 import styles from '@/styles/layout/side-menu.module.scss'
 import Image from 'next/image'
-import SideMenuItem from './SideMenuItem'
+import SideMenuNavLink from './SideMenuNavLink'
 import {
   BarChartRounded,
   BookRounded,
-  HomeMaxRounded,
-  HomeMiniRounded,
   HomeRounded,
-  HouseRounded,
 } from '@mui/icons-material'
 
 type Props = {}
 
-export default function SideMenu({}: Props) {
+export default function SideMenu({ }: Props) {
   return (
     <div className={styles.container}>
       <div>
@@ -26,9 +23,9 @@ export default function SideMenu({}: Props) {
       </div>
 
       <div className={styles.navLinkWrapper}>
-        <SideMenuItem icon={<HomeRounded />} title={'Dashboard'} active />
-        <SideMenuItem icon={<BookRounded />} title={'Minha Estante'} />
-        <SideMenuItem icon={<BarChartRounded />} title={'Estatísticas'} />
+        <SideMenuNavLink href='/user' icon={<HomeRounded />} exact title={'Dashboard'} />
+        <SideMenuNavLink href={'/library'} exact icon={<BookRounded />} title={'Minha Estante'} />
+        <SideMenuNavLink href={'/stats'} exact icon={<BarChartRounded />} title={'Estatísticas'} />
       </div>
     </div>
   )
