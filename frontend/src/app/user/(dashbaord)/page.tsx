@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 type Props = {}
 
 export default function Dashboard({ }: Props) {
   return (
-    <div>Dashboard</div>
+    <Fragment>
+      <div>Hello Dashboard</div>
+    </Fragment>
   )
 }

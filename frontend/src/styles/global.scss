@@ -1,4 +1,4 @@
-@import 'color-variables';
+@use 'color-variables';
 
 * {
   box-sizing: border-box;
@@ -7,6 +7,6 @@
 }
 
 body {
-  background-color: $background-body-color;
-  color: $text-primary-color;
+  background-color: color-variables.$background-body-color;
+  color: color-variables.$text-primary-color;
 }
