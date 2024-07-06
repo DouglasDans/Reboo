@@ -1,8 +1,15 @@
 @use 'sass:math';
 
 $sidebar-size: 220px;
+$sidebar-border-size: 2px;
 
 $nav-link-radius-size: 6px;
+
+$form-input-padding: 10px;
+$form-input-radius: 10px;
+
+$button-padding: 10px 20px;
+$button-radius: 1000px;
 
 $font-xsm-size: 0.79rem; // 12.64px
 $font-sm-size: 0.889rem; // 14.22px

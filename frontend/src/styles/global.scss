@@ -21,7 +21,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+button {
   @extend %font-family-poppins;
   font-weight: 600;
 }
@@ -45,7 +46,9 @@ h1 {
   font-size: global-sizes.$font-h1-size;
 }
 
-p {
+p,
+input,
+button {
   font-size: global-sizes.$font-md-size;
 }
 
@@ -55,4 +58,5 @@ span {
 
 small {
   font-size: global-sizes.$font-xsm-size;
+  color: color-variables.$text-secondary-color;
 }
