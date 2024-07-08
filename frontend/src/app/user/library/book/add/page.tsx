@@ -6,6 +6,7 @@ import styles from '@/styles/pages/book-add.module.scss'
 import PrimaryButton from "@/components/ui/buttons/PrimaryButton"
 import IconButton from "@/components/ui/buttons/IconButton"
 import { AddPhotoAlternateRounded, PaletteRounded } from "@mui/icons-material"
+import Image from "next/image"
 
 type Props = {}
 
@@ -40,6 +41,15 @@ export default function page({ }: Props) {
             <IconButton><PaletteRounded /></IconButton>
             <IconButton><AddPhotoAlternateRounded /></IconButton>
           </div>
+
+          <Image
+            src={"/book-image-placeholder.png"}
+            className={styles.coverImage}
+            height={'200'}
+            width={'140'}
+            alt="Capa do livro"
+          />
+
         </div>
       </section>
 
