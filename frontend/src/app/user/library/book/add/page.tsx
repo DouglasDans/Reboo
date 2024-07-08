@@ -4,6 +4,8 @@ import { Fragment } from "react"
 
 import styles from '@/styles/pages/book-add.module.scss'
 import PrimaryButton from "@/components/ui/buttons/PrimaryButton"
+import IconButton from "@/components/ui/buttons/IconButton"
+import { AddPhotoAlternateRounded, PaletteRounded } from "@mui/icons-material"
 
 type Props = {}
 
@@ -14,6 +16,7 @@ export default function page({ }: Props) {
       <Header titlePage="Minha Estante" />
 
       <section className={styles.searchBookAndImgSection}>
+
         <div className={styles.searchBookContainer}>
 
           <div className={styles.titleSearchISBN}>
@@ -31,7 +34,16 @@ export default function page({ }: Props) {
             </div>
           </form>
         </div>
+
+        <div className={styles.editImgContainer}>
+          <div>
+            <IconButton><PaletteRounded /></IconButton>
+            <IconButton><AddPhotoAlternateRounded /></IconButton>
+          </div>
+        </div>
       </section>
+
+
     </Fragment >
   )
 }
