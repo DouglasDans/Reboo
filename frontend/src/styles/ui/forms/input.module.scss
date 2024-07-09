@@ -9,6 +9,8 @@
   padding: global-sizes.$form-input-padding;
   border-radius: global-sizes.$form-input-radius;
 
+  width: 100%;
+
   &:focus-visible {
     outline: none;
     border: 1px solid color-variables.$text-secondary-color;

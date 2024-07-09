@@ -1,0 +1,11 @@
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  & div {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    gap: 10px;
+  }
+}
