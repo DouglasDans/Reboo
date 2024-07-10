@@ -15,7 +15,7 @@ export default function Header({ titlePage }: Props) {
         <Link href={"#"}>
           <TimerRounded fontSize="large" />
         </Link>
-        <Link href={"#"}>
+        <Link href={"/user/library/book/add"}>
           <BookmarkAddRounded fontSize="large" />
         </Link>
         <Link href={"#"}>
