@@ -45,7 +45,7 @@ export default function GetBookForm({ }: Props) {
       <div className={styles.formGroup}>
         <label>ISBN</label>
         <div>
-          <Input placeholder="978-90-274-3964-2" id="searchISBN" name="searchISBN" />
+          <input placeholder="978-90-274-3964-2" id="searchISBN" name="searchISBN" />
           <PrimaryButton>Pesquisar por informações</PrimaryButton>
         </div>
       </div>
