@@ -3,9 +3,10 @@ import PrimaryButton from '@/components/ui/buttons/PrimaryButton'
 import Input from '@/components/ui/forms/Input'
 import googleBooksApi from '@/services/GoogleBooksAPI/api'
 import styles from '@/styles/pages/book/add/get-book-form.module.scss'
-import { ResponseBook } from '@/types/googleBooksApiTypes'
+import { GoogleAPIResponseBook } from '@/types/googleBooksApi'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
+import toStringISBN from '../../../../utils/isbnHandler';
 
 
 type Props = {}
@@ -24,16 +25,14 @@ export default function GetBookForm({ }: Props) {
     const params = new URLSearchParams(searchParams)
 
     //@ts-ignore
-    const bookInfo = await googleBooksApi.get(res.items[0].selfLink).then(res => { return res.volumeInfo }) as ResponseBook
-
-    console.log(bookInfo);
-
+    const bookInfo = await googleBooksApi.get(res.items[0].selfLink).then(res => { return res.volumeInfo }) as GoogleAPIResponseBook
 
     params.set("title", bookInfo.title)
-    params.set("authors", bookInfo.authors[0])
+    params.set("authors", bookInfo.authors.join(", "))
     params.set("publisher", bookInfo.publisher)
     params.set("publishedDate", bookInfo.publishedDate)
     params.set("pageCount", bookInfo.pageCount.toString())
+    params.set("isbn", toStringISBN(bookInfo.industryIdentifiers))
     params.set("description", bookInfo.description)
 
     replace(`${pathname}?${params.toString()}`)

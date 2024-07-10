@@ -1,8 +1,8 @@
 import InputWrapper from '@/components/ui/forms/InputWrapper'
 import styles from '@/styles/pages/book/add/form-book.module.scss'
-import { ResponseBook } from '@/types/googleBooksApiTypes'
+import { GoogleAPIResponseBook } from '@/types/googleBooksApiTypes'
 type Props = {
-  book: ResponseBook
+  book: GoogleAPIResponseBook
 }
 
 export default function FormBookSection({ book }: Props) {
