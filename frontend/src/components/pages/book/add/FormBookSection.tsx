@@ -1,8 +1,11 @@
 import InputWrapper from '@/components/ui/forms/InputWrapper'
 import styles from '@/styles/pages/book/add/form-book.module.scss'
-type Props = {}
+import { ResponseBook } from '@/types/googleBooksApiTypes'
+type Props = {
+  book: ResponseBook
+}
 
-export default function FormBookSection({ }: Props) {
+export default function FormBookSection({ book }: Props) {
   return (
     <section className={styles.container}>
 
@@ -13,7 +16,7 @@ export default function FormBookSection({ }: Props) {
 
       <form className={styles.formGrid}>
         <div className={styles.rightForm}>
-          <InputWrapper />
+          <InputWrapper book={book} />
         </div>
         <div className={styles.leftForm}>
           b

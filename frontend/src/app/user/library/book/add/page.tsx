@@ -1,18 +1,20 @@
 import Header from "@/components/layout/Header"
 import FormBookSection from "@/components/pages/book/add/FormBookSection"
 import SearchBookAndImgSection from "@/components/pages/book/add/SearchBookAndImgSection"
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher"
 import { Fragment } from "react"
 
-type Props = {}
 
-export default function page({ }: Props) {
+
+export default function page({ searchParams }: Params) {
+  console.log(searchParams);
 
   return (
     <Fragment>
       <Header titlePage="Minha Estante" />
 
       <SearchBookAndImgSection />
-      <FormBookSection />
+      <FormBookSection book={searchParams} />
     </Fragment >
   )
 }
