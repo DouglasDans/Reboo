@@ -8,6 +8,26 @@
   padding: 0;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: color-variables.$background-level1-color;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: color-variables.$text-tertiary-color;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: color-variables.$text-secondary-color;
+}
+
 body {
   background-color: color-variables.$background-body-color;
   color: color-variables.$text-primary-color;
