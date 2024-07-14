@@ -38,7 +38,7 @@ export default function GetBookForm({ }: Props) {
     params.set("description", bookInfo.description)
     params.set("refreshForm", 'true')
 
-    if (bookInfo.imageLinks.medium) {
+    if (bookInfo.imageLinks) {
       params.set("imageLinks", bookInfo.imageLinks.medium)
     }
 
