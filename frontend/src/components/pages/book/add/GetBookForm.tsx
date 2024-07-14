@@ -37,12 +37,13 @@ export default function GetBookForm({ }: Props) {
     params.set("isbn", typeof (bookInfo.industryIdentifiers) !== "string" ? toStringISBN(bookInfo.industryIdentifiers) : bookInfo.industryIdentifiers)
     params.set("description", bookInfo.description)
     params.set("refreshForm", 'true')
-    // params.set("imageCover", bookInfo.imageLinks.medium)
+
+    if (bookInfo.imageLinks.medium) {
+      params.set("imageLinks", bookInfo.imageLinks.medium)
+    }
 
     replace(`${pathname}?${params.toString()}`, { scroll: false })
   }
-
-
 
   return (
     <form onSubmit={getBookByISBN} method="get">

@@ -9,15 +9,11 @@ export interface GoogleAPIResponseBook {
   pageCount: number
   categories: Array<string>
   language: string
-  imageLinks: ImageLinks
+  imageLinks: any
   refreshForm?: boolean
 }
 
 export interface GoogleAPIResponseISBN {
   type: string
   identifier: string
-}
-
-interface ImageLinks {
-  medium: string
 }
