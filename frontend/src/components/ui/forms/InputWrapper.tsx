@@ -2,8 +2,8 @@
 
 import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
 import styles from '@/styles/ui/forms/input-wrapper.module.scss'
+import { BookDTO } from '@/types/BookDTO'
 import { GoogleAPIResponseBook } from '@/types/googleBooksApi'
-import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { useContext, useEffect, useState } from 'react'
@@ -13,7 +13,7 @@ import { useContext, useEffect, useState } from 'react'
 // }
 
 export default function InputWrapper() {
-  const urlParams = useContext(BookURLParamsContext) as GoogleAPIResponseBook
+  const urlParams = useContext(BookURLParamsContext) as BookDTO
 
   const searchParams = useSearchParams()
   const pathname = usePathname()
@@ -28,8 +28,6 @@ export default function InputWrapper() {
   const [pageCount, setPageCount] = useState(urlParams.pageCount || '')
   const [categories, setCategories] = useState(urlParams.categories || '')
   const [language, setLanguage] = useState(urlParams.language || '')
-
-  console.log(urlParams);
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams)
@@ -87,6 +85,7 @@ export default function InputWrapper() {
           <label>Número de páginas</label>
           <input value={pageCount} onChange={(e) => handleSetValueToURL(e, setPageCount, 'pageCount')} placeholder="345" id="pagBook" name="pagBook" />
         </div>
+
         <div className={styles.input}>
           <label>ISBN</label>
           <input value={industryIdentifiers} onChange={(e) => handleSetValueToURL(e, setIndustryIdentifiers, 'industryIdentifiers')} placeholder="978-90-274-3964-2" id="isbnBook" name="isbnBook" />

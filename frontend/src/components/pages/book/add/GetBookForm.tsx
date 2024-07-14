@@ -34,7 +34,7 @@ export default function GetBookForm({ }: Props) {
     params.set("publisher", bookInfo.publisher)
     params.set("publishedDate", bookInfo.publishedDate)
     params.set("pageCount", bookInfo.pageCount.toString())
-    params.set("isbn", typeof (bookInfo.industryIdentifiers) !== "string" ? toStringISBN(bookInfo.industryIdentifiers) : bookInfo.industryIdentifiers)
+    params.set("industryIdentifiers", typeof (bookInfo.industryIdentifiers) !== "string" ? toStringISBN(bookInfo.industryIdentifiers) : bookInfo.industryIdentifiers)
     params.set("description", bookInfo.description)
     params.set("refreshForm", 'true')
 
