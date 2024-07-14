@@ -5,13 +5,19 @@ export interface GoogleAPIResponseBook {
   publisher: string
   publishedDate: string
   description: string
-  industryIdentifiers: Array<GoogleAPIResponseISBN>
+  industryIdentifiers: Array<GoogleAPIResponseISBN> | string
   pageCount: number
   categories: Array<string>
   language: string
+  imageLinks: ImageLinks
+  refreshForm?: boolean
 }
 
 export interface GoogleAPIResponseISBN {
   type: string
   identifier: string
+}
+
+interface ImageLinks {
+  medium: string
 }

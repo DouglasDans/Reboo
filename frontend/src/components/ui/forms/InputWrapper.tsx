@@ -1,43 +1,101 @@
-import styles from '@/styles/ui/forms/input-wrapper.module.scss'
-import Input from './Input'
-type Props = {
-  book: any
-}
+'use client'
 
-export default function InputWrapper({ book }: Props) {
+import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
+import styles from '@/styles/ui/forms/input-wrapper.module.scss'
+import { GoogleAPIResponseBook } from '@/types/googleBooksApi'
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher'
+import { usePathname, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+import { useContext, useEffect, useState } from 'react'
+
+// type Props = {
+//   book: any
+// }
+
+export default function InputWrapper() {
+  const urlParams = useContext(BookURLParamsContext) as GoogleAPIResponseBook
+
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const { replace } = useRouter()
+
+  const [title, setTitle] = useState(urlParams.title || '')
+  const [authors, setAuthors] = useState(urlParams.authors || '')
+  const [publisher, setPublisher] = useState(urlParams.publisher || '')
+  const [publishedDate, setPublishedDate] = useState(urlParams.publishedDate || '')
+  const [description, setDescription] = useState(urlParams.description || '')
+  const [industryIdentifiers, setIndustryIdentifiers] = useState(urlParams.industryIdentifiers || '')
+  const [pageCount, setPageCount] = useState(urlParams.pageCount || '')
+  const [categories, setCategories] = useState(urlParams.categories || '')
+  const [language, setLanguage] = useState(urlParams.language || '')
+
+  console.log(urlParams);
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams)
+    setTitle(urlParams.title)
+    setAuthors(urlParams.authors)
+    setPublisher(urlParams.publisher)
+    setPublishedDate(urlParams.publishedDate)
+    setDescription(urlParams.description)
+    setIndustryIdentifiers(urlParams.industryIdentifiers)
+    setPageCount(urlParams.pageCount)
+
+    params.delete('refreshForm')
+    replace(`${pathname}?${params.toString()}`, { scroll: false })
+  }, [urlParams.refreshForm]);
+
+  function handleSetValueToURL(e: any, setState: Function, param: string) {
+    const params = new URLSearchParams(searchParams)
+    const value = e.target.value
+
+    setState(value)
+
+    if (value) {
+      params.set(param, value);
+    } else {
+      params.delete(param);
+    }
+
+    replace(`${pathname}?${params.toString()}`, { scroll: false })
+  }
+
   return (
     <div className={styles.inputWrapper}>
       <div className={styles.input}>
         <label>Nome</label>
-        <input defaultValue={book.title} placeholder="Digite o nome do livro" id="nomeBook" name="nomeBook" />
+        <input value={title} onChange={(e) => handleSetValueToURL(e, setTitle, 'title')} placeholder="Digite o nome do livro" id="nomeBook" name="nomeBook" />
       </div>
+
       <div className={styles.input}>
         <label>Autor</label>
-        <input defaultValue={book.authors} placeholder="Digite o autor do livro" id="autorNook" name="autorNook" />
+        <input value={authors} onChange={(e) => handleSetValueToURL(e, setAuthors, 'authors')} placeholder="Digite o autor do livro" id="autorNook" name="autorNook" />
       </div>
 
       <div className={styles.inputWrapperGrid}>
         <div className={styles.input}>
           <label>Data de Publicação</label>
-          <input defaultValue={book.publishedDate} type='date' placeholder="2004-06-02" id="publiDataBook" name="publiDataBook" />
+          <input value={publishedDate} onChange={(e) => handleSetValueToURL(e, setPublishedDate, 'publishedDate')} type='date' placeholder="2004-06-02" id="publiDataBook" name="publiDataBook" />
         </div>
+
         <div className={styles.input}>
           <label>Editora</label>
-          <input defaultValue={book.publisher} placeholder="Editora Paralax" id="editoraBook" name="editoraBook" />
+          <input value={publisher} onChange={(e) => handleSetValueToURL(e, setPublisher, 'publisher')} placeholder="Editora Paralax" id="editoraBook" name="editoraBook" />
         </div>
+
         <div className={styles.input}>
           <label>Número de páginas</label>
-          <input defaultValue={book.pageCount} placeholder="345" id="pagBook" name="pagBook" />
+          <input value={pageCount} onChange={(e) => handleSetValueToURL(e, setPageCount, 'pageCount')} placeholder="345" id="pagBook" name="pagBook" />
         </div>
         <div className={styles.input}>
           <label>ISBN</label>
-          <input defaultValue={book.isbn} placeholder="978-90-274-3964-2" id="isbnBook" name="isbnBook" />
+          <input value={industryIdentifiers} onChange={(e) => handleSetValueToURL(e, setIndustryIdentifiers, 'industryIdentifiers')} placeholder="978-90-274-3964-2" id="isbnBook" name="isbnBook" />
         </div>
       </div>
 
       <div className={styles.input}>
         <label>Descrição</label>
-        <textarea rows={18} className={styles.textarea} defaultValue={book.description} placeholder="978-90-274-3964-2" id="descBook" name="descBook" />
+        <textarea rows={18} className={styles.textarea} value={description} onChange={(e) => handleSetValueToURL(e, setDescription, 'description')} placeholder="978-90-274-3964-2" id="descBook" name="descBook" />
       </div>
 
     </div>

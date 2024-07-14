@@ -1,20 +1,17 @@
 import Header from "@/components/layout/Header"
 import FormBookSection from "@/components/pages/book/add/FormBookSection"
 import SearchBookAndImgSection from "@/components/pages/book/add/SearchBookAndImgSection"
+import { BookURLParamsProvider } from "@/context/book/BookURLParamsProvider"
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher"
-import { Fragment } from "react"
-
-
 
 export default function page({ searchParams }: Params) {
-  console.log(searchParams);
 
   return (
-    <Fragment>
+    <BookURLParamsProvider value={searchParams}>
       <Header titlePage="Minha Estante" />
 
       <SearchBookAndImgSection />
-      <FormBookSection book={searchParams} />
-    </Fragment >
+      <FormBookSection />
+    </BookURLParamsProvider >
   )
 }
