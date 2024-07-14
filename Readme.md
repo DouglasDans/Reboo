@@ -34,7 +34,7 @@
     <img src="frontend/public/reboo-logo-text.svg" alt="Logo" height="120">
   </a>
 
-  <h1 align="center">Reboo Book Tracker</h1>
+  <h3 align="center">Reboo Book Tracker</h3>
 
   <p align="center">
     Um aplicativo web para controle e estatíticas de leitura de livros.   
@@ -78,8 +78,8 @@
 <!-- ## Sobre o Projeto -->
 
 <div align="center">
-  <h2 align="center">Sobre o Projeto</h2>
-  <img src="frontend/public/readme-screen.png" alt="Logo" height="300">
+  <h3 align="center">Sobre o Projeto</h2>
+  <img src="frontend/public/readme-screen.png" alt="Logo" height="400">
 </div>
 
 <br>
@@ -96,7 +96,7 @@ Tudo isso em uma interface intuitiva e simplificada para web e mobile (PWA)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Tecnologias Utiliadas
+## Tecnologias Utiliadas
 
 Tecnologias que foram utilizadas para fazer desse projeto possível.
 
@@ -208,6 +208,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contato
 
 Douglas Nascimento - [@douglas.dans](https://www.instagram.com/douglas.dans/) - douglas.dans@gmail.com
+<br>
 Link do Projeto: [https://github.com/DouglasDans/Reboo](https://github.com/DouglasDans/Reboo)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
