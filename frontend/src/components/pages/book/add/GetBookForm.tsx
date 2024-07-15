@@ -20,26 +20,36 @@ export default function GetBookForm({ }: Props) {
 
     const isbnNumber = event.currentTarget.searchISBN.value
     const rawIsbnNumber = isbnNumber.replace(/-/gi, "")
-
-    const res = await googleBooksApi.get(
-      '/volumes?q=isbn:' + rawIsbnNumber
-    )
     const params = new URLSearchParams(searchParams)
 
-    //@ts-ignore
-    const bookInfo = await googleBooksApi.get(res.items[0].selfLink).then(res => { return res.volumeInfo }) as GoogleAPIResponseBook
+    const apiResponse = await googleBooksApi.get(
+      '/volumes?q=isbn:' + rawIsbnNumber
+    )
 
-    params.set("title", bookInfo.title)
-    params.set("authors", bookInfo.authors.join(", "))
-    params.set("publisher", bookInfo.publisher)
-    params.set("publishedDate", bookInfo.publishedDate)
-    params.set("pageCount", bookInfo.pageCount.toString())
-    params.set("industryIdentifiers", typeof (bookInfo.industryIdentifiers) !== "string" ? toStringISBN(bookInfo.industryIdentifiers) : bookInfo.industryIdentifiers)
-    params.set("description", bookInfo.description)
+    if (apiResponse.totalItems === 0) {
+      return alert("ISBN não encontrado")
+    }
+
+    //@ts-ignore
+    const bookInfo = await googleBooksApi.get(apiResponse.items[0].selfLink).then(res => { return res.volumeInfo }) as GoogleAPIResponseBook
+
+    console.log(bookInfo);
+
+    bookInfo.authors ? params.set("title", bookInfo.title) : ''
+    bookInfo.authors ? params.set("authors", bookInfo.authors.join(", ")) : ''
+    bookInfo.publisher ? params.set("publisher", bookInfo.publisher) : ''
+    bookInfo.publishedDate ? params.set("publishedDate", bookInfo.publishedDate) : ''
+    bookInfo.pageCount ? params.set("pageCount", bookInfo.pageCount.toString()) : ''
+    bookInfo.industryIdentifiers ? params.set("industryIdentifiers", typeof (bookInfo.industryIdentifiers) !== "string" ? toStringISBN(bookInfo.industryIdentifiers) : bookInfo.industryIdentifiers) : ''
+    bookInfo.description ? params.set("description", bookInfo.description) : ''
+    bookInfo.categories ? params.set("categories", bookInfo.categories.join(", ")) : ''
+    bookInfo.language ? params.set("language", bookInfo.language) : ''
     params.set("refreshForm", 'true')
 
     if (bookInfo.imageLinks) {
       params.set("imageLinks", bookInfo.imageLinks.medium)
+    } else {
+      params.delete("imageLinks")
     }
 
     replace(`${pathname}?${params.toString()}`, { scroll: false })
