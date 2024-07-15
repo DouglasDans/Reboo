@@ -1,0 +1,19 @@
+services:
+  frontend:
+    container_name: rbo-frontend
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./frontend/.env
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    develop: # Funcionalidades de dev
+      watch: # hot reload configs
+        - action: sync
+          path: ./frontend # pasta raíz do host
+          target: /app # pasta raíz do container
+          ignore:
+            - node_modules
+        - action: rebuild
+          path: package.json
