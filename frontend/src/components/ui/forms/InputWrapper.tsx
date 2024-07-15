@@ -38,6 +38,8 @@ export default function InputWrapper() {
     setDescription(urlParams.description)
     setIndustryIdentifiers(urlParams.industryIdentifiers)
     setPageCount(urlParams.pageCount)
+    setCategories(urlParams.categories)
+    setLanguage(urlParams.language)
 
     params.delete('refreshForm')
     replace(`${pathname}?${params.toString()}`, { scroll: false })
@@ -89,6 +91,16 @@ export default function InputWrapper() {
         <div className={styles.input}>
           <label>ISBN</label>
           <input value={industryIdentifiers} onChange={(e) => handleSetValueToURL(e, setIndustryIdentifiers, 'industryIdentifiers')} placeholder="978-90-274-3964-2" id="isbnBook" name="isbnBook" />
+        </div>
+
+        <div className={styles.input}>
+          <label>Categorias</label>
+          <input value={categories} onChange={(e) => handleSetValueToURL(e, setCategories, 'categories')} placeholder="978-90-274-3964-2" id="isbnBook" name="isbnBook" />
+        </div>
+
+        <div className={styles.input}>
+          <label>Idioma</label>
+          <input value={language} onChange={(e) => handleSetValueToURL(e, setLanguage, 'language')} placeholder="978-90-274-3964-2" id="isbnBook" name="isbnBook" />
         </div>
       </div>
 

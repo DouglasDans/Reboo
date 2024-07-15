@@ -5,7 +5,7 @@ export interface GoogleAPIResponseBook {
   publisher: string
   publishedDate: string
   description: string
-  industryIdentifiers: Array<GoogleAPIResponseISBN> | string
+  industryIdentifiers: Array<GoogleAPIResponseISBN>
   pageCount: number
   categories: Array<string>
   language: string
