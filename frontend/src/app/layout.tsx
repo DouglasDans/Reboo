@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import "@/styles/global.scss"
-import { CssVarsProvider } from "@mui/joy"
 
 export const metadata: Metadata = {
   title: {
