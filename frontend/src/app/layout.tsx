@@ -20,9 +20,7 @@ export default function RootLayout({
   return (
     <html data-color-scheme="dark" lang="pt-BR">
       <body>
-        <CssVarsProvider defaultColorScheme={"dark"}>
-          {children}
-        </CssVarsProvider>
+        {children}
       </body>
     </html>
   )

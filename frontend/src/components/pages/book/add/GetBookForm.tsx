@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 "use client"
 
 import PrimaryButton from "@/components/ui/buttons/PrimaryButton"
@@ -7,15 +8,11 @@ import { APIResponse, GoogleAPIResponseBook } from "@/types/googleBooksApi"
 import { usePathname, useSearchParams } from "next/navigation"
 import { useRouter } from "next/navigation"
 import toStringISBN from "../../../../utils/isbnHandler"
-import { Snackbar } from "@mui/joy"
-import { ErrorRounded } from "@mui/icons-material"
-import { useState } from "react"
 
 export default function GetBookForm() {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const { replace } = useRouter()
-  const [snackbarOpen, setSnackbarOpen] = useState(false)
 
   async function getBookByISBN(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -29,10 +26,9 @@ export default function GetBookForm() {
     )) as APIResponse
 
     if (apiResponse.totalItems === 0) {
-      setSnackbarOpen(true)
-      return setTimeout(() => {
-        setSnackbarOpen(false)
-      }, 4000)
+      return alert(
+        "ISBN não encontrado - Verifique se ele foi digitado corretamente",
+      )
     }
 
     //@ts-ignore
@@ -55,11 +51,11 @@ export default function GetBookForm() {
       : ""
     bookInfo.industryIdentifiers
       ? params.set(
-          "industryIdentifiers",
-          typeof bookInfo.industryIdentifiers !== "string"
-            ? toStringISBN(bookInfo.industryIdentifiers)
-            : bookInfo.industryIdentifiers,
-        )
+        "industryIdentifiers",
+        typeof bookInfo.industryIdentifiers !== "string"
+          ? toStringISBN(bookInfo.industryIdentifiers)
+          : bookInfo.industryIdentifiers,
+      )
       : ""
     bookInfo.description ? params.set("description", bookInfo.description) : ""
     bookInfo.categories
@@ -90,16 +86,6 @@ export default function GetBookForm() {
           <PrimaryButton>Pesquisar por informações</PrimaryButton>
         </div>
       </div>
-      <Snackbar
-        open={snackbarOpen}
-        color="neutral"
-        variant="soft"
-        startDecorator={<ErrorRounded />}>
-        <div>
-          <p>ISBN não encontrado</p>
-          <small>Verifique se ele foi digitado corretamente</small>
-        </div>
-      </Snackbar>
     </form>
   )
 }
