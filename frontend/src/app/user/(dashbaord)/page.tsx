@@ -1,9 +1,12 @@
 import Header from '@/components/layout/Header'
 import React, { Fragment } from 'react'
+import { Metadata } from 'next'
 
-type Props = {}
+export const metadata: Metadata = {
+  title: 'Dashboard',
+};
 
-export default function Dashboard({ }: Props) {
+export default function Dashboard() {
   return (
     <Fragment>
       <Header titlePage="Dashboard" />
