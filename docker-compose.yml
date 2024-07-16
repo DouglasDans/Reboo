@@ -1,0 +1,18 @@
+services:
+  frontend:
+    container_name: rbo-frontend
+    build: ./frontend
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./frontend/.env
+    develop: # Funcionalidades de dev
+      watch: # hot reload configs
+        - action: sync
+          path: ./frontend # pasta raíz do host
+          target: /app # pasta raíz do container
+          ignore:
+            - node_modules
+        - action: rebuild
+          path: package.json

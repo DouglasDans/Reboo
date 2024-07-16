@@ -1,0 +1,50 @@
+@use '../../../global-sizes';
+
+.searchBookAndImgSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.searchBookContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  & .titleSearchISBN {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  & form .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  & form .formGroup div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+}
+
+.editImgContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  column-gap: 10px;
+
+  & div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  & .coverImage {
+    height: 100%;
+
+    border-radius: global-sizes.$book-image-radius;
+  }
+}

@@ -1,4 +1,6 @@
 @use 'color-variables';
+@use 'global-sizes';
+@use 'fonts';
 
 * {
   box-sizing: border-box;
@@ -6,7 +8,99 @@
   padding: 0;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: color-variables.$background-level1-color;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: color-variables.$text-tertiary-color;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: color-variables.$text-secondary-color;
+}
+
 body {
   background-color: color-variables.$background-body-color;
   color: color-variables.$text-primary-color;
+  font-weight: 500;
+
+  @extend %font-family-open-sans;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  @extend %font-family-poppins;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: global-sizes.$font-h6-size;
+}
+h5 {
+  font-size: global-sizes.$font-h5-size;
+}
+h4 {
+  font-size: global-sizes.$font-h4-size;
+}
+h3 {
+  font-size: global-sizes.$font-h3-size;
+}
+h2 {
+  font-size: global-sizes.$font-h2-size;
+}
+h1 {
+  font-size: global-sizes.$font-h1-size;
+}
+
+p,
+input,
+button {
+  font-size: global-sizes.$font-md-size;
+}
+
+span {
+  font-size: global-sizes.$font-sm-size;
+}
+
+small {
+  font-size: global-sizes.$font-xsm-size;
+  color: color-variables.$text-secondary-color;
+}
+
+input,
+textarea {
+  background-color: color-variables.$background-body-color;
+  color: color-variables.$text-primary-color;
+  border: 1px solid color-variables.$background-level2-color;
+
+  padding: global-sizes.$form-input-padding;
+  border-radius: global-sizes.$form-input-radius;
+
+  width: 100%;
+  height: auto;
+  font-size: global-sizes.$font-md-size;
+
+  &:focus-visible {
+    outline: none;
+    border: 1px solid color-variables.$text-secondary-color;
+  }
+
+  &::placeholder {
+    color: color-variables.$text-tertiary-color;
+    font-weight: 600;
+  }
 }

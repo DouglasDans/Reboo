@@ -2,7 +2,6 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
     "next"
   ],
   "plugins": ["@typescript-eslint", "prettier"],
@@ -11,18 +10,5 @@
     "browser": true,
     "node": true,
     "es6": true
-  },
-  "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "semi": false,
-        "singleQuote": true,
-        "trailingComma": "all",
-        "endOfLine": "auto",
-        "tabWidth": 2
-      }
-    ]
-    // Outras regras do ESLint
   }
 }

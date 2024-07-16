@@ -1,0 +1,17 @@
+@use '../color-variables';
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shortcutsWrapper {
+  display: flex;
+  gap: 30px;
+}
+
+.shortcutsWrapper a {
+  color: color-variables.$text-secondary-color;
+}

@@ -1,6 +1,10 @@
 @use '../global-sizes';
 
-.containerMain {
-  display: grid;
-  grid-template-columns: global-sizes.$sidebar-size 1fr;
+.contentMain {
+  margin-left: global-sizes.$sidebar-size;
+  padding: 30px 50px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
