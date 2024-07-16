@@ -1,7 +1,7 @@
 "use client"
 
 import { BookURLParamsContext } from "@/context/book/BookURLParamsProvider"
-import styles from "@/styles/ui/forms/input-wrapper.module.scss"
+import styles from "@/styles/pages/book/add/form-book-info.module.scss"
 import { BookDTO } from "@/types/BookDTO"
 import { usePathname, useSearchParams } from "next/navigation"
 import { useRouter } from "next/navigation"
@@ -34,7 +34,7 @@ export default function FormBookInfo() {
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams)
-    setTitle(urlParams.title || '')
+    setTitle(urlParams.title)
     setAuthors(urlParams.authors)
     setPublisher(urlParams.publisher)
     setPublishedDate(urlParams.publishedDate)
@@ -70,7 +70,7 @@ export default function FormBookInfo() {
         <input
           value={title}
           onChange={e => handleSetValueToURL(e, setTitle, "title")}
-          placeholder="Digite o nome do livro"
+          placeholder="Ex: Harry Potter e a Câmara Filosofal"
           id="nomeBook"
           name="nomeBook"
         />
@@ -81,7 +81,7 @@ export default function FormBookInfo() {
         <input
           value={authors}
           onChange={e => handleSetValueToURL(e, setAuthors, "authors")}
-          placeholder="Digite o autor do livro"
+          placeholder="Ex: Hanna Barbera"
           id="autorNook"
           name="autorNook"
         />
@@ -107,7 +107,7 @@ export default function FormBookInfo() {
           <input
             value={publisher}
             onChange={e => handleSetValueToURL(e, setPublisher, "publisher")}
-            placeholder="Editora Paralax"
+            placeholder="Ex: Editora Paralax"
             id="editoraBook"
             name="editoraBook"
           />
@@ -118,7 +118,8 @@ export default function FormBookInfo() {
           <input
             value={pageCount}
             onChange={e => handleSetValueToURL(e, setPageCount, "pageCount")}
-            placeholder="345"
+            placeholder="Ex: 345"
+            type="number"
             id="pagBook"
             name="pagBook"
           />
@@ -135,7 +136,7 @@ export default function FormBookInfo() {
                 "industryIdentifiers",
               )
             }
-            placeholder="978-90-274-3964-2"
+            placeholder="Ex: 978-90-274-3964-2"
             id="isbnBook"
             name="isbnBook"
           />
@@ -146,7 +147,7 @@ export default function FormBookInfo() {
           <input
             value={categories}
             onChange={e => handleSetValueToURL(e, setCategories, "categories")}
-            placeholder="978-90-274-3964-2"
+            placeholder="Ex: Fantasia, Romance"
             id="isbnBook"
             name="isbnBook"
           />
@@ -157,7 +158,7 @@ export default function FormBookInfo() {
           <input
             value={language}
             onChange={e => handleSetValueToURL(e, setLanguage, "language")}
-            placeholder="978-90-274-3964-2"
+            placeholder="Ex: Português"
             id="isbnBook"
             name="isbnBook"
           />
@@ -171,7 +172,7 @@ export default function FormBookInfo() {
           className={styles.textarea}
           value={description}
           onChange={e => handleSetValueToURL(e, setDescription, "description")}
-          placeholder="978-90-274-3964-2"
+          placeholder="Ex: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus elit, semper nec ligula ac, pretium tempus nunc. Donec sodales libero vel interdum aliquam. Duis interdum nibh et porttitor pulvinar. Donec arcu felis, ultricies ac aliquet sed, scelerisque sed dolor. Aliquam tempus nunc eu turpis venenatis, quis luctus felis consequat. Donec quis tincidunt mi. Pellentesque sit amet tellus sed ligula rhoncus lacinia. Etiam quis nibh eget massa efficitur bibendum ac nec dui. Sed sit amet lectus lacus. Maecenas sapien mi, vulputate sed justo eu, tincidunt sollicitudin nunc. Suspendisse sit amet mollis ante. Proin eu mollis magna. Mauris et urna nec lacus scelerisque consequat sed quis turpis."
           id="descBook"
           name="descBook"
         />
