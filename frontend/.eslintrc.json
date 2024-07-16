@@ -2,7 +2,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
+    "plugin:prettier/recommended",
     "next"
   ],
   "plugins": ["@typescript-eslint", "prettier"],
@@ -11,5 +11,8 @@
     "browser": true,
     "node": true,
     "es6": true
+  },
+  "rules": {
+    "linebreak-style": "off"
   }
 }
