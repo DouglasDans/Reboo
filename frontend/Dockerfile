@@ -11,4 +11,4 @@ COPY package*.json ./
 RUN npm ci
 
 # Copie o restante dos arquivos da aplicação
-COPY . .
+COPY --chown=app:app . /app
