@@ -1,4 +1,4 @@
-import React, { Fragment, PropsWithChildren } from "react"
+import React, { PropsWithChildren } from "react"
 import SideMenu from "../layout/SideMenu"
 import style from "@/styles/containers/container-with-side-menu.module.scss"
 

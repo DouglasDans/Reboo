@@ -4,9 +4,7 @@ import Image from "next/image"
 import SideMenuNavLink from "./SideMenuNavLink"
 import { BarChartRounded, BookRounded, HomeRounded } from "@mui/icons-material"
 
-type Props = {}
-
-export default function SideMenu({}: Props) {
+export default function SideMenu() {
   return (
     <div className={styles.container}>
       <div>
