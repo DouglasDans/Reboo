@@ -3,7 +3,6 @@
 import { BookURLParamsContext } from "@/context/book/BookURLParamsProvider"
 import styles from "@/styles/ui/forms/input-wrapper.module.scss"
 import { BookDTO } from "@/types/BookDTO"
-import { GoogleAPIResponseBook } from "@/types/googleBooksApi"
 import { usePathname, useSearchParams } from "next/navigation"
 import { useRouter } from "next/navigation"
 import { useContext, useEffect, useState } from "react"
@@ -12,7 +11,7 @@ import { useContext, useEffect, useState } from "react"
 //   book: any
 // }
 
-export default function InputWrapper() {
+export default function FormBookInfo() {
   const urlParams = useContext(BookURLParamsContext) as BookDTO
 
   const searchParams = useSearchParams()
@@ -35,7 +34,7 @@ export default function InputWrapper() {
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams)
-    setTitle(urlParams.title)
+    setTitle(urlParams.title || '')
     setAuthors(urlParams.authors)
     setPublisher(urlParams.publisher)
     setPublishedDate(urlParams.publishedDate)
