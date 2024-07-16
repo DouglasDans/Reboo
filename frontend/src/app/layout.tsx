@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import '@/styles/global.scss'
+import { CssVarsProvider } from '@mui/joy'
 
 export const metadata: Metadata = {
   title: {
@@ -16,8 +17,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
-      <body>{children}</body>
+    <html data-color-scheme="dark" lang="pt-BR">
+
+      <body>
+        <CssVarsProvider defaultColorScheme={'dark'}>
+          {children}
+        </CssVarsProvider>
+      </body>
     </html>
   )
 }

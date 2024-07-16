@@ -3,17 +3,20 @@
 import PrimaryButton from '@/components/ui/buttons/PrimaryButton'
 import googleBooksApi from '@/services/GoogleBooksAPI/api'
 import styles from '@/styles/pages/book/add/get-book-form.module.scss'
-import { GoogleAPIResponseBook } from '@/types/googleBooksApi'
+import { APIResponse, GoogleAPIResponseBook } from "@/types/googleBooksApi"
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import toStringISBN from '../../../../utils/isbnHandler';
+import { Snackbar } from "@mui/joy"
+import { ErrorRounded } from '@mui/icons-material'
+import { useState } from 'react'
 
-type Props = {}
 
-export default function GetBookForm({ }: Props) {
+export default function GetBookForm() {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const { replace } = useRouter()
+  const [snackbarOpen, setSnackbarOpen] = useState(false)
 
   async function getBookByISBN(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -24,10 +27,13 @@ export default function GetBookForm({ }: Props) {
 
     const apiResponse = await googleBooksApi.get(
       '/volumes?q=isbn:' + rawIsbnNumber
-    )
+    ) as APIResponse
 
     if (apiResponse.totalItems === 0) {
-      return alert("ISBN não encontrado")
+      setSnackbarOpen(true)
+      return setTimeout(() => {
+        setSnackbarOpen(false)
+      }, 4000)
     }
 
     //@ts-ignore
@@ -64,6 +70,16 @@ export default function GetBookForm({ }: Props) {
           <PrimaryButton>Pesquisar por informações</PrimaryButton>
         </div>
       </div>
+      <Snackbar
+        open={snackbarOpen}
+        color="neutral"
+        variant="soft"
+        startDecorator={<ErrorRounded />}>
+        <div>
+          <p>ISBN não encontrado</p>
+          <small>Verifique se ele foi digitado corretamente</small>
+        </div>
+      </Snackbar>
     </form>
   )
 }
