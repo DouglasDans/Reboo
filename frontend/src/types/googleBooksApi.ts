@@ -18,7 +18,7 @@ export interface GoogleAPIResponseISBN {
   identifier: string
 }
 
-export interface APIResponse{
+export interface APIResponse {
   totalItems: number
   items: Array<GoogleAPIResponseBook>
 }

@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
 import { createContext, ReactNode } from "react"
 
 interface Props {
-  value: string;
-  children: ReactNode;
+  value: string
+  children: ReactNode
 }
 
 export const BookURLParamsContext = createContext({})

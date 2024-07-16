@@ -1,6 +1,12 @@
-import { AccountCircleRounded, BookmarkAddRounded, NotificationsRounded, PersonRounded, TimerRounded } from "@mui/icons-material"
+import {
+  AccountCircleRounded,
+  BookmarkAddRounded,
+  NotificationsRounded,
+  PersonRounded,
+  TimerRounded,
+} from "@mui/icons-material"
 import Link from "next/link"
-import styles from '@/styles/layout/header.module.scss'
+import styles from "@/styles/layout/header.module.scss"
 
 type Props = {
   titlePage: string

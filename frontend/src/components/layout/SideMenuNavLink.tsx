@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
-import Link from 'next/link'
-import styles from '@/styles/layout/side-menu-nav-link.module.scss'
-import { usePathname, useRouter } from 'next/navigation'
+import Link from "next/link"
+import styles from "@/styles/layout/side-menu-nav-link.module.scss"
+import { usePathname, useRouter } from "next/navigation"
 
 type Props = {
   title: string
@@ -12,14 +12,13 @@ type Props = {
 }
 
 export default function SideMenuNavLink({ title, icon, href, exact }: Props) {
-  const pathname = usePathname();
-  const isActive = exact ? pathname === href : pathname.startsWith(href);
+  const pathname = usePathname()
+  const isActive = exact ? pathname === href : pathname.startsWith(href)
 
   return (
     <Link
       href={href}
-      className={`${styles.container} ${isActive ? styles.active : ''}`}
-    >
+      className={`${styles.container} ${isActive ? styles.active : ""}`}>
       <div className={styles.icon}>{icon}</div>
       <span className={styles.span}>{title}</span>
     </Link>

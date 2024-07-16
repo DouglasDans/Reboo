@@ -1,7 +1,7 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
 
 const googleBooksApi = axios.create({
-  baseURL: 'https://www.googleapis.com/books/v1',
+  baseURL: "https://www.googleapis.com/books/v1",
 })
 
 // Interceptores de requisição
@@ -25,7 +25,7 @@ googleBooksApi.interceptors.response.use(
   (response: AxiosResponse) => {
     return response.data
   },
-  (error) => {
+  error => {
     // Você pode tratar erros globais aqui
     return Promise.reject(error)
   },
