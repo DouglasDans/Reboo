@@ -74,8 +74,8 @@ export default function BookInfo() {
           value={authors}
           onChange={e => handleSetValueToURL(e, setAuthors, "authors")}
           placeholder="Ex: Hanna Barbera"
-          id="autorNook"
-          name="autorNook"
+          id="autorBook"
+          name="autorBook"
         />
       </div>
 
@@ -140,8 +140,8 @@ export default function BookInfo() {
             value={categories}
             onChange={e => handleSetValueToURL(e, setCategories, "categories")}
             placeholder="Ex: Fantasia, Romance"
-            id="isbnBook"
-            name="isbnBook"
+            id="categoriasBook"
+            name="categoriasBook"
           />
         </div>
 
@@ -151,8 +151,8 @@ export default function BookInfo() {
             value={language}
             onChange={e => handleSetValueToURL(e, setLanguage, "language")}
             placeholder="Ex: Português"
-            id="isbnBook"
-            name="isbnBook"
+            id="idiomaBook"
+            name="idiomaBook"
           />
         </div>
       </div>

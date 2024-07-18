@@ -1,15 +1,9 @@
 import styles from "@/styles/pages/book/add/form-book.module.scss"
 import BookInfo from "./BookInfo"
 import BookSituation from "./BookSituation"
+import postBook from "@/actions/book/postBook"
 
 export default function FormBookSection() {
-
-  async function acs(formData: FormData) {
-    'use server'
-    console.log(formData.get('bookStatus'));
-
-  }
-
   return (
     <section className={styles.container}>
       <div className={styles.titleGrid}>
@@ -17,7 +11,7 @@ export default function FormBookSection() {
         <h5>Situação do livro</h5>
       </div>
 
-      <form action={acs} className={styles.formGrid}>
+      <form action={postBook} className={styles.formGrid}>
         <div className={styles.rightForm}>
           <BookInfo />
         </div>
