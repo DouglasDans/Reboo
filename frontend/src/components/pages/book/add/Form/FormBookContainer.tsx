@@ -1,6 +1,6 @@
 import styles from "@/styles/pages/book/add/form-book.module.scss"
-import FormBookInfo from "./FormBookInfo"
-import FormBookSituation from "./FormBookSituation"
+import BookInfo from "./BookInfo"
+import BookSituation from "./BookSituation"
 
 export default function FormBookSection() {
   return (
@@ -12,10 +12,10 @@ export default function FormBookSection() {
 
       <form className={styles.formGrid}>
         <div className={styles.rightForm}>
-          <FormBookInfo />
+          <BookInfo />
         </div>
         <div className={styles.leftForm}>
-          <FormBookSituation />
+          <BookSituation />
         </div>
       </form>
     </section>

@@ -7,11 +7,7 @@ import { usePathname, useSearchParams } from "next/navigation"
 import { useRouter } from "next/navigation"
 import { useContext, useEffect, useState } from "react"
 
-// type Props = {
-//   book: any
-// }
-
-export default function FormBookInfo() {
+export default function BookInfo() {
   const urlParams = useContext(BookURLParamsContext) as BookDTO
 
   const searchParams = useSearchParams()
@@ -21,13 +17,9 @@ export default function FormBookInfo() {
   const [title, setTitle] = useState(urlParams.title || "")
   const [authors, setAuthors] = useState(urlParams.authors || "")
   const [publisher, setPublisher] = useState(urlParams.publisher || "")
-  const [publishedDate, setPublishedDate] = useState(
-    urlParams.publishedDate || "",
-  )
+  const [publishedDate, setPublishedDate] = useState(urlParams.publishedDate || "")
   const [description, setDescription] = useState(urlParams.description || "")
-  const [industryIdentifiers, setIndustryIdentifiers] = useState(
-    urlParams.industryIdentifiers || "",
-  )
+  const [industryIdentifiers, setIndustryIdentifiers] = useState(urlParams.industryIdentifiers || "")
   const [pageCount, setPageCount] = useState(urlParams.pageCount || "")
   const [categories, setCategories] = useState(urlParams.categories || "")
   const [language, setLanguage] = useState(urlParams.language || "")

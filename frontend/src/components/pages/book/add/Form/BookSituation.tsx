@@ -5,10 +5,8 @@ import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
 import styles from '@/styles/pages/book/add/form-book-situation.module.scss'
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { ReactEventHandler, useState } from "react";
 
-export default function FormBookSituation() {
-  // const [bookStatus, setBookStatus] = useState([])
+export default function BookSituation() {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const { replace } = useRouter()
