@@ -3,6 +3,13 @@ import BookInfo from "./BookInfo"
 import BookSituation from "./BookSituation"
 
 export default function FormBookSection() {
+
+  async function acs(formData: FormData) {
+    'use server'
+    console.log(formData.get('bookStatus'));
+
+  }
+
   return (
     <section className={styles.container}>
       <div className={styles.titleGrid}>
@@ -10,7 +17,7 @@ export default function FormBookSection() {
         <h5>Situação do livro</h5>
       </div>
 
-      <form className={styles.formGrid}>
+      <form action={acs} className={styles.formGrid}>
         <div className={styles.rightForm}>
           <BookInfo />
         </div>
