@@ -94,13 +94,20 @@ textarea {
   height: auto;
   font-size: global-sizes.$font-md-size;
 
+  transition: all 0.2s;
+
   &:focus-visible {
     outline: none;
     border: 1px solid color-variables.$text-secondary-color;
+    background-color: color-variables.$form-input-color-focus;
   }
 
   &::placeholder {
     color: color-variables.$text-tertiary-color;
     font-weight: 600;
+  }
+
+  &:disabled {
+    border: 1px solid color-variables.$background-level1-color;
   }
 }
