@@ -6,9 +6,117 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "./client"
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Author {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  books     Book[]
+}
+
+model Publisher {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  books     Book[]
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  books     Book[]
+}
+
+model Collection {
+  id               Int              @id @default(autoincrement())
+  name             String
+  backgroundColors String
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  books            BookCollection[]
+}
+
+model User {
+  id             Int              @id @default(autoincrement())
+  name           String
+  email          String
+  password       String
+  bio            String
+  profileImage   String
+  google_id      String?
+  readingSession ReadingSession[]
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+}
+
+model Book {
+  id               Int        @id @default(autoincrement())
+  title            String
+  isbn_10          String     @unique
+  isbn_13          String     @unique
+  totalPages       Int
+  pagesRead        Int
+  publicationDate  DateTime
+  decription       String
+  status           BookStatus @default(NOT_STARTED)
+  coverImage       String
+  backgroundColors String
+  language         String
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+
+  author      Author    @relation(fields: [authorId], references: [id])
+  authorId    Int
+  publisher   Publisher @relation(fields: [publisherId], references: [id])
+  publisherId Int
+  category    Category  @relation(fields: [categoryId], references: [id])
+  categoryId  Int
+
+  collections    BookCollection[]
+  readingSession ReadingSession[]
+}
+
+enum BookStatus {
+  BUY
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+  GIVEN_UP
+}
+
+model BookCollection {
+  book         Book       @relation(fields: [bookId], references: [id])
+  bookId       Int
+  collection   Collection @relation(fields: [collectionId], references: [id])
+  collectionId Int
+
+  assignedAt DateTime @default(now())
+  assignedBy String
+
+  @@id([bookId, collectionId])
+}
+
+model ReadingSession {
+  id        Int      @id @default(autoincrement())
+  startDate DateTime
+  endDate   DateTime
+  pagesRead Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  book   Book @relation(fields: [bookId], references: [id])
+  bookId Int
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
 }
