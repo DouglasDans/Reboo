@@ -31,8 +31,6 @@ services:
       - 8080:8080
     env_file:
       - ./backend/.env
-    volumes:
-      - ./backend/node_modules/@prisma/client:/app/node_modules/@prisma/client
     depends_on:
       - postgres
     develop: # Funcionalidades de dev
