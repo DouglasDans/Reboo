@@ -12,3 +12,5 @@ RUN npm ci
 
 # Copie o restante dos arquivos da aplicação
 COPY --chown=app:app . /app
+
+RUN npx prisma generate
