@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { CreateCategoryDto } from './dto/create-category.dto'
 import { UpdateCategoryDto } from './dto/update-category.dto'
 import { PrismaService } from 'src/prisma.service'
@@ -19,11 +19,17 @@ export class CategoryService {
 
   findOne(id: number) {
     return this.prisma.category
-      .findUniqueOrThrow({
+      .findFirstOrThrow({
         where: { id },
       })
       .catch((e) => {
-        throw new Error(`Dados não foram encontrados no banco - ${e}`)
+        throw new HttpException(
+          {
+            message: 'Dados não foram encontrados no banco - ' + e,
+            statusCode: HttpStatus.NOT_FOUND,
+          },
+          HttpStatus.NOT_FOUND,
+        )
       })
   }
 
@@ -34,8 +40,12 @@ export class CategoryService {
         data: updateCategoryDto,
       })
       .catch((e) => {
-        throw new Error(
-          `Dados não foram encontrados no banco - ${e.meta.cause}`,
+        throw new HttpException(
+          {
+            message: 'Dados não foram encontrados no banco - ' + e.meta.cause,
+            statusCode: HttpStatus.NOT_FOUND,
+          },
+          HttpStatus.NOT_FOUND,
         )
       })
   }
@@ -46,8 +56,12 @@ export class CategoryService {
         where: { id },
       })
       .catch((e) => {
-        throw new Error(
-          `Dados não foram encontrados no banco - ${e.meta.cause}`,
+        throw new HttpException(
+          {
+            message: 'Dados não foram encontrados no banco - ' + e,
+            statusCode: HttpStatus.NOT_FOUND,
+          },
+          HttpStatus.NOT_FOUND,
         )
       })
   }
