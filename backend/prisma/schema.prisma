@@ -52,8 +52,8 @@ model User {
   name           String
   email          String
   password       String
-  bio            String
-  profileImage   String
+  bio            String?
+  profileImage   String?
   google_id      String?
   readingSession ReadingSession[]
   createdAt      DateTime         @default(now())
@@ -68,7 +68,7 @@ model Book {
   totalPages       Int
   pagesRead        Int
   publicationDate  DateTime
-  decription       String
+  description       String
   status           BookStatus @default(NOT_STARTED)
   coverImage       String
   backgroundColors String
