@@ -8,7 +8,7 @@ import {
   IsArray,
 } from 'class-validator'
 import { Type } from 'class-transformer'
-import { bookStatus } from '../../enums/book-status.enum'
+import { bookStatus } from '../../../enums/book-status.enum'
 import { CreateAuthorDto } from 'src/author/dto/create-author.dto'
 import { CreatePublisherDto } from 'src/publisher/dto/create-publisher.dto'
 import { CreateCategoryDto } from 'src/category/dto/create-category.dto'
