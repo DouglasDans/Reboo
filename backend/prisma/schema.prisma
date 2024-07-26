@@ -15,10 +15,10 @@ datasource db {
 }
 
 model Author {
-  id        Int      @id @default(autoincrement())
+  id        Int          @id @default(autoincrement())
   name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
   books     BookAuthor[]
 }
 
@@ -31,20 +31,11 @@ model Publisher {
 }
 
 model Category {
-  id        Int      @id @default(autoincrement())
+  id        Int            @id @default(autoincrement())
   name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
   books     BookCategory[]
-}
-
-model Collection {
-  id               Int              @id @default(autoincrement())
-  name             String
-  backgroundColors String
-  createdAt        DateTime         @default(now())
-  updatedAt        DateTime         @updatedAt
-  books            BookCollection[]
 }
 
 model User {
@@ -58,29 +49,46 @@ model User {
   readingSession ReadingSession[]
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
+
+  collections Collection[]
+  books       Book[]
+}
+
+model Collection {
+  id               Int              @id @default(autoincrement())
+  name             String
+  backgroundColors String
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  books            BookCollection[]
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
 }
 
 model Book {
   id               Int        @id @default(autoincrement())
   title            String
-  isbn_10          String     @unique
-  isbn_13          String     @unique
+  isbn_10          String
+  isbn_13          String
   totalPages       Int
   pagesRead        Int
   publicationDate  DateTime
   description      String
   status           BookStatus @default(NOT_STARTED)
-  coverImage       String
-  backgroundColors String
+  coverImage       String?
+  backgroundColors String?
   language         String
   createdAt        DateTime   @default(now())
   updatedAt        DateTime   @updatedAt
 
   publisher   Publisher @relation(fields: [publisherId], references: [id])
   publisherId Int
+  user        User      @relation(fields: [userId], references: [id])
+  userId      Int
 
-  authors BookAuthor[]
-  categories BookCategory[]
+  authors        BookAuthor[]
+  categories     BookCategory[]
   collections    BookCollection[]
   readingSession ReadingSession[]
 }
@@ -103,13 +111,14 @@ model BookAuthor {
 }
 
 model BookCategory {
-  book       Book       @relation(fields: [bookId], references: [id])
+  book       Book     @relation(fields: [bookId], references: [id])
   bookId     Int
-  category   Category   @relation(fields: [categoryId], references: [id])
+  category   Category @relation(fields: [categoryId], references: [id])
   categoryId Int
 
   @@id([bookId, categoryId])
 }
+
 model BookCollection {
   book         Book       @relation(fields: [bookId], references: [id])
   bookId       Int
