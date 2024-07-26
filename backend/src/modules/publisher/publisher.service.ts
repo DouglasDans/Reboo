@@ -17,6 +17,16 @@ export class PublisherService {
     return this.prisma.publisher.findMany()
   }
 
+  findByName(name: string) {
+    return this.prisma.publisher
+      .findFirstOrThrow({
+        where: { name: name },
+      })
+      .catch(() => {
+        return null
+      })
+  }
+
   findOne(id: number) {
     return this.prisma.publisher
       .findUniqueOrThrow({

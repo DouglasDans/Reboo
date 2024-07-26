@@ -1,17 +1,16 @@
 import {
   IsInt,
   IsString,
-  IsDate,
   IsEnum,
   IsUrl,
-  IsObject,
   IsArray,
+  IsOptional, IsDateString,
 } from 'class-validator'
 import { Type } from 'class-transformer'
 import { bookStatus } from '../../../enums/book-status.enum'
-import { CreateAuthorDto } from 'src/author/dto/create-author.dto'
-import { CreatePublisherDto } from 'src/publisher/dto/create-publisher.dto'
-import { CreateCategoryDto } from 'src/category/dto/create-category.dto'
+import { CreateAuthorDto } from 'src/modules/author/dto/create-author.dto'
+import { CreatePublisherDto } from 'src/modules/publisher/dto/create-publisher.dto'
+import { CreateCategoryDto } from 'src/modules/category/dto/create-category.dto'
 
 export class CreateBookDto {
   @IsString()
@@ -29,7 +28,7 @@ export class CreateBookDto {
   @IsInt()
   pagesRead: number
 
-  @IsDate()
+  @IsDateString()
   publicationDate: Date
 
   @IsString()
@@ -38,19 +37,23 @@ export class CreateBookDto {
   @IsEnum(bookStatus)
   status: bookStatus
 
-  @IsUrl()
+  @IsString()
+  @IsOptional()
   coverImage: string
 
   @IsString()
+  @IsOptional()
   backgroundColors: string
 
   @IsString()
   language: string
 
+  @IsString()
+  publisher: string
+
   @IsArray()
-  author: Array<CreateAuthorDto>
+  static author: Array<CreateAuthorDto>
 
-  publisher: CreatePublisherDto
-
-  category: CreateCategoryDto
+  @IsArray()
+  static category: Array<CreateCategoryDto>
 }

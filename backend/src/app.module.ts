@@ -5,6 +5,7 @@ import { CategoryModule } from './modules/category/category.module'
 import { CollectionModule } from './modules/collection/collection.module'
 import { UserModule } from './modules/user/user.module'
 import { BookModule } from './modules/book/book.module'
+import { BookAuthorService } from './modules/book-author/book-author.service';
 
 @Module({
   imports: [
@@ -15,5 +16,6 @@ import { BookModule } from './modules/book/book.module'
     UserModule,
     BookModule,
   ],
+  providers: [BookAuthorService],
 })
 export class AppModule {}

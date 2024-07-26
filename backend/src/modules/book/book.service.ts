@@ -2,57 +2,45 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { CreateBookDto } from './dto/create-book.dto'
 import { UpdateBookDto } from './dto/update-book.dto'
 import { PrismaService } from 'src/prisma.service'
-import { CreateAuthorDto } from 'src/author/dto/create-author.dto'
+import { PublisherService } from '../publisher/publisher.service'
 
 @Injectable()
 export class BookService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private publisherService: PublisherService,
+  ) {}
 
-  create(createBookDto: CreateBookDto) {
-    // console.log(createBookDto)
-    // let book: prisma.BookCreateInput
-    // function checkIfAuthorExists(
-    //   prisma: PrismaService,
-    //   autor: CreateAuthorDto,
-    // ) {
-    //   return (
-    //     prisma.author.findFirst({
-    //       where: {
-    //         name: autor.name,
-    //       },
-    //     }) || null
-    //   )
-    // }
-    // return this.prisma.book.create({
-    //   data: {
-    //     title: createBookDto.title,
-    //     isbn_10: createBookDto.isbn_10,
-    //     isbn_13: createBookDto.isbn_13,
-    //     totalPages: createBookDto.totalPages,
-    //     pagesRead: createBookDto.pagesRead,
-    //     publicationDate: createBookDto.publicationDate,
-    //     description: createBookDto.description,
-    //     status: createBookDto.status,
-    //     coverImage: createBookDto.coverImage,
-    //     backgroundColors: createBookDto.backgroundColors,
-    //     language: createBookDto.language,
-    //     // author: {
-    //     //   create: {
-    //     //     name: createBookDto.author.name,
-    //     //   },
-    //     // },
-    //     // publisher: {
-    //     //   create: {
-    //     //     name: createBookDto.publisher.name,
-    //     //   },
-    //     // },
-    //     // category: {
-    //     //   create: {
-    //     //     name: createBookDto.category.name,
-    //     //   },
-    //     // },
-    //   },
-    // })
+  async getIfExistsPublisherByName(name: string) {
+    return this.publisherService.findByName(name)
+  }
+
+  async create(createBookDto: CreateBookDto) {
+    let publisher = await this.getIfExistsPublisherByName(
+      createBookDto.publisher,
+    )
+    if (!publisher) {
+      publisher = await this.publisherService.create({
+        name: createBookDto.publisher,
+      })
+    }
+
+    await this.prisma.book.create({
+      data: {
+        title: createBookDto.title,
+        isbn_10: createBookDto.isbn_10,
+        isbn_13: createBookDto.isbn_13,
+        totalPages: createBookDto.totalPages,
+        pagesRead: createBookDto.pagesRead,
+        publicationDate: createBookDto.publicationDate,
+        description: createBookDto.description,
+        status: createBookDto.status,
+        coverImage: createBookDto.coverImage || '',
+        backgroundColors: createBookDto.backgroundColors || null,
+        language: createBookDto.language || null,
+        publisherId: publisher.id,
+      },
+    })
   }
 
   findAll() {
