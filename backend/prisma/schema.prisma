@@ -19,7 +19,7 @@ model Author {
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  books     Book[]
+  books     BookAuthor[]
 }
 
 model Publisher {
@@ -35,7 +35,7 @@ model Category {
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  books     Book[]
+  books     BookCategory[]
 }
 
 model Collection {
@@ -68,7 +68,7 @@ model Book {
   totalPages       Int
   pagesRead        Int
   publicationDate  DateTime
-  description       String
+  description      String
   status           BookStatus @default(NOT_STARTED)
   coverImage       String
   backgroundColors String
@@ -76,13 +76,11 @@ model Book {
   createdAt        DateTime   @default(now())
   updatedAt        DateTime   @updatedAt
 
-  author      Author    @relation(fields: [authorId], references: [id])
-  authorId    Int
   publisher   Publisher @relation(fields: [publisherId], references: [id])
   publisherId Int
-  category    Category  @relation(fields: [categoryId], references: [id])
-  categoryId  Int
 
+  authors BookAuthor[]
+  categories BookCategory[]
   collections    BookCollection[]
   readingSession ReadingSession[]
 }
@@ -95,6 +93,23 @@ enum BookStatus {
   GIVEN_UP
 }
 
+model BookAuthor {
+  book     Book   @relation(fields: [bookId], references: [id])
+  bookId   Int
+  author   Author @relation(fields: [authorId], references: [id])
+  authorId Int
+
+  @@id([bookId, authorId])
+}
+
+model BookCategory {
+  book       Book       @relation(fields: [bookId], references: [id])
+  bookId     Int
+  category   Category   @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  @@id([bookId, categoryId])
+}
 model BookCollection {
   book         Book       @relation(fields: [bookId], references: [id])
   bookId       Int
