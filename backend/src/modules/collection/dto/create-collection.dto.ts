@@ -1,4 +1,4 @@
-import { IsString } from 'class-validator'
+import { IsInt, IsString } from 'class-validator'
 
 export class CreateCollectionDto {
   @IsString()
@@ -6,4 +6,7 @@ export class CreateCollectionDto {
 
   @IsString()
   backgroundColors: string
+
+  @IsInt()
+  userId: number
 }

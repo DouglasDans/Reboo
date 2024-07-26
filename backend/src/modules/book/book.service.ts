@@ -38,6 +38,7 @@ export class BookService {
         coverImage: createBookDto.coverImage || '',
         backgroundColors: createBookDto.backgroundColors || null,
         language: createBookDto.language || null,
+        userId: createBookDto.userId,
         publisherId: publisher.id,
       },
     })
