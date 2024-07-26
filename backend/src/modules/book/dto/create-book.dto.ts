@@ -4,12 +4,11 @@ import {
   IsEnum,
   IsUrl,
   IsArray,
-  IsOptional, IsDateString,
+  IsOptional,
+  IsDateString,
 } from 'class-validator'
-import { Type } from 'class-transformer'
 import { bookStatus } from '../../../enums/book-status.enum'
 import { CreateAuthorDto } from 'src/modules/author/dto/create-author.dto'
-import { CreatePublisherDto } from 'src/modules/publisher/dto/create-publisher.dto'
 import { CreateCategoryDto } from 'src/modules/category/dto/create-category.dto'
 
 export class CreateBookDto {
@@ -50,6 +49,9 @@ export class CreateBookDto {
 
   @IsString()
   publisher: string
+
+  @IsInt()
+  userId: number
 
   @IsArray()
   static author: Array<CreateAuthorDto>
