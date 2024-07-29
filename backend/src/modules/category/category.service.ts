@@ -33,6 +33,16 @@ export class CategoryService {
       })
   }
 
+  findByName(name: string) {
+    return this.prisma.category
+      .findFirstOrThrow({
+        where: { name: name },
+      })
+      .catch(() => {
+        return null
+      })
+  }
+
   update(id: number, updateCategoryDto: UpdateCategoryDto) {
     return this.prisma.category
       .update({

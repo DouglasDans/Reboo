@@ -33,6 +33,16 @@ export class AuthorService {
       })
   }
 
+  findByName(name: string) {
+    return this.prisma.author
+      .findFirstOrThrow({
+        where: { name: name },
+      })
+      .catch(() => {
+        return null
+      })
+  }
+
   update(id: number, updateAuthorDto: UpdateAuthorDto) {
     return this.prisma.author
       .update({

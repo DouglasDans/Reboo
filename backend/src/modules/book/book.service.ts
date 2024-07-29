@@ -3,12 +3,16 @@ import { CreateBookDto } from './dto/create-book.dto'
 import { UpdateBookDto } from './dto/update-book.dto'
 import { PrismaService } from 'src/prisma.service'
 import { PublisherService } from '../publisher/publisher.service'
+import { BookAuthorService } from '../book-author/book-author.service'
+import { BookCategoryService } from '../book-category/book-category.service'
 
 @Injectable()
 export class BookService {
   constructor(
     private prisma: PrismaService,
     private publisherService: PublisherService,
+    private bookAuthorService: BookAuthorService,
+    private bookCategoryService: BookCategoryService,
   ) {}
 
   async getIfExistsPublisherByName(name: string) {
@@ -19,13 +23,14 @@ export class BookService {
     let publisher = await this.getIfExistsPublisherByName(
       createBookDto.publisher,
     )
+
     if (!publisher) {
       publisher = await this.publisherService.create({
         name: createBookDto.publisher,
       })
     }
 
-    await this.prisma.book.create({
+    const createdBook = await this.prisma.book.create({
       data: {
         title: createBookDto.title,
         isbn_10: createBookDto.isbn_10,
@@ -35,17 +40,40 @@ export class BookService {
         publicationDate: createBookDto.publicationDate,
         description: createBookDto.description,
         status: createBookDto.status,
-        coverImage: createBookDto.coverImage || '',
+        coverImage: createBookDto.coverImage || null,
         backgroundColors: createBookDto.backgroundColors || null,
         language: createBookDto.language || null,
-        userId: createBookDto.userId,
         publisherId: publisher.id,
+        userId: createBookDto.userId,
       },
     })
+
+    createBookDto.author.forEach((author) => {
+      this.bookAuthorService.createRelation(createdBook.id, author)
+    })
+
+    createBookDto.category.forEach((category) => {
+      this.bookCategoryService.createRelation(createdBook.id, category)
+    })
+
+    return createdBook
   }
 
   findAll() {
-    return this.prisma.book.findMany()
+    return this.prisma.book.findMany({
+      // where: {
+      //   userId: userId,
+      // },
+      include: {
+        publisher: true,
+        authors: {
+          select: { author: true },
+        },
+        categories: {
+          select: { category: true },
+        },
+      },
+    })
   }
 
   findOne(id: number) {

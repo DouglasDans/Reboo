@@ -54,8 +54,8 @@ export class CreateBookDto {
   userId: number
 
   @IsArray()
-  static author: Array<CreateAuthorDto>
+  author: Array<string>
 
   @IsArray()
-  static category: Array<CreateCategoryDto>
+  category: Array<string>
 }
