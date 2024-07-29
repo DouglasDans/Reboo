@@ -58,9 +58,6 @@ export class BookService {
 
   findAll() {
     return this.prisma.book.findMany({
-      // where: {
-      //   userId: userId,
-      // },
       include: {
         publisher: true,
         authors: {
@@ -136,6 +133,24 @@ export class BookService {
   }
 
   remove(id: number) {
+    this.prisma.bookCategory.deleteMany({
+      where: {
+        bookId: id,
+      },
+    })
+
+    this.prisma.bookAuthor.deleteMany({
+      where: {
+        bookId: id,
+      },
+    })
+
+    this.prisma.bookCollection.deleteMany({
+      where: {
+        bookId: id,
+      },
+    })
+
     return this.prisma.book
       .delete({
         where: { id },
