@@ -76,6 +76,23 @@ export class BookService {
     })
   }
 
+  findAllByUserId(userId: number) {
+    return this.prisma.book.findMany({
+      where: {
+        userId: userId,
+      },
+      include: {
+        publisher: true,
+        authors: {
+          select: { author: true },
+        },
+        categories: {
+          select: { category: true },
+        },
+      },
+    })
+  }
+
   findOne(id: number) {
     return this.prisma.book
       .findUniqueOrThrow({
