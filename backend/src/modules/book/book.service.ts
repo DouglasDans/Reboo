@@ -5,6 +5,7 @@ import { PrismaService } from 'src/prisma.service'
 import { PublisherService } from '../publisher/publisher.service'
 import { BookAuthorService } from '../book-author/book-author.service'
 import { BookCategoryService } from '../book-category/book-category.service'
+import { bookResponse, publisherResponse } from '../../types/responseTypes'
 
 @Injectable()
 export class BookService {
@@ -15,22 +16,18 @@ export class BookService {
     private bookCategoryService: BookCategoryService,
   ) {}
 
-  async getIfExistsPublisherByName(name: string) {
-    return this.publisherService.findByName(name)
-  }
-
   async create(createBookDto: CreateBookDto) {
-    let publisher = await this.getIfExistsPublisherByName(
+    let publisher = (await this.getIfExistsPublisherByName(
       createBookDto.publisher,
-    )
+    )) as publisherResponse
 
     if (!publisher) {
-      publisher = await this.publisherService.create({
+      publisher = (await this.publisherService.create({
         name: createBookDto.publisher,
-      })
+      })) as publisherResponse
     }
 
-    const createdBook = await this.prisma.book.create({
+    const createdBook = (await this.prisma.book.create({
       data: {
         title: createBookDto.title,
         isbn_10: createBookDto.isbn_10,
@@ -46,7 +43,7 @@ export class BookService {
         publisherId: publisher.id,
         userId: createBookDto.userId,
       },
-    })
+    })) as bookResponse
 
     createBookDto.author.forEach((author) => {
       this.bookAuthorService.createRelation(createdBook.id, author)
@@ -152,5 +149,9 @@ export class BookService {
           HttpStatus.NOT_FOUND,
         )
       })
+  }
+
+  private async getIfExistsPublisherByName(name: string) {
+    return this.publisherService.findByName(name)
   }
 }
