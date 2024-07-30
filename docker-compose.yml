@@ -50,6 +50,8 @@ services:
     command: npm run dev
     depends_on:
       - backend
+    links:
+      - backend:backend
     ports:
       - "3000:3000"
     env_file:
