@@ -1,18 +1,46 @@
+import rebooAPI from "@/services/rebooAPI/api"
+
 export default async function postBook(formData: FormData) {
   "use server"
 
   const bookData = {
-    nome: formData.get("nomeBook") as string,
-    autor: formData.get("autorBook") as string,
-    publishedDate: formData.get("publiDataBook") as string,
+    title: formData.get("nomeBook") as string,
+    totalPages: formData.get("pagBook") as string,
+    pagesRead: 0,
     publisher: formData.get("editoraBook") as string,
-    numPag: formData.get("pagBook") as string,
-    isbn: formData.get("isbnBook") as string,
-    categorias: formData.get("categoriasBook") as string,
-    idioma: formData.get("idiomaBook") as string,
-    descricao: formData.get("descBook") as string,
-    situacao: formData.get("bookStatus") as string,
+    status: formData.get("bookStatus") as string,
+    backgroundColors: null,
+    language: formData.get("idiomaBook") as string,
+    userId: 1,
+    description: formData.get("descBook") as string,
+
+    publicationDate: new Date(
+      formData.get("publiDataBook") as string,
+    ).toISOString(),
+
+    isbn_10:
+      (
+        (formData.get("isbnBook") as string)
+          .replace(/\s+/g, "")
+          .split(",") as Array<string>
+      )[0] || null,
+
+    isbn_13:
+      (
+        (formData.get("isbnBook") as string)
+          .replace(/\s+/g, "")
+          .split(",") as Array<string>
+      )[1] || null,
+
+    author: (formData.get("autorBook") as string)
+      .replaceAll(/\s*,\s*/g, ",")
+      .split(",") as Array<string>,
+
+    categorias: (formData.get("categoriasBook") as string)
+      .replaceAll(/\s*,\s*/g, ",")
+      .split(",") as Array<string>,
   }
-  // console.log(formData)
   console.log(bookData)
+
+  await rebooAPI.post("/book", bookData)
 }
