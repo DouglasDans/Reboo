@@ -38,8 +38,6 @@ export default function GetBookForm() {
         return res.volumeInfo
       })) as GoogleAPIResponseBook
 
-    console.log(bookInfo)
-
     bookInfo.authors ? params.set("title", bookInfo.title) : ""
     bookInfo.authors ? params.set("authors", bookInfo.authors.join(", ")) : ""
     bookInfo.publisher ? params.set("publisher", bookInfo.publisher) : ""

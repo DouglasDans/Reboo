@@ -1,6 +1,7 @@
 import styles from "@/styles/pages/book/add/form-book.module.scss"
-import FormBookInfo from "./FormBookInfo"
-import FormBookSituation from "./FormBookSituation"
+import BookInfo from "./BookInfo"
+import BookSituation from "./BookSituation"
+import postBook from "@/actions/book/postBook"
 
 export default function FormBookSection() {
   return (
@@ -10,12 +11,12 @@ export default function FormBookSection() {
         <h5>Situação do livro</h5>
       </div>
 
-      <form className={styles.formGrid}>
+      <form action={postBook} className={styles.formGrid}>
         <div className={styles.rightForm}>
-          <FormBookInfo />
+          <BookInfo />
         </div>
         <div className={styles.leftForm}>
-          <FormBookSituation />
+          <BookSituation />
         </div>
       </form>
     </section>
