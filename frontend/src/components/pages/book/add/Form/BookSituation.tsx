@@ -32,6 +32,11 @@ export default function BookSituation() {
       </div>
 
       <div className={styles.itemForm}>
+        <label>Quantidade de Páginas Lidas</label>
+        <input name={"bookReadPages"} type="number" defaultValue={0} required />
+      </div>
+
+      <div className={styles.itemForm}>
         <label>Adicionar à Coleção</label>
         <input type="text" disabled />
       </div>

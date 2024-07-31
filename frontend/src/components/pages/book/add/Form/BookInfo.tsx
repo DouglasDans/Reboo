@@ -17,9 +17,13 @@ export default function BookInfo() {
   const [title, setTitle] = useState(urlParams.title || "")
   const [authors, setAuthors] = useState(urlParams.authors || "")
   const [publisher, setPublisher] = useState(urlParams.publisher || "")
-  const [publishedDate, setPublishedDate] = useState(urlParams.publishedDate || "")
+  const [publishedDate, setPublishedDate] = useState(
+    urlParams.publishedDate || "",
+  )
   const [description, setDescription] = useState(urlParams.description || "")
-  const [industryIdentifiers, setIndustryIdentifiers] = useState(urlParams.industryIdentifiers || "")
+  const [industryIdentifiers, setIndustryIdentifiers] = useState(
+    urlParams.industryIdentifiers || "",
+  )
   const [pageCount, setPageCount] = useState(urlParams.pageCount || "")
   const [categories, setCategories] = useState(urlParams.categories || "")
   const [language, setLanguage] = useState(urlParams.language || "")
@@ -40,9 +44,13 @@ export default function BookInfo() {
     replace(`${pathname}?${params.toString()}`, { scroll: false })
   }, [urlParams.refreshForm])
 
-  function handleSetValueToURL(e: any, setState: Function, param: string) {
+  function handleSetValueToURL(
+    e: React.ChangeEvent<HTMLInputElement>,
+    setState: Function,
+    param: string,
+  ) {
     const params = new URLSearchParams(searchParams)
-    const value = e.target.value
+    const value = e.currentTarget.value
 
     setState(value)
 
@@ -63,8 +71,9 @@ export default function BookInfo() {
           value={title}
           onChange={e => handleSetValueToURL(e, setTitle, "title")}
           placeholder="Ex: Harry Potter e a Câmara Filosofal"
-          id="nomeBook"
-          name="nomeBook"
+          id="bookName"
+          name="bookName"
+          required
         />
       </div>
 
@@ -74,8 +83,9 @@ export default function BookInfo() {
           value={authors}
           onChange={e => handleSetValueToURL(e, setAuthors, "authors")}
           placeholder="Ex: Hanna Barbera"
-          id="autorBook"
-          name="autorBook"
+          id="bookAuthors"
+          name="bookAuthors"
+          required
         />
       </div>
 
@@ -89,8 +99,9 @@ export default function BookInfo() {
             }
             type="date"
             placeholder="2004-06-02"
-            id="publiDataBook"
-            name="publiDataBook"
+            id="bookPublicationDate"
+            name="bookPublicationDate"
+            required
           />
         </div>
 
@@ -100,8 +111,9 @@ export default function BookInfo() {
             value={publisher}
             onChange={e => handleSetValueToURL(e, setPublisher, "publisher")}
             placeholder="Ex: Editora Paralax"
-            id="editoraBook"
-            name="editoraBook"
+            id="bookPublisher"
+            name="bookPublisher"
+            required
           />
         </div>
 
@@ -112,8 +124,9 @@ export default function BookInfo() {
             onChange={e => handleSetValueToURL(e, setPageCount, "pageCount")}
             placeholder="Ex: 345"
             type="number"
-            id="pagBook"
-            name="pagBook"
+            id="bookTotalPages"
+            name="bookTotalPages"
+            required
           />
         </div>
 
@@ -129,8 +142,9 @@ export default function BookInfo() {
               )
             }
             placeholder="Ex: 978-90-274-3964-2"
-            id="isbnBook"
-            name="isbnBook"
+            id="bookISBN"
+            name="bookISBN"
+            required
           />
         </div>
 
@@ -140,8 +154,9 @@ export default function BookInfo() {
             value={categories}
             onChange={e => handleSetValueToURL(e, setCategories, "categories")}
             placeholder="Ex: Fantasia, Romance"
-            id="categoriasBook"
-            name="categoriasBook"
+            id="bookCategories"
+            name="bookCategories"
+            required
           />
         </div>
 
@@ -151,8 +166,9 @@ export default function BookInfo() {
             value={language}
             onChange={e => handleSetValueToURL(e, setLanguage, "language")}
             placeholder="Ex: Português"
-            id="idiomaBook"
-            name="idiomaBook"
+            id="bookLanguage"
+            name="bookLanguage"
+            required
           />
         </div>
       </div>
@@ -161,14 +177,21 @@ export default function BookInfo() {
         <label>Descrição</label>
         <textarea
           rows={18}
-          className={styles.textarea}
           value={description}
           onChange={e => handleSetValueToURL(e, setDescription, "description")}
           placeholder="Ex: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus elit, semper nec ligula ac, pretium tempus nunc. Donec sodales libero vel interdum aliquam. Duis interdum nibh et porttitor pulvinar. Donec arcu felis, ultricies ac aliquet sed, scelerisque sed dolor. Aliquam tempus nunc eu turpis venenatis, quis luctus felis consequat. Donec quis tincidunt mi. Pellentesque sit amet tellus sed ligula rhoncus lacinia. Etiam quis nibh eget massa efficitur bibendum ac nec dui. Sed sit amet lectus lacus. Maecenas sapien mi, vulputate sed justo eu, tincidunt sollicitudin nunc. Suspendisse sit amet mollis ante. Proin eu mollis magna. Mauris et urna nec lacus scelerisque consequat sed quis turpis."
-          id="descBook"
-          name="descBook"
+          id="bookDescription"
+          name="bookDescription"
         />
       </div>
+
+      <input type={"text"} name={"bookUser"} value={1} />
+      <input type={"text"} name={"bookBackgroundColors"} value={"fffffff"} />
+      <input
+        type={"text"}
+        name={"bookCoverImage"}
+        value={urlParams.imageLinks}
+      />
     </div>
   )
 }
