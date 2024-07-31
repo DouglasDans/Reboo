@@ -5,7 +5,7 @@ export default async function postBook(formData: FormData) {
 
   const bookData = {
     title: formData.get("nomeBook") as string,
-    totalPages: formData.get("pagBook") as string,
+    totalPages: Number.parseInt(formData.get("pagBook") as string),
     pagesRead: 0,
     publisher: formData.get("editoraBook") as string,
     status: formData.get("bookStatus") as string,
@@ -36,11 +36,10 @@ export default async function postBook(formData: FormData) {
       .replaceAll(/\s*,\s*/g, ",")
       .split(",") as Array<string>,
 
-    categorias: (formData.get("categoriasBook") as string)
+    category: (formData.get("categoriasBook") as string)
       .replaceAll(/\s*,\s*/g, ",")
       .split(",") as Array<string>,
   }
-  console.log(bookData)
 
   await rebooAPI.post("/book", bookData)
 }
