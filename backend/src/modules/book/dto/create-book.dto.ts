@@ -8,8 +8,6 @@ import {
   IsDateString,
 } from 'class-validator'
 import { bookStatus } from '../../../enums/book-status.enum'
-import { CreateAuthorDto } from 'src/modules/author/dto/create-author.dto'
-import { CreateCategoryDto } from 'src/modules/category/dto/create-category.dto'
 
 export class CreateBookDto {
   @IsString()
