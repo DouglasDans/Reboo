@@ -3,14 +3,15 @@
 import { AddPhotoAlternateRounded, PaletteRounded } from "@mui/icons-material"
 import styles from "@/styles/pages/book/add/search-book-and-img-section.module.scss"
 import GetBookForm from "./GetBookForm"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { BookURLParamsContext } from "@/context/book/BookURLParamsProvider"
 import { GoogleAPIResponseBook } from "@/types/googleBooksApi"
-import { Button, Input } from "@mui/joy"
 import DropdownCard from "@/components/ui/DropdownCard/DropdownCard"
 import style from "styles/ui/dropdown-card/dropdown-card.module.scss"
 import SecondaryButton from "@/components/ui/buttons/SecondaryButton"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import Image from "next/image"
+import verifyCoverImageURLIsValid from "@/utils/verifyCoverImageURLIsValid"
 
 export default function SearchBookAndImgSection() {
   const urlParams = useContext(BookURLParamsContext) as GoogleAPIResponseBook
@@ -19,15 +20,19 @@ export default function SearchBookAndImgSection() {
   const pathname = usePathname()
   const { replace } = useRouter()
 
-  const [coverImage, setCoverImage] = useState(urlParams.imageLinks || "")
+  const [coverImage, setCoverImage] = useState<string>(urlParams.imageLinks || "")
 
-  function submitConverImage(e: React.FormEvent<HTMLFormElement>) {
+  async function submitConverImage(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
     const params = new URLSearchParams(searchParams)
 
-    if (coverImage) {
-      params.set("imageLinks", coverImage as string)
+    const urlImage = await verifyCoverImageURLIsValid(
+      e.currentTarget.coverImageInput.value,
+    )
+
+    if (typeof urlImage === "string") {
+      params.set("imageLinks", urlImage)
     } else {
       params.delete("imageLinks")
     }
@@ -64,6 +69,7 @@ export default function SearchBookAndImgSection() {
                 onChange={e => {
                   setCoverImage(e.currentTarget.value)
                 }}
+                value={coverImage}
               />
               <SecondaryButton>Enviar</SecondaryButton>
             </form>
