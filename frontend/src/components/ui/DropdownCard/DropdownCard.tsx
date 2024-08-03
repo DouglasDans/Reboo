@@ -1,36 +1,36 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import IconButton from "@/components/ui/buttons/IconButton"
+import React, { useState, useEffect, useRef } from "react"
 import style from "@/styles/ui/dropdown-card/dropdown-card.module.scss"
 
 type Props = {
-  buttonIcon: React.ReactNode
+  buttonIcon: React.ReactElement
   children: React.ReactNode
 }
 
 export default function DropdownCard({ children, buttonIcon }: Props) {
   const [isOpen, setIsOpen] = useState(false)
+  const cardRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    console.log(isOpen)
-  }, [isOpen])
+    function handleClickOutside(event: MouseEvent) {
+      if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [cardRef])
 
   return (
-    <div className={style.cardContainer}>
-      <button
-        onClick={() => {
-          setIsOpen(!isOpen)
-        }}>
-        {buttonIcon}
-      </button>
-      {CardContainer(isOpen, children)}
+    <div ref={cardRef} className={style.cardContainer}>
+      {React.cloneElement(buttonIcon, {
+        onClick: () => setIsOpen(!isOpen),
+      })}
+      {isOpen && <div className={style.card}>{children}</div>}
     </div>
   )
-}
-
-function CardContainer(isOpen: boolean, children: React.ReactNode) {
-  if (isOpen) {
-    return <div className={style.card}>{children}</div>
-  }
 }

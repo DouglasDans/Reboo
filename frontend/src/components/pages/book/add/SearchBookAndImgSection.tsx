@@ -3,14 +3,14 @@
 import { AddPhotoAlternateRounded, PaletteRounded } from "@mui/icons-material"
 import styles from "@/styles/pages/book/add/search-book-and-img-section.module.scss"
 import GetBookForm from "./GetBookForm"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { BookURLParamsContext } from "@/context/book/BookURLParamsProvider"
 import { GoogleAPIResponseBook } from "@/types/googleBooksApi"
 import DropdownCard from "@/components/ui/DropdownCard/DropdownCard"
 import style from "styles/ui/dropdown-card/dropdown-card.module.scss"
 import SecondaryButton from "@/components/ui/buttons/SecondaryButton"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import Image from "next/image"
+import IconButton from "@/components/ui/buttons/IconButton"
 import verifyCoverImageURLIsValid from "@/utils/verifyCoverImageURLIsValid"
 
 export default function SearchBookAndImgSection() {
@@ -55,7 +55,21 @@ export default function SearchBookAndImgSection() {
 
       <div className={styles.editImgContainer}>
         <div>
-          <DropdownCard buttonIcon={<AddPhotoAlternateRounded />}>
+          {/*<DropdownCard*/}
+          {/*  buttonIcon={*/}
+          {/*    <IconButton>*/}
+          {/*      <PaletteRounded />*/}
+          {/*    </IconButton>*/}
+          {/*  }>*/}
+          {/*  <label>Adicionar Capa</label>*/}
+          {/*</DropdownCard>*/}
+
+          <DropdownCard
+            buttonIcon={
+              <IconButton>
+                <AddPhotoAlternateRounded />
+              </IconButton>
+            }>
             <label>Adicionar Capa</label>
             <form
               className={style.urlImageContainer}
