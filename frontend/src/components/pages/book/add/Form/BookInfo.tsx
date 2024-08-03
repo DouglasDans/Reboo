@@ -17,9 +17,7 @@ export default function BookInfo() {
   const [title, setTitle] = useState(urlParams.title || "")
   const [authors, setAuthors] = useState(urlParams.authors || "")
   const [publisher, setPublisher] = useState(urlParams.publisher || "")
-  const [publishedDate, setPublishedDate] = useState(
-    urlParams.publishedDate || "",
-  )
+  const [publishedDate, setPublishedDate] = useState(urlParams.publishedDate || "")
   const [description, setDescription] = useState(urlParams.description || "")
   const [industryIdentifiers, setIndustryIdentifiers] = useState(
     urlParams.industryIdentifiers || "",
@@ -45,7 +43,7 @@ export default function BookInfo() {
   }, [urlParams.refreshForm])
 
   function handleSetValueToURL(
-    e: React.ChangeEvent<HTMLInputElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     setState: Function,
     param: string,
   ) {
@@ -94,9 +92,7 @@ export default function BookInfo() {
           <label>Data de Publicação</label>
           <input
             value={publishedDate}
-            onChange={e =>
-              handleSetValueToURL(e, setPublishedDate, "publishedDate")
-            }
+            onChange={e => handleSetValueToURL(e, setPublishedDate, "publishedDate")}
             type="date"
             placeholder="2004-06-02"
             id="bookPublicationDate"
@@ -135,11 +131,7 @@ export default function BookInfo() {
           <input
             value={industryIdentifiers}
             onChange={e =>
-              handleSetValueToURL(
-                e,
-                setIndustryIdentifiers,
-                "industryIdentifiers",
-              )
+              handleSetValueToURL(e, setIndustryIdentifiers, "industryIdentifiers")
             }
             placeholder="Ex: 978-90-274-3964-2"
             id="bookISBN"
@@ -187,11 +179,7 @@ export default function BookInfo() {
 
       <input type={"text"} name={"bookUser"} value={1} />
       <input type={"text"} name={"bookBackgroundColors"} value={"fffffff"} />
-      <input
-        type={"text"}
-        name={"bookCoverImage"}
-        value={urlParams.imageLinks}
-      />
+      <input type={"text"} name={"bookCoverImage"} value={urlParams.imageLinks} />
     </div>
   )
 }
