@@ -36,6 +36,11 @@
 
   column-gap: 10px;
 
+  & .dropdownButtonsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
   & .coverImage {
     height: 100%;

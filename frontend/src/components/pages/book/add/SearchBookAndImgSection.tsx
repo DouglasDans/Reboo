@@ -54,7 +54,7 @@ export default function SearchBookAndImgSection() {
       </div>
 
       <div className={styles.editImgContainer}>
-        <div>
+        <div className={styles.dropdownButtonsContainer}>
           {/*<DropdownCard*/}
           {/*  buttonIcon={*/}
           {/*    <IconButton>*/}
