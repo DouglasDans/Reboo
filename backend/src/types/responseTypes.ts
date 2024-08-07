@@ -3,5 +3,11 @@ export type publisherResponse = {
 }
 
 export type bookResponse = {
+  pagesRead?: number
   id: number
+}
+
+export type bookSessionResponse = {
+  bookId: number
+  pagesRead: number
 }
