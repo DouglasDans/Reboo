@@ -6,6 +6,7 @@ import { PublisherService } from '../publisher/publisher.service'
 import { BookAuthorService } from '../book-author/book-author.service'
 import { BookCategoryService } from '../book-category/book-category.service'
 import { bookResponse, publisherResponse } from '../../types/responseTypes'
+import { BookCollectionService } from '../book-collection/book-collection.service'
 
 @Injectable()
 export class BookService {
@@ -14,6 +15,7 @@ export class BookService {
     private publisherService: PublisherService,
     private bookAuthorService: BookAuthorService,
     private bookCategoryService: BookCategoryService,
+    private bookCollectionService: BookCollectionService,
   ) {}
 
   async create(createBookDto: CreateBookDto) {
@@ -52,6 +54,13 @@ export class BookService {
     createBookDto.category.forEach((category) => {
       this.bookCategoryService.createRelation(createdBook.id, category)
     })
+
+    if (createBookDto.collectionId) {
+      this.bookCollectionService.createRelation(
+        createdBook.id,
+        createBookDto.collectionId,
+      )
+    }
 
     return createdBook
   }

@@ -49,6 +49,10 @@ export class CreateBookDto {
   publisher: string
 
   @IsInt()
+  @IsOptional()
+  collectionId?: number
+
+  @IsInt()
   userId: number
 
   @IsArray()

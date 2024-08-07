@@ -125,9 +125,6 @@ model BookCollection {
   collection   Collection @relation(fields: [collectionId], references: [id])
   collectionId Int
 
-  assignedAt DateTime @default(now())
-  assignedBy String
-
   @@id([bookId, collectionId])
 }
 
