@@ -34,7 +34,7 @@ export class ReadingSessionService {
   findAllByUserId(userId: number) {
     return this.prisma.readingSession.findMany({
       where: {
-        userId,
+        userId: userId,
       },
       include: {
         book: true,
