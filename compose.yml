@@ -1,0 +1,30 @@
+services:
+  postgres:
+    container_name: rbo-postgres
+    image: postgres
+    restart: always
+
+  pgadmin:
+    container_name: rbo-pgadmin
+    image: elestio/pgadmin
+    restart: always
+    depends_on:
+      - postgres
+
+  backend:
+    container_name: rbo-backend
+    build: ./backend # pasta do dockerfile
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - postgres
+  
+  frontend:
+    container_name: rbo-frontend
+    build: ./frontend
+    depends_on:
+      - backend
+    links:
+      - backend:backend
+    env_file:
+      - ./frontend/.env

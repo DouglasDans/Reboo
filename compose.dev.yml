@@ -1,8 +1,5 @@
 services:
   postgres:
-    container_name: rbo-postgres
-    image: postgres
-    restart: always
     env_file:
       - ./backend/.env
     ports:
@@ -11,11 +8,6 @@ services:
       - ./data/postgres:/var/lib/postgresql/data
 
   pgadmin:
-    container_name: rbo-pgadmin
-    image: dpage/pgadmin4
-    restart: always
-    depends_on:
-      - postgres
     env_file:
       - ./backend/.env
     ports:
@@ -24,16 +16,10 @@ services:
       - ./data/pgadmin4:/var/lib/pgadmin
 
   backend:
-    container_name: rbo-backend
-    build: ./backend # pasta do dockerfile
     command: npm run start:dev
     ports:
-      - 8080:8080
-      - 5555:5555
-    env_file:
-      - ./backend/.env
-    depends_on:
-      - postgres
+      - "5555:5555"
+      - "8080:8080"
     develop: # Funcionalidades de dev
       watch: # hot reload configs
         - action: sync
@@ -45,17 +31,11 @@ services:
           path: package.json
   
   frontend:
-    container_name: rbo-frontend
-    build: ./frontend
     command: npm run dev
-    depends_on:
-      - backend
-    links:
-      - backend:backend
-    ports:
-      - "3000:3000"
     env_file:
       - ./frontend/.env
+    ports:
+      - "3000:3000"
     develop: # Funcionalidades de dev
       watch: # hot reload configs
         - action: sync
