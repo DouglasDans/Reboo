@@ -4,7 +4,7 @@ export type publisherResponse = {
 
 export type bookResponse = {
   pagesRead?: number
-  collectionId
+  collectionId?: number
   id: number
 }
 

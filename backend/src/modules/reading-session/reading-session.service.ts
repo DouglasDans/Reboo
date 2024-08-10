@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { CreateReadingSessionDto } from './dto/create-reading-session.dto'
 import { UpdateReadingSessionDto } from './dto/update-reading-session.dto'
 import { PrismaService } from '../../prisma.service'
-import { bookResponse, bookSessionResponse } from '../../types/responseTypes'
+import { bookResponse, bookSessionResponse } from '../../@types/responseTypes'
 
 @Injectable()
 export class ReadingSessionService {

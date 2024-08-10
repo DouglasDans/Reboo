@@ -5,8 +5,8 @@ import { CategoryModule } from './modules/category/category.module'
 import { CollectionModule } from './modules/collection/collection.module'
 import { UserModule } from './modules/user/user.module'
 import { BookModule } from './modules/book/book.module'
-import { ReadingSessionModule } from './modules/reading-session/reading-session.module';
-import { BookCollectionModule } from './modules/book-collection/book-collection.module';
+import { ReadingSessionModule } from './modules/reading-session/reading-session.module'
+import { BookCollectionModule } from './modules/book-collection/book-collection.module'
 
 @Module({
   imports: [

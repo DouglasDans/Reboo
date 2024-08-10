@@ -5,7 +5,7 @@ import { PrismaService } from 'src/prisma.service'
 import { PublisherService } from '../publisher/publisher.service'
 import { BookAuthorService } from '../book-author/book-author.service'
 import { BookCategoryService } from '../book-category/book-category.service'
-import { bookResponse, publisherResponse } from '../../types/responseTypes'
+import { bookResponse, publisherResponse } from '../../@types/responseTypes'
 import { BookCollectionService } from '../book-collection/book-collection.service'
 
 @Injectable()
