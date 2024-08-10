@@ -13,7 +13,7 @@ services:
     ports:
       - "5050:80"
     volumes:
-      - ./data/pgadmin4:/var/lib/pgadmin
+      - ./data/pgadmin4:/var/lib/pgadmin4
 
   backend:
     command: npm run start:dev
@@ -26,9 +26,15 @@ services:
           path: ./backend # pasta raíz do host
           target: /app # pasta raíz do container
           ignore:
-            - node_modules
+            - ./backend/node_modules/
+            - ./backend/prisma/
         - action: rebuild
-          path: package.json
+          path: ./backend/prisma
+        - action: rebuild
+          path: ./backend/package.json
+        - action: sync+restart
+          path: ./backend/.env
+          target: /app/.env
   
   frontend:
     command: npm run dev
@@ -42,6 +48,9 @@ services:
           path: ./frontend # pasta raíz do host
           target: /app # pasta raíz do container
           ignore:
-            - node_modules
+            - ./frontend/node_modules/
         - action: rebuild
-          path: package.json
+          path: ./frontend/package.json
+        - action: sync+restart
+          path: ./frontend/.env
+          target: /app/.env

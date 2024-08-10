@@ -1,12 +1,12 @@
 services:
   postgres:
     container_name: rbo-postgres
-    image: postgres
+    image: postgres:latest
     restart: always
 
   pgadmin:
     container_name: rbo-pgadmin
-    image: elestio/pgadmin
+    image: dpage/pgadmin4
     restart: always
     depends_on:
       - postgres
@@ -26,5 +26,3 @@ services:
       - backend
     links:
       - backend:backend
-    env_file:
-      - ./frontend/.env
