@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common'
 import { CollectionService } from './collection.service'
-import { CreateCollectionDto } from './dto/create-collection.dto'
+import { CreateCollectionDto } from '../../core/dtos/collection.dto'
 import { UpdateCollectionDto } from './dto/update-collection.dto'
 
 @Controller('api/v1/collection')

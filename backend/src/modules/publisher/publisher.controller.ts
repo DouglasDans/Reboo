@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common'
 import { PublisherService } from './publisher.service'
-import { CreatePublisherDto } from './dto/create-publisher.dto'
+import { CreatePublisherDto } from '../../core/dtos/publisher.dto'
 import { UpdatePublisherDto } from './dto/update-publisher.dto'
 
 @Controller('api/v1/publisher')

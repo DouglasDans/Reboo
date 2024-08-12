@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
-import { CreateAuthorDto } from './dto/create-author.dto'
+import { CreateAuthorDto } from '../../core/dtos/create-author.dto'
 import { UpdateAuthorDto } from './dto/update-author.dto'
 import { PrismaService } from 'src/prisma.service'
 

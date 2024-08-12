@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
-import { CreatePublisherDto } from './dto/create-publisher.dto'
+import { CreatePublisherDto } from '../../core/dtos/publisher.dto'
 import { UpdatePublisherDto } from './dto/update-publisher.dto'
 import { PrismaService } from 'src/prisma.service'
 

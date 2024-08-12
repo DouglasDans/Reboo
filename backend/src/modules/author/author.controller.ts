@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common'
 import { AuthorService } from './author.service'
-import { CreateAuthorDto } from './dto/create-author.dto'
+import { CreateAuthorDto } from '../../core/dtos/create-author.dto'
 import { UpdateAuthorDto } from './dto/update-author.dto'
 
 @Controller('api/v1/author')

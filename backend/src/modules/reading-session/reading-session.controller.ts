@@ -9,7 +9,7 @@ import {
   Query,
 } from '@nestjs/common'
 import { ReadingSessionService } from './reading-session.service'
-import { CreateReadingSessionDto } from './dto/create-reading-session.dto'
+import { CreateReadingSessionDto } from '../../core/dtos/reading-session.dto'
 import { UpdateReadingSessionDto } from './dto/update-reading-session.dto'
 
 @Controller('api/v1/reading-session')

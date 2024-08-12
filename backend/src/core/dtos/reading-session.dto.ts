@@ -1,3 +1,4 @@
+import { PartialType } from '@nestjs/mapped-types'
 import { IsDateString, IsInt } from 'class-validator'
 
 export class CreateReadingSessionDto {
@@ -16,3 +17,7 @@ export class CreateReadingSessionDto {
   @IsInt()
   userId: number
 }
+
+export class UpdateReadingSessionDto extends PartialType(
+  CreateReadingSessionDto,
+) {}

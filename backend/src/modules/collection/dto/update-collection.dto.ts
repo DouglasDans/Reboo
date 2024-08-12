@@ -1,4 +1,2 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateCollectionDto } from './create-collection.dto';
-
-export class UpdateCollectionDto extends PartialType(CreateCollectionDto) {}
+import { PartialType } from '@nestjs/mapped-types'
+import { CreateCollectionDto } from '../../../core/dtos/collection.dto'

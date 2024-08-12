@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
-import { CreateCategoryDto } from './dto/create-category.dto'
+import { CreateCategoryDto } from '../../core/dtos/category.dto'
 import { UpdateCategoryDto } from './dto/update-category.dto'
 import { PrismaService } from 'src/prisma.service'
 

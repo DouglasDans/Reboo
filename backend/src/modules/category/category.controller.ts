@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common'
 import { CategoryService } from './category.service'
-import { CreateCategoryDto } from './dto/create-category.dto'
+import { CreateCategoryDto } from '../../core/dtos/category.dto'
 import { UpdateCategoryDto } from './dto/update-category.dto'
 
 @Controller('api/v1/category')

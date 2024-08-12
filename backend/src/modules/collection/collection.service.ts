@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
-import { CreateCollectionDto } from './dto/create-collection.dto'
+import { CreateCollectionDto } from '../../core/dtos/collection.dto'
 import { UpdateCollectionDto } from './dto/update-collection.dto'
 import { PrismaService } from 'src/prisma.service'
 

@@ -1,3 +1,4 @@
+import { PartialType } from '@nestjs/mapped-types'
 import { IsInt, IsString } from 'class-validator'
 
 export class CreateCollectionDto {
@@ -10,3 +11,5 @@ export class CreateCollectionDto {
   @IsInt()
   userId: number
 }
+
+export class UpdateCollectionDto extends PartialType(CreateCollectionDto) {}

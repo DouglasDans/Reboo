@@ -2,12 +2,12 @@ import {
   IsInt,
   IsString,
   IsEnum,
-  IsUrl,
   IsArray,
   IsOptional,
   IsDateString,
 } from 'class-validator'
-import { bookStatus } from '../../../enums/book-status.enum'
+import { bookStatus } from '../../enums/book-status.enum'
+import { PartialType } from '@nestjs/mapped-types'
 
 export class CreateBookDto {
   @IsString()
@@ -61,3 +61,5 @@ export class CreateBookDto {
   @IsArray()
   category: Array<string>
 }
+
+export class UpdateBookDto extends PartialType(CreateBookDto) {}
