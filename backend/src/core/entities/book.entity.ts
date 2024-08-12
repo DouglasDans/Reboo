@@ -1,4 +1,5 @@
 import { Author, Collection, Publisher, readingSession, User } from '.'
+import { bookStatus } from '../enums'
 
 export class Book {
   id: number
@@ -23,12 +24,4 @@ export class Book {
   authors?: Array<Author>
   collections?: Array<Collection>
   readingSessions?: Array<readingSession>
-}
-
-enum bookStatus {
-  BUY = 'BUY',
-  NOT_STARTED = 'NOT_STARTED',
-  IN_PROGRESS = 'IN_PROGRESS',
-  COMPLETED = 'COMPLETED',
-  GIVEN_UP = 'GIVEN_UP',
 }

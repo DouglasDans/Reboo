@@ -6,7 +6,7 @@ import {
   IsOptional,
   IsDateString,
 } from 'class-validator'
-import { bookStatus } from '../../enums/book-status.enum'
+import { bookStatus } from '../enums'
 import { PartialType } from '@nestjs/mapped-types'
 
 export class CreateBookDto {
