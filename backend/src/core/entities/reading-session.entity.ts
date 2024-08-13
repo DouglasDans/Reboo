@@ -4,7 +4,7 @@ export class ReadingSession {
   id: number
   startDate: Date
   endDate: Date
-  PagesRead: number
+  pagesRead: number
   createdAt: Date
   updatedAt: Date
   bookId: number

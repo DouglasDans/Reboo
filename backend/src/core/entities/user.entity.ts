@@ -1,4 +1,4 @@
-import { Book, Collection, readingSession } from '.'
+import { Book, Collection, ReadingSession } from '.'
 
 export class User {
   id: number
@@ -11,7 +11,7 @@ export class User {
   createdAt: Date
   updatedAt: Date
 
-  readingSessions?: Array<readingSession>
+  readingSessions?: Array<ReadingSession>
   collections?: Array<Collection>
   books?: Array<Book>
 }

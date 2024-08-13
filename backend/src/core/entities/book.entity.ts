@@ -1,5 +1,5 @@
-import { Author, Collection, Publisher, readingSession, User } from '.'
-import { bookStatus } from '../enums'
+import { Author, Collection, Publisher, ReadingSession, User } from '.'
+import { BookStatus } from '../enums'
 
 export class Book {
   id: number
@@ -10,7 +10,7 @@ export class Book {
   pagesRead: number
   publicationDate: Date
   description: string
-  status: bookStatus
+  status: BookStatus
   coverImage: string
   backgroundColors: string
   language: string
@@ -23,5 +23,5 @@ export class Book {
   user?: User
   authors?: Array<Author>
   collections?: Array<Collection>
-  readingSessions?: Array<readingSession>
+  readingSessions?: Array<ReadingSession>
 }
