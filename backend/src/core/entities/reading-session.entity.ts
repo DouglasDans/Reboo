@@ -1,6 +1,6 @@
 import { Book, User } from '.'
 
-export class readingSession {
+export class ReadingSession {
   id: number
   startDate: Date
   endDate: Date
