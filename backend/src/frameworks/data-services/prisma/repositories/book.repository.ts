@@ -51,7 +51,26 @@ export class PrismaBookRepository implements BookRepository {
   update(id: number, item: Book): Promise<Book> {
     return this.prisma.book.update({
       where: { id },
-      data: item,
+      data: {
+        title: item.title,
+        isbn_10: item.isbn_10,
+        isbn_13: item.isbn_13,
+        totalPages: item.totalPages,
+        pagesRead: item.pagesRead,
+        publicationDate: item.publicationDate,
+        description: item.description,
+        status: item.status,
+        coverImage: item.coverImage,
+        backgroundColors: item.backgroundColors,
+        language: item.language,
+        publisherId: item.id,
+      },
+    })
+  }
+
+  delete(id: number): Promise<Book> {
+    return this.prisma.book.delete({
+      where: { id },
     })
   }
 }
