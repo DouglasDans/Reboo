@@ -8,8 +8,8 @@ export class PrismaBookRepository implements BookRepository {
     this.prisma = prisma
   }
 
-  async create(item: Book): Promise<Book> {
-    return await this.prisma.book.create({
+  create(item: Book): Promise<Book> {
+    return this.prisma.book.create({
       data: {
         title: item.title,
         isbn_10: item.isbn_10,
