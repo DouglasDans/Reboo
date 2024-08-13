@@ -5,7 +5,7 @@ export abstract class BookRepository {
 
   abstract findById(id: number): Promise<Book>
 
-  abstract findByName(name: string): Promise<Book>
+  abstract findByTitle(title: string): Promise<Book>
 
   abstract create(item: Book): Promise<Book>
 
