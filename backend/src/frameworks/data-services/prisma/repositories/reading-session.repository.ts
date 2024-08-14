@@ -2,7 +2,9 @@ import { ReadingSession } from 'src/core/entities'
 import { PrismaService } from '../prisma.service'
 import { ReadingSessionRepository } from 'src/core/repositories'
 
-export class PrismaReadingSession implements ReadingSessionRepository {
+export class PrismaReadingSessionRepository
+  implements ReadingSessionRepository
+{
   private prisma: PrismaService
   constructor(prisma: PrismaService) {
     this.prisma = prisma

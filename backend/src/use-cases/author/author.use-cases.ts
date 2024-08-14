@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { AuthorRepository } from '../../core/repositories/author.repository'
+import { AuthorRepository } from 'src/core/repositories/author.repository'
 import { AuthorFactoryService } from './author.factory.service'
 import { Author } from 'src/core/entities'
 import { CreateAuthorDto, UpdateAuthorDto } from 'src/core/dtos'
