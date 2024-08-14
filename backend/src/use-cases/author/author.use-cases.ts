@@ -2,8 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { AuthorRepository } from '../../core/repositories/author.repository'
 import { AuthorFactoryService } from './author-factory.service'
 import { Author } from 'src/core/entities'
-import { CreateAuthorDto } from 'src/core/dtos'
-import { UpdateAuthorDto } from '../../../../backend copy/src/modules/author/dto/update-author.dto'
+import { CreateAuthorDto, UpdateAuthorDto } from 'src/core/dtos'
 
 @Injectable()
 export class AuthorUseCases {
