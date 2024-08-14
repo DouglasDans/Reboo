@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { BookRepository } from '../../core/repositories/book.repository'
-import { BookFactoryService } from './book-factory.service'
+import { BookFactoryService } from './book.factory.service'
 import { Book } from 'src/core/entities'
 import { CreateBookDto, UpdateBookDto } from 'src/core/dtos'
 
