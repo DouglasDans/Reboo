@@ -4,6 +4,6 @@ import { AuthorUseCases } from './author.use-cases'
 
 @Module({
   providers: [AuthorFactoryService, AuthorUseCases],
-  imports: [AuthorFactoryService, AuthorUseCases],
+  exports: [AuthorFactoryService, AuthorUseCases],
 })
 export class AuthorUseCaseModule {}
