@@ -24,8 +24,15 @@ export class AuthorUseCases {
     return this.author.create(author)
   }
 
-  updateAuthor(authorId: string, updateAuthorDto: UpdateAuthorDto) {
+  updateAuthor(
+    authorId: string,
+    updateAuthorDto: UpdateAuthorDto,
+  ): Promise<Author> {
     const author = this.authorFactory.updateNewAuthor(updateAuthorDto)
     return this.author.update(parseInt(authorId), author)
+  }
+
+  deleteAuthor(authorId: string): Promise<Author> {
+    return this.author.delete(parseInt(authorId))
   }
 }
