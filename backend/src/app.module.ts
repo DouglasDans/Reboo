@@ -7,7 +7,7 @@ import { CollectionUseCaseModule } from './use-cases/collection'
 import { PublisherUseCaseModule } from './use-cases/publisher'
 import { ReadingSessionUseCaseModule } from './use-cases/reading-session'
 import { UserUseCaseModule } from './use-cases/user'
-import { AppController, AuthorController } from './controllers'
+import { AppController, AuthorController, BookController } from './controllers'
 
 @Module({
   imports: [
@@ -20,6 +20,6 @@ import { AppController, AuthorController } from './controllers'
     ReadingSessionUseCaseModule,
     UserUseCaseModule,
   ],
-  controllers: [AppController, AuthorController],
+  controllers: [AppController, AuthorController, BookController],
 })
 export class AppModule {}
