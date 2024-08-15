@@ -28,4 +28,8 @@ export class CategoryUseCases {
     const category = this.categoryFactory.updateNewCategory(updateCategoryDto)
     return this.category.update(parseInt(categoryId), category)
   }
+
+  deleteCategory(categoryId: string) {
+    return this.category.delete(parseInt(categoryId))
+  }
 }
