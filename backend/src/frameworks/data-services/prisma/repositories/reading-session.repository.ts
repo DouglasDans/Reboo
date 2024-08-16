@@ -32,9 +32,9 @@ export class PrismaReadingSessionRepository
     })
   }
 
-  findById(id: number): Promise<ReadingSession> {
+  findById(id: number, userId: number): Promise<ReadingSession> {
     return this.prisma.readingSession.findUnique({
-      where: { id },
+      where: { id, userId },
     })
   }
 

@@ -15,12 +15,12 @@ export class ReadingSessionUseCases {
     return this.readingSession.findAll()
   }
 
-  getAllReadingSessionsByUserId(): Promise<ReadingSession[]> {
-    return this.readingSession.findAll()
+  getAllReadingSessionsByUserId(userId: number): Promise<ReadingSession[]> {
+    return this.readingSession.findAllByUserId(userId)
   }
 
-  getReadingSessionById(id: number): Promise<ReadingSession> {
-    return this.readingSession.findById(id)
+  getReadingSessionById(id: number, userId: number): Promise<ReadingSession> {
+    return this.readingSession.findById(id, userId)
   }
 
   createReadingSession(

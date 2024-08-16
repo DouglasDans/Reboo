@@ -5,7 +5,7 @@ export abstract class ReadingSessionRepository {
 
   abstract findAllByUserId(userId: number): Promise<ReadingSession[]>
 
-  abstract findById(id: number): Promise<ReadingSession>
+  abstract findById(id: number, userId: number): Promise<ReadingSession>
 
   abstract create(item: ReadingSession): Promise<ReadingSession>
 
