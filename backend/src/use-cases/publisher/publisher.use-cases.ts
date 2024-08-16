@@ -15,8 +15,8 @@ export class PublisherUseCases {
     return this.publisher.findAll()
   }
 
-  getPublisherById(id: string): Promise<Publisher> {
-    return this.publisher.findById(parseInt(id))
+  getPublisherById(id: number): Promise<Publisher> {
+    return this.publisher.findById(id)
   }
 
   createPublisher(createPublisherDto: CreatePublisherDto): Promise<Publisher> {
@@ -25,13 +25,13 @@ export class PublisherUseCases {
     return this.publisher.create(publisher)
   }
 
-  updatePublisher(publisherId: string, updatePublisherDto: UpdatePublisherDto) {
+  updatePublisher(publisherId: number, updatePublisherDto: UpdatePublisherDto) {
     const publisher =
       this.publisherFactory.updateNewPublisher(updatePublisherDto)
-    return this.publisher.update(parseInt(publisherId), publisher)
+    return this.publisher.update(publisherId, publisher)
   }
 
-  deletePublisher(publisherId: string) {
-    return this.publisher.delete(parseInt(publisherId))
+  deletePublisher(publisherId: number) {
+    return this.publisher.delete(publisherId)
   }
 }
