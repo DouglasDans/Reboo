@@ -15,8 +15,12 @@ export class ReadingSessionUseCases {
     return this.readingSession.findAll()
   }
 
-  getReadingSessionById(id: string): Promise<ReadingSession> {
-    return this.readingSession.findById(parseInt(id))
+  getAllReadingSessionsByUserId(): Promise<ReadingSession[]> {
+    return this.readingSession.findAll()
+  }
+
+  getReadingSessionById(id: number): Promise<ReadingSession> {
+    return this.readingSession.findById(id)
   }
 
   createReadingSession(
@@ -29,19 +33,16 @@ export class ReadingSessionUseCases {
   }
 
   updateReadingSession(
-    readingSessionId: string,
+    readingSessionId: number,
     updateReadingSessionDto: UpdateReadingSessionDto,
   ) {
     const readingSession = this.readingSessionFactory.updateNewReadingSession(
       updateReadingSessionDto,
     )
-    return this.readingSession.update(
-      parseInt(readingSessionId),
-      readingSession,
-    )
+    return this.readingSession.update(readingSessionId, readingSession)
   }
 
-  deleteReadingSession(readingSessionId: string) {
-    return this.readingSession.delete(parseInt(readingSessionId))
+  deleteReadingSession(readingSessionId: number) {
+    return this.readingSession.delete(readingSessionId)
   }
 }

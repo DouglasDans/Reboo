@@ -3,6 +3,8 @@ import { ReadingSession } from '../entities'
 export abstract class ReadingSessionRepository {
   abstract findAll(): Promise<ReadingSession[]>
 
+  abstract findAllByUserId(userId: number): Promise<ReadingSession[]>
+
   abstract findById(id: number): Promise<ReadingSession>
 
   abstract create(item: ReadingSession): Promise<ReadingSession>

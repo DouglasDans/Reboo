@@ -26,6 +26,12 @@ export class PrismaReadingSessionRepository
     return this.prisma.readingSession.findMany()
   }
 
+  findAllByUserId(userId: number): Promise<ReadingSession[]> {
+    return this.prisma.readingSession.findMany({
+      where: { userId },
+    })
+  }
+
   findById(id: number): Promise<ReadingSession> {
     return this.prisma.readingSession.findUnique({
       where: { id },
