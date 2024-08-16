@@ -12,6 +12,7 @@ import {
   AuthorController,
   BookController,
   CategoryController,
+  CollectionController,
 } from './controllers'
 
 @Module({
@@ -30,6 +31,7 @@ import {
     AuthorController,
     BookController,
     CategoryController,
+    CollectionController,
   ],
 })
 export class AppModule {}

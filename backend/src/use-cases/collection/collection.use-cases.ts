@@ -15,8 +15,8 @@ export class CollectionUseCases {
     return this.collection.findAll()
   }
 
-  getCollectionById(id: string): Promise<Collection> {
-    return this.collection.findById(parseInt(id))
+  getCollectionById(id: number): Promise<Collection> {
+    return this.collection.findById(id)
   }
 
   createCollection(
@@ -28,15 +28,15 @@ export class CollectionUseCases {
   }
 
   updateCollection(
-    collectionId: string,
+    collectionId: number,
     updateCollectionDto: UpdateCollectionDto,
   ) {
     const collection =
       this.collectionFactory.updateNewCollection(updateCollectionDto)
-    return this.collection.update(parseInt(collectionId), collection)
+    return this.collection.update(collectionId, collection)
   }
 
-  deleteCollection(collectionId: string) {
-    return this.collection.delete(parseInt(collectionId))
+  deleteCollection(collectionId: number) {
+    return this.collection.delete(collectionId)
   }
 }
