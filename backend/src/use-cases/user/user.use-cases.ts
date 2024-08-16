@@ -15,8 +15,8 @@ export class UserUseCases {
     return this.user.findAll()
   }
 
-  getUserById(id: string): Promise<User> {
-    return this.user.findById(parseInt(id))
+  getUserById(id: number): Promise<User> {
+    return this.user.findById(id)
   }
 
   createUser(createUserDto: CreateUserDto): Promise<User> {
@@ -24,12 +24,12 @@ export class UserUseCases {
     return this.user.create(user)
   }
 
-  updateUser(userId: string, updateUserDto: UpdateUserDto) {
+  updateUser(userId: number, updateUserDto: UpdateUserDto) {
     const user = this.userFactory.updateNewUser(updateUserDto)
-    return this.user.update(parseInt(userId), user)
+    return this.user.update(userId, user)
   }
 
-  deleteUser(userId: string) {
-    return this.user.delete(parseInt(userId))
+  deleteUser(userId: number) {
+    return this.user.delete(userId)
   }
 }
