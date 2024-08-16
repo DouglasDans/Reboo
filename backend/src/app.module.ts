@@ -14,6 +14,8 @@ import {
   CategoryController,
   CollectionController,
   PublisherController,
+  ReadingSessionController,
+  UserController,
 } from './controllers'
 
 @Module({
@@ -34,6 +36,8 @@ import {
     CategoryController,
     CollectionController,
     PublisherController,
+    ReadingSessionController,
+    UserController,
   ],
 })
 export class AppModule {}
