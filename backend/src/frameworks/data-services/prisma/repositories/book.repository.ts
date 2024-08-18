@@ -1,10 +1,11 @@
 import { BookRepository } from 'src/core/repositories'
 import { PrismaService } from '../prisma.service'
 import { Book } from 'src/core/entities'
+import { Inject } from '@nestjs/common'
 
 export class PrismaBookRepository implements BookRepository {
   private prisma: PrismaService
-  constructor(prisma: PrismaService) {
+  constructor(@Inject(PrismaService) prisma: PrismaService) {
     this.prisma = prisma
   }
 
