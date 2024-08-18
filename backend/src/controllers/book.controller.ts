@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common'
 import { CreateBookDto, UpdateBookDto } from 'src/core/dtos'
 import { BookUseCases } from 'src/use-cases/book'
@@ -19,8 +20,8 @@ export class BookController {
     return this.bookUseCases.createBook(createBookDto)
   }
 
-  @Get(':userId')
-  findAll(@Param('userId') userId: string) {
+  @Get()
+  findAll(@Query('userId') userId: string) {
     return this.bookUseCases.getAllBooksByUserId(userId)
   }
 
