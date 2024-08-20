@@ -1,13 +1,11 @@
 import { UserRepository } from 'src/core/repositories'
 import { PrismaService } from '../prisma.service'
 import { User } from 'src/core/entities'
-import { Inject } from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 
+@Injectable()
 export class PrismaUserRepository implements UserRepository {
-  private prisma: PrismaService
-  constructor(@Inject(PrismaService) prisma: PrismaService) {
-    this.prisma = prisma
-  }
+  constructor(private prisma: PrismaService) {}
 
   create(item: User): Promise<User> {
     return this.prisma.user.create({

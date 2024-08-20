@@ -1,13 +1,11 @@
 import { BookRepository } from 'src/core/repositories'
 import { PrismaService } from '../prisma.service'
 import { Book } from 'src/core/entities'
-import { Inject } from '@nestjs/common'
+import { Injectable } from '@nestjs/common'
 
+@Injectable()
 export class PrismaBookRepository implements BookRepository {
-  private prisma: PrismaService
-  constructor(@Inject(PrismaService) prisma: PrismaService) {
-    this.prisma = prisma
-  }
+  constructor(private prisma: PrismaService) {}
 
   async create(item: Book): Promise<Book> {
     return await this.prisma.book.create({
