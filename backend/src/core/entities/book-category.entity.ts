@@ -5,6 +5,6 @@ export class BookCategory {
   bookId: number
   categoryId: number
 
-  book: Book
-  category: Category
+  book?: Book
+  category?: Category
 }
