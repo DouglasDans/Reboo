@@ -5,6 +5,6 @@ export abstract class BookCategoryRepository {
     bookId: number,
     categoryId: number,
   ): Promise<BookCategory>
-  abstract deleteRelationsByBook(bookId: number): Promise<void>
-  abstract deleteRelationsByCategory(categoryId: number): Promise<void>
+  abstract deleteRelationsByBook(bookId: number): Promise<boolean>
+  abstract deleteRelationsByCategory(categoryId: number): Promise<boolean>
 }
