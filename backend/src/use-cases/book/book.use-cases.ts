@@ -3,12 +3,14 @@ import { BookRepository } from '../../core/repositories/book.repository'
 import { BookFactoryService } from './book.factory.service'
 import { Book } from 'src/core/entities'
 import { CreateBookDto, UpdateBookDto } from 'src/core/dtos'
-import { PublisherUseCases } from '../publisher/publisher.use-cases'
+import { PublisherUseCases } from '../publisher'
+import { BookCategoryService } from '../book-category'
 
 @Injectable()
 export class BookUseCases {
   constructor(
     private book: BookRepository,
+    private bookCategoryService: BookCategoryService,
     private bookFactory: BookFactoryService,
     private publisherUseCases: PublisherUseCases,
   ) {}
@@ -33,7 +35,12 @@ export class BookUseCases {
 
     const book = await this.bookFactory.createNewBook(createBookDto)
 
-    const createdBook = this.book.create(book)
+    const createdBook = await this.book.create(book)
+
+    this.bookCategoryService.createRelation(
+      createdBook.id,
+      createBookDto.category,
+    )
 
     return createdBook
   }
