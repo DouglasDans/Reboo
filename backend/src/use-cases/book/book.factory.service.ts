@@ -14,11 +14,11 @@ export class BookFactoryService {
     book.publicationDate = createBookDto.publicationDate
     book.description = createBookDto.description
     book.status = createBookDto.status
-    book.coverImage = createBookDto.coverImage
-    book.backgroundColors = createBookDto.backgroundColors
+    book.coverImage = createBookDto.coverImage || null
+    book.backgroundColors = createBookDto.backgroundColors || '#550C77,#7C0DBB'
     book.language = createBookDto.language
     book.userId = createBookDto.userId
-
+    book.publisherId = createBookDto.publisherId
     return book
   }
   updateNewBook(updateBookDto: UpdateBookDto) {
@@ -34,7 +34,6 @@ export class BookFactoryService {
     book.coverImage = updateBookDto.coverImage
     book.backgroundColors = updateBookDto.backgroundColors
     book.language = updateBookDto.language
-    book.userId = updateBookDto.userId
 
     return book
   }

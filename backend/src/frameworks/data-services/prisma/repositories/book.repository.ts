@@ -23,7 +23,7 @@ export class PrismaBookRepository implements BookRepository {
         coverImage: item.coverImage,
         backgroundColors: item.backgroundColors,
         language: item.language,
-        publisherId: item.id,
+        publisherId: item.publisherId,
         userId: item.userId,
       },
     })

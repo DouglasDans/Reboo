@@ -3,12 +3,14 @@ import { BookRepository } from '../../core/repositories/book.repository'
 import { BookFactoryService } from './book.factory.service'
 import { Book } from 'src/core/entities'
 import { CreateBookDto, UpdateBookDto } from 'src/core/dtos'
+import { PublisherUseCases } from '../publisher/publisher.use-cases'
 
 @Injectable()
 export class BookUseCases {
   constructor(
     private book: BookRepository,
     private bookFactory: BookFactoryService,
+    private publisherUseCases: PublisherUseCases,
   ) {}
 
   getAllBooksByUserId(userId: string): Promise<Book[]> {
@@ -23,9 +25,17 @@ export class BookUseCases {
     return this.book.findByTitle(title)
   }
 
-  createBook(createBookDto: CreateBookDto): Promise<Book> {
-    const book = this.bookFactory.createNewBook(createBookDto)
-    return this.book.create(book)
+  async createBook(createBookDto: CreateBookDto): Promise<Book> {
+    const publisher = await this.publisherUseCases.createPublisher({
+      name: createBookDto.publisher,
+    })
+    createBookDto.publisherId = publisher.id
+
+    const book = await this.bookFactory.createNewBook(createBookDto)
+
+    const createdBook = this.book.create(book)
+
+    return createdBook
   }
 
   updateBook(bookId: string, updateBookDto: UpdateBookDto) {

@@ -15,14 +15,24 @@ export class PublisherUseCases {
     return this.publisher.findAll()
   }
 
+  getPublisherByName(name: string): Promise<Publisher> {
+    return this.publisher.findByName(name)
+  }
+
   getPublisherById(id: number): Promise<Publisher> {
     return this.publisher.findById(id)
   }
 
   createPublisher(createPublisherDto: CreatePublisherDto): Promise<Publisher> {
-    const publisher =
-      this.publisherFactory.createNewPublisher(createPublisherDto)
-    return this.publisher.create(publisher)
+    const existentPublisher = this.verifyIfExistsPublisherByName(
+      createPublisherDto.name,
+    )
+    if (!existentPublisher) {
+      const publisher =
+        this.publisherFactory.createNewPublisher(createPublisherDto)
+      return this.publisher.create(publisher)
+    }
+    return existentPublisher
   }
 
   updatePublisher(publisherId: number, updatePublisherDto: UpdatePublisherDto) {
@@ -33,5 +43,9 @@ export class PublisherUseCases {
 
   deletePublisher(publisherId: number) {
     return this.publisher.delete(publisherId)
+  }
+
+  private verifyIfExistsPublisherByName(name: string) {
+    return this.getPublisherByName(name)
   }
 }

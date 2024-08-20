@@ -46,20 +46,24 @@ export class CreateBookDto {
   language: string
 
   @IsString()
-  publisher: string
+  publisher?: string
 
   @IsInt()
   @IsOptional()
   collectionId?: number
 
   @IsInt()
+  @IsOptional()
+  publisherId?: number
+
+  @IsInt()
   userId: number
 
   @IsArray()
-  author: Array<string>
+  author?: Array<string>
 
   @IsArray()
-  category: Array<string>
+  category?: Array<string>
 }
 
 export class UpdateBookDto extends PartialType(CreateBookDto) {}

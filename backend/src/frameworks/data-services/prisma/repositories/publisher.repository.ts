@@ -21,6 +21,12 @@ export class PrismaPublisherRepository implements PublisherRepository {
     return this.prisma.publisher.findMany()
   }
 
+  findByName(name: string): Promise<Publisher> {
+    return this.prisma.publisher.findFirst({
+      where: { name },
+    })
+  }
+
   findById(id: number): Promise<Publisher> {
     return this.prisma.publisher.findUnique({
       where: { id },
