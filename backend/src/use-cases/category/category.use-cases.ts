@@ -19,6 +19,10 @@ export class CategoryUseCases {
     return this.category.findById(parseInt(id))
   }
 
+  getCategoryByName(name: string): Promise<Category> {
+    return this.category.findByName(name)
+  }
+
   createCategory(createCategoryDto: CreateCategoryDto): Promise<Category> {
     const category = this.categoryFactory.createNewCategory(createCategoryDto)
     return this.category.create(category)

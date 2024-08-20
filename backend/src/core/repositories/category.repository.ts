@@ -5,6 +5,8 @@ export abstract class CategoryRepository {
 
   abstract findById(id: number): Promise<Category>
 
+  abstract findByName(name: string): Promise<Category>
+
   abstract create(item: Category): Promise<Category>
 
   abstract update(id: number, item: Category): Promise<Category>

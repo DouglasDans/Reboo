@@ -25,6 +25,12 @@ export class PrismaCategoryRepository implements CategoryRepository {
     })
   }
 
+  findByName(name: string): Promise<Category> {
+    return this.prisma.category.findFirst({
+      where: { name },
+    })
+  }
+
   update(id: number, item: Category): Promise<Category> {
     return this.prisma.category.update({
       where: { id },
