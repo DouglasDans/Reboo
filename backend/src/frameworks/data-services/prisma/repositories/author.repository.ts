@@ -23,6 +23,12 @@ export class PrismaAuthorRepository implements AuthorRepository {
     })
   }
 
+  findByName(name: string): Promise<Author> {
+    return this.prisma.author.findFirst({
+      where: { name },
+    })
+  }
+
   update(id: number, item: Author) {
     return this.prisma.author.update({
       data: item,
