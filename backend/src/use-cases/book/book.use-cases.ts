@@ -5,12 +5,14 @@ import { Book } from 'src/core/entities'
 import { CreateBookDto, UpdateBookDto } from 'src/core/dtos'
 import { PublisherUseCases } from '../publisher'
 import { BookCategoryService } from '../book-category'
+import { BookAuthorService } from '../book-author'
 
 @Injectable()
 export class BookUseCases {
   constructor(
     private book: BookRepository,
     private bookCategoryService: BookCategoryService,
+    private bookAuthorService: BookAuthorService,
     private bookFactory: BookFactoryService,
     private publisherUseCases: PublisherUseCases,
   ) {}
@@ -41,6 +43,8 @@ export class BookUseCases {
       createdBook.id,
       createBookDto.category,
     )
+
+    this.bookAuthorService.createRelation(createdBook.id, createBookDto.author)
 
     return createdBook
   }

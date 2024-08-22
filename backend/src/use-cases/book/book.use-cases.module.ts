@@ -6,9 +6,15 @@ import { PrismaBookRepository } from 'src/frameworks/data-services/prisma/reposi
 import { DataServicesModule } from 'src/services/data-services/data-services.module'
 import { PublisherUseCaseModule } from '../publisher'
 import { BookCategoryModule } from '../book-category'
+import { BookAuthorModule } from '../book-author'
 
 @Module({
-  imports: [DataServicesModule, PublisherUseCaseModule, BookCategoryModule],
+  imports: [
+    DataServicesModule,
+    PublisherUseCaseModule,
+    BookCategoryModule,
+    BookAuthorModule,
+  ],
   providers: [
     BookFactoryService,
     BookUseCases,
