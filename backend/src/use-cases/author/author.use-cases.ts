@@ -19,6 +19,10 @@ export class AuthorUseCases {
     return this.author.findById(parseInt(id))
   }
 
+  getAuthorByName(name: string): Promise<Author> {
+    return this.author.findByName(name)
+  }
+
   createAuthor(createAuthorDto: CreateAuthorDto): Promise<Author> {
     const author = this.authorFactory.createNewAuthor(createAuthorDto)
     return this.author.create(author)
