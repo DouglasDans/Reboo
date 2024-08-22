@@ -8,7 +8,7 @@ import { BookCategoryService } from '../book-category'
 import { BookAuthorService } from '../book-author'
 
 @Injectable()
-export class BookUseCases {
+export class BookService {
   constructor(
     private book: BookRepository,
     private bookCategoryService: BookCategoryService,
@@ -45,6 +45,9 @@ export class BookUseCases {
     )
 
     this.bookAuthorService.createRelation(createdBook.id, createBookDto.author)
+
+    // if (createBookDto.collectionId) {
+    // }
 
     return createdBook
   }

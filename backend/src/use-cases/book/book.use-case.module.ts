@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
-import { BookFactoryService } from './'
-import { BookUseCases } from './'
+import { BookFactoryService } from '.'
+import { BookService } from '.'
 import { BookRepository } from 'src/core/repositories'
 import { PrismaBookRepository } from 'src/frameworks/data-services/prisma/repositories'
 import { DataServicesModule } from 'src/services/data-services/data-services.module'
@@ -17,12 +17,12 @@ import { BookAuthorModule } from '../book-author'
   ],
   providers: [
     BookFactoryService,
-    BookUseCases,
+    BookService,
     {
       provide: BookRepository,
       useClass: PrismaBookRepository,
     },
   ],
-  exports: [BookFactoryService, BookUseCases],
+  exports: [BookFactoryService, BookService],
 })
 export class BookUseCaseModule {}

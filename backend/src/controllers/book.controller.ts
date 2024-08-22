@@ -9,11 +9,11 @@ import {
   Query,
 } from '@nestjs/common'
 import { CreateBookDto, UpdateBookDto } from 'src/core/dtos'
-import { BookUseCases } from 'src/use-cases/book'
+import { BookService } from 'src/use-cases/book'
 
 @Controller('api/v1/book')
 export class BookController {
-  constructor(private readonly bookUseCases: BookUseCases) {}
+  constructor(private readonly bookUseCases: BookService) {}
 
   @Post()
   create(@Body() createBookDto: CreateBookDto) {
