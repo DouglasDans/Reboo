@@ -7,13 +7,15 @@ import { DataServicesModule } from 'src/services/data-services/data-services.mod
 import { PublisherUseCaseModule } from '../publisher'
 import { BookCategoryModule } from '../book-category'
 import { BookAuthorModule } from '../book-author'
+import { BookCollectionUseCaseModule } from '../book-collection'
 
 @Module({
   imports: [
     DataServicesModule,
     PublisherUseCaseModule,
-    BookCategoryModule,
     BookAuthorModule,
+    BookCategoryModule,
+    BookCollectionUseCaseModule,
   ],
   providers: [
     BookFactoryService,

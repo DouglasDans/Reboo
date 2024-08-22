@@ -6,13 +6,15 @@ import { CreateBookDto, UpdateBookDto } from 'src/core/dtos'
 import { PublisherUseCases } from '../publisher'
 import { BookCategoryService } from '../book-category'
 import { BookAuthorService } from '../book-author'
+import { BookCollectionService } from '../book-collection'
 
 @Injectable()
 export class BookService {
   constructor(
     private book: BookRepository,
-    private bookCategoryService: BookCategoryService,
     private bookAuthorService: BookAuthorService,
+    private bookCategoryService: BookCategoryService,
+    private bookCollectionService: BookCollectionService,
     private bookFactory: BookFactoryService,
     private publisherUseCases: PublisherUseCases,
   ) {}
@@ -46,8 +48,12 @@ export class BookService {
 
     this.bookAuthorService.createRelation(createdBook.id, createBookDto.author)
 
-    // if (createBookDto.collectionId) {
-    // }
+    if (createBookDto.collectionId) {
+      this.bookCollectionService.createRelation(
+        createdBook.id,
+        createBookDto.collectionId,
+      )
+    }
 
     return createdBook
   }
