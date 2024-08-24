@@ -1,35 +1,39 @@
-import styles from '@/styles/ui/forms/status-radio-button.module.scss'
+import styles from "@/styles/ui/forms/status-radio-button.module.scss"
 
 type Props = {
-  type: "comprar" | "naoIniciado" | "andamento" | "concluido" | "desistiu",
+  type: "BUY" | "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "GIVEN_UP"
   id: string
   name: string
   defaultChecked?: boolean
 }
 
-export default function StatusRadioButton({ type, id, name, defaultChecked }: Props) {
-
+export default function StatusRadioButton({
+  type,
+  id,
+  name,
+  defaultChecked,
+}: Props) {
   const tagTypes = {
-    comprar: {
+    BUY: {
       value: "Comprar",
-      style: styles.comprar
+      style: styles.comprar,
     },
-    naoIniciado: {
+    NOT_STARTED: {
       value: "Não Iniciado",
-      style: styles.nIniciado
+      style: styles.nIniciado,
     },
-    andamento: {
+    IN_PROGRESS: {
       value: "Em Andamento",
-      style: styles.andamento
+      style: styles.andamento,
     },
-    concluido: {
+    COMPLETED: {
       value: "Concluído",
-      style: styles.concluido
+      style: styles.concluido,
     },
-    desistiu: {
+    GIVEN_UP: {
       value: "Desistiu",
-      style: styles.desistiu
-    }
+      style: styles.desistiu,
+    },
   }
 
   return (
@@ -42,7 +46,11 @@ export default function StatusRadioButton({ type, id, name, defaultChecked }: Pr
         value={type}
         defaultChecked={defaultChecked}
       />
-      <label className={styles.labelTag + " " + tagTypes[type].style} htmlFor={id}>{tagTypes[type].value}</label>
+      <label
+        className={styles.labelTag + " " + tagTypes[type].style}
+        htmlFor={id}>
+        {tagTypes[type].value}
+      </label>
     </div>
   )
 }

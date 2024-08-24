@@ -1,0 +1,40 @@
+services:
+  postgres:
+    container_name: rbo-postgres
+    image: postgres:latest
+    restart: always
+    networks:
+      - rbo-network
+
+  pgadmin:
+    container_name: rbo-pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    depends_on:
+      - postgres
+    networks:
+      - rbo-network
+
+  backend:
+    container_name: rbo-backend
+    build: ./backend # pasta do dockerfile
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - postgres
+    networks:
+      - rbo-network
+  
+  frontend:
+    container_name: rbo-frontend
+    build: ./frontend
+    depends_on:
+      - backend
+    links:
+      - backend:backend
+    networks:
+      - rbo-network
+
+networks:
+  rbo-network:
+    driver: bridge

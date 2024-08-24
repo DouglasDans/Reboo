@@ -1,18 +1,46 @@
+import rebooAPI from "@/services/rebooAPI/api"
+
 export default async function postBook(formData: FormData) {
   "use server"
 
   const bookData = {
-    nome: formData.get("nomeBook") as string,
-    autor: formData.get("autorBook") as string,
-    publishedDate: formData.get("publiDataBook") as string,
-    publisher: formData.get("editoraBook") as string,
-    numPag: formData.get("pagBook") as string,
-    isbn: formData.get("isbnBook") as string,
-    categorias: formData.get("categoriasBook") as string,
-    idioma: formData.get("idiomaBook") as string,
-    descricao: formData.get("descBook") as string,
-    situacao: formData.get("bookStatus") as string,
+    title: formData.get("bookName") as string,
+    totalPages: Number.parseInt(formData.get("bookTotalPages") as string),
+    pagesRead: Number.parseInt(formData.get("bookReadPages") as string),
+    publisher: formData.get("bookPublisher") as string,
+    status: formData.get("bookStatus") as string,
+    backgroundColors: formData.get("bookBackgroundColors") as string,
+    coverImage: formData.get("bookCoverImage") as string,
+    language: formData.get("bookLanguage") as string,
+    userId: Number.parseInt(formData.get("bookUser") as string),
+    description: formData.get("bookDescription") as string,
+
+    publicationDate: new Date(
+      formData.get("bookPublicationDate") as string,
+    ).toISOString(),
+
+    isbn_10:
+      (
+        (formData.get("bookISBN") as string)
+          .replace(/\s+/g, "")
+          .split(",") as Array<string>
+      )[0] || null,
+
+    isbn_13:
+      (
+        (formData.get("bookISBN") as string)
+          .replace(/\s+/g, "")
+          .split(",") as Array<string>
+      )[1] || null,
+
+    author: (formData.get("bookAuthors") as string)
+      .replaceAll(/\s*,\s*/g, ",")
+      .split(",") as Array<string>,
+
+    category: (formData.get("bookCategories") as string)
+      .replaceAll(/\s*,\s*/g, ",")
+      .split(",") as Array<string>,
   }
-  // console.log(formData)
-  console.log(bookData)
+
+  await rebooAPI.post("/book", bookData)
 }

@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "./client"
+  // output   = "./client"
 }
 
 datasource db {
@@ -124,9 +124,6 @@ model BookCollection {
   bookId       Int
   collection   Collection @relation(fields: [collectionId], references: [id])
   collectionId Int
-
-  assignedAt DateTime @default(now())
-  assignedBy String
 
   @@id([bookId, collectionId])
 }

@@ -1,19 +1,43 @@
 import { Module } from '@nestjs/common'
-import { AuthorModule } from './modules/author/author.module'
-import { PublisherModule } from './modules/publisher/publisher.module'
-import { CategoryModule } from './modules/category/category.module'
-import { CollectionModule } from './modules/collection/collection.module'
-import { UserModule } from './modules/user/user.module'
-import { BookModule } from './modules/book/book.module'
+import { DataServicesModule } from './services/data-services/data-services.module'
+import { AuthorUseCaseModule } from './use-cases/author'
+import { BookUseCaseModule } from './use-cases/book'
+import { CategoryUseCaseModule } from './use-cases/category'
+import { CollectionUseCaseModule } from './use-cases/collection'
+import { PublisherUseCaseModule } from './use-cases/publisher'
+import { ReadingSessionUseCaseModule } from './use-cases/reading-session'
+import { UserUseCaseModule } from './use-cases/user'
+import {
+  AppController,
+  AuthorController,
+  BookController,
+  CategoryController,
+  CollectionController,
+  PublisherController,
+  ReadingSessionController,
+  UserController,
+} from './controllers'
 
 @Module({
   imports: [
-    AuthorModule,
-    PublisherModule,
-    CategoryModule,
-    CollectionModule,
-    UserModule,
-    BookModule,
+    DataServicesModule,
+    AuthorUseCaseModule,
+    BookUseCaseModule,
+    CategoryUseCaseModule,
+    CollectionUseCaseModule,
+    PublisherUseCaseModule,
+    ReadingSessionUseCaseModule,
+    UserUseCaseModule,
+  ],
+  controllers: [
+    AppController,
+    AuthorController,
+    BookController,
+    CategoryController,
+    CollectionController,
+    PublisherController,
+    ReadingSessionController,
+    UserController,
   ],
 })
 export class AppModule {}

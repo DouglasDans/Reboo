@@ -12,10 +12,10 @@ export default function FormBookSection() {
       </div>
 
       <form action={postBook} className={styles.formGrid}>
-        <div className={styles.rightForm}>
+        <div>
           <BookInfo />
         </div>
-        <div className={styles.leftForm}>
+        <div>
           <BookSituation />
         </div>
       </form>

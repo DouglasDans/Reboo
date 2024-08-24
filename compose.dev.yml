@@ -1,0 +1,56 @@
+services:
+  postgres:
+    env_file:
+      - ./backend/.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+
+  pgadmin:
+    env_file:
+      - ./backend/.env
+    ports:
+      - "5050:80"
+    volumes:
+      - ./data/pgadmin4:/var/lib/pgadmin4
+
+  backend:
+    command: npm run start:dev
+    ports:
+      - "5555:5555"
+      - "8080:8080"
+    develop: # Funcionalidades de dev
+      watch: # hot reload configs
+        - action: sync
+          path: ./backend # pasta raíz do host
+          target: /app # pasta raíz do container
+          ignore:
+            - ./backend/node_modules/
+            - ./backend/prisma/
+        - action: rebuild
+          path: ./backend/prisma
+        - action: rebuild
+          path: ./backend/package.json
+        - action: sync+restart
+          path: ./backend/.env
+          target: /app/.env
+  
+  frontend:
+    command: npm run dev
+    env_file:
+      - ./frontend/.env
+    ports:
+      - "3000:3000"
+    develop: # Funcionalidades de dev
+      watch: # hot reload configs
+        - action: sync
+          path: ./frontend # pasta raíz do host
+          target: /app # pasta raíz do container
+          ignore:
+            - ./frontend/node_modules/
+        - action: rebuild
+          path: ./frontend/package.json
+        - action: sync+restart
+          path: ./frontend/.env
+          target: /app/.env
