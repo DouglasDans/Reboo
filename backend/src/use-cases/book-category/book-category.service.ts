@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common'
 import { BookCategoryRepository } from 'src/core/repositories'
-import { CategoryUseCases } from '../category'
+import { CategoryService } from '../category'
 import { Category } from 'src/core/entities'
 
 @Injectable()
 export class BookCategoryService {
   constructor(
     private bookCategory: BookCategoryRepository,
-    private categoryService: CategoryUseCases,
+    private categoryService: CategoryService,
   ) {}
 
   createRelation(bookId: number, categories: Array<string>) {

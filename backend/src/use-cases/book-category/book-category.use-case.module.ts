@@ -16,4 +16,4 @@ import { CategoryUseCaseModule } from '../category'
   ],
   exports: [BookCategoryService],
 })
-export class BookCategoryModule {}
+export class BookCategoryUseCaseModule {}

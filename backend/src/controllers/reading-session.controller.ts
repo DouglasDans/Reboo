@@ -10,13 +10,11 @@ import {
   ParseIntPipe,
 } from '@nestjs/common'
 import { CreateReadingSessionDto, UpdateReadingSessionDto } from 'src/core/dtos'
-import { ReadingSessionUseCases } from 'src/use-cases/reading-session'
+import { ReadingSessionService } from 'src/use-cases/reading-session'
 
 @Controller('api/v1/reading-session')
 export class ReadingSessionController {
-  constructor(
-    private readonly readingSessionUseCases: ReadingSessionUseCases,
-  ) {}
+  constructor(private readonly readingSessionUseCases: ReadingSessionService) {}
 
   @Post()
   create(@Body() createReadingSessionDto: CreateReadingSessionDto) {

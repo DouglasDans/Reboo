@@ -1,13 +1,14 @@
 import { PublisherRepository } from 'src/core/repositories'
 import { PrismaService } from '../prisma.service'
 import { Publisher } from 'src/core/entities'
-import { Injectable } from '@nestjs/common'
+import { Injectable, Logger } from '@nestjs/common'
 
 @Injectable()
 export class PrismaPublisherRepository implements PublisherRepository {
   constructor(private prisma: PrismaService) {}
 
   create(item: Publisher): Promise<Publisher> {
+    Logger.log(this.prisma)
     return this.prisma.publisher.create({
       data: {
         name: item.name,

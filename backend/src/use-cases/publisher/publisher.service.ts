@@ -5,7 +5,7 @@ import { Publisher } from 'src/core/entities'
 import { CreatePublisherDto, UpdatePublisherDto } from 'src/core/dtos'
 
 @Injectable()
-export class PublisherUseCases {
+export class PublisherService {
   constructor(
     private publisher: PublisherRepository,
     private publisherFactory: PublisherFactoryService,
@@ -23,13 +23,16 @@ export class PublisherUseCases {
     return this.publisher.findById(id)
   }
 
-  createPublisher(createPublisherDto: CreatePublisherDto): Promise<Publisher> {
-    const existentPublisher = this.verifyIfExistsPublisherByName(
+  async createPublisher(
+    createPublisherDto: CreatePublisherDto,
+  ): Promise<Publisher> {
+    const existentPublisher = await this.verifyIfExistsPublisherByName(
       createPublisherDto.name,
     )
+
     if (!existentPublisher) {
       const publisher =
-        this.publisherFactory.createNewPublisher(createPublisherDto)
+        await this.publisherFactory.createNewPublisher(createPublisherDto)
       return this.publisher.create(publisher)
     }
     return existentPublisher

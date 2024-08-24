@@ -5,7 +5,7 @@ import { ReadingSession } from 'src/core/entities'
 import { CreateReadingSessionDto, UpdateReadingSessionDto } from 'src/core/dtos'
 
 @Injectable()
-export class ReadingSessionUseCases {
+export class ReadingSessionService {
   constructor(
     private readingSession: ReadingSessionRepository,
     private readingSessionFactory: ReadingSessionFactoryService,

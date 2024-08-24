@@ -9,11 +9,11 @@ import {
   ParseIntPipe,
 } from '@nestjs/common'
 import { CreateCollectionDto, UpdateCollectionDto } from 'src/core/dtos'
-import { CollectionUseCases } from 'src/use-cases/collection'
+import { CollectionService } from 'src/use-cases/collection'
 
 @Controller('api/v1/collection')
 export class CollectionController {
-  constructor(private readonly collectionUseCases: CollectionUseCases) {}
+  constructor(private readonly collectionUseCases: CollectionService) {}
 
   @Post()
   create(@Body() createCollectionDto: CreateCollectionDto) {

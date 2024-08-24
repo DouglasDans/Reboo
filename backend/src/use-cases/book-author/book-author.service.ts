@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common'
 import { BookAuthorRepository } from 'src/core/repositories/book-author.repository'
-import { AuthorUseCases } from '../author'
+import { AuthorService } from '../author'
 import { Author } from 'src/core/entities'
 
 @Injectable()
 export class BookAuthorService {
   constructor(
     private bookAuthor: BookAuthorRepository,
-    private authorService: AuthorUseCases,
+    private authorService: AuthorService,
   ) {}
 
   createRelation(bookId: number, authors: Array<string>) {

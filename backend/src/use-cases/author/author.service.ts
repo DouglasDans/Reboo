@@ -5,7 +5,7 @@ import { Author } from 'src/core/entities'
 import { CreateAuthorDto, UpdateAuthorDto } from 'src/core/dtos'
 
 @Injectable()
-export class AuthorUseCases {
+export class AuthorService {
   constructor(
     private author: AuthorRepository,
     private authorFactory: AuthorFactoryService,

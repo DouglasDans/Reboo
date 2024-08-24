@@ -9,11 +9,11 @@ import {
   ParseIntPipe,
 } from '@nestjs/common'
 import { CreateUserDto, UpdateUserDto } from 'src/core/dtos'
-import { UserUseCases } from 'src/use-cases/user'
+import { UserService } from 'src/use-cases/user'
 
 @Controller('api/v1/user')
 export class UserController {
-  constructor(private readonly userUseCases: UserUseCases) {}
+  constructor(private readonly userUseCases: UserService) {}
 
   @Post()
   create(@Body() createUserDto: CreateUserDto) {

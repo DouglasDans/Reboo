@@ -9,11 +9,11 @@ import {
   ParseIntPipe,
 } from '@nestjs/common'
 import { CreatePublisherDto, UpdatePublisherDto } from 'src/core/dtos'
-import { PublisherUseCases } from 'src/use-cases/publisher'
+import { PublisherService } from 'src/use-cases/publisher'
 
 @Controller('api/v1/publisher')
 export class PublisherController {
-  constructor(private readonly publisherUseCases: PublisherUseCases) {}
+  constructor(private readonly publisherUseCases: PublisherService) {}
 
   @Post()
   create(@Body() createPublisherDto: CreatePublisherDto) {

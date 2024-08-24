@@ -1,3 +1,3 @@
 export * from './user.factory.service'
-export * from './user.use-cases'
-export * from './user.use-cases.module'
+export * from './user.service'
+export * from './user.use-case.module'

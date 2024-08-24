@@ -5,7 +5,7 @@ import { Category } from 'src/core/entities'
 import { CreateCategoryDto, UpdateCategoryDto } from 'src/core/dtos'
 
 @Injectable()
-export class CategoryUseCases {
+export class CategoryService {
   constructor(
     private category: CategoryRepository,
     private categoryFactory: CategoryFactoryService,

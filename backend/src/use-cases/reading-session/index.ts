@@ -1,3 +1,3 @@
 export * from './reading-session.factory.service'
-export * from './reading-session.use-cases'
-export * from './reading-session.use-cases.module'
+export * from './reading-session.service'
+export * from './reading-session.use-case.module'

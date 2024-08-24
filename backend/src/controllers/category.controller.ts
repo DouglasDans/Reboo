@@ -8,11 +8,11 @@ import {
   Delete,
 } from '@nestjs/common'
 import { CreateCategoryDto, UpdateCategoryDto } from 'src/core/dtos'
-import { CategoryUseCases } from 'src/use-cases/category'
+import { CategoryService } from 'src/use-cases/category'
 
 @Controller('api/v1/category')
 export class CategoryController {
-  constructor(private readonly categoryService: CategoryUseCases) {}
+  constructor(private readonly categoryService: CategoryService) {}
 
   @Post()
   create(@Body() createCategoryDto: CreateCategoryDto) {

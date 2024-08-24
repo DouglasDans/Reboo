@@ -3,7 +3,7 @@ import { BookRepository } from '../../core/repositories/book.repository'
 import { BookFactoryService } from './book.factory.service'
 import { Book } from 'src/core/entities'
 import { CreateBookDto, UpdateBookDto } from 'src/core/dtos'
-import { PublisherUseCases } from '../publisher'
+import { PublisherService } from '../publisher'
 import { BookCategoryService } from '../book-category'
 import { BookAuthorService } from '../book-author'
 import { BookCollectionService } from '../book-collection'
@@ -16,7 +16,7 @@ export class BookService {
     private bookCategoryService: BookCategoryService,
     private bookCollectionService: BookCollectionService,
     private bookFactory: BookFactoryService,
-    private publisherUseCases: PublisherUseCases,
+    private publisherUseCases: PublisherService,
   ) {}
 
   getAllBooksByUserId(userId: string): Promise<Book[]> {
@@ -38,18 +38,20 @@ export class BookService {
     createBookDto.publisherId = publisher.id
 
     const book = await this.bookFactory.createNewBook(createBookDto)
-
     const createdBook = await this.book.create(book)
 
-    this.bookCategoryService.createRelation(
+    await this.bookCategoryService.createRelation(
       createdBook.id,
       createBookDto.category,
     )
 
-    this.bookAuthorService.createRelation(createdBook.id, createBookDto.author)
+    await this.bookAuthorService.createRelation(
+      createdBook.id,
+      createBookDto.author,
+    )
 
     if (createBookDto.collectionId) {
-      this.bookCollectionService.createRelation(
+      await this.bookCollectionService.createRelation(
         createdBook.id,
         createBookDto.collectionId,
       )

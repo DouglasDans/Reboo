@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { AuthorFactoryService } from './author.factory.service'
-import { AuthorUseCases } from './author.use-cases'
+import { AuthorService } from './author.service'
 import { AuthorRepository } from 'src/core/repositories'
 import { PrismaAuthorRepository } from 'src/frameworks/data-services/prisma/repositories'
 import { DataServicesModule } from 'src/services/data-services/data-services.module'
@@ -9,12 +9,12 @@ import { DataServicesModule } from 'src/services/data-services/data-services.mod
   imports: [DataServicesModule],
   providers: [
     AuthorFactoryService,
-    AuthorUseCases,
+    AuthorService,
     {
       provide: AuthorRepository,
       useClass: PrismaAuthorRepository,
     },
   ],
-  exports: [AuthorFactoryService, AuthorUseCases],
+  exports: [AuthorFactoryService, AuthorService],
 })
 export class AuthorUseCaseModule {}

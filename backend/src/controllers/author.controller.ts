@@ -8,11 +8,11 @@ import {
   Delete,
 } from '@nestjs/common'
 import { CreateAuthorDto, UpdateAuthorDto } from 'src/core/dtos'
-import { AuthorUseCases } from 'src/use-cases/author'
+import { AuthorService } from 'src/use-cases/author'
 
 @Controller('api/v1/author')
 export class AuthorController {
-  constructor(private readonly authorUseCases: AuthorUseCases) {}
+  constructor(private readonly authorUseCases: AuthorService) {}
 
   @Post()
   create(@Body() createAuthorDto: CreateAuthorDto) {

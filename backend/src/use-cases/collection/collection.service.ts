@@ -5,7 +5,7 @@ import { Collection } from 'src/core/entities'
 import { CreateCollectionDto, UpdateCollectionDto } from 'src/core/dtos'
 
 @Injectable()
-export class CollectionUseCases {
+export class CollectionService {
   constructor(
     private collection: CollectionRepository,
     private collectionFactory: CollectionFactoryService,

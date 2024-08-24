@@ -5,16 +5,16 @@ import { BookRepository } from 'src/core/repositories'
 import { PrismaBookRepository } from 'src/frameworks/data-services/prisma/repositories'
 import { DataServicesModule } from 'src/services/data-services/data-services.module'
 import { PublisherUseCaseModule } from '../publisher'
-import { BookCategoryModule } from '../book-category'
-import { BookAuthorModule } from '../book-author'
+import { BookCategoryUseCaseModule } from '../book-category'
+import { BookAuthorUseCaseModule } from '../book-author'
 import { BookCollectionUseCaseModule } from '../book-collection'
 
 @Module({
   imports: [
     DataServicesModule,
     PublisherUseCaseModule,
-    BookAuthorModule,
-    BookCategoryModule,
+    BookAuthorUseCaseModule,
+    BookCategoryUseCaseModule,
     BookCollectionUseCaseModule,
   ],
   providers: [

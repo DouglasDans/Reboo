@@ -1,3 +1,3 @@
 export * from './publisher.factory.service'
-export * from './publisher.use-cases'
-export * from './publisher.use-cases.module'
+export * from './publisher.service'
+export * from './publisher.use-case.module'

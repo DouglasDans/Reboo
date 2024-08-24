@@ -5,7 +5,7 @@ import { User } from 'src/core/entities'
 import { CreateUserDto, UpdateUserDto } from 'src/core/dtos'
 
 @Injectable()
-export class UserUseCases {
+export class UserService {
   constructor(
     private user: UserRepository,
     private userFactory: UserFactoryService,

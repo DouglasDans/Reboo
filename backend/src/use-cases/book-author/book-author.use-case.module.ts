@@ -16,4 +16,4 @@ import { AuthorUseCaseModule } from '../author'
   ],
   exports: [BookAuthorService],
 })
-export class BookAuthorModule {}
+export class BookAuthorUseCaseModule {}
