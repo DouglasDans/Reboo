@@ -6,7 +6,8 @@
   border: 1px solid;
   border-radius: global-sizes.$tag-status-radius;
   background-color: color-variables.$background-body-color;
-  
+  width: fit-content;
+
   &:hover{
     cursor: pointer;
     background-color: color-variables.$tag-status-color-hover;

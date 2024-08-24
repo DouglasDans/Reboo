@@ -6,6 +6,7 @@
   background-color: color-variables.$text-primary-color;
   padding: global-sizes.$button-padding;
   border-radius: global-sizes.$button-radius;
+  width: fit-content;
 
   &:hover {
     background-color: color-variables.$button-primary-color-hover;
