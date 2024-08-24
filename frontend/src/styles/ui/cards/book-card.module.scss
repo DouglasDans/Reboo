@@ -1,0 +1,32 @@
+@use '../../color-variables';
+@use '../../global-sizes';
+
+.cardContainer{
+  height: 275px;
+
+  display: flex;
+  gap: global-sizes.$gap-items-size;
+
+  padding: global-sizes.$card-padding;
+  border-radius: global-sizes.$card-radius;
+
+  background: #9c0638;
+}
+
+.cardContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  height: 100%;
+
+  & div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.imageElement{
+  height: 100%;
+  border-radius: global-sizes.$book-cover-radius;
+}

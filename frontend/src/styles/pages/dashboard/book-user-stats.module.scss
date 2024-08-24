@@ -1,0 +1,7 @@
+@use '../../global-sizes';
+
+.bookUserStats {
+  display: grid;
+  grid-template-columns: 55% 1fr;
+  gap: global-sizes.$gap-items-size;
+}

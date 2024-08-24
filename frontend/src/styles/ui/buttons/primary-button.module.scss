@@ -4,9 +4,14 @@
 .button {
   border: 0;
   background-color: color-variables.$text-primary-color;
+  color: color-variables.$background-body-color;
   padding: global-sizes.$button-padding;
   border-radius: global-sizes.$button-radius;
   width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: global-sizes.$button-gap;
 
   &:hover {
     background-color: color-variables.$button-primary-color-hover;
