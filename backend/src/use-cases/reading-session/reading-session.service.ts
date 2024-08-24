@@ -3,12 +3,14 @@ import { ReadingSessionRepository } from 'src/core/repositories/reading-session.
 import { ReadingSessionFactoryService } from './reading-session.factory.service'
 import { ReadingSession } from 'src/core/entities'
 import { CreateReadingSessionDto, UpdateReadingSessionDto } from 'src/core/dtos'
+import { BookService } from '../book'
 
 @Injectable()
 export class ReadingSessionService {
   constructor(
     private readingSession: ReadingSessionRepository,
     private readingSessionFactory: ReadingSessionFactoryService,
+    private book: BookService,
   ) {}
 
   getAllReadingSessions(): Promise<ReadingSession[]> {
@@ -23,13 +25,25 @@ export class ReadingSessionService {
     return this.readingSession.findById(id, userId)
   }
 
-  createReadingSession(
+  async createReadingSession(
     createReadingSessionDto: CreateReadingSessionDto,
   ): Promise<ReadingSession> {
     const readingSession = this.readingSessionFactory.createNewReadingSession(
       createReadingSessionDto,
     )
-    return this.readingSession.create(readingSession)
+
+    const createdReadingSession =
+      await this.readingSession.create(readingSession)
+
+    const book = await this.book.getBookById(
+      createdReadingSession.bookId.toString(),
+    )
+
+    await this.book.updateBook(book.id.toString(), {
+      pagesRead: book.pagesRead + createdReadingSession.pagesRead,
+    })
+
+    return createdReadingSession
   }
 
   updateReadingSession(
