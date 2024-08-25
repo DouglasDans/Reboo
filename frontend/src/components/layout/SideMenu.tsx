@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "@/styles/layout/side-menu.module.scss"
+import styles from "./side-menu.module.scss"
 import Image from "next/image"
 import SideMenuNavLink from "./SideMenuNavLink"
 import { BarChartRounded, BookRounded, HomeRounded } from "@mui/icons-material"

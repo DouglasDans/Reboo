@@ -1,5 +1,6 @@
 import BookCard from '@/components/ui/cards/BookCard'
-import styles from '@/styles/pages/dashboard/book-user-stats.module.scss'
+import styles from './book-user-stats.module.scss'
+import StatisticCardsWrapper from './StatisticCardsWrapper'
 
 type Props = {}
 
@@ -7,7 +8,7 @@ export default function BookUserStats({ }: Props) {
   return (
     <section className={styles.bookUserStats}>
       <BookCard />
-      <div>dasndo</div>
+      <StatisticCardsWrapper />
     </section>
   )
 }

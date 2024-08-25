@@ -1,4 +1,4 @@
-import styles from "@/styles/pages/book/add/form-book.module.scss"
+import styles from "./form-book.module.scss"
 import BookInfo from "./BookInfo"
 import BookSituation from "./BookSituation"
 import postBook from "@/actions/book/postBook"

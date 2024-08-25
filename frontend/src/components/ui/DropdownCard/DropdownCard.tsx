@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useRef } from "react"
-import style from "@/styles/ui/dropdown-card/dropdown-card.module.scss"
+import style from "./dropdown-card.module.scss"
 
 type Props = {
   buttonIcon: React.ReactElement

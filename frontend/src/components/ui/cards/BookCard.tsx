@@ -1,4 +1,4 @@
-import styles from '@/styles/ui/cards/book-card.module.scss'
+import styles from './book-card.module.scss'
 import PrimaryButton from '../buttons/PrimaryButton'
 import { TimerRounded } from '@mui/icons-material'
 

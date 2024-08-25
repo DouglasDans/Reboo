@@ -1,4 +1,4 @@
-import styles from "@/styles/ui/forms/status-radio-button.module.scss"
+import styles from "./status-radio-button.module.scss"
 
 type Props = {
   type: "BUY" | "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED" | "GIVEN_UP"

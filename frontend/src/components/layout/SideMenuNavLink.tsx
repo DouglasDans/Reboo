@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import styles from "@/styles/layout/side-menu-nav-link.module.scss"
+import styles from "./side-menu-nav-link.module.scss"
 import { usePathname, useRouter } from "next/navigation"
 
 type Props = {

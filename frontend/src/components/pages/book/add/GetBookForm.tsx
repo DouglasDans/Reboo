@@ -3,7 +3,7 @@
 
 import PrimaryButton from "@/components/ui/buttons/PrimaryButton"
 import googleBooksApi from "@/services/GoogleBooksAPI/api"
-import styles from "@/styles/pages/book/add/get-book-form.module.scss"
+import styles from "./get-book-form.module.scss"
 import { APIResponse, GoogleAPIResponseBook } from "@/types/googleBooksApi"
 import { usePathname, useSearchParams } from "next/navigation"
 import { useRouter } from "next/navigation"

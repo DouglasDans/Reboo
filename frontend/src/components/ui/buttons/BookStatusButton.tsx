@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '@/styles/ui/buttons/book-status-button.module.scss'
+import styles from './book-status-button.module.scss'
 
 type Props = {
   type: "comprar" | "naoIniciado" | "andamento" | "concluido" | "desistiu",

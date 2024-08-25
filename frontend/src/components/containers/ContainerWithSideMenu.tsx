@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react"
 import SideMenu from "../layout/SideMenu"
-import style from "@/styles/containers/container-with-side-menu.module.scss"
+import style from "./container-with-side-menu.module.scss"
 
 export default function ContainerWithSideMenu({ children }: PropsWithChildren) {
   return (

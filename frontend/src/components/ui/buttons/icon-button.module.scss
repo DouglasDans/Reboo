@@ -1,5 +1,5 @@
-@use '../../color-variables';
-@use '../../global-sizes';
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
 
 .button {
   background-color: color-variables.$icon-dark-button-primary-color;

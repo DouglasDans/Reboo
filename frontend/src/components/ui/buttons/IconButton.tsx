@@ -1,4 +1,4 @@
-import styles from "@/styles/ui/buttons/icon-button.module.scss"
+import styles from "./icon-button.module.scss"
 
 type Props = {
   children: React.ReactNode

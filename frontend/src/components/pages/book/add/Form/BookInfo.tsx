@@ -1,7 +1,7 @@
 "use client"
 
 import { BookURLParamsContext } from "@/context/book/BookURLParamsProvider"
-import styles from "@/styles/pages/book/add/form-book-info.module.scss"
+import styles from "./form-book-info.module.scss"
 import { BookDTO } from "@/types/BookDTO"
 import { usePathname, useSearchParams } from "next/navigation"
 import { useRouter } from "next/navigation"

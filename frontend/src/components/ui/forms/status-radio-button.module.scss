@@ -1,20 +1,26 @@
-@use '../../color-variables';
-@use '../../global-sizes';
 
-.button {
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+.container{
+  display: flex;
+}
+
+.input{
+  display: none;
+  &:checked + .labelTag{
+    background-color: color-variables.$tag-status-color-active;
+  }
+}
+
+.labelTag {
   padding: global-sizes.$tag-status-padding;
   border: 1px solid;
   border-radius: global-sizes.$tag-status-radius;
   background-color: color-variables.$background-body-color;
-  width: fit-content;
-
+  
   &:hover{
     cursor: pointer;
     background-color: color-variables.$tag-status-color-hover;
-  }
-
-  &:active{
-    background-color: color-variables.$tag-status-color-active;
   }
 
   &.comprar {

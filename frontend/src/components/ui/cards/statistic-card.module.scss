@@ -1,0 +1,18 @@
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+
+.cardContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: color-variables.$background-level1-color;
+  padding: global-sizes.$card-padding;
+  border-radius: global-sizes.$card-radius;
+
+  font-weight: 600;
+
+  & .statNumber{
+    font-size: global-sizes.$font-h1-size;
+  }
+}

@@ -6,7 +6,7 @@ import {
   TimerRounded,
 } from "@mui/icons-material"
 import Link from "next/link"
-import styles from "@/styles/layout/header.module.scss"
+import styles from "./header.module.scss"
 
 type Props = {
   titlePage: string

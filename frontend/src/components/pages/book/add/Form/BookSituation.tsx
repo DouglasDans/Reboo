@@ -2,7 +2,7 @@
 
 import PrimaryButton from "@/components/ui/buttons/PrimaryButton"
 import StatusRadioButton from "@/components/ui/forms/StatusRadioButton"
-import styles from "@/styles/pages/book/add/form-book-situation.module.scss"
+import styles from "./form-book-situation.module.scss"
 
 export default function BookSituation() {
   return (
