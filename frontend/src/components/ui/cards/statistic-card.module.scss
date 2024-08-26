@@ -23,12 +23,20 @@
     }
   
     & .statNumber{
-      font-size: global-sizes.$font-h1-size;
       color: color-variables.$highlight-color;
+
+      & .mainNumber{
+        font-size: global-sizes.$font-h1-size;
+      }
     }
   }
 
   & .icon {
     color: color-variables.$text-secondary-color;
+    
+    & svg {
+      height: 30px;
+      width: 30px;
+    }
   }
 }
