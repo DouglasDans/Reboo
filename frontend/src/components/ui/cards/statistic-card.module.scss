@@ -3,16 +3,32 @@
 
 .cardContainer{
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
 
   background-color: color-variables.$background-level1-color;
   padding: global-sizes.$card-padding;
   border-radius: global-sizes.$card-radius;
 
-  font-weight: 600;
+  height: 130px;
+  
+  & .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-  & .statNumber{
-    font-size: global-sizes.$font-h1-size;
+    font-weight: 600;
+
+    & .cardTitle{
+      color: color-variables.$text-secondary-color;
+    }
+  
+    & .statNumber{
+      font-size: global-sizes.$font-h1-size;
+      color: color-variables.$highlight-color;
+    }
+  }
+
+  & .icon {
+    color: color-variables.$text-secondary-color;
   }
 }
