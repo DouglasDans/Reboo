@@ -16,7 +16,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    font-weight: 600;
+    font-weight: 600 !important;
 
     & .cardTitle{
       color: color-variables.$text-secondary-color;
@@ -27,6 +27,31 @@
 
       & .mainNumber{
         font-size: global-sizes.$font-h1-size;
+      }
+    }
+
+    & .goals{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      
+      & div {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.1rem;
+      }
+
+      & .goalIcon svg{
+        height: 16px;
+        width: 16px;
+      }
+
+      & .goalTrendUp {
+        color: color-variables.$trend-up-color;
+      }
+
+      & .goalTrendDown {
+        color: color-variables.$trend-down-color;
       }
     }
   }
