@@ -1,0 +1,29 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+.snackbar{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: global-sizes.$gap-items-size;
+
+  background-color: color-variables.$background-level2-color;
+  // border: 2px solid color-variables.$background-level1-color;
+
+  padding: global-sizes.$snackbar-padding;
+  margin: global-sizes.$gap-components-size;
+  border-radius: global-sizes.$card-radius;
+
+  z-index: -100;
+  opacity: 0;
+
+  transition: 200ms;
+  
+  &.active {
+    z-index: 100;
+    opacity: 1;
+    transition: 200ms;
+  }
+}

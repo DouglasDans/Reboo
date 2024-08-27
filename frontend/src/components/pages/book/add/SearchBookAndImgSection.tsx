@@ -22,7 +22,7 @@ export default function SearchBookAndImgSection() {
 
   const [coverImage, setCoverImage] = useState<string>(urlParams.imageLinks || "")
 
-  async function submitConverImage(e: React.FormEvent<HTMLFormElement>) {
+  async function submitCoverImage(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
     const params = new URLSearchParams(searchParams)
@@ -74,7 +74,7 @@ export default function SearchBookAndImgSection() {
             <form
               className={style.urlImageContainer}
               onSubmit={e => {
-                submitConverImage(e)
+                submitCoverImage(e)
               }}>
               <input
                 name={"coverImageInput"}

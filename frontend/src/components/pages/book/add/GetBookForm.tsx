@@ -8,11 +8,20 @@ import { APIResponse, GoogleAPIResponseBook } from "@/types/googleBooksApi"
 import { usePathname, useSearchParams } from "next/navigation"
 import { useRouter } from "next/navigation"
 import toStringISBN from "../../../../utils/isbnHandler"
+import { useState } from "react"
+import Snackbar from "@/components/ui/alerts/Snackbar"
 
 export default function GetBookForm() {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const { replace } = useRouter()
+  const [errorHandler, setErrorHandler] = useState<{ title: string, message: string } | null>()
+  const [snackbarHandler, setSnackbarHandler] = useState<boolean>(false)
+
+  function toggleSnackbar() {
+    setSnackbarHandler(true)
+    setTimeout(() => { setSnackbarHandler(false) }, 5000)
+  }
 
   async function getBookByISBN(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -21,9 +30,24 @@ export default function GetBookForm() {
     const rawIsbnNumber = isbnNumber.replace(/-/gi, "")
     const params = new URLSearchParams(searchParams)
 
+
     const apiResponse = (await googleBooksApi.get(
       "/volumes?q=isbn:" + rawIsbnNumber,
-    )) as APIResponse
+    )
+      .then((res) => { return res })
+      .catch((e) => {
+        setErrorHandler({
+          title: "Ocorreu um erro - Tente mais tarde",
+          message: e.message
+        })
+        toggleSnackbar()
+        return null
+      })) as APIResponse | null
+
+    if (!apiResponse) {
+      return null
+    }
+
 
     if (apiResponse.totalItems === 0) {
       return alert(
@@ -84,6 +108,7 @@ export default function GetBookForm() {
           <PrimaryButton>Pesquisar por informações</PrimaryButton>
         </div>
       </div>
+      {errorHandler ? <Snackbar title={errorHandler.title} message={errorHandler.message} open={snackbarHandler} /> : ""}
     </form>
   )
 }
