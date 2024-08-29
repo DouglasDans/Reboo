@@ -41,9 +41,8 @@
         gap: 0.1rem;
       }
 
-      & .goalIcon svg{
-        height: 16px;
-        width: 16px;
+      & .goalIcon span{
+        font-size: global-sizes.$font-sm-size;
       }
 
       & .goalTrendUp {
