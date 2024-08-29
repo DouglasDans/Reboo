@@ -1,12 +1,11 @@
-import { Book, TrendingUpRounded } from '@mui/icons-material'
 import styles from './statistic-card.module.scss'
-import { ReactNode } from 'react'
+import Icon from '@/components/icons/Icon'
 
 type Props = {
   title: string
   mainNumber: number
   mainSubtitle: string
-  cardIcon: ReactNode
+  cardIcon: string
   goals: {
     type: string
     value: number
@@ -14,6 +13,7 @@ type Props = {
   trends?: {
     trendUp: boolean
     trendValue: number
+    trendIcon: string
   }
 }
 
@@ -21,14 +21,15 @@ const obj = {
   title: "Páginas Lidas Hoje",
   mainNumber: 56,
   mainSubtitle: "Páginas",
-  cardIcon: <Book />,
+  cardIcon: "book",
   goals: {
     type: "Meta diária:",
     value: 10,
   },
   trends: {
     trendUp: true,
-    trendValue: 189
+    trendValue: 189,
+    trendIcon: "trending_up"
   }
 }
 
@@ -47,11 +48,8 @@ export default function StatisticCard(data: Props) {
         <div className={styles.goals}>
           {data.trends ?
             <div>
-              <div
-                className={styles.goalIcon + " " +
-                  (data.trends.trendUp ? styles.goalTrendUp : styles.goalTrendDown)}
-              >
-                <TrendingUpRounded />
+              <div className={styles.goalIcon + " " + (data.trends.trendUp ? styles.goalTrendUp : styles.goalTrendDown)}>
+                <Icon name={data.trends.trendIcon} />
               </div>
               <small className={styles.goalText + " " + (data.trends.trendUp ? styles.goalTrendUp : styles.goalTrendDown)}>{data.trends.trendValue}%</small>
             </div>
@@ -60,7 +58,7 @@ export default function StatisticCard(data: Props) {
         </div>
 
       </div>
-      <div className={styles.icon}>{data.cardIcon}</div>
+      <div className={styles.icon}><Icon name={data.cardIcon} /></div>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React from "react"
 import styles from "./side-menu.module.scss"
 import Image from "next/image"
 import SideMenuNavLink from "./SideMenuNavLink"
-import { BarChartRounded, BookRounded, HomeRounded } from "@mui/icons-material"
+import Icon from "../icons/Icon"
 
 export default function SideMenu() {
   return (
@@ -19,20 +19,20 @@ export default function SideMenu() {
       <div className={styles.navLinkWrapper}>
         <SideMenuNavLink
           href="/user"
-          icon={<HomeRounded />}
+          icon={<Icon name="home" />}
           exact
           title={"Dashboard"}
         />
         <SideMenuNavLink
           href={"/library"}
           exact
-          icon={<BookRounded />}
+          icon={<Icon name="book" />}
           title={"Minha Estante"}
         />
         <SideMenuNavLink
           href={"/stats"}
           exact
-          icon={<BarChartRounded />}
+          icon={<Icon name="bar_chart" />}
           title={"Estatísticas"}
         />
       </div>

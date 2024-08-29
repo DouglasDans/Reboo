@@ -1,12 +1,6 @@
-import {
-  AccountCircleRounded,
-  BookmarkAddRounded,
-  NotificationsRounded,
-  PersonRounded,
-  TimerRounded,
-} from "@mui/icons-material"
 import Link from "next/link"
 import styles from "./header.module.scss"
+import Icon from "../icons/Icon"
 
 type Props = {
   titlePage: string
@@ -19,16 +13,16 @@ export default function Header({ titlePage }: Props) {
 
       <div className={styles.shortcutsWrapper}>
         <Link href={"#"}>
-          <TimerRounded fontSize="large" />
+          <Icon name="timer_play" />
         </Link>
         <Link href={"/1/library/book/add"}>
-          <BookmarkAddRounded fontSize="large" />
+          <Icon name="bookmark_add" />
         </Link>
+        {/* <Link href={"#"}>
+          <Icon name="notifications" />
+        </Link> */}
         <Link href={"#"}>
-          <NotificationsRounded fontSize="large" />
-        </Link>
-        <Link href={"#"}>
-          <AccountCircleRounded fontSize="large" />
+          <Icon name="person" />
         </Link>
       </div>
     </div>

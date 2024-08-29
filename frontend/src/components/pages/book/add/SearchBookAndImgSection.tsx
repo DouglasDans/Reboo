@@ -1,6 +1,5 @@
 "use client"
 
-import { AddPhotoAlternateRounded, PaletteRounded } from "@mui/icons-material"
 import styles from "./search-book-and-img-section.module.scss"
 import GetBookForm from "./GetBookForm"
 import { useContext, useState } from "react"
@@ -12,6 +11,7 @@ import SecondaryButton from "@/components/ui/buttons/SecondaryButton"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import IconButton from "@/components/ui/buttons/IconButton"
 import verifyCoverImageURLIsValid from "@/utils/verifyCoverImageURLIsValid"
+import Icon from "@/components/icons/Icon"
 
 export default function SearchBookAndImgSection() {
   const urlParams = useContext(BookURLParamsContext) as GoogleAPIResponseBook
@@ -58,7 +58,7 @@ export default function SearchBookAndImgSection() {
           {/*<DropdownCard*/}
           {/*  buttonIcon={*/}
           {/*    <IconButton>*/}
-          {/*      <PaletteRounded />*/}
+          {/*      <Icon name="palette" />*/}
           {/*    </IconButton>*/}
           {/*  }>*/}
           {/*  <label>Adicionar Capa</label>*/}
@@ -67,7 +67,7 @@ export default function SearchBookAndImgSection() {
           <DropdownCard
             buttonIcon={
               <IconButton>
-                <AddPhotoAlternateRounded />
+                <Icon name="add_photo_alternate" />
               </IconButton>
             }>
             <label>Adicionar Capa</label>

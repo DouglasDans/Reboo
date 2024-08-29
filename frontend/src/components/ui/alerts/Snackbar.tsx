@@ -1,8 +1,8 @@
 'use client'
 
-import { InfoRounded } from '@mui/icons-material'
 import styles from './snackbar.module.scss'
 import React, { useEffect } from 'react';
+import Icon from '@/components/icons/Icon';
 
 type Props = {
   title: string
@@ -23,7 +23,7 @@ export default function Snackbar({ title, message, open }: Props) {
 
   return (
     <div className={styles.snackbar + " " + (isVisible ? styles.active : "")}>
-      <InfoRounded />
+      <Icon name='info' />
       <div className={styles.content}>
         <h6>{title}</h6>
         <small>{message}</small>
