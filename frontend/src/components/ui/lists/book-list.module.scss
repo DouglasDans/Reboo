@@ -1,0 +1,13 @@
+@use 'styles/global-sizes';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-size;
+
+  & .listContent{
+    display: flex;
+    justify-content: start;
+    gap: global-sizes.$gap-components-size;
+  }
+}
