@@ -15,6 +15,9 @@ export default function SideMenuNavLink({ title, icon, href, exact }: Props) {
   const pathname = usePathname()
   const isActive = exact ? pathname === href : pathname.startsWith(href)
 
+  console.log(pathname, href);
+
+
   return (
     <Link
       href={href}

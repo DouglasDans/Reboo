@@ -18,19 +18,19 @@ export default function SideMenu() {
 
       <div className={styles.navLinkWrapper}>
         <SideMenuNavLink
-          href="/user"
+          href="/1/"
           icon={<Icon name="home" />}
           exact
           title={"Dashboard"}
         />
         <SideMenuNavLink
-          href={"/library"}
+          href={"/1/library"}
           exact
           icon={<Icon name="book" />}
           title={"Minha Estante"}
         />
         <SideMenuNavLink
-          href={"/stats"}
+          href={"/1/stats"}
           exact
           icon={<Icon name="bar_chart" />}
           title={"Estatísticas"}
