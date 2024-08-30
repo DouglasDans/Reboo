@@ -1,6 +1,6 @@
 import styles from './book-card.module.scss'
 import PrimaryButton from '../buttons/PrimaryButton'
-import Icon from '@/components/icons/Icon'
+import Icon from '@/components/ui/icons/Icon'
 
 const obj = {
   title: "Harry Potter e a Câmara Secreta"

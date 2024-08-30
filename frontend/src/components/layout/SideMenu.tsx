@@ -2,7 +2,7 @@ import React from "react"
 import styles from "./side-menu.module.scss"
 import Image from "next/image"
 import SideMenuNavLink from "./SideMenuNavLink"
-import Icon from "../icons/Icon"
+import Icon from "../ui/icons/Icon"
 
 export default function SideMenu() {
   return (

@@ -11,7 +11,7 @@ import SecondaryButton from "@/components/ui/buttons/SecondaryButton"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import IconButton from "@/components/ui/buttons/IconButton"
 import verifyCoverImageURLIsValid from "@/utils/verifyCoverImageURLIsValid"
-import Icon from "@/components/icons/Icon"
+import Icon from "@/components/ui/icons/Icon"
 
 export default function SearchBookAndImgSection() {
   const urlParams = useContext(BookURLParamsContext) as GoogleAPIResponseBook

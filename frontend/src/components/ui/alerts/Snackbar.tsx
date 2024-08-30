@@ -2,7 +2,7 @@
 
 import styles from './snackbar.module.scss'
 import React, { useEffect } from 'react';
-import Icon from '@/components/icons/Icon';
+import Icon from '@/components/ui/icons/Icon';
 
 type Props = {
   title: string

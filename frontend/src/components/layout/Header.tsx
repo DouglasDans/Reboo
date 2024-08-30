@@ -1,6 +1,6 @@
 import Link from "next/link"
 import styles from "./header.module.scss"
-import Icon from "../icons/Icon"
+import Icon from "../ui/icons/Icon"
 
 type Props = {
   titlePage: string
