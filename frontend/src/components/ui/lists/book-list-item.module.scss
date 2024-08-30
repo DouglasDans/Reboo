@@ -5,6 +5,8 @@
   flex-direction: column;
   gap: 10px;
 
+  width: min-content;
+
   &:hover{
     cursor: pointer;
   }
@@ -20,7 +22,7 @@
 
   & .bookCoverInfo{
     & .authorName, & .bookTitle {
-      width: 100%;
+      width: auto;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;

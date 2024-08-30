@@ -1,8 +1,14 @@
 import styles from './book-list-item.module.scss'
 
-type Props = {}
+type Props = {
+  book: {
+    title: string
+    authors: string
+    imgSrc: string
+  }
+}
 
-export default function BookListItem({ }: Props) {
+export default function BookListItem({ book }: Props) {
   return (
     <div className={styles.content}>
       <div className={styles.bookCoverImage}>

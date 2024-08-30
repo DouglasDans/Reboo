@@ -17,6 +17,7 @@ export default function BookList({ }: Props) {
         <BookListItem />
         <BookListItem />
         <BookListItem />
+        <BookListItem />
       </div>
     </section>
   )
