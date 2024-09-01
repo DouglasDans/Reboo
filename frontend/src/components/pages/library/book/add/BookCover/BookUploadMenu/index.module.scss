@@ -1,0 +1,7 @@
+@use 'styles/global-sizes';
+
+.container{
+  display: flex;
+  gap: global-sizes.$gap-items-size;
+  flex-direction: column;
+}
