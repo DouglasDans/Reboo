@@ -178,8 +178,8 @@ export default function BookInfo() {
       </div>
 
       <input type={"text"} name={"bookUser"} value={1} />
-      <input type={"hidden"} name={"bookBackgroundColors"} value={""} />
-      <input type={"hidden"} name={"bookCoverImage"} value={urlParams.imageLinks} />
+      <input type={"text"} name={"bookCoverImage"} value={urlParams.imageLinks} />
+      <input type={"text"} name={"bookBacoundColors"} value={urlParams.highlightColor} />
     </div>
   )
 }

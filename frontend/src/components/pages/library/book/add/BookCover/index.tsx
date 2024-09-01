@@ -14,9 +14,9 @@ export default function BookCoverContainer() {
   return (
     <div className={styles.editImgContainer}>
       <div className={styles.dropdownButtonsContainer}>
-        {/* <DropdownMenuCard buttonIcon="palette">
-          <BookUploadCard />
-        </DropdownMenuCard> */}
+        {/* <DropdownCardMenu buttonIcon="palette">
+          olá
+        </DropdownCardMenu> */}
 
         <DropdownCardMenu buttonIcon="add_photo_alternate">
           <BookUploadMenu />

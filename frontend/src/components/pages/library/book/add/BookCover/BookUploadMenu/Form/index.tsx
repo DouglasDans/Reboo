@@ -5,7 +5,7 @@ import styles from './index.module.scss'
 import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
 import { GoogleAPIResponseBook } from '@/types/googleBooksApi'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import verifyCoverImageURLIsValid from './index.utils'
+import { getHighlightColorFromCoverImage, verifyCoverImageURLIsValid } from './index.utils'
 import Button from '@/components/ui/buttons/button'
 
 export default function BookUploadForm() {
@@ -21,13 +21,14 @@ export default function BookUploadForm() {
     e.preventDefault()
 
     const params = new URLSearchParams(searchParams)
-
     const urlImage = await verifyCoverImageURLIsValid(
       e.currentTarget.coverImageInput.value,
     )
 
-    if (typeof urlImage === "string") {
+    if (urlImage) {
+      const highlightColor = await getHighlightColorFromCoverImage(urlImage)
       params.set("imageLinks", urlImage)
+      params.set("highlightColor", highlightColor)
     } else {
       params.delete("imageLinks")
     }
