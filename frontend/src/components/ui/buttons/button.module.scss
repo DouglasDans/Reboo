@@ -1,0 +1,55 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+.button {
+  border-radius: global-sizes.$button-radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: global-sizes.$button-gap;
+  
+  &.primary{
+    border: 0;
+    background-color: color-variables.$button-primary-color;
+    color: color-variables.$background-body-color;
+
+    &:hover {
+      background-color: color-variables.$button-primary-color-hover;
+      cursor: pointer;
+    }
+  
+    &:active {
+      background-color: color-variables.$button-primary-color-active;
+    }
+  }
+
+  &.secondary{
+    background-color: color-variables.$button-secondary-color;
+    border: 1px solid color-variables.$button-secondary-border-color;
+    padding: global-sizes.$button-padding;
+    border-radius: global-sizes.$button-radius;
+    color: color-variables.$button-primary-color;
+
+    &:hover {
+      background-color: color-variables.$button-secondary-color-hover;
+      cursor: pointer;
+    }
+  
+    &:active {
+      background-color: color-variables.$button-secondary-color-active;
+    }
+  }
+
+  &.fixedWidth{
+    padding: 0;
+    min-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    max-width: 40px;
+  }
+
+  &.fitContentWidth{
+    width: fit-content;
+    padding: global-sizes.$button-padding;
+  }
+}
