@@ -1,10 +1,10 @@
 'use client'
 
 import styles from './form.module.scss'
-import PrimaryButton from "@/components/ui/buttons/PrimaryButton"
 import { googleBooksService } from "@/services/GoogleBooksAPI"
 import { formatISBN, setBookDataToParams } from './form.utils'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+import Button from '@/components/ui/buttons/button'
 
 export default function SearchBookForm() {
   const searchParams = useSearchParams()
@@ -40,7 +40,7 @@ export default function SearchBookForm() {
             id="searchISBN"
             name="searchISBN"
           />
-          <PrimaryButton>Pesquisar por informações</PrimaryButton>
+          <Button>Pesquisar por informações</Button>
         </div>
       </div>
     </form>

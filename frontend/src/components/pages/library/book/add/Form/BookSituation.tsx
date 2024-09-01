@@ -1,8 +1,8 @@
 "use client"
 
-import PrimaryButton from "@/components/ui/buttons/PrimaryButton"
 import StatusRadioButton from "@/components/ui/forms/StatusRadioButton"
 import styles from "./form-book-situation.module.scss"
+import Button from "@/components/ui/buttons/button"
 
 export default function BookSituation() {
   return (
@@ -43,7 +43,7 @@ export default function BookSituation() {
 
       <div className={styles.itemForm}>
         <label>Finalizar Cadastro</label>
-        <PrimaryButton>Cadastrar Livro</PrimaryButton>
+        <Button>Cadastrar Livro</Button>
       </div>
     </div>
   )
