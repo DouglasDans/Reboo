@@ -1,6 +1,6 @@
 import styles from './book-card.module.scss'
-import PrimaryButton from '../buttons/PrimaryButton'
 import Icon from '@/components/ui/icons/Icon'
+import Button from '../buttons/button'
 
 const obj = {
   title: "Harry Potter e a Câmara Secreta"
@@ -18,7 +18,7 @@ export default function BookCard() {
           <span>45% Concluído</span>
           <span>114 / 252 Páginas Lidas</span>
         </div>
-        <PrimaryButton startDecorator={<Icon name='timer_play' />}>Nova Sessão</PrimaryButton>
+        <Button startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
       </div>
       <img className={styles.imageElement} src="https://m.media-amazon.com/images/I/71NsVQ5MlwL._SL1151_.jpg" alt="" />
     </div >
