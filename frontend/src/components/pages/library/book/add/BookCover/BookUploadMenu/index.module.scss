@@ -2,6 +2,6 @@
 
 .container{
   display: flex;
-  gap: global-sizes.$gap-items-size;
+  gap: global-sizes.$gap-items-sm-size;
   flex-direction: column;
 }

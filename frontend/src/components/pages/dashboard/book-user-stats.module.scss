@@ -3,5 +3,5 @@
 .bookUserStats {
   display: grid;
   grid-template-columns: 50% 1fr;
-  gap: global-sizes.$gap-items-size;
+  gap: global-sizes.$gap-items-md-size;
 }
