@@ -16,7 +16,7 @@ export default function BookColorPickerMenu() {
   const { replace } = useRouter()
 
   const params = new URLSearchParams(searchParams)
-  const [color, setColor] = useState(urlParams.highlightColor && "#ffffff");
+  const [color, setColor] = useState(urlParams.highlightColor);
 
   useEffect(() => {
     if (color) {
