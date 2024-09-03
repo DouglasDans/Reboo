@@ -6,6 +6,7 @@ import { useContext } from 'react'
 import { GoogleAPIResponseBook } from '@/types/googleBooksApi'
 import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
 import BookUploadMenu from './BookUploadMenu'
+import BookColorPickerMenu from './BookColorPickerMenu'
 
 export default function BookCoverContainer() {
   const urlParams = useContext(BookURLParamsContext) as GoogleAPIResponseBook
@@ -14,9 +15,9 @@ export default function BookCoverContainer() {
   return (
     <div className={styles.editImgContainer}>
       <div className={styles.dropdownButtonsContainer}>
-        {/* <DropdownCardMenu buttonIcon="palette">
-          olá
-        </DropdownCardMenu> */}
+        <DropdownCardMenu buttonIcon="palette">
+          <BookColorPickerMenu />
+        </DropdownCardMenu>
 
         <DropdownCardMenu buttonIcon="add_photo_alternate">
           <BookUploadMenu />
