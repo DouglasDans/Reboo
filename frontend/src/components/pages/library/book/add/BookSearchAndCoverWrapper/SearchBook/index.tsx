@@ -1,5 +1,5 @@
-import styles from './container.module.scss'
-import SearchBookForm from './form'
+import styles from './index.module.scss'
+import SearchBookForm from './Form'
 
 export default function SearchBookContainer() {
   return (

@@ -1,8 +1,8 @@
 import BookCoverContainer from './BookCover'
-import styles from './search-book-and-cover-img.module.scss'
-import SearchBookContainer from './SearchBook/container'
+import styles from './index.module.scss'
+import SearchBookContainer from './SearchBook'
 
-export default function SearchBookAndCoverImageWrapper() {
+export default function BookSearchAndCoverWrapper() {
   return (
     <section className={styles.wrapperContainer}>
       <SearchBookContainer />

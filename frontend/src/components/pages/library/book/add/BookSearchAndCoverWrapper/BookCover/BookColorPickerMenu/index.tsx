@@ -9,7 +9,7 @@ import { HexColorPicker } from "react-colorful";
 import styles from './index.module.scss'
 
 export default function BookColorPickerMenu() {
-  const urlParams = useContext(BookURLParamsContext) as GoogleAPIResponseBook
+  const urlParams = useContext(BookURLParamsContext)
 
   const searchParams = useSearchParams()
   const pathname = usePathname()
