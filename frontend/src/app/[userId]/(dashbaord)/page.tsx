@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Dashboard() {
   return (
     <Fragment>
-      <Header titlePage="Dashboard" />
+      {/* <Header titlePage="Dashboard" /> */}
       <BookUserStats />
       <BookListWrapper />
     </Fragment>

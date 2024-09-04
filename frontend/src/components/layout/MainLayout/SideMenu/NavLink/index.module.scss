@@ -1,0 +1,39 @@
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+@use 'styles/fonts';
+
+.container {
+  text-decoration: none;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: global-sizes.$nav-link-radius-size;
+  cursor: pointer;
+
+  &.active {
+    background-color: color-variables.$background-level1-color;
+    color: color-variables.$highlight-color;
+  }
+
+  &:not(.active) {
+    color: color-variables.$text-tertiary-color;
+
+    &:hover {
+      background-color: color-variables.$background-level1-color;
+      color: color-variables.$text-primary-color !important;
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .span {
+    font-weight: 600;
+    font-size: 0.9rem;
+    @extend %font-family-poppins;
+  }
+}
