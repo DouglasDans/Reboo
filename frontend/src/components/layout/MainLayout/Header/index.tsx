@@ -1,15 +1,35 @@
+'use client'
+
 import Link from "next/link"
 import styles from "./index.module.scss"
 import Icon from "@/components/ui/icons/Icon"
+import { usePathname } from "next/navigation"
 
 type Props = {
-  titlePage: string
+  params: {
+    userId: number
+  }
 }
 
-export default function Header({ titlePage }: Props) {
+export default function Header({ params }: Props) {
+  const pathname = usePathname()
+
+  function getPageTitle(pathname: string) {
+    if (pathname === `/${params.userId}`) {
+      return "Dashboard"
+    } else {
+      if (pathname.includes(`/${params.userId}/library`)) {
+        return "Minha Estante"
+      }
+      if (pathname.includes(`/${params.userId}/stats`)) {
+        return "Estatísticas"
+      }
+    }
+  }
+
   return (
     <div className={styles.container}>
-      <h5>{titlePage}</h5>
+      <h5>{getPageTitle(pathname)}</h5>
 
       <div className={styles.shortcutsWrapper}>
         <Link href={"#"}>

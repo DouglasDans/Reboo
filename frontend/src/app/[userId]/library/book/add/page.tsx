@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default function page({ searchParams }: Params) {
   return (
     <BookURLParamsProvider value={searchParams}>
-      <Header titlePage="Minha Estante" />
       <BookSearchAndCoverWrapper />
       <BookEntryFormWrapper />
     </BookURLParamsProvider>
