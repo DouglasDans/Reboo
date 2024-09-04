@@ -1,10 +1,7 @@
 import StatisticCard from '@/components/ui/cards/StatisticCard'
-import styles from './statistic-cards-wrapper.module.scss'
+import styles from './index.module.scss'
 
-
-type Props = {}
-
-export default function StatisticCardsWrapper({ }: Props) {
+export default function StatsCardsWrapper() {
   return (
     <div className={styles.wrapperContainer}>
       <StatisticCard />
