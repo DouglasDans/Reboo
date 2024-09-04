@@ -74,7 +74,8 @@ export default function DetailsForm() {
           />
         </div>
 
-        <div className={styles.inputWrapperGrid}>
+        <div className={styles.subInputWrapper}>
+
           <div className={styles.input}>
             <label>Data de Publicação</label>
             <input
@@ -150,6 +151,7 @@ export default function DetailsForm() {
               required
             />
           </div>
+
         </div>
 
         <div className={styles.input}>
@@ -166,7 +168,7 @@ export default function DetailsForm() {
 
         <input type={"text"} name={"bookUser"} value={1} />
         <input type={"text"} name={"bookCoverImage"} value={urlParams.imageLinks} />
-        <input type={"text"} name={"bookBacoundColors"} value={urlParams.highlightColor} />
+        <input type={"text"} name={"bookHighlightColor"} value={urlParams.highlightColor} />
       </div>
     </div>
   )

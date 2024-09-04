@@ -2,14 +2,14 @@ export type BookData = {
   title: string
   subtitle: string
   authors: string
-  publisher: string
   publishedDate: string
-  description: string
-  industryIdentifiers: string
+  publisher: string
   pageCount: number
+  industryIdentifiers: string
   categories: string
   language: string
-  imageLinks: any
+  description: string
+  imageLinks: string
   highlightColor: string
   refreshForm?: boolean
 }

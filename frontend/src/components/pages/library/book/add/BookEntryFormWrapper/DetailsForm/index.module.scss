@@ -9,6 +9,12 @@
     display: flex;
     flex-direction: column;
     gap: global-sizes.$gap-items-md-size;
+    
+    & .subInputWrapper{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: global-sizes.$gap-items-md-size;
+    }
 
     & .input {
       display: flex;
