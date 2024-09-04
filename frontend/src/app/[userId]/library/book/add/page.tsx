@@ -4,7 +4,8 @@ import SearchBookAndImgSection from "@/components/pages/library/book/add/SearchB
 import { BookURLParamsProvider } from "@/context/book/BookURLParamsProvider"
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher"
 import { Metadata } from "next"
-import SearchBookAndCoverImageWrapper from "@/components/pages/library/book/add/SearchBookAndCoverImageWrapper"
+import BookSearchAndCoverWrapper from "@/components/pages/library/book/add/BookSearchAndCoverWrapper"
+import BookEntryFormWrapper from "@/components/pages/library/book/add/BookEntryFormWrapper"
 
 export const metadata: Metadata = {
   title: "Adicionar Novo Livro",
@@ -14,8 +15,8 @@ export default function page({ searchParams }: Params) {
   return (
     <BookURLParamsProvider value={searchParams}>
       <Header titlePage="Minha Estante" />
-      <SearchBookAndCoverImageWrapper />
-      <FormBookSection />
+      <BookSearchAndCoverWrapper />
+      <BookEntryFormWrapper />
     </BookURLParamsProvider>
   )
 }
