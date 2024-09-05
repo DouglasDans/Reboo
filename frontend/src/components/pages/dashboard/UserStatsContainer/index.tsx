@@ -1,4 +1,4 @@
-import BookCard from '@/components/ui/cards/BookCard'
+import BookCard from '@/components/ui/Cards/BookCard'
 import styles from './index.module.scss'
 import StatsCardsWrapper from './StatsCardsWrapper'
 
