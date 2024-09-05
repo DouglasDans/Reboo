@@ -7,6 +7,12 @@ import { Injectable } from '@nestjs/common'
 export class PrismaBookRepository implements BookRepository {
   constructor(private prisma: PrismaService) {}
 
+  async countAll(userId: number): Promise<number> {
+    return await this.prisma.book.count({
+      where: { userId },
+    })
+  }
+
   async create(item: Book): Promise<Book> {
     return await this.prisma.book.create({
       data: {

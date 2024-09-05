@@ -1,6 +1,8 @@
 import { Book } from '../entities'
 
 export abstract class BookRepository {
+  abstract countAll(userId: number): Promise<number>
+
   abstract findAllByUserId(userId: number): Promise<Book[]>
 
   abstract findById(id: number): Promise<Book>
