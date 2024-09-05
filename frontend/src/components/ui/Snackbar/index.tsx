@@ -1,6 +1,6 @@
 'use client'
 
-import styles from './snackbar.module.scss'
+import styles from './index.module.scss'
 import React, { useEffect } from 'react';
 import Icon from '@/components/ui/icons/Icon';
 
