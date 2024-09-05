@@ -1,4 +1,4 @@
-import styles from './statistic-card.module.scss'
+import styles from './index.module.scss'
 import Icon from '@/components/ui/Icon'
 
 type Props = {
@@ -33,7 +33,7 @@ const obj = {
   }
 }
 
-export default function StatisticCard(data: Props) {
+export default function UserStatsCard(data: Props) {
   data = obj
   return (
     <div className={styles.cardContainer}>

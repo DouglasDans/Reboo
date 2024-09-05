@@ -1,13 +1,13 @@
-import StatisticCard from '@/components/ui/Cards/StatisticCard'
+import UserStatsCard from '@/components/ui/Cards/UserStatsCard'
 import styles from './index.module.scss'
 
 export default function StatsCardsWrapper() {
   return (
     <div className={styles.wrapperContainer}>
-      <StatisticCard />
-      <StatisticCard />
-      <StatisticCard />
-      <StatisticCard />
+      <UserStatsCard />
+      <UserStatsCard />
+      <UserStatsCard />
+      <UserStatsCard />
     </div>
   )
 }
