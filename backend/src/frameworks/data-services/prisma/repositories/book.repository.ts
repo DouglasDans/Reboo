@@ -2,6 +2,7 @@ import { BookRepository } from 'src/core/repositories'
 import { PrismaService } from '../prisma.service'
 import { Book } from 'src/core/entities'
 import { Injectable } from '@nestjs/common'
+import { BookStatus } from 'src/core/enums'
 
 @Injectable()
 export class PrismaBookRepository implements BookRepository {
@@ -50,6 +51,14 @@ export class PrismaBookRepository implements BookRepository {
   findByTitle(title: string): Promise<Book> {
     return this.prisma.book.findFirst({
       where: { title },
+    })
+  }
+
+  findAllByBookStatus(userId: number, status: BookStatus): Promise<Book[]> {
+    return this.prisma.book.findMany({
+      where: {
+        status,
+      },
     })
   }
 
