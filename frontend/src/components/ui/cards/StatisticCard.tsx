@@ -1,5 +1,5 @@
 import styles from './statistic-card.module.scss'
-import Icon from '@/components/ui/icons/Icon'
+import Icon from '@/components/ui/Icon'
 
 type Props = {
   title: string

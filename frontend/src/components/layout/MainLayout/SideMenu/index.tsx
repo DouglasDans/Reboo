@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./index.module.scss"
 import Image from "next/image"
-import Icon from "@/components/ui/icons/Icon"
+import Icon from "@/components/ui/Icon"
 import NavLink from "./NavLink"
 
 export default function SideMenu() {

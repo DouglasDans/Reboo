@@ -1,5 +1,5 @@
 import styles from './book-card.module.scss'
-import Icon from '@/components/ui/icons/Icon'
+import Icon from '@/components/ui/Icon'
 import Button from '../buttons/button'
 
 const obj = {

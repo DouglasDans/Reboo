@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import styles from "./index.module.scss"
-import Icon from "@/components/ui/icons/Icon"
+import Icon from "@/components/ui/Icon"
 import { usePathname } from "next/navigation"
 
 type Props = {

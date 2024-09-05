@@ -2,7 +2,7 @@
 
 import styles from './index.module.scss'
 import React, { useEffect } from 'react';
-import Icon from '@/components/ui/icons/Icon';
+import Icon from '@/components/ui/Icon';
 
 type Props = {
   title: string

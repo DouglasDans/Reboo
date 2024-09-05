@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react"
 import style from "./index.module.scss"
-import Icon from "../icons/Icon"
+import Icon from "../Icon"
 import Button from "../buttons/button"
 
 type Props = {
