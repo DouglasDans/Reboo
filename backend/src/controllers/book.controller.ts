@@ -9,6 +9,7 @@ import {
   Query,
 } from '@nestjs/common'
 import { CreateBookDto, UpdateBookDto } from 'src/core/dtos'
+import { BookQueryParams } from 'src/core/pipes/book.pipes'
 import { BookService } from 'src/use-cases/book'
 
 @Controller('api/v1/book')
@@ -21,7 +22,12 @@ export class BookController {
   }
 
   @Get()
-  findAll(@Query('userId') userId: string, @Query('select') select: string) {
+  findAll(@Query() bookQueryParams: BookQueryParams) {
+    const { userId, select, status } = bookQueryParams
+
+    if (status) {
+      return this.bookUseCases.getAllByBookStatus(userId, status)
+    }
     return this.bookUseCases.getAll(userId, select)
   }
 

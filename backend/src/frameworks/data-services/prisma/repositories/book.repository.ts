@@ -86,7 +86,14 @@ export class PrismaBookRepository implements BookRepository {
   findAllByBookStatus(userId: number, status: BookStatus): Promise<Book[]> {
     return this.prisma.book.findMany({
       where: {
+        userId,
         status,
+      },
+      orderBy: { updatedAt: 'asc' },
+      include: {
+        authors: {
+          select: { author: true },
+        },
       },
     })
   }

@@ -7,6 +7,7 @@ import { PublisherService } from '../publisher'
 import { BookCategoryService } from '../book-category'
 import { BookAuthorService } from '../book-author'
 import { BookCollectionService } from '../book-collection'
+import { BookStatus } from 'src/core/enums'
 
 @Injectable()
 export class BookService {
@@ -27,6 +28,10 @@ export class BookService {
 
   getAllBooksByUserId(userId: string): Promise<Book[]> {
     return this.book.findAllByUserId(parseInt(userId))
+  }
+
+  getAllByBookStatus(userId: string, status: BookStatus) {
+    return this.book.findAllByBookStatus(parseInt(userId), status)
   }
 
   getBookById(id: string): Promise<Book> {
