@@ -1,3 +1,4 @@
+import { rebooApiService } from "@/services/rebooAPI"
 import api from "@/services/rebooAPI/api.config"
 
 export default async function postBook(formData: FormData) {
@@ -9,7 +10,7 @@ export default async function postBook(formData: FormData) {
     pagesRead: Number.parseInt(formData.get("bookReadPages") as string),
     publisher: formData.get("bookPublisher") as string,
     status: formData.get("bookStatus") as string,
-    backgroundColors: formData.get("bookBackgroundColors") as string,
+    highlightColor: formData.get("bookHighlightColor") as string,
     coverImage: formData.get("bookCoverImage") as string,
     language: formData.get("bookLanguage") as string,
     userId: Number.parseInt(formData.get("bookUser") as string),
@@ -42,5 +43,5 @@ export default async function postBook(formData: FormData) {
       .split(",") as Array<string>,
   }
 
-  await api.post("/book", bookData)
+  await rebooApiService.createBook(bookData)
 }

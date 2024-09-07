@@ -18,3 +18,7 @@ export async function getFirstBookByBookStatus(
 ): Promise<Book> {
   return await api.get(`book?userId=${userId}&status=${status}&onlyFirst=true`)
 }
+
+export async function createBook(bookData: any) {
+  return await api.post("/book", bookData)
+}

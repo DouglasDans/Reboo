@@ -166,9 +166,9 @@ export default function DetailsForm() {
           />
         </div>
 
-        <input type={"text"} name={"bookUser"} value={1} />
-        <input type={"text"} name={"bookCoverImage"} value={urlParams.imageLinks} />
-        <input type={"text"} name={"bookHighlightColor"} value={urlParams.highlightColor} />
+        <input type={"hidden"} name={"bookUser"} value={1} />
+        <input type={"hidden"} name={"bookCoverImage"} value={urlParams.imageLinks} />
+        <input type={"hidden"} name={"bookHighlightColor"} value={urlParams.highlightColor} />
       </div>
     </div>
   )
