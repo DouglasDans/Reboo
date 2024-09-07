@@ -1,1 +1,1 @@
-export * from './bookStatus.enum'
+export * from './book.enum'

@@ -4,6 +4,8 @@ import { BookStatus } from '../enums'
 export abstract class BookRepository {
   abstract countAll(userId: number): Promise<number>
 
+  abstract findAll(userID: number, select: Array<string>): Promise<Book[]>
+
   abstract findAllByUserId(userId: number): Promise<Book[]>
 
   abstract findById(id: number): Promise<Book>

@@ -21,8 +21,8 @@ export class BookController {
   }
 
   @Get()
-  findAll(@Query('userId') userId: string) {
-    return this.bookUseCases.getAllBooksByUserId(userId)
+  findAll(@Query('userId') userId: string, @Query('select') select: string) {
+    return this.bookUseCases.getAll(userId, select)
   }
 
   @Get(':id')

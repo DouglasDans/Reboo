@@ -8,6 +8,7 @@ import {
 } from 'class-validator'
 import { BookStatus, BookStatusEnum } from '../enums'
 import { PartialType } from '@nestjs/mapped-types'
+import { Author, Book } from '../entities'
 
 export class CreateBookDto {
   @IsString()

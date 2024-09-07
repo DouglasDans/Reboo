@@ -19,6 +19,12 @@ export class BookService {
     private publisherUseCases: PublisherService,
   ) {}
 
+  getAll(userId: string, select: string): Promise<Book[]> {
+    const arrSelect = select ? select.split(',') : []
+
+    return this.book.findAll(parseInt(userId), arrSelect)
+  }
+
   getAllBooksByUserId(userId: string): Promise<Book[]> {
     return this.book.findAllByUserId(parseInt(userId))
   }

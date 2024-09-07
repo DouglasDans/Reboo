@@ -34,6 +34,35 @@ export class PrismaBookRepository implements BookRepository {
     })
   }
 
+  async findAll(userId: number, select: Array<string>): Promise<Book[]> {
+    const includeFields = select.reduce(
+      (newObj: Record<string, object | boolean>, selectValue: string) => {
+        if (selectValue === 'authors') {
+          newObj['authors'] = {
+            select: { author: true },
+          }
+        }
+        if (selectValue === 'categories') {
+          newObj[selectValue] = {
+            select: { category: true },
+          }
+        }
+        if (selectValue === 'publisher') {
+          newObj[selectValue] = true
+        }
+        return newObj
+      },
+      {},
+    )
+
+    return await this.prisma.book.findMany({
+      where: {
+        userId,
+      },
+      include: includeFields,
+    })
+  }
+
   findAllByUserId(userId: number): Promise<Book[]> {
     return this.prisma.book.findMany({
       where: {
