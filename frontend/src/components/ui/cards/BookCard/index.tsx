@@ -1,26 +1,29 @@
 import styles from './index.module.scss'
 import Icon from '@/components/ui/Icon'
 import Button from '../../buttons/button'
+import { Book } from '@/services/rebooAPI/api.types'
 
-const obj = {
-  title: "Harry Potter e a Câmara Secreta"
+type Props = {
+  book: Book
 }
 
-export default function BookCard() {
+export default function BookCard({ book }: Props) {
+  const percentPages: number = (book.pagesRead / book.totalPages) * 100
+
   return (
-    <div className={styles.cardContainer}>
-      <div className={styles.cardContent}>
+    <div className={styles.cardContainer} style={{ backgroundColor: book.highlightColor }}>
+      <div className={styles.cardContent} >
         <div>
           <span>Leitura mais recente</span>
-          <h4>{obj.title}</h4>
+          <h4>{book.title}</h4>
         </div>
         <div>
-          <span>45% Concluído</span>
-          <span>114 / 252 Páginas Lidas</span>
+          <span>{percentPages.toFixed(0)}% Concluído</span>
+          <span>{book.pagesRead} / {book.totalPages} Páginas Lidas</span>
         </div>
         <Button startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
       </div>
-      <img className={styles.imageElement} src="https://m.media-amazon.com/images/I/71NsVQ5MlwL._SL1151_.jpg" alt="" />
+      <img className={styles.imageElement} src={book.coverImage ? book.coverImage : "/book-image-placeholder.png"} alt="" />
     </div >
   )
 }

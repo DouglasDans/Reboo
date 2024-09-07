@@ -11,3 +11,10 @@ export async function getAllBooksByBookStatus(
 ): Promise<Book[]> {
   return await api.get(`book?userId=${userId}&status=${status}`)
 }
+
+export async function getFirstBookByBookStatus(
+  userId: number,
+  status: string,
+): Promise<Book> {
+  return await api.get(`book?userId=${userId}&status=${status}&onlyFirst=true`)
+}

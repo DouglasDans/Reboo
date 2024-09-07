@@ -5,12 +5,6 @@ type Props = {
   book: Book
 }
 
-// const placeholderBook = {
-//   title: "Sem Título",
-//   authors: "Autor indefinido",
-//   coverImage: "/book-image-placeholder.png"
-// }
-
 export default function BookListItem({ book }: Props) {
   return (
     <div className={styles.content}>
