@@ -83,7 +83,25 @@ export class PrismaBookRepository implements BookRepository {
     })
   }
 
-  findAllByBookStatus(userId: number, status: BookStatus): Promise<Book[]> {
+  findAllByBookStatus(
+    userId: number,
+    status: BookStatus,
+    onlyFirst: boolean,
+  ): Promise<Book[] | Book> {
+    if (onlyFirst) {
+      return this.prisma.book.findFirst({
+        where: {
+          userId,
+          status,
+        },
+        orderBy: { updatedAt: 'asc' },
+        include: {
+          authors: {
+            select: { author: true },
+          },
+        },
+      })
+    }
     return this.prisma.book.findMany({
       where: {
         userId,

@@ -23,10 +23,10 @@ export class BookController {
 
   @Get()
   findAll(@Query() bookQueryParams: BookQueryParams) {
-    const { userId, select, status } = bookQueryParams
+    const { onlyFirst, userId, select, status } = bookQueryParams
 
     if (status) {
-      return this.bookUseCases.getAllByBookStatus(userId, status)
+      return this.bookUseCases.getAllByBookStatus(userId, status, onlyFirst)
     }
     return this.bookUseCases.getAll(userId, select)
   }

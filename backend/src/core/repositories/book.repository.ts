@@ -15,7 +15,8 @@ export abstract class BookRepository {
   abstract findAllByBookStatus(
     userId: number,
     status: BookStatus,
-  ): Promise<Book[]>
+    onlyFirst: boolean,
+  ): Promise<Book[] | Book>
 
   abstract create(item: Book): Promise<Book>
 

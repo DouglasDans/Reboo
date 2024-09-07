@@ -30,8 +30,12 @@ export class BookService {
     return this.book.findAllByUserId(parseInt(userId))
   }
 
-  getAllByBookStatus(userId: string, status: BookStatus) {
-    return this.book.findAllByBookStatus(parseInt(userId), status)
+  getAllByBookStatus(
+    userId: string,
+    status: BookStatus,
+    findFirst: boolean,
+  ): Promise<Book[] | Book> {
+    return this.book.findAllByBookStatus(parseInt(userId), status, findFirst)
   }
 
   getBookById(id: string): Promise<Book> {
