@@ -15,7 +15,7 @@ export class BookFactoryService {
     book.description = createBookDto.description
     book.status = createBookDto.status
     book.coverImage = createBookDto.coverImage || null
-    book.backgroundColors = createBookDto.backgroundColors || '#550C77,#7C0DBB'
+    book.highlightColor = createBookDto.highlightColor || null
     book.language = createBookDto.language
     book.userId = createBookDto.userId
     book.publisherId = createBookDto.publisherId
@@ -32,7 +32,7 @@ export class BookFactoryService {
     book.description = updateBookDto.description
     book.status = updateBookDto.status
     book.coverImage = updateBookDto.coverImage
-    book.backgroundColors = updateBookDto.backgroundColors
+    book.highlightColor = updateBookDto.highlightColor
     book.language = updateBookDto.language
 
     return book

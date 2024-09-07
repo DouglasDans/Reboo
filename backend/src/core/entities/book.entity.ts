@@ -13,7 +13,7 @@ export class Book {
   description: string
   status: BookStatus
   coverImage: string
-  backgroundColors: string
+  highlightColor: string
   language: string
   createdAt: Date
   updatedAt: Date

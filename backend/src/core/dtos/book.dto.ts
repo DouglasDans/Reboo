@@ -41,7 +41,7 @@ export class CreateBookDto {
 
   @IsString()
   @IsOptional()
-  backgroundColors: string
+  highlightColor: string
 
   @IsString()
   language: string
