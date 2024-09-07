@@ -1,11 +1,11 @@
 import axios, { AxiosError, AxiosResponse } from "axios"
 
-const rebooAPI = axios.create({
+const api = axios.create({
   baseURL: process.env.REBOO_API_URL,
 })
 
 // Interceptores de requisição
-rebooAPI.interceptors.request.use(
+api.interceptors.request.use(
   config => {
     // Você pode adicionar headers aqui, por exemplo, token de autenticação
     // const token = localStorage.getItem('token');
@@ -20,7 +20,7 @@ rebooAPI.interceptors.request.use(
 )
 
 // Interceptores de resposta
-rebooAPI.interceptors.response.use(
+api.interceptors.response.use(
   (response: AxiosResponse) => {
     return response.data
   },
@@ -30,4 +30,4 @@ rebooAPI.interceptors.response.use(
   },
 )
 
-export default rebooAPI
+export default api

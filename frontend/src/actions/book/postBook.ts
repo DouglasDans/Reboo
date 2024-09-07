@@ -1,4 +1,4 @@
-import rebooAPI from "@/services/rebooAPI/api"
+import api from "@/services/rebooAPI/api.config"
 
 export default async function postBook(formData: FormData) {
   "use server"
@@ -42,5 +42,5 @@ export default async function postBook(formData: FormData) {
       .split(",") as Array<string>,
   }
 
-  await rebooAPI.post("/book", bookData)
+  await api.post("/book", bookData)
 }
