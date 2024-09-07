@@ -1,5 +1,6 @@
 import { Author, Collection, Publisher, ReadingSession, User } from '.'
 import { BookStatus } from '../enums'
+import { Category } from './category.entity'
 
 export class Book {
   id: number
@@ -21,7 +22,8 @@ export class Book {
 
   publisher?: Publisher
   user?: User
-  authors?: Array<Author>
+  authors?: Array<{ author: Author }>
+  categories?: Array<{ category: Category }>
   collections?: Array<Collection>
   readingSessions?: Array<ReadingSession>
 }
