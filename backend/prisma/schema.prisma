@@ -77,7 +77,7 @@ model Book {
   description      String
   status           BookStatus @default(NOT_STARTED)
   coverImage       String?
-  backgroundColors String?
+  highlightColor   String?
   language         String
   createdAt        DateTime   @default(now())
   updatedAt        DateTime   @updatedAt
