@@ -6,8 +6,8 @@ type Props = {
   startDecorator?: ReactNode
   endDecorator?: ReactNode
   variant?: "primary" | "secondary"
+  textColor?: string | null
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-
 }
 
 export default function Button({
@@ -15,11 +15,17 @@ export default function Button({
   startDecorator,
   endDecorator,
   variant = "primary",
+  textColor,
   onClick
 }: Props) {
+
+  console.log(textColor);
+
+
   return (
     <button
       className={`${styles.button} ${styles[variant]} ${!children ? (styles.fixedWidth) : (styles.fitContentWidth)}`}
+      style={{ color: `${variant === 'primary' && textColor !== null ? textColor : ''}` }}
       onClick={onClick}
     >
       {startDecorator}
