@@ -4,24 +4,22 @@ import Link from "next/link"
 import styles from "./index.module.scss"
 import Icon from "@/components/ui/Icon"
 import { usePathname } from "next/navigation"
+import { useContext } from "react"
+import { UserIdContext } from "@/context/user/UserIdProvider"
 
-type Props = {
-  params: {
-    userId: number
-  }
-}
 
-export default function Header({ params }: Props) {
+export default function Header() {
+  const userId = useContext(UserIdContext)
   const pathname = usePathname()
 
   function getPageTitle(pathname: string) {
-    if (pathname === `/${params.userId}`) {
+    if (pathname === `/${userId}`) {
       return "Dashboard"
     } else {
-      if (pathname.includes(`/${params.userId}/library`)) {
+      if (pathname.includes(`/${userId}/library`)) {
         return "Minha Estante"
       }
-      if (pathname.includes(`/${params.userId}/stats`)) {
+      if (pathname.includes(`/${userId}/stats`)) {
         return "Estatísticas"
       }
     }

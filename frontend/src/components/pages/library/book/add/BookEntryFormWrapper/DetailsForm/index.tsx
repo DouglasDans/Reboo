@@ -5,9 +5,11 @@ import { BookData } from './index.types'
 import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import styles from './index.module.scss'
+import { UserIdContext } from '@/context/user/UserIdProvider';
 
 export default function DetailsForm() {
   const urlParams = useContext(BookURLParamsContext) as BookData
+  const userId = useContext(UserIdContext) as number
 
   const searchParams = useSearchParams()
   const pathname = usePathname()
@@ -166,7 +168,7 @@ export default function DetailsForm() {
           />
         </div>
 
-        <input type={"hidden"} name={"bookUser"} value={1} />
+        <input type={"text"} name={"bookUser"} value={userId} />
         <input type={"hidden"} name={"bookCoverImage"} value={urlParams.imageLinks} />
         <input type={"hidden"} name={"bookHighlightColor"} value={urlParams.highlightColor} />
       </div>

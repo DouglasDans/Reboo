@@ -1,5 +1,4 @@
 import { rebooApiService } from "@/services/rebooAPI"
-import api from "@/services/rebooAPI/api.config"
 
 export default async function postBook(formData: FormData) {
   "use server"

@@ -6,18 +6,15 @@ import Header from "./Header"
 
 type Props = {
   children: ReactNode
-  params: {
-    userId: number
-  }
 }
 
-export default function MainLayout({ children, params }: Props) {
+export default function MainLayout({ children }: Props) {
   return (
     <Fragment>
       <SideMenu />
       <div className={styles.container}>
         <div className={styles.content}>
-          <Header params={params} />
+          <Header />
           <ContentContainer>
             {children}
           </ContentContainer>

@@ -1,4 +1,5 @@
 import MainLayout from "@/components/layout/MainLayout"
+import { UserIdProvider } from "@/context/user/UserIdProvider"
 import { ReactNode } from "react"
 
 type Props = {
@@ -10,8 +11,10 @@ type Props = {
 
 export default function Layout({ children, params }: Props) {
   return (
-    <MainLayout params={params}>
-      {children}
-    </MainLayout>
+    <UserIdProvider value={params.userId}>
+      <MainLayout>
+        {children}
+      </MainLayout>
+    </UserIdProvider>
   )
 }
