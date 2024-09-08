@@ -8,12 +8,11 @@ type Props = {
   title: string
   icon: any
   href: string
-  exact: boolean
 }
 
-export default function NavLink({ title, icon, href, exact }: Props) {
+export default function NavLink({ title, icon, href }: Props) {
   const pathname = usePathname()
-  const isActive = exact ? pathname === href : pathname.startsWith(href)
+  const isActive: boolean = pathname.includes(href) ? true : false
 
   return (
     <Link

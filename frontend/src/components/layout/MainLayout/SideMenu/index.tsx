@@ -1,10 +1,19 @@
-import React from "react"
+'use client'
+
+import React, { useContext } from "react"
 import styles from "./index.module.scss"
 import Image from "next/image"
 import Icon from "@/components/ui/Icon"
 import NavLink from "./NavLink"
+import { UserIdContext } from "@/context/user/UserIdProvider"
+import { usePathname } from "next/navigation"
 
 export default function SideMenu() {
+  const userId = useContext(UserIdContext) as number
+
+  const pathname = usePathname()
+  // const isActive = pathname.includes(href) ? true : false
+
   return (
     <div className={styles.container}>
       <div>
@@ -18,20 +27,17 @@ export default function SideMenu() {
 
       <div className={styles.navLinkWrapper}>
         <NavLink
-          href="/1/"
+          href={`/${userId}/dashboard`}
           icon={<Icon name="home" />}
-          exact
           title={"Dashboard"}
         />
         <NavLink
-          href={"/1/library"}
-          exact
+          href={`/${userId}/library`}
           icon={<Icon name="book" />}
           title={"Minha Estante"}
         />
         <NavLink
-          href={"/1/stats"}
-          exact
+          href={`/${userId}/stats`}
           icon={<Icon name="bar_chart" />}
           title={"Estatísticas"}
         />
