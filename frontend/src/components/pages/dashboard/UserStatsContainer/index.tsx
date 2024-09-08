@@ -3,8 +3,14 @@ import styles from './index.module.scss'
 import StatsCardsWrapper from './StatsCardsWrapper'
 import { getFirstBookByBookStatus } from '@/services/rebooAPI/api.services'
 
-export default async function UserStatsContainer() {
-  const mostRecentInProgressBook = await getFirstBookByBookStatus(1, "IN_PROGRESS")
+type Props = {
+  params: {
+    userId: number
+  }
+}
+
+export default async function UserStatsContainer({ params }: Props) {
+  const mostRecentInProgressBook = await getFirstBookByBookStatus(params.userId, "IN_PROGRESS")
 
   return (
     <section className={styles.container}>

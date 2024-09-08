@@ -7,11 +7,17 @@ export const metadata: Metadata = {
   title: "Dashboard",
 }
 
-export default function Dashboard() {
+type Props = {
+  params: {
+    userId: number
+  }
+}
+
+export default function Dashboard({ params }: Props) {
   return (
     <Fragment>
-      <UserStatsContainer />
-      <BookListWrapper />
+      <UserStatsContainer params={params} />
+      <BookListWrapper params={params} />
     </Fragment>
   )
 }
