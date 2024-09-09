@@ -19,9 +19,6 @@ export default function Button({
   onClick
 }: Props) {
 
-  console.log(textColor);
-
-
   return (
     <button
       className={`${styles.button} ${styles[variant]} ${!children ? (styles.fixedWidth) : (styles.fitContentWidth)}`}

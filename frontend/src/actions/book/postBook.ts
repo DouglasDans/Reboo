@@ -1,4 +1,5 @@
 import { rebooApiService } from "@/services/rebooAPI"
+import { redirect } from "next/navigation"
 
 export default async function postBook(formData: FormData) {
   "use server"
@@ -42,5 +43,7 @@ export default async function postBook(formData: FormData) {
       .split(",") as Array<string>,
   }
 
-  await rebooApiService.createBook(bookData)
+  const book = await rebooApiService.createBook(bookData)
+
+  redirect("../../library/book/" + book.id)
 }
