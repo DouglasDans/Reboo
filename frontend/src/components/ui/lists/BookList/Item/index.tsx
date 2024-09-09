@@ -1,5 +1,6 @@
 import { Book } from '@/services/rebooAPI/api.types'
 import styles from './index.module.scss'
+import Link from 'next/link'
 
 type Props = {
   book: Book
@@ -7,7 +8,7 @@ type Props = {
 
 export default function BookListItem({ book }: Props) {
   return (
-    <div className={styles.content}>
+    <Link href={`./library/book/${book.id}`} className={styles.content}>
       <div className={styles.bookCoverImage}>
         <img className={styles.coverImage} src={book.coverImage ? book.coverImage : "/book-image-placeholder.png"} alt="" />
       </div>
@@ -15,6 +16,6 @@ export default function BookListItem({ book }: Props) {
         <small className={styles.authorName}>{book.authors[0].author?.name}</small>
         <h6 className={styles.bookTitle}>{book.title}</h6>
       </div>
-    </div>
+    </Link>
   )
 }

@@ -1,3 +1,4 @@
+@use 'styles/color-variables';
 @use 'styles/global-sizes';
 
 .content {
@@ -6,9 +7,13 @@
   gap: 5px;
 
   width: min-content;
+  text-decoration: none;
 
+  transition: 200ms;
   &:hover{
     cursor: pointer;
+    opacity: 0.8;
+    transition: 200ms;
   }
 
   & .bookCoverImage{
@@ -52,6 +57,7 @@
       text-overflow: ellipsis;
       line-height: 1.5em;
       max-height: 3em;
+      color: color-variables.$text-primary-color;
     }
     
   }
