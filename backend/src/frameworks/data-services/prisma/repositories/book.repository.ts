@@ -94,7 +94,7 @@ export class PrismaBookRepository implements BookRepository {
           userId,
           status,
         },
-        orderBy: { updatedAt: 'asc' },
+        orderBy: { updatedAt: 'desc' },
         include: {
           authors: {
             select: { author: true },
@@ -107,7 +107,7 @@ export class PrismaBookRepository implements BookRepository {
         userId,
         status,
       },
-      orderBy: { updatedAt: 'asc' },
+      orderBy: { updatedAt: 'desc' },
       include: {
         authors: {
           select: { author: true },
