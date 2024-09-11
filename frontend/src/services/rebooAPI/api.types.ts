@@ -5,14 +5,14 @@ export interface Book {
   isbn_13: string
   totalPages: number
   pagesRead: number
-  publicationDate: Date
+  publicationDate: string
   description: string
   status: BookStatus
   coverImage: string
   highlightColor: string
   language: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt: string
+  updatedAt: string
   publisherId: number
   userId: number
 

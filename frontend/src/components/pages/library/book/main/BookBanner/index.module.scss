@@ -1,5 +1,6 @@
 @use 'styles/color-variables';
 @use 'styles/global-sizes';
+@use 'styles/fonts';
 
 .container {
 
@@ -27,5 +28,19 @@
       justify-content: flex-end;
       gap: global-sizes.$gap-items-sm-size;
     }
+  }
+
+  & .titleContainer {
+    padding: global-sizes.$padding-banner-size;
+    display: flex;
+    justify-content: space-between;
+    // & .title{
+    // }
+
+    & .authorName{
+      color: color-variables.$text-secondary-color;
+      @extend %font-family-poppins
+    }
+
   }
 }
