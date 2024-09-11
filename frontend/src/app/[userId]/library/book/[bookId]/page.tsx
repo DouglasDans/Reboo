@@ -1,4 +1,5 @@
 import BookBanner from '@/components/pages/library/book/main/BookBanner'
+import BookContentWrapper from '@/components/pages/library/book/main/BookContent'
 import { rebooApiService } from '@/services/rebooAPI'
 import React, { Fragment } from 'react'
 
@@ -15,6 +16,7 @@ export default async function BookPage({ params }: Props) {
   return (
     <Fragment>
       <BookBanner book={book} />
+      <BookContentWrapper book={book} />
     </Fragment>
   )
 }

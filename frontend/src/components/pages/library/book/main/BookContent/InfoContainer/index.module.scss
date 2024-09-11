@@ -1,0 +1,36 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+@use 'styles/fonts';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-md-size;
+
+  
+  & .wrapper {
+    background-color: color-variables.$background-level1-color;
+    border-radius: global-sizes.$radius-item-size;
+    padding: global-sizes.$padding-item-size;
+
+    display: flex;
+    flex-direction: column;
+    gap: global-sizes.$gap-items-md-size;
+
+    & .infoItem{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      & .itemTitle{
+        @extend %font-family-poppins;
+      }
+    }
+
+    & .inlineWrapper {
+      display: grid;
+      gap: global-sizes.$gap-items-md-size;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
