@@ -74,6 +74,15 @@ export class PrismaBookRepository implements BookRepository {
   findById(id: number): Promise<Book> {
     return this.prisma.book.findUnique({
       where: { id },
+      include: {
+        authors: {
+          select: { author: true },
+        },
+        categories: {
+          select: { category: true },
+        },
+        publisher: true,
+      },
     })
   }
 
