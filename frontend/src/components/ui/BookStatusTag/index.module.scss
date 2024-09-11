@@ -1,0 +1,30 @@
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+@use 'styles/fonts';
+
+.tag {
+  padding: global-sizes.$tag-status-padding;
+  border: 1px solid;
+  border-radius: global-sizes.$tag-status-radius;
+  background-color: color-variables.$background-body-color;
+  width: fit-content;
+
+  @extend %font-family-poppins;
+
+
+  &.BUY {
+    color: color-variables.$tag-status-comprar;
+  }
+  &.NOT_STARTED {
+    color: color-variables.$tag-status-n-iniciado;
+  }
+  &.IN_PROGRESS {
+    color: color-variables.$tag-status-andamento;
+  }
+  &.COMPLETED {
+    color: color-variables.$tag-status-concluido;
+  }
+  &.GIVEN_UP {
+    color: color-variables.$tag-status-desistiu;
+  }
+}
