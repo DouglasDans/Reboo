@@ -1,0 +1,17 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+@use 'styles/fonts';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-md-size;
+  height: auto;
+  
+  & .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: global-sizes.$gap-items-sm-size;
+  }
+}

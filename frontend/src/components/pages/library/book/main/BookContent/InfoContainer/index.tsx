@@ -1,7 +1,6 @@
-import { Fragment } from 'react'
 import styles from './index.module.scss'
 import { Book } from '@/services/rebooAPI/api.types'
-import { convertAuthorsArrayToString, convertISBNArrayToString, convertStringToDate } from './index.utils'
+import { convertAuthorsArrayToString, convertStringToDate } from './index.utils'
 
 type Props = {
   book: Book
