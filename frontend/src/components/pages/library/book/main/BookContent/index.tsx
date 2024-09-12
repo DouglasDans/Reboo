@@ -2,6 +2,7 @@ import { Book } from '@/services/rebooAPI/api.types'
 import styles from './index.module.scss'
 import InfoContainer from './InfoContainer'
 import ActionButtonsWrapper from './ActionButtonsWrapper'
+import StatsWrapper from './StatsWrapper'
 
 type Props = {
   book: Book
@@ -10,13 +11,13 @@ type Props = {
 export default function BookContentWrapper({ book }: Props) {
   return (
     <div className={styles.container}>
-      <div className={styles.info}>
+      <div className={styles.leftWrapper}>
         <InfoContainer book={book} />
       </div>
-      <div className={styles.actions}>
+      <div className={styles.rightWrapper}>
         <ActionButtonsWrapper book={book} />
+        <StatsWrapper />
       </div>
-      <div className={styles.stats}>Stats</div>
     </div>
   )
 }

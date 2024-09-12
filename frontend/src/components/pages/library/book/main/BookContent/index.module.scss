@@ -3,18 +3,13 @@
 .container {
   display: grid;
   gap: global-sizes.$gap-items-md-size;
-  grid-template-areas: 
-            "info actions"
-            "info stats";
   grid-template-columns: repeat(2, 1fr);
-
-  & .info{
-    grid-area: info;
-  }
-  & .actions{
-    grid-area: actions;
-  }
-  & .stats{
-    grid-area: stats;
+  
+  // & .leftWrapper{
+    // }
+  & .rightWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: global-sizes.$gap-components-size;
   }
 }
