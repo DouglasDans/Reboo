@@ -7,6 +7,8 @@ import Icon from '@/components/ui/Icon'
 import { useEffect, useRef, useState } from 'react'
 import { convertStringDateToDate } from './index.utils'
 import BookStatusTag from '@/components/ui/BookStatusTag'
+import DropdownCardMenu from '@/components/ui/DropdownCardMenu'
+import BannerColorPickerMenu from './ColorPickerMenu'
 
 type Props = {
   book: Book
@@ -29,7 +31,9 @@ export default function BookBanner({ book }: Props) {
         <img ref={imgRef} src={book.coverImage} className={styles.coverImage} alt="" style={{ opacity: (width ? 1 : 0) }} />
 
         <div className={styles.bannerButtons}>
-          <Button startDecorator={<Icon name='palette' />} textColor={book.highlightColor} />
+          <DropdownCardMenu buttonIcon={"palette"} variantButton='primary'>
+            <BannerColorPickerMenu />
+          </DropdownCardMenu>
           <Button startDecorator={<Icon name="timer_play" />} textColor={book.highlightColor}>Nova Sessão</Button>
         </div>
       </div>

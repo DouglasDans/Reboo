@@ -8,13 +8,14 @@ import Button from "../buttons/button"
 type Props = {
   buttonIcon: string
   children: React.ReactNode
+  variantButton?: "secondary" | "primary"
 }
 
-export default function DropdownCardMenu({ children, buttonIcon }: Props) {
+export default function DropdownCardMenu({ children, buttonIcon, variantButton = 'secondary' }: Props) {
   const [isOpen, setIsOpen] = useState(false)
   const cardRef = useRef<HTMLDivElement>(null)
   const button = (
-    <Button startDecorator={<Icon name={buttonIcon} />} variant="secondary" />
+    <Button startDecorator={<Icon name={buttonIcon} />} variant={variantButton} />
   )
 
   useEffect(() => {
