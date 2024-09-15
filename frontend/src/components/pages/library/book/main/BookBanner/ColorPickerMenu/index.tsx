@@ -6,7 +6,7 @@ import { HexColorPicker } from "react-colorful";
 import styles from './index.module.scss'
 
 export default function BannerColorPickerMenu() {
-  const [color, setColor] = useState("fff");
+  const [color, setColor] = useState("#000");
 
   return (
     <div className={styles.container}>

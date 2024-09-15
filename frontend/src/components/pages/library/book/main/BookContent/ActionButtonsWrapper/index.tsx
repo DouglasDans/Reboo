@@ -2,6 +2,7 @@ import { Book } from '@/services/rebooAPI/api.types'
 import styles from './index.module.scss'
 import Button from '@/components/ui/buttons/button'
 import Icon from '@/components/ui/Icon'
+import Link from 'next/link'
 
 type Props = {
   book: Book
@@ -21,9 +22,11 @@ export default function ActionButtonsWrapper({ book }: Props) {
           Status de Leitura
         </Button>
 
-        <Button variant='secondary' startDecorator={<Icon name='edit' />}>
-          Editar Livro
-        </Button>
+        <Link href={`./${book.id}/edit`} className={styles.linkAction}>
+          <Button variant='secondary' startDecorator={<Icon name='edit' />}>
+            Editar Livro
+          </Button>
+        </Link>
 
         <Button variant='secondary' startDecorator={<Icon name='delete' />}>
           Deletar Livro

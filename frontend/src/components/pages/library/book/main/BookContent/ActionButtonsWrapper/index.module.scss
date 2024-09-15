@@ -13,5 +13,10 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: global-sizes.$gap-items-sm-size;
+
+    & .linkAction{
+      text-decoration: none;
+      font-style: none;
+    }
   }
 }

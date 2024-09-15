@@ -1,7 +1,7 @@
 import { rebooApiService } from "@/services/rebooAPI"
 import { redirect } from "next/navigation"
 
-export default async function postBook(formData: FormData) {
+export default async function createBook(formData: FormData) {
   "use server"
 
   const bookData = {

@@ -1,0 +1,20 @@
+@use 'styles/global-sizes';
+
+.editImgContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  column-gap: 10px;
+
+  & .dropdownButtonsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  & .coverImage {
+    height: 190px;
+    border-radius: global-sizes.$book-cover-radius;
+  }
+}
