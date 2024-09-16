@@ -38,11 +38,11 @@ export class BookController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateBookDto: UpdateBookDto) {
-    return this.bookUseCases.updateBook(id, updateBookDto)
+    return this.bookUseCases.updateBook(parseInt(id), updateBookDto)
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.bookUseCases.deleteBook(id)
+    return this.bookUseCases.deleteBook(parseInt(id))
   }
 }
