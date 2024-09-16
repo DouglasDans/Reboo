@@ -21,5 +21,5 @@ export function convertAuthorsArrayToString(authors: Array<AuthorArr>): string {
 
 export function convertStringToDate(strDate: string): string {
   const date = new Date(strDate)
-  return `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
+  return `${date.getUTCDate()}/${date.getUTCMonth() + 1}/${date.getUTCFullYear()}`
 }

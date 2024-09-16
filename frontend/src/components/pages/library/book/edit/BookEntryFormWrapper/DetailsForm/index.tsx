@@ -180,8 +180,9 @@ export default function DetailsForm() {
         </div>
 
         <input type={"hidden"} name={"bookUser"} value={userId} />
-        <input type={"text"} name={"bookCoverImage"} value={urlParams.imageLinks} />
-        <input type={"text"} name={"bookHighlightColor"} value={urlParams.highlightColor} />
+        <input type={"hidden"} name={"bookCoverImage"} value={urlParams.imageLinks} />
+        <input type={"hidden"} name={"bookHighlightColor"} value={urlParams.highlightColor} />
+        <input type={"hidden"} name={"bookId"} value={dbBookData.id} />
       </div>
     </div>
   )

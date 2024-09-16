@@ -5,6 +5,7 @@ export default async function updateBook(formData: FormData) {
   "use server"
 
   const bookData = {
+    id: formData.get("bookId") as string,
     title: formData.get("bookName") as string,
     totalPages: Number.parseInt(formData.get("bookTotalPages") as string),
     pagesRead: Number.parseInt(formData.get("bookReadPages") as string),
@@ -43,9 +44,9 @@ export default async function updateBook(formData: FormData) {
       .split(",") as Array<string>,
   }
 
-  console.log(bookData)
+  console.log(bookData.publicationDate)
 
-  // const book = await rebooApiService.createBook(bookData)
+  const book = await rebooApiService.updateBook(parseInt(bookData.id), bookData)
 
-  // redirect("../../library/book/" + book.id)
+  redirect("../../book/" + book.id)
 }
