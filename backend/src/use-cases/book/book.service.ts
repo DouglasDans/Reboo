@@ -8,8 +8,6 @@ import { BookCategoryService } from '../book-category'
 import { BookAuthorService } from '../book-author'
 import { BookCollectionService } from '../book-collection'
 import { BookStatus } from 'src/core/enums'
-import { AuthorService } from '../author'
-import { CategoryService } from '../category/category.service'
 
 @Injectable()
 export class BookService {
