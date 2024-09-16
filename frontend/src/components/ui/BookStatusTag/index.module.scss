@@ -8,6 +8,7 @@
   border-radius: global-sizes.$tag-status-radius;
   background-color: color-variables.$background-body-color;
   width: fit-content;
+  text-wrap: nowrap;
 
   @extend %font-family-poppins;
 
