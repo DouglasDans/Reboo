@@ -17,7 +17,7 @@ export default function InfoContainer({ book }: Props) {
 
           <div className={styles.infoItem}>
             <span className={styles.itemTitle}>Autor</span>
-            <span className={styles.itemValue}>{convertAuthorsArrayToString(book.authors)}</span>
+            <span className={styles.itemValue}>{book.authors ? convertAuthorsArrayToString(book.authors) : "indefinido"}</span>
           </div>
           <div className={styles.infoItem}>
             <span className={styles.itemTitle}>Data de Publicação</span>

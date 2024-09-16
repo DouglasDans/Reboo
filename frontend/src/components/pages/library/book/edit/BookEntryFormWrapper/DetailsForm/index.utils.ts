@@ -10,10 +10,10 @@ export function fetchDbBookDataToUrlParams(bookData: Book, params: URLSearchPara
 
   params.set("title", bookData.title)
   params.set("authors", authors)
-  params.set("publisher", bookData.publisher.name)
+  params.set("publisher", bookData.publisher ? bookData.publisher.name : "")
   params.set("publishedDate", formatDateForInput(new Date(bookData.publicationDate)))
   params.set("pageCount", bookData.totalPages.toString())
-  params.set("industryIdentifiers", `${bookData.isbn_10},${bookData.isbn_13}`)
+  params.set("industryIdentifiers", `${bookData.isbn_10}, ${bookData.isbn_13}`)
   params.set("description", bookData.description)
   params.set("categories", categories)
   params.set("language", bookData.language)
