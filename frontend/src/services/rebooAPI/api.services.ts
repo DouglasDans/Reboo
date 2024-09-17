@@ -30,3 +30,7 @@ export async function createBook(bookData: any): Promise<Book> {
 export async function updateBook(bookId: number, bookData: any): Promise<Book> {
   return await api.patch(`/book/${bookId}`, bookData)
 }
+
+export async function deleteBook(bookId: number): Promise<Book> {
+  return await api.delete(`/book/${bookId}`)
+}

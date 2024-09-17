@@ -3,6 +3,7 @@ import styles from './index.module.scss'
 import Button from '@/components/ui/buttons/button'
 import Icon from '@/components/ui/Icon'
 import Link from 'next/link'
+import DeleteBookButtonContainer from './DeleteBookButtonContainer'
 
 type Props = {
   book: Book
@@ -28,9 +29,7 @@ export default function ActionButtonsWrapper({ book }: Props) {
           </Button>
         </Link>
 
-        <Button variant='secondary' startDecorator={<Icon name='delete' />}>
-          Deletar Livro
-        </Button>
+        <DeleteBookButtonContainer />
       </div>
     </div>
   )
