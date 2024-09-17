@@ -24,12 +24,12 @@ export class BookAuthorService {
     })
   }
 
-  deleteRelationByBookId(bookId: number) {
-    this.bookAuthor.deleteRelationsByBook(bookId)
+  async deleteRelationByBookId(bookId: number) {
+    await this.bookAuthor.deleteRelationsByBook(bookId)
   }
 
-  deleteRelationByAuthorId(authorId: number) {
-    this.bookAuthor.deleteRelationsByAuthor(authorId)
+  async deleteRelationByAuthorId(authorId: number) {
+    await this.bookAuthor.deleteRelationsByAuthor(authorId)
   }
 
   private verifyIfExistsAuthorByName(name: string) {
