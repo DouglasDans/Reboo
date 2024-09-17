@@ -1,0 +1,7 @@
+@use 'styles/global-sizes';
+
+.container {
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  gap: global-sizes.$gap-items-md-size;
+}

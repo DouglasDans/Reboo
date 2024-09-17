@@ -39,7 +39,7 @@ export class ReadingSessionService {
       createdReadingSession.bookId.toString(),
     )
 
-    await this.book.updateBook(book.id.toString(), {
+    await this.book.updateBook(book.id, {
       pagesRead: book.pagesRead + createdReadingSession.pagesRead,
     })
 

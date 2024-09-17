@@ -9,6 +9,7 @@ import {
   Query,
 } from '@nestjs/common'
 import { CreateBookDto, UpdateBookDto } from 'src/core/dtos'
+import { BookQueryParams } from 'src/core/pipes/book.pipes'
 import { BookService } from 'src/use-cases/book'
 
 @Controller('api/v1/book')
@@ -21,8 +22,13 @@ export class BookController {
   }
 
   @Get()
-  findAll(@Query('userId') userId: string) {
-    return this.bookUseCases.getAllBooksByUserId(userId)
+  findAll(@Query() bookQueryParams: BookQueryParams) {
+    const { onlyFirst, userId, select, status } = bookQueryParams
+
+    if (status) {
+      return this.bookUseCases.getAllByBookStatus(userId, status, onlyFirst)
+    }
+    return this.bookUseCases.getAll(userId, select)
   }
 
   @Get(':id')
@@ -32,11 +38,11 @@ export class BookController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateBookDto: UpdateBookDto) {
-    return this.bookUseCases.updateBook(id, updateBookDto)
+    return this.bookUseCases.updateBook(parseInt(id), updateBookDto)
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.bookUseCases.deleteBook(id)
+    return this.bookUseCases.deleteBook(parseInt(id))
   }
 }

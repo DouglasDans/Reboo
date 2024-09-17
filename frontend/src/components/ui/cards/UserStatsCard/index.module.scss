@@ -1,0 +1,66 @@
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+
+.cardContainer{
+  display: flex;
+  justify-content: space-between;
+
+  background-color: color-variables.$background-level1-color;
+  padding: global-sizes.$card-padding;
+  border-radius: global-sizes.$card-radius;
+
+  height: 130px;
+  
+  & .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    font-weight: 600 !important;
+
+    & .cardTitle{
+      color: color-variables.$text-secondary-color;
+    }
+  
+    & .statNumber{
+      color: color-variables.$highlight-color;
+
+      & .mainNumber{
+        font-size: global-sizes.$font-h1-size;
+      }
+    }
+
+    & .goals{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      
+      & div {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.1rem;
+      }
+
+      & .goalIcon span{
+        font-size: global-sizes.$font-sm-size;
+      }
+
+      & .goalTrendUp {
+        color: color-variables.$trend-up-color;
+      }
+
+      & .goalTrendDown {
+        color: color-variables.$trend-down-color;
+      }
+    }
+  }
+
+  & .icon {
+    color: color-variables.$text-secondary-color;
+    
+    & svg {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+@use 'styles/fonts';
+
+.container {
+
+  & .backgroundBanner{
+    display: block;
+    height: 200px;
+    width: 100%;
+    background-color: color-variables.$background-level1-color;
+
+    border-radius: global-sizes.$radius-banner-size;
+    padding: global-sizes.$padding-banner-size;
+
+    & .coverImage{
+      height: 300px;
+      border-radius: global-sizes.$book-cover-radius;
+      position: absolute;
+    }
+
+    & .bannerButtons{
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      gap: global-sizes.$gap-items-sm-size;
+    }
+  }
+
+  & .titleContainer {
+    padding: global-sizes.$padding-banner-size;
+    display: flex;
+    justify-content: space-between;
+    // & .title{
+    // }
+
+    & .authorName{
+      color: color-variables.$text-secondary-color;
+      @extend %font-family-poppins
+    }
+
+  }
+}

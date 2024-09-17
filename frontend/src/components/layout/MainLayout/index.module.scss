@@ -1,0 +1,12 @@
+@use 'styles/global-sizes';
+
+.container{
+  margin-left: global-sizes.$sidebar-size;
+
+  & .content{
+    display: flex;
+    flex-direction: column;
+    gap: global-sizes.$gap-components-size;
+    padding: 30px 50px;
+  }
+}

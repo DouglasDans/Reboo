@@ -1,0 +1,6 @@
+@use 'styles/global-sizes';
+
+.formContainer {
+  display: flex;
+  gap: global-sizes.$gap-items-md-size;
+}

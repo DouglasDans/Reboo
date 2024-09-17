@@ -7,6 +7,7 @@ import { PublisherService } from '../publisher'
 import { BookCategoryService } from '../book-category'
 import { BookAuthorService } from '../book-author'
 import { BookCollectionService } from '../book-collection'
+import { BookStatus } from 'src/core/enums'
 
 @Injectable()
 export class BookService {
@@ -16,11 +17,25 @@ export class BookService {
     private bookCategoryService: BookCategoryService,
     private bookCollectionService: BookCollectionService,
     private bookFactory: BookFactoryService,
-    private publisherUseCases: PublisherService,
+    private publisherService: PublisherService,
   ) {}
+
+  getAll(userId: string, select: string): Promise<Book[]> {
+    const arrSelect = select ? select.split(',') : []
+
+    return this.book.findAll(parseInt(userId), arrSelect)
+  }
 
   getAllBooksByUserId(userId: string): Promise<Book[]> {
     return this.book.findAllByUserId(parseInt(userId))
+  }
+
+  getAllByBookStatus(
+    userId: string,
+    status: BookStatus,
+    findFirst: boolean,
+  ): Promise<Book[] | Book> {
+    return this.book.findAllByBookStatus(parseInt(userId), status, findFirst)
   }
 
   getBookById(id: string): Promise<Book> {
@@ -32,7 +47,7 @@ export class BookService {
   }
 
   async createBook(createBookDto: CreateBookDto): Promise<Book> {
-    const publisher = await this.publisherUseCases.createPublisher({
+    const publisher = await this.publisherService.createPublisher({
       name: createBookDto.publisher,
     })
     createBookDto.publisherId = publisher.id
@@ -60,12 +75,34 @@ export class BookService {
     return createdBook
   }
 
-  updateBook(bookId: string, updateBookDto: UpdateBookDto) {
+  async updateBook(bookId: number, updateBookDto: UpdateBookDto) {
     const book = this.bookFactory.updateNewBook(updateBookDto)
-    return this.book.update(parseInt(bookId), book)
+
+    const publisher = await this.publisherService.getPublisherByName(
+      updateBookDto.publisher,
+    )
+
+    if (!publisher) {
+      await this.publisherService.createPublisher({
+        name: updateBookDto.publisher,
+      })
+    }
+
+    await this.bookAuthorService.deleteRelationByBookId(bookId)
+    await this.bookCategoryService.deleteRelationByBookId(bookId)
+
+    await this.bookAuthorService.createRelation(bookId, updateBookDto.author)
+    await this.bookCategoryService.createRelation(
+      bookId,
+      updateBookDto.category,
+    )
+
+    return this.book.update(bookId, book)
   }
 
-  deleteBook(bookId: string) {
-    return this.book.delete(parseInt(bookId))
+  async deleteBook(bookId: number) {
+    await this.bookAuthorService.deleteRelationByBookId(bookId)
+    await this.bookCategoryService.deleteRelationByBookId(bookId)
+    return await this.book.delete(bookId)
   }
 }

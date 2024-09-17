@@ -2,10 +2,17 @@ import { BookRepository } from 'src/core/repositories'
 import { PrismaService } from '../prisma.service'
 import { Book } from 'src/core/entities'
 import { Injectable } from '@nestjs/common'
+import { BookStatus } from 'src/core/enums'
 
 @Injectable()
 export class PrismaBookRepository implements BookRepository {
   constructor(private prisma: PrismaService) {}
+
+  async countAll(userId: number): Promise<number> {
+    return await this.prisma.book.count({
+      where: { userId },
+    })
+  }
 
   async create(item: Book): Promise<Book> {
     return await this.prisma.book.create({
@@ -19,11 +26,40 @@ export class PrismaBookRepository implements BookRepository {
         description: item.description,
         status: item.status,
         coverImage: item.coverImage,
-        backgroundColors: item.backgroundColors,
+        highlightColor: item.highlightColor,
         language: item.language,
         publisherId: item.publisherId,
         userId: item.userId,
       },
+    })
+  }
+
+  async findAll(userId: number, select: Array<string>): Promise<Book[]> {
+    const includeFields = select.reduce(
+      (newObj: Record<string, object | boolean>, selectValue: string) => {
+        if (selectValue === 'authors') {
+          newObj['authors'] = {
+            select: { author: true },
+          }
+        }
+        if (selectValue === 'categories') {
+          newObj[selectValue] = {
+            select: { category: true },
+          }
+        }
+        if (selectValue === 'publisher') {
+          newObj[selectValue] = true
+        }
+        return newObj
+      },
+      {},
+    )
+
+    return await this.prisma.book.findMany({
+      where: {
+        userId,
+      },
+      include: includeFields,
     })
   }
 
@@ -38,12 +74,54 @@ export class PrismaBookRepository implements BookRepository {
   findById(id: number): Promise<Book> {
     return this.prisma.book.findUnique({
       where: { id },
+      include: {
+        authors: {
+          select: { author: true },
+        },
+        categories: {
+          select: { category: true },
+        },
+        publisher: true,
+      },
     })
   }
 
   findByTitle(title: string): Promise<Book> {
     return this.prisma.book.findFirst({
       where: { title },
+    })
+  }
+
+  findAllByBookStatus(
+    userId: number,
+    status: BookStatus,
+    onlyFirst: boolean,
+  ): Promise<Book[] | Book> {
+    if (onlyFirst) {
+      return this.prisma.book.findFirst({
+        where: {
+          userId,
+          status,
+        },
+        orderBy: { updatedAt: 'desc' },
+        include: {
+          authors: {
+            select: { author: true },
+          },
+        },
+      })
+    }
+    return this.prisma.book.findMany({
+      where: {
+        userId,
+        status,
+      },
+      orderBy: { updatedAt: 'desc' },
+      include: {
+        authors: {
+          select: { author: true },
+        },
+      },
     })
   }
 
@@ -60,7 +138,7 @@ export class PrismaBookRepository implements BookRepository {
         description: item.description,
         status: item.status,
         coverImage: item.coverImage,
-        backgroundColors: item.backgroundColors,
+        highlightColor: item.highlightColor,
         language: item.language,
         publisherId: item.id,
       },

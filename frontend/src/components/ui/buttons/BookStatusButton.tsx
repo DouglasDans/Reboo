@@ -1,10 +1,10 @@
 import React from 'react'
-import styles from '@/styles/ui/buttons/book-status-button.module.scss'
+import styles from './book-status-button.module.scss'
 
 type Props = {
   type: "comprar" | "naoIniciado" | "andamento" | "concluido" | "desistiu",
-  onClick: Function,
-  value: string
+  onClick?: Function,
+  value?: string
 }
 
 export default function BookStatusButton({ type, onClick, value }: Props) {

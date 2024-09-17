@@ -1,0 +1,15 @@
+@use 'styles/global-sizes';
+
+.container {
+  display: grid;
+  gap: global-sizes.$gap-items-md-size;
+  grid-template-columns: repeat(2, 1fr);
+  
+  // & .leftWrapper{
+    // }
+  & .rightWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: global-sizes.$gap-components-size;
+  }
+}

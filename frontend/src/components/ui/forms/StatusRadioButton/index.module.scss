@@ -1,0 +1,41 @@
+
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+.container{
+  display: flex;
+}
+
+.input{
+  display: none;
+  &:checked + .labelTag{
+    background-color: color-variables.$tag-status-color-active;
+  }
+}
+
+.labelTag {
+  padding: global-sizes.$tag-status-padding;
+  border: 1px solid;
+  border-radius: global-sizes.$tag-status-radius;
+  background-color: color-variables.$background-body-color;
+  
+  &:hover{
+    cursor: pointer;
+    background-color: color-variables.$tag-status-color-hover;
+  }
+
+  &.comprar {
+    color: color-variables.$tag-status-comprar;
+  }
+  &.nIniciado {
+    color: color-variables.$tag-status-n-iniciado;
+  }
+  &.andamento {
+    color: color-variables.$tag-status-andamento;
+  }
+  &.concluido {
+    color: color-variables.$tag-status-concluido;
+  }
+  &.desistiu {
+    color: color-variables.$tag-status-desistiu;
+  }
+}

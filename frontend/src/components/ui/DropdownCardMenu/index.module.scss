@@ -1,0 +1,28 @@
+@use 'styles/color-variables';
+@use "styles/global-sizes";
+
+.cardContainer{
+  display: flex;
+  flex-direction: row-reverse;
+
+}
+
+.cardContainer .card{
+  position: absolute;
+  margin-right: 50px;
+
+  background-color: color-variables.$background-body-color;
+  border: 1px solid color-variables.$background-level2-color;
+  border-radius: global-sizes.$card-radius;
+  padding: global-sizes.$menu-padding;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+
+  & .urlImageContainer{
+    display: flex;
+    gap: 10px;
+  }
+}

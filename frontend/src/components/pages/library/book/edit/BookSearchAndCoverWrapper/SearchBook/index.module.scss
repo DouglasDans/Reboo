@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  & .titleSearchISBN {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+}

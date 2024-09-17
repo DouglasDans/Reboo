@@ -1,0 +1,19 @@
+@use 'styles/global-sizes';
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-md-size;
+}
+
+.itemForm{
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-sm-size;
+}
+
+.bookStatusWrapper{
+  display: flex;
+  flex-wrap: wrap;
+  gap: global-sizes.$gap-items-sm-size;
+}

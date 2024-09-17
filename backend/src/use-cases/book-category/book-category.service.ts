@@ -25,12 +25,12 @@ export class BookCategoryService {
     })
   }
 
-  deleteRelationByBookId(bookId: number) {
-    this.bookCategory.deleteRelationsByBook(bookId)
+  async deleteRelationByBookId(bookId: number) {
+    await this.bookCategory.deleteRelationsByBook(bookId)
   }
 
-  deleteRelationByCategoryId(categoryId: number) {
-    this.bookCategory.deleteRelationsByCategory(categoryId)
+  async deleteRelationByCategoryId(categoryId: number) {
+    await this.bookCategory.deleteRelationsByCategory(categoryId)
   }
 
   private verifyIfExistsCategoryByName(name: string) {

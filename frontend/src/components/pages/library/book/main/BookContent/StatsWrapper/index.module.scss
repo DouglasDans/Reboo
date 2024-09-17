@@ -1,0 +1,15 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+@use 'styles/fonts';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-md-size;
+  
+  & .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: global-sizes.$gap-items-md-size;
+  }
+}
