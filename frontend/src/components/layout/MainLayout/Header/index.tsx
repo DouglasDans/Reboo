@@ -13,7 +13,7 @@ export default function Header() {
   const pathname = usePathname()
 
   function getPageTitle(pathname: string) {
-    if (pathname === `/${userId}`) {
+    if (pathname.includes(`/${userId}/dashboard`)) {
       return "Dashboard"
     } else {
       if (pathname.includes(`/${userId}/library`)) {
