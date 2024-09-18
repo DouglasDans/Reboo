@@ -1,5 +1,5 @@
 import api from "./api.config"
-import { Book } from "./api.types"
+import { Book, BookStatus } from "./api.types"
 
 export async function getAllBooksAndAuthors(userId: number): Promise<Book[]> {
   return await api.get(`book?userId=${userId}&select=authors`)
@@ -29,6 +29,22 @@ export async function createBook(bookData: any): Promise<Book> {
 
 export async function updateBook(bookId: number, bookData: any): Promise<Book> {
   return await api.patch(`/book/${bookId}`, bookData)
+}
+
+export async function updateBookHighlightColor(
+  bookId: number,
+  hexColor: string,
+): Promise<Book> {
+  return await api.patch(
+    `/book/${bookId}?highlightColor=${hexColor.replace("#", "%23")}`,
+  )
+}
+
+export async function updateBookStatus(
+  bookId: number,
+  bookStatus: BookStatus,
+): Promise<Book> {
+  return await api.patch(`/book/${bookId}?bookStatus=${bookStatus}`)
 }
 
 export async function deleteBook(bookId: number): Promise<Book> {

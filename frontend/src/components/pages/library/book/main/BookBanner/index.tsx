@@ -9,15 +9,22 @@ import { convertStringDateToDate } from './index.utils'
 import BookStatusTag from '@/components/ui/BookStatusTag'
 import DropdownCardMenu from '@/components/ui/DropdownCardMenu'
 import BannerColorPickerMenu from './ColorPickerMenu'
+import updateBookHighlightColor from '@/actions/book/updateBookHighlightColor'
 
 type Props = {
   book: Book
 }
 
+function isValidHex(hex: string): boolean {
+  const hexRegex = /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/;
+  return hexRegex.test(hex);
+};
+
 export default function BookBanner({ book }: Props) {
 
   const imgRef = useRef<HTMLImageElement>(null);
   const [width, setWidth] = useState<number | null>(null);
+  const [highlightColor, setHighlightColor] = useState(book.highlightColor)
 
   useEffect(() => {
     if (imgRef.current) {
@@ -25,16 +32,25 @@ export default function BookBanner({ book }: Props) {
     }
   }, []);
 
+  useEffect(() => {
+    const timeoutId = setTimeout(async () => {
+      if (highlightColor !== book.highlightColor && isValidHex(highlightColor)) {
+        await updateBookHighlightColor(book.id, highlightColor)
+      }
+    }, 300);
+    return () => clearTimeout(timeoutId);
+  }, [highlightColor]);
+
   return (
     <div className={styles.container}>
-      <div className={styles.backgroundBanner} style={{ backgroundColor: book.highlightColor }}>
+      <div className={styles.backgroundBanner} style={{ backgroundColor: highlightColor }}>
         <img ref={imgRef} src={book.coverImage} className={styles.coverImage} alt="" style={{ opacity: (width ? 1 : 0) }} />
 
         <div className={styles.bannerButtons}>
           <DropdownCardMenu buttonIcon={"palette"} variantButton='primary'>
-            <BannerColorPickerMenu />
+            <BannerColorPickerMenu highlightColorState={{ highlightColor, setHighlightColor }} />
           </DropdownCardMenu>
-          <Button startDecorator={<Icon name="timer_play" />} textColor={book.highlightColor}>Nova Sessão</Button>
+          <Button startDecorator={<Icon name="timer_play" />} textColor={highlightColor}>Nova Sessão</Button>
         </div>
       </div>
 

@@ -5,14 +5,21 @@ import { HexColorPicker } from "react-colorful";
 
 import styles from './index.module.scss'
 
-export default function BannerColorPickerMenu() {
-  const [color, setColor] = useState("#000");
+type Props = {
+  highlightColorState: {
+    highlightColor: string,
+    setHighlightColor: any
+  }
+}
 
+export default function BannerColorPickerMenu({ highlightColorState }: Props) {
   return (
     <div className={styles.container}>
       <h6>Cor do banner</h6>
-      <HexColorPicker color={color} onChange={setColor} />
-      <input className={styles.input} value={color} onChange={(e) => { setColor(e.target.value) }} type="text" placeholder="Digite a cor em Hex" />
+      <HexColorPicker
+        color={highlightColorState.highlightColor}
+        onChange={highlightColorState.setHighlightColor} />
+      <input className={styles.input} value={highlightColorState.highlightColor} onChange={(e) => { highlightColorState.setHighlightColor(e.target.value) }} type="text" placeholder="Digite a cor em Hex" />
     </div>
   )
 }
