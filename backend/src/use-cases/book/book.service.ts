@@ -1,3 +1,4 @@
+import { BookStatus, BookStatusEnum } from 'src/core/enums'
 import { Injectable } from '@nestjs/common'
 import { BookRepository } from '../../core/repositories/book.repository'
 import { BookFactoryService } from './book.factory.service'
@@ -7,7 +8,6 @@ import { PublisherService } from '../publisher'
 import { BookCategoryService } from '../book-category'
 import { BookAuthorService } from '../book-author'
 import { BookCollectionService } from '../book-collection'
-import { BookStatus } from 'src/core/enums'
 
 @Injectable()
 export class BookService {
@@ -98,6 +98,22 @@ export class BookService {
     )
 
     return this.book.update(bookId, book)
+  }
+
+  async updateHighlightColor(
+    bookId: number,
+    highlightColor: string,
+  ): Promise<Book> {
+    const book = this.bookFactory.updateNewBook({ highlightColor })
+    return await this.book.update(bookId, book)
+  }
+
+  async updateBookStatus(
+    bookId: number,
+    bookStatus: BookStatusEnum,
+  ): Promise<Book> {
+    const book = this.bookFactory.updateNewBook({ status: bookStatus })
+    return await this.book.update(bookId, book)
   }
 
   async deleteBook(bookId: number) {

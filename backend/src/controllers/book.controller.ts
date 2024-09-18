@@ -9,16 +9,17 @@ import {
   Query,
 } from '@nestjs/common'
 import { CreateBookDto, UpdateBookDto } from 'src/core/dtos'
+import { BookStatusEnum } from 'src/core/enums'
 import { BookQueryParams } from 'src/core/pipes/book.pipes'
 import { BookService } from 'src/use-cases/book'
 
 @Controller('api/v1/book')
 export class BookController {
-  constructor(private readonly bookUseCases: BookService) {}
+  constructor(private readonly bookService: BookService) {}
 
   @Post()
   create(@Body() createBookDto: CreateBookDto) {
-    return this.bookUseCases.createBook(createBookDto)
+    return this.bookService.createBook(createBookDto)
   }
 
   @Get()
@@ -26,23 +27,36 @@ export class BookController {
     const { onlyFirst, userId, select, status } = bookQueryParams
 
     if (status) {
-      return this.bookUseCases.getAllByBookStatus(userId, status, onlyFirst)
+      return this.bookService.getAllByBookStatus(userId, status, onlyFirst)
     }
-    return this.bookUseCases.getAll(userId, select)
+    return this.bookService.getAll(userId, select)
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.bookUseCases.getBookById(id)
+    return this.bookService.getBookById(id)
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBookDto: UpdateBookDto) {
-    return this.bookUseCases.updateBook(parseInt(id), updateBookDto)
+  update(
+    @Param('id') id: string,
+    @Body() updateBookDto?: UpdateBookDto,
+    @Query('highlightColor') highlightColor?: string,
+    @Query('bookStatus') bookStatus?: BookStatusEnum,
+  ) {
+    if (highlightColor) {
+      return this.bookService.updateHighlightColor(parseInt(id), highlightColor)
+    }
+
+    if (bookStatus) {
+      return this.bookService.updateBookStatus(parseInt(id), bookStatus)
+    }
+
+    return this.bookService.updateBook(parseInt(id), updateBookDto)
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.bookUseCases.deleteBook(parseInt(id))
+    return this.bookService.deleteBook(parseInt(id))
   }
 }
