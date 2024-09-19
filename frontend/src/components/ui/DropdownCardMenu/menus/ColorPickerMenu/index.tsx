@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from "react";
 import { HexColorPicker } from "react-colorful";
 
 import styles from './index.module.scss'
@@ -12,7 +11,7 @@ type Props = {
   }
 }
 
-export default function BannerColorPickerMenu({ highlightColorState }: Props) {
+export default function ColorPickerMenu({ highlightColorState }: Props) {
   return (
     <div className={styles.container}>
       <h6>Cor do banner</h6>

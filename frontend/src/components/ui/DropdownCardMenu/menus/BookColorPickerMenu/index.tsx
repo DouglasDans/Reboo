@@ -1,15 +1,14 @@
 'use client'
 
 import { BookURLParamsContext } from "@/context/book/BookURLParamsProvider";
-import { GoogleAPIResponseBook } from "@/types/googleBooksApi";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import { HexColorPicker } from "react-colorful";
-
 import styles from './index.module.scss'
+import { Book } from "@/services/rebooAPI/api.types";
 
 export default function BookColorPickerMenu() {
-  const urlParams = useContext(BookURLParamsContext)
+  const urlParams = useContext(BookURLParamsContext) as Book
 
   const searchParams = useSearchParams()
   const pathname = usePathname()

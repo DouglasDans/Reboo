@@ -8,8 +8,8 @@ import { useEffect, useRef, useState } from 'react'
 import { convertStringDateToDate } from './index.utils'
 import BookStatusTag from '@/components/ui/BookStatusTag'
 import DropdownCardMenu from '@/components/ui/DropdownCardMenu'
-import BannerColorPickerMenu from './ColorPickerMenu'
 import updateBookHighlightColor from '@/actions/book/updateBookHighlightColor'
+import ColorPickerMenu from '@/components/ui/DropdownCardMenu/menus/ColorPickerMenu'
 
 type Props = {
   book: Book
@@ -18,7 +18,7 @@ type Props = {
 function isValidHex(hex: string): boolean {
   const hexRegex = /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/;
   return hexRegex.test(hex);
-};
+}
 
 export default function BookBanner({ book }: Props) {
 
@@ -47,8 +47,8 @@ export default function BookBanner({ book }: Props) {
         <img ref={imgRef} src={book.coverImage} className={styles.coverImage} alt="" style={{ opacity: (width ? 1 : 0) }} />
 
         <div className={styles.bannerButtons}>
-          <DropdownCardMenu buttonIcon={"palette"} variantButton='primary'>
-            <BannerColorPickerMenu highlightColorState={{ highlightColor, setHighlightColor }} />
+          <DropdownCardMenu content={<ColorPickerMenu highlightColorState={{ highlightColor, setHighlightColor }} />}>
+            <Button startDecorator={<Icon name='palette' />} textColor={highlightColor} />
           </DropdownCardMenu>
           <Button startDecorator={<Icon name="timer_play" />} textColor={highlightColor}>Nova Sessão</Button>
         </div>
@@ -57,7 +57,7 @@ export default function BookBanner({ book }: Props) {
       <div style={{ marginLeft: (width ? width + 25 : 0) }} className={styles.titleContainer}>
         <div className={styles.title}>
           <h1>{book.title}</h1>
-          <span className={styles.authorName}>Por {book.authors[0].author.name} · {convertStringDateToDate(book.publicationDate).getFullYear()}</span>
+          <span className={styles.authorName}>Por {book.authors ? book.authors[0].author.name : ""} · {convertStringDateToDate(book.publicationDate).getFullYear()}</span>
         </div>
 
         <div className={styles.BookStatus}>

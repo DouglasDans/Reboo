@@ -5,10 +5,12 @@ import styles from './index.module.scss'
 import { useContext, useEffect, useState } from 'react'
 import { GoogleAPIResponseBook } from '@/types/googleBooksApi'
 import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
-import BookUploadMenu from './BookUploadMenu'
-import BookColorPickerMenu from './BookColorPickerMenu'
 import { BookDataContext } from '@/context/book/BookDataProvider'
 import { Book } from '@/services/rebooAPI/api.types'
+import Button from '@/components/ui/buttons/button'
+import Icon from '@/components/ui/Icon'
+import BookColorPickerMenu from '@/components/ui/DropdownCardMenu/menus/BookColorPickerMenu'
+import BookUploadMenu from '@/components/ui/DropdownCardMenu/menus/BookUploadMenu'
 
 export default function BookCoverContainer() {
   const urlParams = useContext(BookURLParamsContext) as GoogleAPIResponseBook
@@ -27,12 +29,12 @@ export default function BookCoverContainer() {
   return (
     <div className={styles.editImgContainer}>
       <div className={styles.dropdownButtonsContainer}>
-        <DropdownCardMenu buttonIcon="palette">
-          <BookColorPickerMenu />
+        <DropdownCardMenu content={<BookColorPickerMenu />}>
+          <Button variant='secondary' startDecorator={<Icon name='palette' />} />
         </DropdownCardMenu>
 
-        <DropdownCardMenu buttonIcon="add_photo_alternate">
-          <BookUploadMenu />
+        <DropdownCardMenu content={<BookUploadMenu />}>
+          <Button variant='secondary' startDecorator={<Icon name='add_photo_alternate' />} />
         </DropdownCardMenu>
       </div>
 
