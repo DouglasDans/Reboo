@@ -1,0 +1,23 @@
+@use 'styles/global-sizes';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-md-size;
+
+  & .formContainer{
+    display: flex;
+    flex-direction: column;
+    gap: global-sizes.$gap-items-md-size;
+    
+    & .bookStatusWrapper{
+      display: flex;
+      flex-wrap: wrap;
+      width: 400px;
+      gap: global-sizes.$gap-items-sm-size;
+    }
+  }
+}
+
+
+
