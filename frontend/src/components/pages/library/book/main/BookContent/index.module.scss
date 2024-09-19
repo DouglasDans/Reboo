@@ -5,8 +5,10 @@
   gap: global-sizes.$gap-items-md-size;
   grid-template-columns: repeat(2, 1fr);
   
-  // & .leftWrapper{
-    // }
+  & .leftWrapper{
+    display: flex;
+  }
+
   & .rightWrapper{
     display: flex;
     flex-direction: column;
