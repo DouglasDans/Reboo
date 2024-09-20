@@ -170,6 +170,7 @@ export default function DetailsForm() {
         <div className={styles.input}>
           <label>Descrição</label>
           <textarea
+            maxLength={512}
             rows={18}
             value={bookData.description}
             onChange={e => handleSetValueToURL(e, "description")}
