@@ -1,0 +1,15 @@
+@use "styles/color-variables";
+
+.container {
+  width: 100vw;
+  height: 80px;
+
+  background-color: color-variables.$background-body-color;
+  border-bottom: 1px solid color-variables.$background-level2-color;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 100px 0 100px;
+}

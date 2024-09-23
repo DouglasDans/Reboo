@@ -1,6 +1,10 @@
-import { redirect } from "next/navigation"
+import LandingPageLayout from "@/components/layout/LandingPageLayout";
+import LandingBanner from "@/components/pages/landingPage/banner";
 
 export default function Home() {
-  redirect("/1/dashboard")
-  return <h1>Reboo Hello World</h1>
+  return (
+    <LandingPageLayout>
+      <LandingBanner />
+    </LandingPageLayout>
+  )
 }

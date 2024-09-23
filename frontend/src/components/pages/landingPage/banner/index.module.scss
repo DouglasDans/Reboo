@@ -1,0 +1,40 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+.container{
+  height: 600px;
+  width: 100vw;
+  background-image: url("/landing-page-banner.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  padding: 0 100px 0 100px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: global-sizes.$gap-sections-size;
+  align-items: center;
+
+  .info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: global-sizes.$gap-items-md-size;
+    width: 40%;
+
+    & h1 {
+      text-align: center;
+    }
+  }
+
+  & .image{
+    // position: absolute;
+    height: 70%;
+    width: auto;
+    overflow: hidden;
+
+    border: 2px solid color-variables.$background-level2-color;
+    border-radius: global-sizes.$radius-item-size;
+  }
+}
