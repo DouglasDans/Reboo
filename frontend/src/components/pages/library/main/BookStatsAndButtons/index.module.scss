@@ -1,0 +1,12 @@
+@use 'styles/global-sizes';
+
+.container {
+  display: grid;
+  grid-template-columns: 45% 1fr;
+  gap: global-sizes.$gap-items-md-size;
+
+  & .buttonWrapper {
+    display: flex;
+    gap: global-sizes.$gap-items-md-size;
+  }
+}

@@ -1,7 +1,16 @@
-type Props = {}
+import BookStatsAndButtons from "@/components/pages/library/main/BookStatsAndButtons"
+import { Fragment } from "react"
 
-export default function page({ }: Props) {
+type Props = {
+  params: {
+    userId: number
+  }
+}
+
+export default function page({ params }: Props) {
   return (
-    <div>Minha Biblioteca</div>
+    <Fragment>
+      <BookStatsAndButtons params={params} />
+    </Fragment>
   )
 }

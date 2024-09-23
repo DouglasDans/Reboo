@@ -1,0 +1,49 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+.button {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  
+  border: 0;
+  padding: global-sizes.$color-button-padding;
+  border-radius: global-sizes.$color-button-radius;
+
+  width: global-sizes.$color-button-size;
+  height: global-sizes.$color-button-size;
+
+  background-color: #550C77;
+  color: color-variables.$text-primary-color;
+  transition: 200ms;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 200ms;
+  }
+
+  &:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  & .iconImageCover{
+    display: flex;
+    justify-content: flex-end;
+
+    & .icon span{
+      font-size: 30px !important;
+    }
+  }
+
+  & .textButton{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    & .title{
+      text-align: left;
+    }
+  }
+ 
+}
