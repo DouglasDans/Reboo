@@ -81,6 +81,12 @@ small {
   color: color-variables.$text-secondary-color;
 }
 
+a {
+  color: color-variables.$text-primary-color;
+  text-decoration: none !important;
+  list-style: none !important;
+}
+
 input,
 textarea {
   background-color: color-variables.$background-body-color;
