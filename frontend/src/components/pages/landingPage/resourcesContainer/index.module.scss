@@ -1,0 +1,45 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 100px 30px 100px;
+  width: 100%;
+  gap: global-sizes.$gap-sections-size;
+
+  & .resourcesWrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+
+    & .resource{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: global-sizes.$gap-items-sm-size;
+
+      & .icon{
+        height: 150px;
+        width: 150px;
+        background-color: color-variables.$background-level1-color;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+
+        & span{
+          font-size: 70px;
+          color: color-variables.$highlight-color
+        }
+      }
+    }
+
+    & span {
+      text-align: center;
+    }
+  }
+}

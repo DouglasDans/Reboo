@@ -1,4 +1,4 @@
-import BookCard from '@/components/ui/Cards/BookCard'
+import BookCard from '@/components/ui/cards/BookCard'
 import styles from './index.module.scss'
 import { getFirstBookByBookStatus } from '@/services/rebooAPI/api.services'
 import ColorButton from '@/components/ui/buttons/color-button'
