@@ -3,6 +3,7 @@ import SideMenu from "./SideMenu"
 import ContentContainer from "./ContentContainer"
 import styles from './index.module.scss'
 import Header from "./Header"
+import Footer from "@/components/ui/Footer"
 
 type Props = {
   children: ReactNode
@@ -19,7 +20,7 @@ export default function MainLayout({ children }: Props) {
             {children}
           </ContentContainer>
         </div>
-        {/* footer */}
+        <Footer />
       </div>
     </Fragment>
   )
