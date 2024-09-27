@@ -1,0 +1,39 @@
+@use 'styles/color-variables';
+
+.container{
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  & .icon{
+    width: 150px;
+    height: 150px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-variation-settings: 'FILL' 1;
+
+    background-color: color-variables.$background-level1-color;
+    color: color-variables.$highlight-color;
+    border-radius: 100%;
+
+    & span {
+      font-size: 80px;
+    }
+  }
+
+  & .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
