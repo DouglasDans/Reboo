@@ -1,20 +1,17 @@
 'use client'
 
-import DropdownCardMenu from '@/components/ui/DropdownCardMenu'
 import styles from './index.module.scss'
 import { useContext } from 'react'
 import { GoogleAPIResponseBook } from '@/types/googleBooksApi'
 import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
-import BookColorPickerMenu from '../../../../../../ui/DropdownCardMenu/menus/BookColorPickerMenu'
-import Button from '@/components/ui/buttons/button'
-import Icon from '@/components/ui/icon'
-import BookUploadMenu from '@/components/ui/DropdownCardMenu/menus/BookUploadMenu'
-import ColorPickerMenu from '@/components/ui/DropdownCardMenu/menus/ColorPickerMenu'
+import Button from '@/components/buttons/button'
+import Icon from '@/components/icon'
+import DropdownCardMenu from '@/components/dropdown-menu'
+import BookColorPickerMenu from '@/components/dropdown-menu/menus/BookColorPickerMenu'
+import BookUploadMenu from '@/components/dropdown-menu/menus/BookUploadMenu'
 
 export default function BookCoverContainer() {
   const urlParams = useContext(BookURLParamsContext) as GoogleAPIResponseBook
-
-
   return (
     <div className={styles.editImgContainer}>
       <div className={styles.dropdownButtonsContainer}>

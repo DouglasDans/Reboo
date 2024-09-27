@@ -2,14 +2,15 @@
 
 import { Book } from '@/services/rebooAPI/api.types'
 import styles from './index.module.scss'
-import Button from '@/components/ui/buttons/button'
-import Icon from '@/components/ui/icon'
+import Button from '@/components/buttons/button'
+import Icon from '@/components/icon'
 import { useEffect, useRef, useState } from 'react'
 import { convertStringDateToDate } from './index.utils'
-import BookStatusTag from '@/components/ui/BookStatusTag'
-import DropdownCardMenu from '@/components/ui/DropdownCardMenu'
+
 import updateBookHighlightColor from '@/actions/book/updateBookHighlightColor'
-import ColorPickerMenu from '@/components/ui/DropdownCardMenu/menus/ColorPickerMenu'
+import DropdownCardMenu from '@/components/dropdown-menu'
+import ColorPickerMenu from '@/components/dropdown-menu/menus/ColorPickerMenu'
+import BookStatusTag from '@/components/book-status-tag'
 
 type Props = {
   book: Book

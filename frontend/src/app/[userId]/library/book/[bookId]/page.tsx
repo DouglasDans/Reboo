@@ -1,5 +1,6 @@
-import BookBanner from '@/components/pages/library/book/main/BookBanner'
-import BookContentWrapper from '@/components/pages/library/book/main/BookContent'
+
+import BookBanner from '@/containers/library-page/book-page/main-page/book-banner-container'
+import BookContentWrapper from '@/containers/library-page/book-page/main-page/book-content-container'
 import { rebooApiService } from '@/services/rebooAPI'
 import React, { Fragment } from 'react'
 

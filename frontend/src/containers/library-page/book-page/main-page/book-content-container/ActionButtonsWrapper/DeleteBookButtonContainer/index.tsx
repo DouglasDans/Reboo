@@ -1,8 +1,8 @@
 'use client'
 
 import { deleteBook } from '@/actions/book/deleteBook'
-import Button from '@/components/ui/buttons/button'
-import Icon from '@/components/ui/icon'
+import Button from '@/components/buttons/button'
+import Icon from '@/components/icon'
 import { BookDataContext } from '@/context/book/BookDataProvider'
 import { Book } from '@/services/rebooAPI/api.types'
 import { useRouter } from 'next/navigation'

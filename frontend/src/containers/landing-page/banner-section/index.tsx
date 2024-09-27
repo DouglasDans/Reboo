@@ -1,11 +1,10 @@
 import Link from 'next/link'
 import styles from './index.module.scss'
-import Button from '@/components/ui/buttons/button'
 import Image from 'next/image'
+import Button from '@/components/buttons/button'
 
-type Props = {}
 
-export default function LandingBanner({ }: Props) {
+export default function LandingBanner() {
   return (
     <div className={styles.container}>
       <div className={styles.info}>

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import styles from "./index.module.scss"
-import Icon from "@/components/ui/icon"
+import Icon from "@/components/icon"
 import { usePathname } from "next/navigation"
 import { useContext } from "react"
 import { UserIdContext } from "@/context/user/UserIdProvider"

@@ -1,4 +1,4 @@
-import BookStatsAndButtons from "@/components/pages/library/main/BookStatsAndButtons"
+import BookStatsAndButtons from "@/containers/library-page/main-page/book-stats-buttons-wrapper"
 import { Fragment } from "react"
 
 type Props = {

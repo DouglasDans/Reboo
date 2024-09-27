@@ -1,4 +1,4 @@
-import UserStatsCard from '@/components/ui/cards/UserStatsCard'
+import UserStatsCard from '@/components/cards/user-stats-card'
 import styles from './index.module.scss'
 
 export default function StatsCardsWrapper() {

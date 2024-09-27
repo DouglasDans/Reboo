@@ -3,7 +3,7 @@
 import React, { useContext } from "react"
 import styles from "./index.module.scss"
 import Image from "next/image"
-import Icon from "@/components/ui/icon"
+import Icon from "@/components/icon"
 import NavLink from "./navlink-wrapper"
 import { UserIdContext } from "@/context/user/UserIdProvider"
 import { usePathname } from "next/navigation"

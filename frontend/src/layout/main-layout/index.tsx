@@ -1,9 +1,9 @@
-import { Fragment, PropsWithChildren, ReactNode } from "react"
+import { Fragment, ReactNode } from "react"
 import SideMenu from "./side-menu-container"
 import ContentContainer from "./content-container"
 import styles from './index.module.scss'
 import Header from "./header-container"
-import Footer from "@/components/ui/Footer"
+import Footer from "@/components/footer"
 
 type Props = {
   children: ReactNode

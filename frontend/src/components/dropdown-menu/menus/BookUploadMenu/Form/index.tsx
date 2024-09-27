@@ -6,7 +6,7 @@ import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
 import { GoogleAPIResponseBook } from '@/types/googleBooksApi'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { getHighlightColorFromCoverImage, verifyCoverImageURLIsValid } from './index.utils'
-import Button from '@/components/ui/buttons/button'
+import Button from '@/components/buttons/button'
 
 export default function BookUploadForm() {
   const urlParams = useContext(BookURLParamsContext) as GoogleAPIResponseBook

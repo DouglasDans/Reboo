@@ -1,7 +1,8 @@
-import LandingPageLayout from "@/components/layout/LandingPageLayout";
-import LandingBanner from "@/components/pages/landingPage/banner";
-import LandingLinksContainer from "@/components/pages/landingPage/linksContainer";
-import LandingResourcesContainer from "@/components/pages/landingPage/resourcesContainer";
+import LandingBanner from "@/containers/landing-page/banner-section";
+import LandingLinksContainer from "@/containers/landing-page/links-section";
+import LandingResourcesContainer from "@/containers/landing-page/resources-section";
+import LandingPageLayout from "@/layout/landing-page-layout";
+
 
 export default function Home() {
   return (

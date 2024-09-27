@@ -1,4 +1,4 @@
-import Icon from '@/components/ui/icon'
+import Icon from '@/components/icon'
 import styles from './index.module.scss'
 
 type Props = {}

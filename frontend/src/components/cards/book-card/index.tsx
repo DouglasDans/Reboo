@@ -1,6 +1,6 @@
 import styles from './index.module.scss'
-import Icon from '@/components/ui/icon'
-import Button from '../../buttons/button/button'
+import Icon from '@/components/icon'
+import Button from '../../buttons/button'
 import { Book } from '@/services/rebooAPI/api.types'
 
 type Props = {

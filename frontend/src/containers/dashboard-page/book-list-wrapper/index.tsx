@@ -1,4 +1,4 @@
-import BookList from "@/components/ui/lists/BookList"
+import BookList from "@/components/lists/BookList"
 import { getAllBooksByBookStatus } from "@/services/rebooAPI/api.services"
 import { Fragment } from "react"
 

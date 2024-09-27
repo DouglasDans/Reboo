@@ -1,4 +1,4 @@
-import BookCard from '@/components/ui/cards/BookCard'
+import BookCard from '@/components/cards/book-card'
 import styles from './index.module.scss'
 import StatsCardsWrapper from './stats-cards-wrapper'
 import { getFirstBookByBookStatus } from '@/services/rebooAPI/api.services'

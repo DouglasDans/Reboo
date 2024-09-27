@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from './index.module.scss'
-import Button from '@/components/ui/buttons/button'
+import Button from '@/components/buttons/button'
 import Link from 'next/link'
 
 type Props = {}

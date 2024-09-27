@@ -1,6 +1,6 @@
-import StatusRadioButton from '@/components/ui/forms/StatusRadioButton'
+import StatusRadioButton from '@/components/forms/StatusRadioButton'
 import styles from './index.module.scss'
-import Button from '@/components/ui/buttons/button'
+import Button from '@/components/buttons/button'
 
 export default function SituationForm() {
   return (

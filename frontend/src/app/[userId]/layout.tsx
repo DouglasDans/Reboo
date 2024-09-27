@@ -1,5 +1,5 @@
-import MainLayout from "@/components/layout/MainLayout"
 import { UserIdProvider } from "@/context/user/UserIdProvider"
+import MainLayout from "@/layout/main-layout"
 import { ReactNode } from "react"
 
 type Props = {

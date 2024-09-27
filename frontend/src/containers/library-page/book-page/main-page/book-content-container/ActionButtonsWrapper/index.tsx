@@ -1,11 +1,11 @@
 import { Book } from '@/services/rebooAPI/api.types'
 import styles from './index.module.scss'
-import Button from '@/components/ui/buttons/button'
-import Icon from '@/components/ui/icon'
+import Button from '@/components/buttons/button'
+import Icon from '@/components/icon'
 import Link from 'next/link'
 import DeleteBookButtonContainer from './DeleteBookButtonContainer'
-import DropdownCardMenu from '@/components/ui/DropdownCardMenu'
-import BookStatusSwitcher from '@/components/ui/DropdownCardMenu/menus/bookStatusSwitcher'
+import BookStatusSwitcher from '@/components/dropdown-menu/menus/bookStatusSwitcher'
+import DropdownCardMenu from '@/components/dropdown-menu'
 
 type Props = {
   book: Book

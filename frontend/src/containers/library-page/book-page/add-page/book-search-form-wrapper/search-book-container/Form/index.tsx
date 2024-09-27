@@ -4,7 +4,7 @@ import styles from './index.module.scss'
 import { googleBooksService } from "@/services/GoogleBooksAPI"
 import { formatISBN, setBookDataToParams } from './index.utils'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
-import Button from '@/components/ui/buttons/button'
+import Button from '@/components/buttons/button'
 
 export default function SearchBookForm() {
   const searchParams = useSearchParams()

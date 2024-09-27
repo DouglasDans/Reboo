@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
 import { Metadata } from "next"
-import BookListWrapper from "@/components/pages/dashboard/BookListWrapper"
-import UserStatsContainer from "@/components/pages/dashboard/UserStatsContainer"
+import UserStatsContainer from "@/containers/dashboard-page/user-stats-wrapper"
+import BookListWrapper from "@/containers/dashboard-page/book-list-wrapper"
 
 export const metadata: Metadata = {
   title: "Dashboard",
