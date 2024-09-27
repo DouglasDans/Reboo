@@ -58,7 +58,8 @@ export default function BookBanner({ book }: Props) {
       <div style={{ marginLeft: (width ? width + 25 : 0) }} className={styles.titleContainer}>
         <div className={styles.title}>
           <h1>{book.title}</h1>
-          <span className={styles.authorName}>Por {book.authors ? book.authors[0].author.name : ""} · {convertStringDateToDate(book.publicationDate).getFullYear()}</span>
+          <span className={styles.authorName}>
+            {book.authors[0] ? `Por ${book.authors[0].author.name} · ` : ""}{convertStringDateToDate(book.publicationDate).getFullYear()}</span>
         </div>
 
         <div className={styles.BookStatus}>

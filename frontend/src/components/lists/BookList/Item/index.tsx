@@ -13,7 +13,7 @@ export default function BookListItem({ book }: Props) {
         <img className={styles.coverImage} src={book.coverImage ? book.coverImage : "/book-image-placeholder.png"} alt="" />
       </div>
       <div className={styles.bookCoverInfo}>
-        <small className={styles.authorName}>{book.authors[0].author?.name}</small>
+        <small className={styles.authorName}>{book.authors[0] ? book.authors[0].author?.name : ""}</small>
         <h6 className={styles.bookTitle}>{book.title}</h6>
       </div>
     </Link>
