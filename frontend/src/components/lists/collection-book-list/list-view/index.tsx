@@ -1,3 +1,4 @@
+import { Book } from '@/services/rebooAPI/api.types'
 import styles from './index.module.scss'
 import ListBookItem from './item'
 
