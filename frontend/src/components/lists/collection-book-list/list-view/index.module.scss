@@ -1,0 +1,7 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+.content{
+  border: 2px solid color-variables.$background-level2-color;
+  border-radius: global-sizes.$card-radius;
+}

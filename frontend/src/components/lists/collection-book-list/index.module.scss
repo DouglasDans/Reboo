@@ -1,0 +1,12 @@
+@use 'styles/global-sizes';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-md-size;
+
+  & .header {
+    display: flex;
+    justify-content: space-between;
+  }
+}

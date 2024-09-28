@@ -1,0 +1,63 @@
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  width: min-content;
+  text-decoration: none;
+
+  transition: 200ms;
+  &:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 200ms;
+  }
+
+  & .bookCoverImage{
+    display: flex;
+
+    & .coverImage {
+      height: 190px;
+      border-radius: global-sizes.$book-cover-radius;
+    }
+  }
+
+  & .bookCoverInfo{
+    & .authorName, & .bookTitle {
+      width: auto;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    & .authorName {
+      white-space: nowrap;
+      text-wrap: wrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      text-overflow: ellipsis;
+      line-height: 1.5em;
+      max-height: 1.5em;
+    }
+
+    & .bookTitle{
+      white-space: nowrap;
+      text-wrap: wrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      text-overflow: ellipsis;
+      line-height: 1.5em;
+      max-height: 3em;
+      color: color-variables.$text-primary-color;
+    }  
+  }
+}

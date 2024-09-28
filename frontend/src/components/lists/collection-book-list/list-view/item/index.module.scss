@@ -1,0 +1,30 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+@use 'styles/fonts';
+
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: global-sizes.$list-padding ;
+  border-bottom: 2px solid color-variables.$background-level2-color;
+
+  &:hover{
+    cursor: pointer;
+    background-color: color-variables.$background-level1-color;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: global-sizes.$gap-items-md-size;
+    @extend %font-family-poppins;
+  }
+
+  .author{
+    color: color-variables.$text-secondary-color;
+    @extend %font-family-poppins;
+  }
+}

@@ -1,5 +1,4 @@
-import BookStatsAndButtons from "@/containers/library-page/main-page/book-stats-buttons-wrapper"
-import { Fragment } from "react"
+import LibraryPage from "@/containers/library-page/main-page"
 
 type Props = {
   params: {
@@ -9,8 +8,6 @@ type Props = {
 
 export default function page({ params }: Props) {
   return (
-    <Fragment>
-      <BookStatsAndButtons params={params} />
-    </Fragment>
+    <LibraryPage params={params} />
   )
 }

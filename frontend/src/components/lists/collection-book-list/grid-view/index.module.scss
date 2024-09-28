@@ -1,0 +1,8 @@
+@use 'styles/global-sizes';
+
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: global-sizes.$gap-components-size;
+}
