@@ -9,11 +9,29 @@
 
   & .shortcutsWrapper {
     display: flex;
-    gap: global-sizes.$gap-components-size;
+    gap: global-sizes.$gap-items-md-size;
   }
   
   & .shortcutsWrapper a {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     color: color-variables.$text-secondary-color;
+    background-color: transparent;
+
+    &:hover{
+      cursor: pointer;
+      background-color: color-variables.$background-level1-color;
+    }
+
+    &:active{
+      color: color-variables.$text-primary-color;
+    }
   }
 }
 
