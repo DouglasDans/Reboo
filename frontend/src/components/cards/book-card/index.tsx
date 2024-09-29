@@ -2,6 +2,7 @@ import styles from './index.module.scss'
 import Icon from '@/components/icon'
 import Button from '../../buttons/button'
 import { Book } from '@/services/rebooAPI/api.types'
+import Link from 'next/link'
 
 type Props = {
   book: Book
@@ -23,7 +24,9 @@ export default function BookCard({ book }: Props) {
         </div>
         <Button textColor={book.highlightColor} startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
       </div>
-      <img className={styles.imageElement} src={book.coverImage ? book.coverImage : "/book-image-placeholder.png"} alt="" />
+      <Link href={`/${book.userId}/library/book/${book.id}`}>
+        <img className={styles.imageElement} src={book.coverImage ? book.coverImage : "/book-image-placeholder.png"} alt="" />
+      </Link>
     </div >
   )
 }
