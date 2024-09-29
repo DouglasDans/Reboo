@@ -1,8 +1,8 @@
 @use 'styles/global-sizes';
 
 .content{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: global-sizes.$gap-components-size;
+  display: grid;
+  // grid-auto-rows: min-content;
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr) );
+  gap: global-sizes.$gap-items-sm-size;
 }

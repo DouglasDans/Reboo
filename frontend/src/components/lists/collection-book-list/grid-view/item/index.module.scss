@@ -2,6 +2,8 @@
 @use 'styles/global-sizes';
 
 .content {
+  // width: 125px;
+
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -21,6 +23,8 @@
 
     & .coverImage {
       height: 190px;
+      width: 125px;
+      object-fit: cover;
       border-radius: global-sizes.$book-cover-radius;
     }
   }
