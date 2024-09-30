@@ -28,6 +28,12 @@
   background: color-variables.$text-secondary-color;
 }
 
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
 body {
   background-color: color-variables.$background-body-color;
   color: color-variables.$text-primary-color;
