@@ -13,33 +13,29 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
+    justify-content: start;
+    gap: global-sizes.$gap-items-md-size;
+  }
+}
 
-    & .resource{
+@media (min-width: 769px) and (max-width: 992px) {
+  .container {
+    padding: 50px;
+
+    & .resourcesWrapper{
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: global-sizes.$gap-items-sm-size;
-
-      & .icon{
-        height: 150px;
-        width: 150px;
-        background-color: color-variables.$background-level1-color;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 100%;
-
-        & span{
-          font-size: 70px;
-          color: color-variables.$highlight-color
-        }
-      }
     }
+  }
+}
 
-    & span {
-      text-align: center;
+@media (max-width: 768px) {
+  .container {
+    padding: 30px; 
+    & .resourcesWrapper{
+      display: flex;
+      flex-direction: column;
+      gap: global-sizes.$gap-components-size;
     }
   }
 }

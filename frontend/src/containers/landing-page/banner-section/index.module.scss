@@ -10,9 +10,9 @@
 
   padding: 0 100px 0 100px;
 
-  display: flex;
-  justify-content: space-between;
-  gap: global-sizes.$gap-sections-size;
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  gap: global-sizes.$gap-components-size;
   align-items: center;
 
   .info{
@@ -21,20 +21,71 @@
     align-items: center;
     justify-content: center;
     gap: global-sizes.$gap-items-md-size;
-    width: 40%;
+
 
     & h1 {
+      text-align: center;
+    }
+    & span {
       text-align: center;
     }
   }
 
   & .image{
     // position: absolute;
-    height: 70%;
-    width: auto;
+    height: auto;
+    width: 100%;
     overflow: hidden;
+    margin: auto;
 
     border: 2px solid color-variables.$background-level2-color;
     border-radius: global-sizes.$radius-item-size;
   }
 }
+
+@media (max-width: 992px) {
+  .container{
+    padding: 0 50px 0 50px;
+    .info{
+      
+      & h1 {
+        font-size: global-sizes.$font-h2-size;
+      }
+      & span {
+        text-align: center;
+      }
+    }
+
+    .image{
+      height: auto;
+      width: 100%;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .info{
+      
+      & h1 {
+        font-size: global-sizes.$font-h2-size;
+      }
+      & span {
+        text-align: center;
+      }
+    }
+
+    .image{
+      display: none;
+    }
+  }
+}
+
+
+// @media (max-width: 576px) {
+//   /* Estilos para celulares */
+// }

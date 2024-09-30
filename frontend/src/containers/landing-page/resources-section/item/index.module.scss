@@ -1,0 +1,47 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+.resource{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: global-sizes.$gap-items-sm-size;
+
+  & .icon{
+    height: 150px;
+    width: 150px;
+    background-color: color-variables.$background-level1-color;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+
+    & span{
+      font-size: 70px;
+      color: color-variables.$highlight-color;
+    }
+  }
+
+  & .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & h5 , & span{
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .resource{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  
+}
