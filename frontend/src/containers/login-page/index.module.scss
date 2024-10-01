@@ -60,3 +60,21 @@
     }
   }
 }
+
+@media (max-width: 992px) {
+  .container{
+    display: grid;
+    grid-template-columns: 40% 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container{
+    display: grid;
+    grid-template-columns: 1fr;
+
+    & .left{
+      display: none;
+    }
+  }
+}
