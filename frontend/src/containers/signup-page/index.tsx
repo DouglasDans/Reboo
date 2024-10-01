@@ -1,10 +1,11 @@
-import Image from 'next/image'
-import styles from './index.module.scss'
-import Link from 'next/link'
-import Icon from '@/components/icon'
-import Button from '@/components/buttons/button'
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from './index.module.scss';
+import Icon from '@/components/icon';
+import Button from '@/components/buttons/button';
 
-export default function LoginPage() {
+export default function SignUpPage() {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -12,38 +13,31 @@ export default function LoginPage() {
       </div>
       <div className={styles.right}>
         <div className={styles.topContainer}>
-          <Link href={"/"}>
+          <Link href={"/login"}>
             <Icon name='arrow_back' />
           </Link>
         </div>
-        <form action="" className={styles.loginForm}>
-          <h3>Fazer Login no Reboo</h3>
+        <form action="" className={styles.registerForm}>
+          <h3>Registrar no Reboo</h3>
 
           <div className={styles.inputWrapper}>
             <div>
+              <input type="text" placeholder='Nome' />
               <input type="email" placeholder='Email' />
               <input type="password" placeholder='Senha' />
+              <input type="password" placeholder='Confirmar Senha' />
             </div>
-            <Button fullWidth>Realizar Login</Button>
+            <Button fullWidth>Registrar</Button>
           </div>
 
           <h6>Ou</h6>
 
           <Button variant='secondary' fullWidth>
             <Image src={"/google-icon.svg"} alt='Logo do Google' height={20} width={20} />
-            Fazer login com o Google
+            Registrar com Google
           </Button>
-
-          <div className={styles.subLinkWrapper}>
-            {/* <Link href={"/google.com"}>
-              Esqueci minha senha
-            </Link> */}
-            <Link href={"/signup"}>
-              Criar nova conta
-            </Link>
-          </div>
         </form>
       </div>
     </div>
-  )
+  );
 }
