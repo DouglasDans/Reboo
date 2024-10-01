@@ -38,7 +38,7 @@ export default function LoginPage() {
             {/* <Link href={"/google.com"}>
               Esqueci minha senha
             </Link> */}
-            <Link href={"/signup"}>
+            <Link href={"/register"}>
               Criar nova conta
             </Link>
           </div>

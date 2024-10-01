@@ -5,7 +5,7 @@ import styles from './index.module.scss';
 import Icon from '@/components/icon';
 import Button from '@/components/buttons/button';
 
-export default function SignUpPage() {
+export default function RegisterPage() {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
