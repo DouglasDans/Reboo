@@ -3,13 +3,13 @@
 import { useContext, useState } from 'react'
 import styles from './index.module.scss'
 import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
-import { GoogleAPIResponseBook } from '@/types/googleBooksApi'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { getHighlightColorFromCoverImage, verifyCoverImageURLIsValid } from './index.utils'
 import Button from '@/components/buttons/button'
+import { GoogleBookResponse } from '@/services/GoogleBooksAPI/api.types'
 
 export default function BookUploadForm() {
-  const urlParams = useContext(BookURLParamsContext) as GoogleAPIResponseBook
+  const urlParams = useContext(BookURLParamsContext) as GoogleBookResponse
 
   const searchParams = useSearchParams()
   const pathname = usePathname()

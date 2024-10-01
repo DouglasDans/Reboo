@@ -1,5 +1,5 @@
 import { GoogleBookResponse } from "@/services/GoogleBooksAPI/api.types"
-import toStringISBN from "@/utils/isbnHandler"
+import { GoogleAPIResponseISBN } from "@/types/googleBooksApi"
 
 export function formatISBN(isbn: string): string {
   return isbn.replace(/-/gi, "")
@@ -48,4 +48,12 @@ function truncateHtmlTo3Paragraphs(text: string): string {
   }
 
   return limitedText
+}
+
+function toStringISBN(arrISBN: Array<GoogleAPIResponseISBN>) {
+  const rawArr: Array<string> = []
+  arrISBN.map(item => {
+    rawArr.push(item.identifier)
+  })
+  return rawArr.join(", ")
 }

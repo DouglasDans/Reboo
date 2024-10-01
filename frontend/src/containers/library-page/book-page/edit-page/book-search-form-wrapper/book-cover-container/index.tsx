@@ -1,7 +1,6 @@
 'use client'
 import styles from './index.module.scss'
 import { useContext, useEffect, useState } from 'react'
-import { GoogleAPIResponseBook } from '@/types/googleBooksApi'
 import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
 import { BookDataContext } from '@/context/book/BookDataProvider'
 import { Book } from '@/services/rebooAPI/api.types'
@@ -10,9 +9,10 @@ import Icon from '@/components/icon'
 import DropdownCardMenu from '@/components/dropdown-menu'
 import BookColorPickerMenu from '@/components/dropdown-menu/menus/BookColorPickerMenu'
 import BookUploadMenu from '@/components/dropdown-menu/menus/BookUploadMenu'
+import { GoogleBookResponse } from '@/services/GoogleBooksAPI/api.types'
 
 export default function BookCoverContainer() {
-  const urlParams = useContext(BookURLParamsContext) as GoogleAPIResponseBook
+  const urlParams = useContext(BookURLParamsContext) as GoogleBookResponse
   const bookData = useContext(BookDataContext) as Book
 
   const [coverImage, setCoverImage] = useState<string>(bookData.coverImage)
