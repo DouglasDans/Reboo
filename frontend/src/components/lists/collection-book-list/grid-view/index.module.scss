@@ -5,4 +5,10 @@
   // grid-auto-rows: min-content;
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr) );
   gap: global-sizes.$gap-items-sm-size;
+  
+  &.wrap{
+    display: flex;
+    justify-content: start;
+    gap: global-sizes.$gap-items-md-size;
+  }
 }

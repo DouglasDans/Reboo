@@ -1,4 +1,4 @@
-import BookList from "@/components/lists/BookList"
+import CollectionBookList from "@/components/lists/collection-book-list"
 import { getAllBooksByBookStatus } from "@/services/rebooAPI/api.services"
 import { Fragment } from "react"
 
@@ -13,8 +13,8 @@ export default async function BookListWrapper({ params }: Props) {
   const notStartedBooks = await getAllBooksByBookStatus(params.userId, "NOT_STARTED")
   return (
     <Fragment>
-      <BookList listTitle="Lendo Agora" bookList={inProgressBooks} />
-      <BookList listTitle="Próximas Leituras" bookList={notStartedBooks} />
+      <CollectionBookList title="Lendo Agora" books={inProgressBooks} controlsDisabled listNoWrap />
+      <CollectionBookList title="Próximas Leituras" books={notStartedBooks} controlsDisabled listNoWrap />
     </Fragment>
   )
 }
