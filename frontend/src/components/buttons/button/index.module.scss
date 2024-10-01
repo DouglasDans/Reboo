@@ -52,4 +52,8 @@
     width: fit-content;
     padding: global-sizes.$button-padding;
   }
+  &.fullWidth{
+    width: 100% !important;
+    padding: global-sizes.$button-padding;
+  }
 }

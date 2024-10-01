@@ -24,12 +24,12 @@ export default function LoginPage() {
               <input type="email" placeholder='Email' />
               <input type="password" placeholder='Senha' />
             </div>
-            <Button>Realizar Login</Button>
+            <Button fullWidth>Realizar Login</Button>
           </div>
 
           <h6>Ou</h6>
 
-          <Button variant='secondary'>
+          <Button variant='secondary' fullWidth>
             <Image src={"/google-icon.svg"} alt='Logo do Google' height={20} width={20} />
             Fazer login com o Google
           </Button>
