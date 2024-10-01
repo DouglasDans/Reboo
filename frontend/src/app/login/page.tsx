@@ -1,8 +1,7 @@
-import { redirect } from "next/navigation"
+import LoginPage from "@/containers/login-page"
 
 export default function page() {
-  redirect("/1/dashboard")
   return (
-    <div>Login</div>
+    <LoginPage />
   )
 }
