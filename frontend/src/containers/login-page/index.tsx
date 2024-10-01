@@ -3,6 +3,7 @@ import styles from './index.module.scss'
 import Link from 'next/link'
 import Icon from '@/components/icon'
 import Button from '@/components/buttons/button'
+import makeLogin from '@/actions/login.action'
 
 export default function LoginPage() {
   return (
@@ -16,13 +17,13 @@ export default function LoginPage() {
             <Icon name='arrow_back' />
           </Link>
         </div>
-        <form action="" className={styles.loginForm}>
+        <form action={makeLogin} className={styles.loginForm}>
           <h3>Fazer Login no Reboo</h3>
 
           <div className={styles.inputWrapper}>
             <div>
-              <input type="email" placeholder='Email' />
-              <input type="password" placeholder='Senha' />
+              <input name='email' type="email" placeholder='Email' />
+              <input name='password' type="password" placeholder='Senha' />
             </div>
             <Button fullWidth>Realizar Login</Button>
           </div>
