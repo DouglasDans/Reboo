@@ -8,8 +8,5 @@
   padding: 50px 100px 50px 100px;
   width: 100%;
   gap: global-sizes.$gap-sections-size;
-}
-
-@media (max-width: 992px) {
-  /* Estilos para celulares */
+  text-align: center;
 }

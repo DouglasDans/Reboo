@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <Image src={"/reboo-logo-gray.svg"} height={50} width={50} alt='Logo do aplicativo Reboo em cor cinza' />
+        <Image className={styles.logo} src={"/reboo-logo-gray.svg"} height={50} width={50} alt='Logo do aplicativo Reboo em cor cinza' />
         <span>2024 Reboo Book Tracker. Desenvolvido por Douglas Nascimento.</span>
       </div>
 
@@ -22,9 +22,6 @@ export default function Footer() {
         </Link>
         <Link href={"https://www.linkedin.com/in/douglasdans/"}>
           <Image className={styles.linkIcon} src={"/linkedin-icon.svg"} width={30} height={30} alt='ícone do linkedin.' />
-        </Link>
-        <Link href={""}>
-
         </Link>
       </div>
     </div>

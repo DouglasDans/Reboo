@@ -31,3 +31,22 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px;
+    gap: global-sizes.$gap-items-md-size;
+    
+    & .content{
+      height: auto;
+      text-align: center;
+      & .logo {
+        display: none;
+      }
+    }
+  }
+}
