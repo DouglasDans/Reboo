@@ -1,4 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from "axios"
+import { cookies } from "next/headers"
 
 const api = axios.create({
   baseURL: process.env.REBOO_API_URL,
@@ -6,12 +7,13 @@ const api = axios.create({
 
 // Interceptores de requisição
 api.interceptors.request.use(
-  config => {
-    // Você pode adicionar headers aqui, por exemplo, token de autenticação
-    // const token = localStorage.getItem('token');
-    // if (token) {
-    //   config.headers.Authorization = `Bearer ${token}`;
-    // }
+  async config => {
+    const cookie_token = await cookies().get("access_token")
+
+    if (cookie_token) {
+      config.headers.Authorization = `Bearer ${cookie_token.value}`
+    }
+
     return config
   },
   error => {
