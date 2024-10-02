@@ -1,9 +1,9 @@
-import { IsEmail, IsStrongPassword } from 'class-validator'
+import { IsEmail, IsString } from 'class-validator'
 
 export class AuthDto {
   @IsEmail()
   email: string
 
-  @IsStrongPassword()
+  @IsString()
   password: string
 }
