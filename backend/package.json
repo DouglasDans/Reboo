@@ -27,7 +27,7 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^10.0.0",
-    "@prisma/client": "^5.18.0",
+    "@prisma/client": "^5.20.0",
     "@types/bcrypt": "^5.0.2",
     "backend": "file:",
     "bcrypt": "^5.1.1",
