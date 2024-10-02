@@ -1,5 +1,10 @@
 "use server"
 
-export default async function makeLogin(formData: FormData) {
-  console.log(formData.get("email"), formData.get("password"))
+type loginData = {
+  email: string
+  password: string
+}
+
+export default async function makeLogin(data: loginData) {
+  console.log(data.email, data.password)
 }
