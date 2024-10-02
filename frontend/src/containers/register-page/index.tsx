@@ -1,12 +1,42 @@
-import React from 'react';
+'use client'
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './index.module.scss';
 import Icon from '@/components/icon';
 import Button from '@/components/buttons/button';
 import makeRegister from '@/actions/register.action';
+import { redirect, useRouter } from 'next/navigation';
 
 export default function RegisterPage() {
+  const router = useRouter()
+  const [wrongPassword, setWrongPassword] = useState<boolean>(false)
+  const [emailInUse, setEmailInUse] = useState<boolean>(false)
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setWrongPassword(false)
+
+    const data = {
+      name: event.currentTarget.nameUser.value,
+      email: event.currentTarget.email.value,
+      password: event.currentTarget.password.value,
+      confirmPassword: event.currentTarget.confirmPassword.value,
+    }
+
+    if (data.password !== data.confirmPassword) {
+      setWrongPassword(true)
+      return null
+    } else {
+      // makeRegister(data)
+    }
+
+    // console.log(userId);
+    // router.push(`/${userId}/dashboard`)
+  }
+
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -18,15 +48,17 @@ export default function RegisterPage() {
             <Icon name='arrow_back' />
           </Link>
         </div>
-        <form action={makeRegister} className={styles.registerForm}>
+        <form onSubmit={handleSubmit} className={styles.registerForm}>
           <h3>Registrar no Reboo</h3>
 
           <div className={styles.inputWrapper}>
             <div>
-              <input name="name" type="text" placeholder='Nome' />
-              <input name='email' type="email" placeholder='Email' />
-              <input name="password" type="password" placeholder='Senha' />
-              <input name="confirmPassword" type="password" placeholder='Confirmar Senha' />
+              <input required name="nameUser" type="text" placeholder='Nome' />
+              <input required name='email' type="email" placeholder='Email' />
+              <input required className={wrongPassword ? styles.wrongPassword : ""} name="password" type="password" placeholder='Senha' />
+              <input required className={wrongPassword ? styles.wrongPassword : ""} name="confirmPassword" type="password" placeholder='Confirmar Senha' />
+
+              {wrongPassword && <small className={wrongPassword ? styles.wrongPassword : ""}>As senhas não coincidem</small>}
             </div>
             <Button fullWidth>Registrar</Button>
           </div>
