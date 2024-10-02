@@ -9,6 +9,7 @@ import { ReadingSessionUseCaseModule } from './use-cases/reading-session'
 import { UserUseCaseModule } from './use-cases/user'
 import {
   AppController,
+  AuthController,
   AuthorController,
   BookController,
   CategoryController,
@@ -17,10 +18,12 @@ import {
   ReadingSessionController,
   UserController,
 } from './controllers'
+import { AuthUseCaseModule } from './use-cases/auth'
 
 @Module({
   imports: [
     DataServicesModule,
+    AuthUseCaseModule,
     AuthorUseCaseModule,
     BookUseCaseModule,
     CategoryUseCaseModule,
@@ -31,6 +34,7 @@ import {
   ],
   controllers: [
     AppController,
+    AuthController,
     AuthorController,
     BookController,
     CategoryController,

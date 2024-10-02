@@ -19,6 +19,10 @@ export class UserService {
     return this.user.findById(id)
   }
 
+  getUserByEmail(email: string): Promise<User> {
+    return this.user.findByEmail(email)
+  }
+
   createUser(createUserDto: CreateUserDto): Promise<User> {
     const user = this.userFactory.createNewUser(createUserDto)
     return this.user.create(user)
