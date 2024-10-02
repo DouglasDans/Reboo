@@ -19,6 +19,8 @@ import {
   UserController,
 } from './controllers'
 import { AuthUseCaseModule } from './use-cases/auth'
+import { APP_GUARD } from '@nestjs/core'
+import { AuthGuard } from './use-cases/auth/auth.guard'
 
 @Module({
   imports: [
@@ -42,6 +44,12 @@ import { AuthUseCaseModule } from './use-cases/auth'
     PublisherController,
     ReadingSessionController,
     UserController,
+  ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
   ],
 })
 export class AppModule {}
