@@ -4,7 +4,7 @@ export class User {
   id: number
   name: string
   email: string
-  password: string
+  password?: string
   bio?: string
   profileImage?: string
   googleId?: string
