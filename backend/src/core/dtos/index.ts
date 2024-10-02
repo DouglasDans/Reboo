@@ -1,4 +1,5 @@
 export * from './author.dto'
+export * from './auth.dto'
 export * from './book.dto'
 export * from './category.dto'
 export * from './collection.dto'
