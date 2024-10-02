@@ -1,11 +1,24 @@
+'use client'
+
 import Image from 'next/image'
 import styles from './index.module.scss'
 import Link from 'next/link'
 import Icon from '@/components/icon'
 import Button from '@/components/buttons/button'
 import makeLogin from '@/actions/login.action'
+import { useState } from 'react'
 
 export default function LoginPage() {
+  const [wrongPassword, setWrongPassword] = useState<boolean>(false)
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    const data = {
+      email: event.currentTarget.email.value,
+      password: event.currentTarget.password.value,
+    }
+    await makeLogin(data)
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -17,13 +30,16 @@ export default function LoginPage() {
             <Icon name='arrow_back' />
           </Link>
         </div>
-        <form action={makeLogin} className={styles.loginForm}>
+
+        <form onSubmit={handleSubmit} className={styles.loginForm}>
           <h3>Fazer Login no Reboo</h3>
 
           <div className={styles.inputWrapper}>
             <div>
               <input name='email' type="email" placeholder='Email' />
-              <input name='password' type="password" placeholder='Senha' />
+              <input required className={wrongPassword ? styles.wrongPassword : ""} name="password" type="password" placeholder='Senha' />
+
+              {wrongPassword && <small className={wrongPassword ? styles.wrongPassword : ""}>Senha Incorreta</small>}
             </div>
             <Button fullWidth>Realizar Login</Button>
           </div>
