@@ -30,6 +30,12 @@ export class PrismaUserRepository implements UserRepository {
     })
   }
 
+  findByEmail(email: string): Promise<User> {
+    return this.prisma.user.findUnique({
+      where: { email },
+    })
+  }
+
   update(id: number, item: User): Promise<User> {
     return this.prisma.user.update({
       where: { id },
