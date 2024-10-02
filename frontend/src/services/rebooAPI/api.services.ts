@@ -1,6 +1,16 @@
 import api from "./api.config"
 import { Book, BookStatus } from "./api.types"
 
+export async function loginUser(
+  email: string,
+  password: string,
+): Promise<{ access_token: string }> {
+  return await api.post("auth", {
+    email,
+    password,
+  })
+}
+
 export async function getAllBooksAndAuthors(userId: number): Promise<Book[]> {
   return await api.get(`book?userId=${userId}&select=authors`)
 }
