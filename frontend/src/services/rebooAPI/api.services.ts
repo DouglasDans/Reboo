@@ -1,10 +1,10 @@
 import api from "./api.config"
-import { Book, BookStatus } from "./api.types"
+import { Book, BookStatus, User } from "./api.types"
 
 export async function loginUser(
   email: string,
   password: string,
-): Promise<{ access_token: string }> {
+): Promise<{ access_token: string; userId: number }> {
   return await api.post("auth", {
     email,
     password,

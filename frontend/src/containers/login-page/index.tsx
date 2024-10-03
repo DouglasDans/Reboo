@@ -12,6 +12,8 @@ export default function LoginPage() {
   const [wrongPassword, setWrongPassword] = useState<boolean>(false)
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
     const data = {
       email: event.currentTarget.email.value,
       password: event.currentTarget.password.value,
