@@ -8,7 +8,7 @@
   
   &.wrap{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     gap: global-sizes.$gap-items-md-size;
   }
 }

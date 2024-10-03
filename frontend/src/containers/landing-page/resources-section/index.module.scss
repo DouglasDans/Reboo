@@ -14,7 +14,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    justify-content: start;
+    justify-content: flex-start;
     gap: global-sizes.$gap-items-md-size;
   }
 }
