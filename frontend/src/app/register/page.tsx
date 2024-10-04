@@ -1,7 +1,10 @@
 import RegisterPage from '@/containers/register-page'
+import withAuth from './auth'
 
-export default function page() {
+function Register() {
   return (
     <RegisterPage />
   )
 }
+
+export default withAuth(Register)
