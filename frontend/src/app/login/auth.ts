@@ -5,7 +5,6 @@ import { redirect } from "next/navigation"
 
 async function withAuth(Component: NextComponentType) {
   const token = cookies().get("access_token") || null
-  console.log(token)
 
   if (token) {
     const tokenPayload = await jwtDecode(token.value)
