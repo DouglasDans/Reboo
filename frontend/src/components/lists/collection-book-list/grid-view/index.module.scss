@@ -15,8 +15,14 @@
 
 @media (max-width: 992px) {
   .content{
-    // position: relative;
-    overflow-x: scroll;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    &.wrap{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      gap: global-sizes.$gap-items-md-size;
+    }
   }
 }

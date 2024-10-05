@@ -2,8 +2,6 @@
 @use 'styles/global-sizes';
 
 .content {
-  // width: 125px;
-
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -63,5 +61,23 @@
       max-height: 3em;
       color: color-variables.$text-primary-color;
     }  
+  }
+}
+
+@media (max-width: 992px) {
+  .content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    & .bookCoverImage{
+      display: flex;
+  
+      & .coverImage {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 6 / 9;
+      }
+    }
   }
 }
