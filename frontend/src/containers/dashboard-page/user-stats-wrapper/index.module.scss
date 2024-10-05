@@ -5,3 +5,10 @@
   grid-template-columns: 50% 1fr;
   gap: global-sizes.$gap-items-md-size;
 }
+
+@media (max-width: 992px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+}
