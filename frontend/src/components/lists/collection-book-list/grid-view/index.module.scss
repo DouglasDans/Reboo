@@ -12,3 +12,11 @@
     gap: global-sizes.$gap-items-md-size;
   }
 }
+
+@media (max-width: 992px) {
+  .content{
+    // position: relative;
+    overflow-x: scroll;
+    width: 100%;
+  }
+}
