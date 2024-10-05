@@ -7,13 +7,13 @@
 
   border-right: 2px solid color-variables.$background-level2-color;
   padding: 30px 20px;
-
+  
   display: flex;
   flex-direction: column;
   gap: 30px;
-
+  
   position:fixed;
-
+  
   & .navLinkWrapper {
     display: flex;
     flex-direction: column;
@@ -22,3 +22,28 @@
 }
 
 
+@media (max-width: 992px) {
+  .container{
+    position: fixed;
+    bottom: 0;
+    
+    height: 90px;
+    width: 100vw;
+    
+    background-color: color-variables.$background-body-color;
+    border: 0;
+    border-top: 2px solid color-variables.$background-level2-color;
+
+    padding: 10px;
+    & .imageLogo{
+      display: none;
+    }
+
+    & .navLinkWrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 10px;
+    }
+  }
+}

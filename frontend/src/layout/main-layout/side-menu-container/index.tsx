@@ -6,17 +6,12 @@ import Image from "next/image"
 import Icon from "@/components/icon"
 import NavLink from "./navlink-wrapper"
 import { UserIdContext } from "@/context/user/UserIdProvider"
-import { usePathname } from "next/navigation"
 
 export default function SideMenu() {
   const userId = useContext(UserIdContext) as number
-
-  const pathname = usePathname()
-  // const isActive = pathname.includes(href) ? true : false
-
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.imageLogo}>
         <Image
           src={"/reboo-logo-text.svg"}
           alt="Logo do Reboo"

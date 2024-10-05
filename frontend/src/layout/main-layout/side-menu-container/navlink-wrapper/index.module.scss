@@ -42,3 +42,10 @@
     @extend %font-family-poppins;
   }
 }
+
+@media (max-width: 992px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+}
