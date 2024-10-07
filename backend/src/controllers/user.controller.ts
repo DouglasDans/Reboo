@@ -10,11 +10,13 @@ import {
 } from '@nestjs/common'
 import { CreateUserDto, UpdateUserDto } from 'src/core/dtos'
 import { UserService } from 'src/use-cases/user'
+import { Public } from 'src/utils/decorators'
 
 @Controller('api/v1/user')
 export class UserController {
   constructor(private readonly userUseCases: UserService) {}
 
+  @Public()
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     return this.userUseCases.createUser(createUserDto)
