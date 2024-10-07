@@ -6,7 +6,7 @@ import Image from 'next/image';
 import styles from './index.module.scss';
 import Icon from '@/components/icon';
 import Button from '@/components/buttons/button';
-import makeRegister from '@/actions/register.action';
+import { makeRegister } from '@/actions/user.action';
 import { redirect, useRouter } from 'next/navigation';
 
 export default function RegisterPage() {
