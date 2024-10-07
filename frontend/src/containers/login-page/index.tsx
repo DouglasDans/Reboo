@@ -5,7 +5,7 @@ import styles from './index.module.scss'
 import Link from 'next/link'
 import Icon from '@/components/icon'
 import Button from '@/components/buttons/button'
-import makeLogin from '@/actions/login.action'
+import makeLogin from '@/actions/user.action'
 import { useState } from 'react'
 
 export default function LoginPage() {
