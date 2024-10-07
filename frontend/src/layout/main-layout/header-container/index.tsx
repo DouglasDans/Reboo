@@ -6,6 +6,8 @@ import Icon from "@/components/icon"
 import { usePathname } from "next/navigation"
 import { useContext } from "react"
 import { UserIdContext } from "@/context/user/UserIdProvider"
+import DropdownCardMenu from "@/components/dropdown-menu"
+import UserOptionsMenu from "@/components/dropdown-menu/menus/UserOptionsMenu"
 
 
 export default function Header() {
@@ -39,9 +41,11 @@ export default function Header() {
         {/* <Link href={"#"}>
           <Icon name="notifications" />
         </Link> */}
-        <Link href={"#"}>
-          <Icon name="person" />
-        </Link>
+        <DropdownCardMenu content={<UserOptionsMenu />}>
+          <Link href={"#"}>
+            <Icon name="person" />
+          </Link>
+        </DropdownCardMenu>
       </div>
     </div>
   )

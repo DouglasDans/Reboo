@@ -1,0 +1,21 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-md-size;
+
+  & .user {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: global-sizes.$gap-items-sm-size;
+
+    & .data{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
