@@ -28,7 +28,7 @@ api.interceptors.response.use(
   },
   (error: AxiosError) => {
     // Você pode tratar erros globais aqui
-    return Promise.reject(error.response.data)
+    return Promise.reject(error.response?.data)
   },
 )
 

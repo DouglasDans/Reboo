@@ -1,5 +1,5 @@
 import api from "./api.config"
-import { Book, BookStatus, User } from "./api.types"
+import { Book, BookStatus } from "./api.types"
 
 export async function loginUser(
   email: string,

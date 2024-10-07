@@ -7,16 +7,15 @@ import styles from './index.module.scss';
 import Icon from '@/components/icon';
 import Button from '@/components/buttons/button';
 import { makeRegister } from '@/actions/user.action';
-import { redirect, useRouter } from 'next/navigation';
 
 export default function RegisterPage() {
-  const router = useRouter()
   const [wrongPassword, setWrongPassword] = useState<boolean>(false)
   const [emailInUse, setEmailInUse] = useState<boolean>(false)
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setWrongPassword(false)
+    setEmailInUse(false)
 
     const data = {
       name: event.currentTarget.nameUser.value,
@@ -29,7 +28,9 @@ export default function RegisterPage() {
       setWrongPassword(true)
       return null
     } else {
-      makeRegister(data)
+      await makeRegister(data).catch(() => {
+        setEmailInUse(true)
+      })
     }
   }
 
@@ -51,11 +52,12 @@ export default function RegisterPage() {
           <div className={styles.inputWrapper}>
             <div>
               <input required name="nameUser" type="text" placeholder='Nome' />
-              <input required name='email' type="email" placeholder='Email' />
+              <input required className={emailInUse ? styles.wrongPassword : ""} name='email' type="email" placeholder='Email' />
               <input required className={wrongPassword ? styles.wrongPassword : ""} name="password" type="password" placeholder='Senha' />
               <input required className={wrongPassword ? styles.wrongPassword : ""} name="confirmPassword" type="password" placeholder='Confirmar Senha' />
 
               {wrongPassword && <small className={wrongPassword ? styles.wrongPassword : ""}>As senhas não coincidem</small>}
+              {emailInUse && <small className={wrongPassword ? styles.wrongPassword : ""}>O email já está sendo usado</small>}
             </div>
             <Button fullWidth>Registrar</Button>
           </div>

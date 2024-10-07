@@ -31,8 +31,21 @@ export async function makeLogin(data: loginData) {
 }
 
 export async function makeRegister(data: registerData) {
-  const createdUser = await rebooApiService.createUser({
-    name: data.name,
+  const createdUser = await rebooApiService
+    .createUser({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    })
+    .catch(e => {
+      return e
+    })
+
+  if (createdUser.error) {
+    throw new Error(createdUser)
+  }
+
+  await makeLogin({
     email: data.email,
     password: data.password,
   })
