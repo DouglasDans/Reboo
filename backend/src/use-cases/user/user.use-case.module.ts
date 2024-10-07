@@ -4,9 +4,10 @@ import { UserService } from './user.service'
 import { UserRepository } from 'src/core/repositories'
 import { PrismaUserRepository } from 'src/frameworks/data-services/prisma/repositories'
 import { DataServicesModule } from 'src/services/data-services/data-services.module'
+import { AuthUseCaseModule } from '../auth'
 
 @Module({
-  imports: [DataServicesModule],
+  imports: [DataServicesModule, AuthUseCaseModule],
   providers: [
     UserFactoryService,
     UserService,
