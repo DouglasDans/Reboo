@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { ConflictException, Injectable } from '@nestjs/common'
 import { UserRepository } from 'src/core/repositories/user.repository'
 import { UserFactoryService } from './user.factory.service'
 import { User } from 'src/core/entities'
@@ -23,9 +23,21 @@ export class UserService {
     return this.user.findByEmail(email)
   }
 
-  createUser(createUserDto: CreateUserDto): Promise<User> {
-    const user = this.userFactory.createNewUser(createUserDto)
-    return this.user.create(user)
+  async createUser(createUserDto: CreateUserDto): Promise<User> {
+    const isExistUserWithSameEmail = await this.getUserByEmail(
+      createUserDto.email,
+    )
+
+    if (isExistUserWithSameEmail) {
+      throw new ConflictException('Este email já está cadastrado no sistema.')
+    }
+
+    const user = await this.userFactory.createNewUser(createUserDto)
+    const createdUser = await this.user.create(user)
+
+    const { password, ...result } = createdUser
+
+    return result
   }
 
   updateUser(userId: number, updateUserDto: UpdateUserDto) {
