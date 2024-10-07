@@ -11,6 +11,14 @@ export async function loginUser(
   })
 }
 
+export async function createUser(data: {
+  name: string
+  email: string
+  password: string
+}) {
+  return await api.post("user", data)
+}
+
 export async function getAllBooksAndAuthors(userId: number): Promise<Book[]> {
   return await api.get(`book?userId=${userId}&select=authors`)
 }

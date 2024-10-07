@@ -9,6 +9,12 @@ type loginData = {
   password: string
 }
 
+type registerData = {
+  name: string
+  email: string
+  password: string
+}
+
 export async function makeLogin(data: loginData) {
   cookies().delete("access_token")
   const login = await rebooApiService.loginUser(data.email, data.password)
@@ -24,7 +30,13 @@ export async function makeLogin(data: loginData) {
   redirect(`${login.userId}/dashboard`)
 }
 
-export async function makeRegister(data: object) {}
+export async function makeRegister(data: registerData) {
+  const createdUser = await rebooApiService.createUser({
+    name: data.name,
+    email: data.email,
+    password: data.password,
+  })
+}
 
 export async function logout() {
   "use server"

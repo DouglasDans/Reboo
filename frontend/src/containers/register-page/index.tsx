@@ -29,11 +29,8 @@ export default function RegisterPage() {
       setWrongPassword(true)
       return null
     } else {
-      // makeRegister(data)
+      makeRegister(data)
     }
-
-    // console.log(userId);
-    // router.push(`/${userId}/dashboard`)
   }
 
 
