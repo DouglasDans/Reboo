@@ -1,12 +1,18 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common'
+import {
+  forwardRef,
+  Inject,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common'
 import { UserService } from '../user'
 import { User } from 'src/core/entities'
-import { compare } from 'bcrypt'
+import { compare, genSalt, hash } from 'bcrypt'
 import { JwtService } from '@nestjs/jwt'
 
 @Injectable()
 export class AuthService {
   constructor(
+    @Inject(forwardRef(() => UserService))
     private userService: UserService,
     private jwtService: JwtService,
   ) {}
@@ -26,5 +32,11 @@ export class AuthService {
       userId: user.id,
       access_token: await this.jwtService.signAsync(payload),
     }
+  }
+
+  async hashPassword(password: string): Promise<string> {
+    const saltRounds = 10
+    const salt = await genSalt(saltRounds)
+    return hash(password, salt)
   }
 }
