@@ -3,6 +3,7 @@
 
 .container {
   height: 100vh;
+  z-index: 10000;
   width: global-sizes.$sidebar-size;
 
   border-right: 2px solid color-variables.$background-level2-color;
