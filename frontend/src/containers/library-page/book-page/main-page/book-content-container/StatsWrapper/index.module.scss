@@ -13,3 +13,12 @@
     gap: global-sizes.$gap-items-md-size;
   }
 }
+
+@media (max-width: 576px) {
+  .container{
+    & .wrapper{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
