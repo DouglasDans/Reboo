@@ -2,11 +2,20 @@
 
 .container {
   display: grid;
-  grid-template-columns: 45% 1fr;
+  grid-template-columns: 50% 1fr;
   gap: global-sizes.$gap-items-md-size;
 
   & .buttonWrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr) );
     gap: global-sizes.$gap-items-md-size;
+    align-items: start;
+  }
+}
+
+@media (max-width: 768px) {
+  .container{
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
