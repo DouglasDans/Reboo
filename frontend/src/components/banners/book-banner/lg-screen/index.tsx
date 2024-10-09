@@ -21,7 +21,7 @@ function isValidHex(hex: string): boolean {
   return hexRegex.test(hex);
 }
 
-export default function BookBanner({ book }: Props) {
+export default function LargeScreenBanner({ book }: Props) {
 
   const imgRef = useRef<HTMLImageElement>(null);
   const [width, setWidth] = useState<number | null>(null);
@@ -59,7 +59,7 @@ export default function BookBanner({ book }: Props) {
         <div className={styles.title}>
           <h1>{book.title}</h1>
           <span className={styles.authorName}>
-            {book.authors[0] ? `Por ${book.authors[0].author.name} · ` : ""}{convertStringDateToDate(book.publicationDate).getFullYear()}</span>
+            {book.authors ? `Por ${book.authors[0].author.name} · ` : ""}{convertStringDateToDate(book.publicationDate).getFullYear()}</span>
         </div>
 
         <div className={styles.BookStatus}>

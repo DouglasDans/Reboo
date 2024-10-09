@@ -44,3 +44,19 @@
 
   }
 }
+
+@media (max-width: 768px) {
+  .container{
+    & .titleContainer{
+      display: flex;
+      flex-direction: column;
+      gap: global-sizes.$gap-items-sm-size;
+
+      & .title{
+        & h1{
+          font-size: global-sizes.$font-h3-size;
+        }
+      }
+    }
+  }
+}
