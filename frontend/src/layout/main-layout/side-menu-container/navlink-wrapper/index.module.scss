@@ -40,6 +40,18 @@
     font-weight: 500;
     font-size: 0.9rem;
     @extend %font-family-poppins;
+
+    white-space: nowrap;
+    text-wrap: wrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    text-overflow: ellipsis;
+    line-height: 1.5em;
+    max-height: 2em;
   }
 }
 
