@@ -1,0 +1,54 @@
+@use 'styles/color-variables';
+@use 'styles/global-sizes';
+@use 'styles/mixins';
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: global-sizes.$gap-items-sm-size;
+
+  .bannerContent{
+    width: 100%;
+    border-radius: global-sizes.$radius-banner-size; 
+    padding: global-sizes.$form-input-padding;
+
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    gap: global-sizes.$gap-items-sm-size;
+    
+    .coverImage{
+      border-radius: global-sizes.$book-cover-radius;
+      width: 100%
+    }
+    
+    .content{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      
+      @include mixins.media-query(md){
+        gap: global-sizes.$gap-items-md-size;
+        justify-content: space-around;
+      }
+
+      @include mixins.media-query(sm){
+        justify-content: space-between;
+        gap: global-sizes.$gap-items-sm-size;
+      }
+
+      & div h1{
+        @include mixins.media-query(md){
+          font-size: global-sizes.$font-h1-size ;
+        }
+        @include mixins.media-query(sm){
+          font-size: global-sizes.$font-h3-size ;
+        }
+      }
+    }
+  }
+
+  .buttonsContainer{
+    display: flex;
+    gap: global-sizes.$gap-items-sm-size;
+  }
+}
