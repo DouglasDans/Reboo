@@ -1,5 +1,6 @@
 @use 'styles/global-sizes';
 @use 'styles/color-variables';
+@use 'styles/mixins';
 
 .button {
   border-radius: global-sizes.$button-radius;
@@ -51,6 +52,10 @@
   &.fitContentWidth{
     width: fit-content;
     padding: global-sizes.$button-padding;
+
+    @include mixins.media-query(md){
+      width: 100%;
+    }
   }
   &.fullWidth{
     width: 100% !important;
