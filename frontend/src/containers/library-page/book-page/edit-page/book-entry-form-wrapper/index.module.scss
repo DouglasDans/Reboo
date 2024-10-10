@@ -1,8 +1,15 @@
 @use 'styles/global-sizes';
+@use 'styles/mixins';
 
 .form {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
   column-gap: global-sizes.$gap-items-md-size;
+  
+  @include mixins.media-query(md){
+    display: flex;
+    flex-direction: column;
+    gap: global-sizes.$gap-items-md-size;
+  }
 }

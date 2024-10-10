@@ -1,3 +1,5 @@
+@use 'styles/mixins';
+
 .formGroup {
   display: flex;
   flex-direction: column;
@@ -7,5 +9,11 @@
     display: grid;
     grid-template-columns: 40% 1fr;
     gap: 10px;
+
+    
+    @include mixins.media-query(md){
+      display: flex;
+      flex-direction: column;
+    }
   }
 }

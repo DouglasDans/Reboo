@@ -1,11 +1,16 @@
 @use 'styles/global-sizes';
+@use 'styles/mixins';
 
 .editImgContainer {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: flex-end;
   align-items: flex-end;
-
   column-gap: 10px;
+
+  @include mixins.media-query(md){
+    justify-content: flex-end;
+  }
 
   & .dropdownButtonsContainer{
     display: flex;
@@ -16,5 +21,9 @@
   & .coverImage {
     height: 190px;
     border-radius: global-sizes.$book-cover-radius;
+    
+    @include mixins.media-query(md){
+      height: 300px;
+    }
   }
 }
