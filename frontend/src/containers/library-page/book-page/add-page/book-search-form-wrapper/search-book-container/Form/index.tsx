@@ -31,17 +31,15 @@ export default function SearchBookForm() {
   }
 
   return (
-    <form onSubmit={fetchBook}>
-      <div className={styles.formGroup}>
-        <label>ISBN</label>
-        <div>
-          <input
-            placeholder="978-90-274-3964-2"
-            id="searchISBN"
-            name="searchISBN"
-          />
-          <Button>Pesquisar por informações</Button>
-        </div>
+    <form onSubmit={fetchBook} className={styles.formGroup}>
+      <label>ISBN</label>
+      <div>
+        <input
+          placeholder="978-90-274-3964-2"
+          id="searchISBN"
+          name="searchISBN"
+        />
+        <Button>Pesquisar por informações</Button>
       </div>
     </form>
   )

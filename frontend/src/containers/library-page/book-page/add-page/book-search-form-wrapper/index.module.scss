@@ -1,13 +1,14 @@
-@import 'styles/mixins';
+@use 'styles/global-sizes';
+@use 'styles/mixins';
 
 .wrapperContainer{
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  @include media-query(md){
+  @include mixins.media-query(md){
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    gap: global-sizes.$gap-items-md-size;
   }
 }
