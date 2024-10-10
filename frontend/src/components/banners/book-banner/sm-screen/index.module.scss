@@ -10,6 +10,7 @@
   .bannerContent{
     width: 100%;
     border-radius: global-sizes.$radius-banner-size; 
+    background-color: color-variables.$background-level1-color;
     padding: global-sizes.$form-input-padding;
 
     display: grid;
