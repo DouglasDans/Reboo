@@ -1,5 +1,5 @@
 import api from "./api.config"
-import { Book, BookStatus } from "./api.types"
+import { Book, BookStatus, User } from "./api.types"
 
 export async function loginUser(
   email: string,
@@ -17,6 +17,10 @@ export async function createUser(data: {
   password: string
 }) {
   return await api.post("user", data)
+}
+
+export async function getUserById(id: number): Promise<User> {
+  return await api.get(`/user/${id}`)
 }
 
 export async function getAllBooksAndAuthors(userId: number): Promise<Book[]> {
