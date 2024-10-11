@@ -6,16 +6,26 @@
   display: flex;
   flex-direction: column;
   gap: global-sizes.$gap-items-md-size;
-
-  & .user {
+  width: 250px;
+  
+  .user {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: global-sizes.$gap-items-sm-size;
 
-    & .data{
+    .data{
       display: flex;
       flex-direction: column;
+    }
+  }
+
+  .options{
+    display: flex;
+    flex-direction: column;
+
+    .optionItem {
+      width: 100%;
     }
   }
 }
