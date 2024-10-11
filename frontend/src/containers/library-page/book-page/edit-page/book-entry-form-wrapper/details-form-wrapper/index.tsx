@@ -5,14 +5,14 @@ import { BookData } from './index.types';
 import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import styles from './index.module.scss';
-import { UserIdContext } from '@/context/user/UserIdProvider';
+import { UserContext } from '@/context/user/UserProvider';
 import { BookDataContext } from '@/context/book/BookDataProvider';
 import { Book } from '@/services/rebooAPI/api.types';
 import { fetchDbBookDataToUrlParams } from './index.utils';
 
 export default function DetailsForm() {
   const urlParams = useContext(BookURLParamsContext) as BookData;
-  const userId = useContext(UserIdContext) as number;
+  const userId = useContext(UserContext) as number;
   const dbBookData = useContext(BookDataContext) as Book;
 
   const searchParams = useSearchParams();

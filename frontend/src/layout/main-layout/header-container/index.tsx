@@ -5,23 +5,24 @@ import styles from "./index.module.scss"
 import Icon from "@/components/icon"
 import { usePathname } from "next/navigation"
 import { useContext } from "react"
-import { UserIdContext } from "@/context/user/UserIdProvider"
+import { UserContext } from "@/context/user/UserProvider"
 import DropdownCardMenu from "@/components/dropdown-menu"
 import UserOptionsMenu from "@/components/dropdown-menu/menus/UserOptionsMenu"
+import { User } from "@/services/rebooAPI/api.types"
 
 
 export default function Header() {
-  const userId = useContext(UserIdContext)
+  const user = useContext(UserContext) as User
   const pathname = usePathname()
 
   function getPageTitle(pathname: string) {
-    if (pathname.includes(`/${userId}/dashboard`)) {
+    if (pathname.includes(`/${user.id}/dashboard`)) {
       return "Dashboard"
     } else {
-      if (pathname.includes(`/${userId}/library`)) {
+      if (pathname.includes(`/${user.id}/library`)) {
         return "Minha Estante"
       }
-      if (pathname.includes(`/${userId}/stats`)) {
+      if (pathname.includes(`/${user.id}/stats`)) {
         return "Estatísticas"
       }
     }
@@ -41,7 +42,7 @@ export default function Header() {
         {/* <Link href={"#"}>
           <Icon name="notifications" />
         </Link> */}
-        <DropdownCardMenu content={<UserOptionsMenu />}>
+        <DropdownCardMenu content={<UserOptionsMenu user={user} />}>
           <Link href={"#"}>
             <Icon name="person" />
           </Link>

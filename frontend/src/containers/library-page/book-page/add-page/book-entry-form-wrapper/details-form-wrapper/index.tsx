@@ -5,11 +5,11 @@ import { BookData } from './index.types'
 import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import styles from './index.module.scss'
-import { UserIdContext } from '@/context/user/UserIdProvider';
+import { UserContext } from '@/context/user/UserProvider';
 
 export default function DetailsForm() {
   const urlParams = useContext(BookURLParamsContext) as BookData
-  const userId = useContext(UserIdContext) as number
+  const userId = useContext(UserContext) as number
 
   const searchParams = useSearchParams()
   const pathname = usePathname()

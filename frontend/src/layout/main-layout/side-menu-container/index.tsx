@@ -5,10 +5,11 @@ import styles from "./index.module.scss"
 import Image from "next/image"
 import Icon from "@/components/icon"
 import NavLink from "./navlink-wrapper"
-import { UserIdContext } from "@/context/user/UserIdProvider"
+import { UserContext } from "@/context/user/UserProvider"
+import { User } from "@/services/rebooAPI/api.types"
 
 export default function SideMenu() {
-  const userId = useContext(UserIdContext) as number
+  const user = useContext(UserContext) as User
   return (
     <div className={styles.container}>
       <div className={styles.imageLogo}>
@@ -22,17 +23,17 @@ export default function SideMenu() {
 
       <div className={styles.navLinkWrapper}>
         <NavLink
-          href={`/${userId}/dashboard`}
+          href={`/${user.id}/dashboard`}
           icon={<Icon name="home" />}
           title={"Dashboard"}
         />
         <NavLink
-          href={`/${userId}/library`}
+          href={`/${user.id}/library`}
           icon={<Icon name="book" />}
           title={"Minha Estante"}
         />
         <NavLink
-          href={`/${userId}/stats`}
+          href={`/${user.id}/stats`}
           icon={<Icon name="bar_chart" />}
           title={"Estatísticas"}
         />
