@@ -17,9 +17,9 @@ export default function ActionButtonsWrapper({ book }: Props) {
       <h5>Ações</h5>
 
       <div className={styles.wrapper}>
-        <Button variant='secondary' startDecorator={<Icon name='timer_play' />}>
-          Nova Sessão
-        </Button>
+        <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`}>
+          <Button variant='secondary' startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
+        </Link>
 
         <DropdownCardMenu content={<BookStatusSwitcher book={book} />}>
           <Button variant='secondary' endDecorator={<Icon name='expand_all' />}>
