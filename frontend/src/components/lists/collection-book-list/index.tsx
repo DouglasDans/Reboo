@@ -6,6 +6,7 @@ import BookGridView from './grid-view'
 import BookListView from './list-view'
 import { Fragment, useState } from 'react'
 import ListToggleButton from './list-toggle-button'
+import BookListPlaceholder from './placeholder'
 
 type Props = {
   title: string
@@ -51,7 +52,7 @@ export default function CollectionBookList({
           </div>
         )}
       </header>
-      {view}
+      {books.length > 0 ? view : <BookListPlaceholder />}
     </section>
   )
 }
