@@ -1,0 +1,21 @@
+@use 'styles/global-sizes';
+@use 'styles/color-variables';
+
+.placeholder{
+  width: 100%;
+  height: 100%;
+  background-color: color-variables.$background-level1-color;
+  color: color-variables.$text-secondary-color;
+  border-radius: global-sizes.$radius-item-size;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+
+  h6, span {
+    text-align: center;
+  }
+}

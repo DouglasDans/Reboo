@@ -17,24 +17,7 @@ type Props = {
   }
 }
 
-const obj = {
-  title: "Páginas Lidas Hoje",
-  mainNumber: 56,
-  mainSubtitle: "Páginas",
-  cardIcon: "book",
-  goals: {
-    type: "Meta diária:",
-    value: 10,
-  },
-  trends: {
-    trendUp: true,
-    trendValue: 189,
-    trendIcon: "trending_up"
-  }
-}
-
 export default function UserStatsCard(data: Props) {
-  data = obj
   return (
     <div className={styles.cardContainer}>
       <div className={styles.content}>
