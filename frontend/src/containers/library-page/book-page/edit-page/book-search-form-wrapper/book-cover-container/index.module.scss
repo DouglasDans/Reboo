@@ -3,12 +3,13 @@
 
 .editImgContainer {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: flex-end;
   column-gap: 10px;
-
+  
   @include mixins.media-query(md){
+    flex-direction: row-reverse;
     justify-content: flex-end;
   }
 
