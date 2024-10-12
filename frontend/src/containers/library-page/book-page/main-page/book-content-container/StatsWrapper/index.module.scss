@@ -8,9 +8,9 @@
   gap: global-sizes.$gap-items-md-size;
   
   & .wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: global-sizes.$gap-items-md-size;
+    // display: grid;
+    // grid-template-columns: repeat(2, 1fr);
+    // gap: global-sizes.$gap-items-md-size;
   }
 }
 
