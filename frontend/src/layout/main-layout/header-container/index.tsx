@@ -36,7 +36,7 @@ export default function Header() {
         <Link href={"#"}>
           <Icon name="timer_play" />
         </Link>
-        <Link href={"/1/library/book/add"}>
+        <Link href={`/${user.id}/library/book/add`}>
           <Icon name="bookmark_add" />
         </Link>
         {/* <Link href={"#"}>
