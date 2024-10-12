@@ -3,6 +3,7 @@ import Icon from '@/components/icon'
 import Button from '../../buttons/button'
 import { Book } from '@/services/rebooAPI/api.types'
 import Link from 'next/link'
+import BookCardPlaceholder from './placeholder'
 
 type Props = {
   book: Book
@@ -10,6 +11,14 @@ type Props = {
 
 export default function BookCard({ book }: Props) {
   const percentPages: number = (book.pagesRead / book.totalPages) * 100
+
+  if (!book) {
+    return (
+      <div className={styles.cardContainer}>
+        <BookCardPlaceholder />
+      </div>
+    )
+  }
 
   return (
     <div className={styles.cardContainer} style={{ backgroundColor: book.highlightColor }}>
