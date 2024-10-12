@@ -33,7 +33,7 @@ export default function Header() {
       <h5>{getPageTitle(pathname)}</h5>
 
       <div className={styles.shortcutsWrapper}>
-        <Link href={"#"}>
+        <Link href={`/${user.id}/stats/session/add`}>
           <Icon name="timer_play" />
         </Link>
         <Link href={`/${user.id}/library/book/add`}>

@@ -11,6 +11,7 @@ import updateBookHighlightColor from '@/actions/book/updateBookHighlightColor'
 import DropdownCardMenu from '@/components/dropdown-menu'
 import ColorPickerMenu from '@/components/dropdown-menu/menus/ColorPickerMenu'
 import BookStatusTag from '@/components/book-status-tag'
+import Link from 'next/link'
 
 type Props = {
   book: Book
@@ -51,7 +52,9 @@ export default function LargeScreenBanner({ book }: Props) {
           <DropdownCardMenu content={<ColorPickerMenu highlightColorState={{ highlightColor, setHighlightColor }} />}>
             <Button startDecorator={<Icon name='palette' />} textColor={highlightColor} />
           </DropdownCardMenu>
-          <Button startDecorator={<Icon name="timer_play" />} textColor={highlightColor}>Nova Sessão</Button>
+          <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`}>
+            <Button textColor={book.highlightColor} startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
+          </Link>
         </div>
       </div>
 

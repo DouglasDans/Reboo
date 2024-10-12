@@ -17,7 +17,7 @@ export default async function BookStatsAndButtons({ params }: Props) {
   return (
     <section className={styles.container}>
       <div className={styles.buttonWrapper}>
-        <Link href={"library/book/add"}>
+        <Link href={"stats/session/add"}>
           <ColorButton value='Nova Sessão' decorator={<Icon name='timer_play' />} />
         </Link>
         <Link href={"library/book/add"}>

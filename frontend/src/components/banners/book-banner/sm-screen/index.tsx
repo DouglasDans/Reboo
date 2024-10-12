@@ -9,6 +9,7 @@ import DropdownCardMenu from '@/components/dropdown-menu'
 import ColorPickerMenu from '@/components/dropdown-menu/menus/ColorPickerMenu'
 import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
+import Link from 'next/link'
 
 type Props = {
   book: Book
@@ -36,9 +37,9 @@ export default function SmallScreenBanner({ book }: Props) {
           content={<ColorPickerMenu highlightColorState={{ highlightColor, setHighlightColor }} />}>
           <Button startDecorator={<Icon name='palette' />} textColor={highlightColor} />
         </DropdownCardMenu>
-        <Button startDecorator={<Icon name="timer_play" />} textColor={highlightColor}>
-          Nova Sessão
-        </Button>
+        <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`}>
+          <Button textColor={book.highlightColor} startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
+        </Link>
       </div>
     </section>
   )

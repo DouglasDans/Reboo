@@ -31,7 +31,9 @@ export default function BookCard({ book }: Props) {
           <span>{percentPages.toFixed(0)}% Concluído</span>
           <span>{book.pagesRead} / {book.totalPages} Páginas Lidas</span>
         </div>
-        <Button textColor={book.highlightColor} startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
+        <Link href={`/${book.userId}/stats/session/add?bookId=${book.id}`}>
+          <Button textColor={book.highlightColor} startDecorator={<Icon name='timer_play' />}>Nova Sessão</Button>
+        </Link>
       </div>
       <Link href={`/${book.userId}/library/book/${book.id}`}>
         <img className={styles.imageElement} src={book.coverImage ? book.coverImage : "/book-image-placeholder.png"} alt="" />
