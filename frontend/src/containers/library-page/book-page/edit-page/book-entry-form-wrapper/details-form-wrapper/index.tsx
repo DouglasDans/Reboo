@@ -7,12 +7,12 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import styles from './index.module.scss';
 import { UserContext } from '@/context/user/UserProvider';
 import { BookDataContext } from '@/context/book/BookDataProvider';
-import { Book } from '@/services/rebooAPI/api.types';
+import { Book, User } from '@/services/rebooAPI/api.types';
 import { fetchDbBookDataToUrlParams } from './index.utils';
 
 export default function DetailsForm() {
   const urlParams = useContext(BookURLParamsContext) as BookData;
-  const userId = useContext(UserContext) as number;
+  const user = useContext(UserContext) as User;
   const dbBookData = useContext(BookDataContext) as Book;
 
   const searchParams = useSearchParams();
@@ -180,7 +180,7 @@ export default function DetailsForm() {
           />
         </div>
 
-        <input type={"hidden"} name={"bookUser"} value={userId} />
+        <input type={"hidden"} name={"bookUser"} value={user.id} />
         <input type={"hidden"} name={"bookCoverImage"} value={urlParams.imageLinks} />
         <input type={"hidden"} name={"bookHighlightColor"} value={urlParams.highlightColor} />
         <input type={"hidden"} name={"bookId"} value={dbBookData.id} />

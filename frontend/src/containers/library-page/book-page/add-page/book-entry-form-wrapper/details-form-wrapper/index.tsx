@@ -9,7 +9,7 @@ import { UserContext } from '@/context/user/UserProvider';
 
 export default function DetailsForm() {
   const urlParams = useContext(BookURLParamsContext) as BookData
-  const userId = useContext(UserContext) as number
+  const user = useContext(UserContext) as User
 
   const searchParams = useSearchParams()
   const pathname = usePathname()
@@ -169,7 +169,7 @@ export default function DetailsForm() {
           />
         </div>
 
-        <input type={"hidden"} name={"bookUser"} value={userId} />
+        <input type={"hidden"} name={"bookUser"} value={user.id} />
         <input type={"hidden"} name={"bookCoverImage"} value={urlParams.imageLinks} />
         <input type={"hidden"} name={"bookHighlightColor"} value={urlParams.highlightColor} />
       </div>
