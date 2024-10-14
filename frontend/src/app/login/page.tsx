@@ -1,5 +1,4 @@
 import LoginPage from "@/containers/login-page"
-import withAuth from "./auth"
 
 function Login() {
   return (
@@ -7,4 +6,4 @@ function Login() {
   )
 }
 
-export default withAuth(Login)
+export default Login

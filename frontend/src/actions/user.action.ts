@@ -51,9 +51,7 @@ export async function makeRegister(data: registerData) {
   })
 }
 
-export async function logout() {
+export async function deleteSession() {
   "use server"
-
   cookies().delete("access_token")
-  redirect("/")
 }

@@ -1,5 +1,4 @@
 import RegisterPage from '@/containers/register-page'
-import withAuth from './auth'
 
 function Register() {
   return (
@@ -7,4 +6,4 @@ function Register() {
   )
 }
 
-export default withAuth(Register)
+export default Register
