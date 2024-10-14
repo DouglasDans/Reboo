@@ -1,12 +1,10 @@
 'use client' // Error components must be Client Components
 
-import ErrorPageContainer from '@/containers/404-page'
+import ErrorPageContainer from '@/containers/error-page'
 import { useEffect } from 'react'
-import error from './not-found';
 
 export default function Error({
   error,
-  reset,
 }: {
   error: Error & { digest?: string }
   reset: () => void
