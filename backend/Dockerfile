@@ -1,5 +1,5 @@
 
-FROM node:lts-alpine as development
+FROM node:lts-alpine
 
 # Defina o diretório de trabalho dentro do contêiner
 WORKDIR /app
