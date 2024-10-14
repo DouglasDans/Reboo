@@ -59,6 +59,7 @@ export class PrismaBookRepository implements BookRepository {
       where: {
         userId,
       },
+      orderBy: { title: 'asc' },
       include: includeFields,
     })
   }
