@@ -1,7 +1,5 @@
-import { deleteSession } from "@/actions/user.action"
 import { jwtDecode } from "@/lib/jwt.control"
 import { cookies } from "next/headers"
-import { redirect } from "next/navigation"
 import { NextResponse } from "next/server"
 import { NextRequest } from "next/server"
 
