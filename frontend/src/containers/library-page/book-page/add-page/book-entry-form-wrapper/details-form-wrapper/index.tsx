@@ -6,6 +6,7 @@ import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import styles from './index.module.scss'
 import { UserContext } from '@/context/user/UserProvider';
+import { User } from '@/services/rebooAPI/api.types';
 
 export default function DetailsForm() {
   const urlParams = useContext(BookURLParamsContext) as BookData
@@ -53,7 +54,7 @@ export default function DetailsForm() {
 
       <div className={styles.inputWrapper}>
         <div className={styles.input}>
-          <label>Nome</label>
+          <label>Nome*</label>
           <input
             value={bookData.title}
             onChange={e => handleSetValueToURL(e, "title")}
@@ -65,7 +66,7 @@ export default function DetailsForm() {
         </div>
 
         <div className={styles.input}>
-          <label>Autor</label>
+          <label>Autor*</label>
           <input
             value={bookData.authors}
             onChange={e => handleSetValueToURL(e, "authors")}
@@ -87,7 +88,7 @@ export default function DetailsForm() {
               placeholder="2004-06-02"
               id="bookPublicationDate"
               name="bookPublicationDate"
-              required
+
             />
           </div>
 
@@ -99,12 +100,12 @@ export default function DetailsForm() {
               placeholder="Ex: Editora Paralax"
               id="bookPublisher"
               name="bookPublisher"
-              required
+
             />
           </div>
 
           <div className={styles.input}>
-            <label>Número de páginas</label>
+            <label>Número de páginas*</label>
             <input
               value={bookData.pageCount}
               onChange={e => handleSetValueToURL(e, "pageCount")}
@@ -126,7 +127,7 @@ export default function DetailsForm() {
               placeholder="Ex: 978-90-274-3964-2"
               id="bookISBN"
               name="bookISBN"
-              required
+
             />
           </div>
 
@@ -138,7 +139,7 @@ export default function DetailsForm() {
               placeholder="Ex: Fantasia, Romance"
               id="bookCategories"
               name="bookCategories"
-              required
+
             />
           </div>
 
@@ -150,7 +151,7 @@ export default function DetailsForm() {
               placeholder="Ex: Português"
               id="bookLanguage"
               name="bookLanguage"
-              required
+
             />
           </div>
 
