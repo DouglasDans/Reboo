@@ -2,32 +2,6 @@
 
 <a id="readme-top"></a>
 
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
-<!--
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url] -->
-
-<!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
@@ -36,164 +10,90 @@
 
   <h3 align="center">Reboo Book Tracker</h3>
 
-  <p align="center">
-    Um aplicativo web para controle e estatíticas de leitura de livros.   
-    <br />
-<!--     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a> -->
-  </p>
+  > Um sistema de gerenciamento pessoal de livros que permite aos usuários organizarem suas leituras, criar coleções e acompanhar o progresso de leitura através de estatísticas personalizadas.
+
+  <img src="frontend/public/readme-screen.png" alt="Logo" height="350">
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<!-- <details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details> -->
+## 🔍 Visão geral
+O Reboo foi projetado para ajudar leitores a organizarem e acompanharem suas leituras e seus hábitos. Com uma interface fácil e personalizável, o aplicativo permite:
+- Criar listas de livros lidos, em andamento ou para ler futuramente
+- Organizar livros em coleções
+- Acompanhar o progresso de leitura
+- Analisar seus hábitos de leitura por meio de diversas estatísticas
+- Cadastrar livros de forma rápida a partir do seu ISBN
 
-<!-- ABOUT THE PROJECT -->
+## 🛠️ Tecnologias Utilizadas
 
-<!-- ## Sobre o Projeto -->
+#### Frontend
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+<img src="https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white" />
 
-<div align="center">
-  <h3 align="center">Sobre o Projeto</h2>
-  <img src="frontend/public/readme-screen.png" alt="Logo" height="400">
-</div>
+#### Backend
+![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
-<br>
+#### DevOps
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
-Esse é um projeto de gerenciamento pessoal de livros, onde você pode:
+#### Linguagens
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
-- Gerenciar livros em coleções
-- Guardar seus livros e a quantidade de páginas lidas por dia em cada um deles
-- Ver estatísticas de determinado livro
-- Ver suas estatísticas de leitura (média de páginas por dia, média de livros lidos por ano, gráficos, etc...)
-- Poder organizar suas futuras leituras e ver estatísticas de livros já lidos
+### Design
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
-Tudo isso em uma interface intuitiva e simplificada para web e mobile (PWA)
+## 🏆 Conquistas
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- Criei e implementei um sistema de gerenciamento pessoal de livros que permite usuários organizarem suas leituras por meio de coleções e acompanharem seu progresso e hábitos de leitura com estatísticas pessoais.
+- Desenhei todas as telas e identidade visual da aplicação utilizando **Figma**, garantindo uma experiência visual coerente e intuitiva.
+- Desenvolvi todo o backend utilizando **NestJS**, **PrismaORM**, **PostgreSQL** e **TypeScript**, seguindo os princípios de **Clean Architecture**, com comunicação eficiente via API.
+- Desenvolvi a interface de usuário com **Next.js**, **React**, **Sass**, **Axios** e **TypeScript**, garantindo modularidade e escalabilidade para futuras implementações.
+- Integrei a aplicação com a **API do Google Books** para consulta de livros por ISBN, permitindo agilidade para o usuário cadastrar novos livros no sistema.
+- Utilizei **JWT** para autenticação e autorização, assegurando a segurança do sistema com acesso restrito a páginas e funcionalidades privadas.
+- Usei **Docker** para todo o desenvolvimento, testes e ambientes de produção, garantindo consistência, facilidade de deploy e portabilidade entre diferentes ambientes.
+- Apliquei **Clean Architecture** no backend e segui o fluxo de desenvolvimento **GitFlow** para controle de versão, utilizando **Git** e **GitHub**.
 
-## Tecnologias Utiliadas
+## 🛤️ Roadmap
+#### Fase 1 - Lançamento Inicial
 
-Tecnologias que foram utilizadas para fazer desse projeto possível.
+- [x]  Implementar cadastro e manipulação (CRUD) do livro
+- [x]  Página Dashboard
+- [x]  Página “Minha Estante” apresentando todos os livros cadastrados
+- [x]  Login de usuário
+- [x]  Cadastro de usuário
+- [x]  Landing Page
+- [x]  Página de erro
+- [x]  Página 404
+- [ ]  Hospedagem e colocar em produção
+- [x]  Responsivo no Mobile
 
-**Frontend**
+#### Fase 2 - Coleções e Sessões
 
-- <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
-- <img src="https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
-- <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-- <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" />
-- <img src="https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white" />
+- [ ]  Implementar Sessões
+- [ ]  Implementar testes unitários do backend
+- [ ]  Implementar Login com conta do Google (oAuth)
+- [ ]  Implementar lógica de contas temporárias
+- [ ]  Implementar Coleções
+- [ ]  Implementar estatísticas do livro e na dashboard
+- [ ]  Implementar Loading Skeletons
+- [ ]  Implementar Snackbar com avisos e erros mais diretos
+<!-- - [ ]  Comprar domínio reboo.com.br -->
 
-**Backend**
+#### Fase 3 - Estatísticas
 
-- <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
-- <img src="https://img.shields.io/badge/nestjs-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" />
-- <img src="https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white" />
+- [ ]  Implementar Página de estatísticas
+- [ ]  Implementar Gráficos
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+#### Fase 4 - Infinito e além
 
-<!-- GETTING STARTED -->
+- [ ]  Aplicativo para computador (Electron?)
+- [ ]  Versão Mobile (React Native)
 
-<!-- ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-<!-- USAGE EXAMPLES -->
-
-<!-- ## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-<!-- ROADMAP -->
-
-<!-- ## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-  - [ ] Chinese
-  - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-<!-- CONTRIBUTING -->
-
-<!-- ## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- LICENSE -->
 
@@ -205,10 +105,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- CONTACT -->
 
-## Contato
+## 😃 Contato
 
 Douglas Nascimento - [@douglas.dans](https://www.instagram.com/douglas.dans/) - douglas.dans@gmail.com
 <br>
 Link do Projeto: [https://github.com/DouglasDans/Reboo](https://github.com/DouglasDans/Reboo)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- [🎨Figma](https://github.com/DouglasDans/Reboo) -->
