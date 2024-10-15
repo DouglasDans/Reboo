@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: global-sizes.$gap-items-md-size;
+  width: 100%;
 
   
   & .wrapper {

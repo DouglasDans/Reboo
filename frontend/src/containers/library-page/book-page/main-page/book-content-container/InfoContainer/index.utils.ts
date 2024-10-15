@@ -5,7 +5,7 @@ type AuthorArr = {
 }
 
 type CategoryArr = {
-  author: Category
+  category: Category
 }
 
 export function convertAuthorsArrayToString(authors: Array<AuthorArr>): string {
@@ -17,6 +17,19 @@ export function convertAuthorsArrayToString(authors: Array<AuthorArr>): string {
   })
   strAuthors = nameAuthorsArr.join(", ")
   return strAuthors
+}
+
+export function convertCategoriesArrayToString(
+  categories: Array<CategoryArr>,
+): string {
+  let strCategories: string = ""
+  const nameCategoriesArr: Array<string> = []
+
+  categories.map(item => {
+    nameCategoriesArr.push(item.category.name)
+  })
+  strCategories = nameCategoriesArr.join(", ")
+  return strCategories
 }
 
 export function convertStringToDate(strDate: string): string {
