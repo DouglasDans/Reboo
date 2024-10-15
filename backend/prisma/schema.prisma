@@ -69,21 +69,21 @@ model Collection {
 model Book {
   id               Int        @id @default(autoincrement())
   title            String
-  isbn_10          String
-  isbn_13          String
+  isbn_10          String?
+  isbn_13          String?
   totalPages       Int
   pagesRead        Int
-  publicationDate  DateTime
-  description      String
+  publicationDate  DateTime?  
+  description      String?
   status           BookStatus @default(NOT_STARTED)
   coverImage       String?
   highlightColor   String?
-  language         String
+  language         String?
   createdAt        DateTime   @default(now())
   updatedAt        DateTime   @updatedAt
 
-  publisher   Publisher @relation(fields: [publisherId], references: [id])
-  publisherId Int
+  publisher   Publisher? @relation(fields: [publisherId], references: [id])
+  publisherId Int?
   user        User      @relation(fields: [userId], references: [id])
   userId      Int
 
