@@ -7,18 +7,18 @@ export class BookFactoryService {
   createNewBook(createBookDto: CreateBookDto) {
     const book = new Book()
     book.title = createBookDto.title
-    book.isbn_10 = createBookDto.isbn_10
-    book.isbn_13 = createBookDto.isbn_13
+    book.isbn_10 = createBookDto.isbn_10 || null
+    book.isbn_13 = createBookDto.isbn_13 || null
     book.totalPages = createBookDto.totalPages
     book.pagesRead = createBookDto.pagesRead
-    book.publicationDate = createBookDto.publicationDate
-    book.description = createBookDto.description
+    book.publicationDate = createBookDto.publicationDate || null
+    book.description = createBookDto.description || null
     book.status = createBookDto.status
     book.coverImage = createBookDto.coverImage || null
     book.highlightColor = createBookDto.highlightColor || null
-    book.language = createBookDto.language
+    book.language = createBookDto.language || null
     book.userId = createBookDto.userId
-    book.publisherId = createBookDto.publisherId
+    book.publisherId = createBookDto.publisherId || null
     return book
   }
   updateNewBook(updateBookDto: UpdateBookDto) {

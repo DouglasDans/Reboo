@@ -14,9 +14,11 @@ export class CreateBookDto {
   @IsString()
   title: string
 
+  @IsOptional()
   @IsString()
   isbn_10: string
 
+  @IsOptional()
   @IsString()
   isbn_13: string
 
@@ -26,31 +28,35 @@ export class CreateBookDto {
   @IsInt()
   pagesRead: number
 
+  @IsOptional()
   @IsDateString()
   publicationDate: Date
 
+  @IsOptional()
   @IsString()
   description: string
 
   @IsEnum(BookStatusEnum)
   status: BookStatus
 
-  @IsString()
   @IsOptional()
+  @IsString()
   coverImage: string
 
-  @IsString()
   @IsOptional()
+  @IsString()
   highlightColor: string
 
+  @IsOptional()
   @IsString()
   language: string
 
+  @IsOptional()
   @IsString()
   publisher?: string
 
-  @IsInt()
   @IsOptional()
+  @IsInt()
   collectionId?: number
 
   @IsInt()
@@ -63,6 +69,7 @@ export class CreateBookDto {
   @IsArray()
   author?: Array<string>
 
+  @IsOptional()
   @IsArray()
   category?: Array<string>
 }

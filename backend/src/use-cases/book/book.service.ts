@@ -47,23 +47,24 @@ export class BookService {
   }
 
   async createBook(createBookDto: CreateBookDto): Promise<Book> {
-    const publisher = await this.publisherService.createPublisher({
-      name: createBookDto.publisher,
-    })
-    createBookDto.publisherId = publisher.id
+    if (createBookDto.publisherId) {
+      const publisher = await this.publisherService.createPublisher({
+        name: createBookDto.publisher,
+      })
+      createBookDto.publisherId = publisher.id
+    }
 
-    const book = await this.bookFactory.createNewBook(createBookDto)
+    const book = this.bookFactory.createNewBook(createBookDto)
     const createdBook = await this.book.create(book)
 
-    await this.bookCategoryService.createRelation(
-      createdBook.id,
-      createBookDto.category,
-    )
+    if (createBookDto.category) {
+      this.bookCategoryService.createRelation(
+        createdBook.id,
+        createBookDto.category,
+      )
+    }
 
-    await this.bookAuthorService.createRelation(
-      createdBook.id,
-      createBookDto.author,
-    )
+    this.bookAuthorService.createRelation(createdBook.id, createBookDto.author)
 
     if (createBookDto.collectionId) {
       await this.bookCollectionService.createRelation(
