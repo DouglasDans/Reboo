@@ -64,7 +64,7 @@ export default function DetailsForm() {
 
       <div className={styles.inputWrapper}>
         <div className={styles.input}>
-          <label>Nome</label>
+          <label>Nome*</label>
           <input
             value={bookData.title}
             onChange={e => handleSetValueToURL(e, "title")}
@@ -76,7 +76,7 @@ export default function DetailsForm() {
         </div>
 
         <div className={styles.input}>
-          <label>Autor</label>
+          <label>Autor*</label>
           <input
             value={bookData.authors}
             onChange={e => handleSetValueToURL(e, "authors")}
@@ -98,7 +98,7 @@ export default function DetailsForm() {
               placeholder="2004-06-02"
               id="bookPublicationDate"
               name="bookPublicationDate"
-              required
+
             />
           </div>
 
@@ -110,12 +110,12 @@ export default function DetailsForm() {
               placeholder="Ex: Editora Paralax"
               id="bookPublisher"
               name="bookPublisher"
-              required
+
             />
           </div>
 
           <div className={styles.input}>
-            <label>Número de páginas</label>
+            <label>Número de páginas*</label>
             <input
               value={bookData.pageCount}
               onChange={e => handleSetValueToURL(e, "pageCount")}
@@ -137,7 +137,7 @@ export default function DetailsForm() {
               placeholder="Ex: 978-90-274-3964-2"
               id="bookISBN"
               name="bookISBN"
-              required
+
             />
           </div>
 
@@ -149,7 +149,7 @@ export default function DetailsForm() {
               placeholder="Ex: Fantasia, Romance"
               id="bookCategories"
               name="bookCategories"
-              required
+
             />
           </div>
 
@@ -161,7 +161,7 @@ export default function DetailsForm() {
               placeholder="Ex: Português"
               id="bookLanguage"
               name="bookLanguage"
-              required
+
             />
           </div>
 
@@ -171,10 +171,10 @@ export default function DetailsForm() {
           <label>Descrição</label>
           <textarea
             maxLength={512}
-            rows={18}
+            rows={12}
             value={bookData.description}
             onChange={e => handleSetValueToURL(e, "description")}
-            placeholder="Ex: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus elit, semper nec ligula ac, pretium tempus nunc. Donec sodales libero vel interdum aliquam. Duis interdum nibh et porttitor pulvinar. Donec arcu felis, ultricies ac aliquet sed, scelerisque sed dolor. Aliquam tempus nunc eu turpis venenatis, quis luctus felis consequat. Donec quis tincidunt mi. Pellentesque sit amet tellus sed ligula rhoncus lacinia. Etiam quis nibh eget massa efficitur bibendum ac nec dui. Sed sit amet lectus lacus. Maecenas sapien mi, vulputate sed justo eu, tincidunt sollicitudin nunc. Suspendisse sit amet mollis ante. Proin eu mollis magna. Mauris et urna nec lacus scelerisque consequat sed quis turpis."
+            placeholder="Ex: Lorem ipsum dolor sit amet, consectetur adipiscing elit. In lacus elit, semper nec ligula ac, pretium tempus nunc. Donec sodales libero vel interdum aliquam. Duis interdum nibh et porttitor pulvinar. Donec arcu felis, ultricies ac aliquet sed, scelerisque sed dolor."
             id="bookDescription"
             name="bookDescription"
           />

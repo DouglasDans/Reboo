@@ -8,17 +8,26 @@ export function fetchDbBookDataToUrlParams(bookData: Book, params: URLSearchPara
     return index === 0 ? item.category.name : `${acc}, ${item.category.name}`
   }, "") as string
 
-  params.set("title", bookData.title)
-  params.set("authors", authors)
-  params.set("publisher", bookData.publisher ? bookData.publisher.name : "")
-  params.set("publishedDate", formatDateForInput(new Date(bookData.publicationDate)))
-  params.set("pageCount", bookData.totalPages.toString())
-  params.set("industryIdentifiers", `${bookData.isbn_10}, ${bookData.isbn_13}`)
-  params.set("description", bookData.description)
-  params.set("categories", categories)
-  params.set("language", bookData.language)
-  params.set("imageLinks", bookData.coverImage)
-  params.set("highlightColor", bookData.highlightColor)
+  if (bookData.title) params.set("title", bookData.title)
+  if (authors) params.set("authors", authors)
+  if (bookData.publisher && bookData.publisher.name)
+    params.set("publisher", bookData.publisher.name)
+  if (bookData.publicationDate)
+    params.set(
+      "publishedDate",
+      formatDateForInput(new Date(bookData.publicationDate)),
+    )
+  if (bookData.totalPages) params.set("pageCount", bookData.totalPages.toString())
+  if (bookData.isbn_10 || bookData.isbn_13)
+    params.set(
+      "industryIdentifiers",
+      `${bookData.isbn_10 || ""}, ${bookData.isbn_13 || ""}`,
+    )
+  if (bookData.description) params.set("description", bookData.description)
+  if (categories) params.set("categories", categories)
+  if (bookData.language) params.set("language", bookData.language)
+  if (bookData.coverImage) params.set("imageLinks", bookData.coverImage)
+  if (bookData.highlightColor) params.set("highlightColor", bookData.highlightColor)
 }
 
 function formatDateForInput(date: Date) {
