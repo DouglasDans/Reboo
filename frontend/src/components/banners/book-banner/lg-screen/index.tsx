@@ -62,7 +62,10 @@ export default function LargeScreenBanner({ book }: Props) {
         <div className={styles.title}>
           <h1>{book.title}</h1>
           <span className={styles.authorName}>
-            {book.authors?.length ? `Por ${book.authors[0].author.name} · ` : ""}{convertStringDateToDate(book.publicationDate).getFullYear()}</span>
+            {book.authors?.length && book.authors[0]?.author?.name ? `Por ${book.authors[0].author.name}` : ""}
+            {book.authors?.length && book.publicationDate && " · "}
+            {book.publicationDate ? convertStringDateToDate(book.publicationDate).getFullYear() : ""}
+          </span>
         </div>
 
         <div className={styles.BookStatus}>
