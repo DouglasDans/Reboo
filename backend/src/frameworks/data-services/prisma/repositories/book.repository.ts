@@ -3,6 +3,7 @@ import { PrismaService } from '../prisma.service'
 import { Book } from 'src/core/entities'
 import { Injectable } from '@nestjs/common'
 import { BookStatus } from 'src/core/enums'
+import { UpdateBookDto } from 'src/core/dtos'
 
 @Injectable()
 export class PrismaBookRepository implements BookRepository {
@@ -126,7 +127,7 @@ export class PrismaBookRepository implements BookRepository {
     })
   }
 
-  update(id: number, item: Book): Promise<Book> {
+  update(id: number, item: Book | UpdateBookDto): Promise<Book> {
     return this.prisma.book.update({
       where: { id },
       data: {
@@ -141,7 +142,7 @@ export class PrismaBookRepository implements BookRepository {
         coverImage: item.coverImage,
         highlightColor: item.highlightColor,
         language: item.language,
-        publisherId: item.id,
+        publisherId: (item as Book).id ? (item as Book).id : undefined,
       },
     })
   }

@@ -1,3 +1,4 @@
+import { UpdateBookDto } from '../dtos'
 import { Book } from '../entities'
 import { BookStatus } from '../enums'
 
@@ -20,7 +21,7 @@ export abstract class BookRepository {
 
   abstract create(item: Book): Promise<Book>
 
-  abstract update(id: number, item: Book): Promise<Book>
+  abstract update(id: number, item: Book | UpdateBookDto): Promise<Book>
 
   abstract delete(id: number): Promise<Book>
 }

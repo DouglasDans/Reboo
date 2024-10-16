@@ -106,7 +106,8 @@ export class BookService {
     bookId: number,
     highlightColor: string,
   ): Promise<Book> {
-    const book = this.bookFactory.updateNewBook({ highlightColor })
+    const book = new UpdateBookDto()
+    book.highlightColor = highlightColor
     return await this.book.update(bookId, book)
   }
 
