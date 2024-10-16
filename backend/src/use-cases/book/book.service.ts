@@ -115,7 +115,8 @@ export class BookService {
     bookId: number,
     bookStatus: BookStatusEnum,
   ): Promise<Book> {
-    const book = this.bookFactory.updateNewBook({ status: bookStatus })
+    const book = new UpdateBookDto()
+    book.status = bookStatus
     return await this.book.update(bookId, book)
   }
 
