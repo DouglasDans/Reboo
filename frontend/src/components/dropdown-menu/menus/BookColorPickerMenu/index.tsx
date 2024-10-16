@@ -15,7 +15,7 @@ export default function BookColorPickerMenu() {
   const { replace } = useRouter()
 
   const params = new URLSearchParams(searchParams)
-  const [color, setColor] = useState(urlParams.highlightColor);
+  const [color, setColor] = useState<string | null>(urlParams.highlightColor);
 
   useEffect(() => {
     if (color) {
@@ -30,8 +30,8 @@ export default function BookColorPickerMenu() {
   return (
     <div className={styles.container}>
       <h6>Cor de destaque</h6>
-      <HexColorPicker color={color} onChange={setColor} />
-      <input className={styles.input} value={color} onChange={(e) => { setColor(e.target.value) }} type="text" placeholder="Digite a cor em Hex" />
+      <HexColorPicker color={color ? color : "#000"} onChange={setColor} />
+      <input className={styles.input} value={color ? color : "#000"} onChange={(e) => { setColor(e.target.value) }} type="text" placeholder="Digite a cor em Hex" />
     </div>
   )
 }
