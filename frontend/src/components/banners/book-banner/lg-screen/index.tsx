@@ -5,7 +5,7 @@ import styles from './index.module.scss'
 import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
 import { useEffect, useRef, useState } from 'react'
-import { convertStringDateToDate } from './index.utils'
+import { convertStringDateToDate, isValidHex, isValidImageUrl } from '../index.utils'
 
 import updateBookHighlightColor from '@/actions/book/updateBookHighlightColor'
 import DropdownCardMenu from '@/components/dropdown-menu'
@@ -17,22 +17,27 @@ type Props = {
   book: Book
 }
 
-function isValidHex(hex: string): boolean {
-  const hexRegex = /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/;
-  return hexRegex.test(hex);
-}
-
 export default function LargeScreenBanner({ book }: Props) {
 
   const imgRef = useRef<HTMLImageElement>(null);
   const [width, setWidth] = useState<number | null>(null);
   const [highlightColor, setHighlightColor] = useState(book.highlightColor)
+  const [coverImage, setCoverImage] = useState<string | null>(null)
 
   useEffect(() => {
     if (imgRef.current) {
       setWidth(imgRef.current.offsetWidth);
     }
-  }, []);
+  }, [coverImage]);
+
+  useEffect(() => {
+    setCoverImage(null)
+    isValidImageUrl(book.coverImage).then((res) => {
+      if (res) {
+        setCoverImage(book.coverImage)
+      }
+    })
+  }, [book.coverImage])
 
   useEffect(() => {
     const timeoutId = setTimeout(async () => {
@@ -46,7 +51,9 @@ export default function LargeScreenBanner({ book }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.backgroundBanner} style={{ backgroundColor: highlightColor }}>
-        <img ref={imgRef} src={book.coverImage} className={styles.coverImage} alt="" style={{ opacity: (width ? 1 : 0) }} />
+
+        {coverImage && <img ref={imgRef} src={coverImage} className={styles.coverImage} alt="" style={{ opacity: (width ? 1 : 0) }} />}
+
 
         <div className={styles.bannerButtons}>
           <DropdownCardMenu content={<ColorPickerMenu highlightColorState={{ highlightColor, setHighlightColor }} />}>

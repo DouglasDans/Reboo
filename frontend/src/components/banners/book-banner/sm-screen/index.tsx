@@ -3,7 +3,7 @@
 import { Book } from '@/services/rebooAPI/api.types'
 import styles from './index.module.scss'
 import { useState } from 'react'
-import { convertStringDateToDate } from './index.utils'
+import { convertStringDateToDate } from '../index.utils'
 import BookStatusTag from '@/components/book-status-tag'
 import DropdownCardMenu from '@/components/dropdown-menu'
 import ColorPickerMenu from '@/components/dropdown-menu/menus/ColorPickerMenu'
@@ -21,7 +21,7 @@ export default function SmallScreenBanner({ book }: Props) {
   return (
     <section className={styles.container} >
       <div style={{ backgroundColor: highlightColor }} className={styles.bannerContent}>
-        <img src={book.coverImage ? book.coverImage : "/book-image-placeholder.png"} className={styles.coverImage} alt="" />
+        <img src={book.coverImage || "/book-image-placeholder.png"} className={styles.coverImage} alt="" />
         <div className={styles.content}>
           <div>
             <h1>{book.title}</h1>
