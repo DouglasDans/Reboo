@@ -26,7 +26,9 @@ export default function SmallScreenBanner({ book }: Props) {
           <div>
             <h1>{book.title}</h1>
             <span className={styles.authorName}>
-              {book.authors?.length ? `Por ${book.authors[0].author.name} · ` : ""}{convertStringDateToDate(book.publicationDate).getFullYear()}
+              {book.authors?.length && book.authors[0]?.author?.name ? `Por ${book.authors[0].author.name}` : ""}
+              {book.authors?.length && book.publicationDate && " · "}
+              {book.publicationDate ? convertStringDateToDate(book.publicationDate).getFullYear() : ""}
             </span>
           </div>
           <BookStatusTag status={book.status} />
