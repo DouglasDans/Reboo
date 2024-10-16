@@ -18,13 +18,4 @@
     flex-direction: column;
     gap: 10px;
   }
-
-  & .coverImage {
-    height: 190px;
-    border-radius: global-sizes.$book-cover-radius;
-    
-    @include mixins.media-query(md){
-      height: 300px;
-    }
-  }
 }

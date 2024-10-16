@@ -4,7 +4,7 @@ import { useContext, useState } from 'react'
 import styles from './index.module.scss'
 import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { getHighlightColorFromCoverImage, verifyCoverImageURLIsValid } from './index.utils'
+import { getHighlightColorFromCoverImage, isValidImageUrl } from './index.utils'
 import Button from '@/components/buttons/button'
 import { GoogleBookResponse } from '@/services/GoogleBooksAPI/api.types'
 
@@ -20,14 +20,13 @@ export default function BookUploadForm() {
   async function submitCoverImage(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
+    const image = e.currentTarget.coverImageInput.value
     const params = new URLSearchParams(searchParams)
-    const urlImage = await verifyCoverImageURLIsValid(
-      e.currentTarget.coverImageInput.value,
-    )
+    const isValidImage = await isValidImageUrl(image)
 
-    if (urlImage) {
-      const highlightColor = await getHighlightColorFromCoverImage(urlImage)
-      params.set("imageLinks", urlImage)
+    if (isValidImage) {
+      const highlightColor = await getHighlightColorFromCoverImage(image)
+      params.set("imageLinks", image)
       params.set("highlightColor", highlightColor)
     } else {
       params.delete("imageLinks")

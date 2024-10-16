@@ -9,6 +9,7 @@ import DropdownCardMenu from '@/components/dropdown-menu'
 import BookColorPickerMenu from '@/components/dropdown-menu/menus/BookColorPickerMenu'
 import BookUploadMenu from '@/components/dropdown-menu/menus/BookUploadMenu'
 import { GoogleBookResponse } from '@/services/GoogleBooksAPI/api.types'
+import BookCover from './book-cover'
 
 export default function BookCoverContainer() {
   const urlParams = useContext(BookURLParamsContext) as GoogleBookResponse
@@ -24,16 +25,7 @@ export default function BookCoverContainer() {
         </DropdownCardMenu>
       </div>
 
-      <img
-        src={
-          typeof urlParams.imageLinks !== "string"
-            ? "/book-image-placeholder.png"
-            : urlParams.imageLinks
-        }
-        className={styles.coverImage}
-        height={"190"}
-        alt="Capa do livro"
-      />
+      <BookCover imageUrl={urlParams.imageLinks} />
     </div>
   )
 }

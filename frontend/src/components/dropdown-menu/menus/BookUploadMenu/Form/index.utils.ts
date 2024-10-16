@@ -1,17 +1,12 @@
-import axios from "axios"
 import Vibrant from "node-vibrant"
 
-export async function verifyCoverImageURLIsValid(
-  coverImage: string,
-): Promise<string | null> {
-  try {
-    const url = new URL(coverImage)
-    await axios.get(url.href)
-    return url.href
-  } catch (err) {
-    console.log(err)
-    return null
-  }
+export function isValidImageUrl(url: string): Promise<boolean> {
+  return new Promise(resolve => {
+    const img = new Image()
+    img.onload = () => resolve(true)
+    img.onerror = () => resolve(false)
+    img.src = url
+  })
 }
 
 export async function getHighlightColorFromCoverImage(
