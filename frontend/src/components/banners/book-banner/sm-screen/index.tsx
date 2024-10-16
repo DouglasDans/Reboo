@@ -2,14 +2,15 @@
 
 import { Book } from '@/services/rebooAPI/api.types'
 import styles from './index.module.scss'
-import { useState } from 'react'
-import { convertStringDateToDate } from '../index.utils'
+import { useEffect, useState } from 'react'
+import { convertStringDateToDate, isValidHex } from '../index.utils'
 import BookStatusTag from '@/components/book-status-tag'
 import DropdownCardMenu from '@/components/dropdown-menu'
 import ColorPickerMenu from '@/components/dropdown-menu/menus/ColorPickerMenu'
 import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
 import Link from 'next/link'
+import updateBookHighlightColor from '@/actions/book/updateBookHighlightColor'
 
 type Props = {
   book: Book
@@ -17,6 +18,19 @@ type Props = {
 
 export default function SmallScreenBanner({ book }: Props) {
   const [highlightColor, setHighlightColor] = useState(book.highlightColor)
+
+  async function updateHighlightColor() {
+    if (highlightColor) {
+      if (highlightColor !== book.highlightColor && isValidHex(highlightColor)) {
+        book.highlightColor = highlightColor
+        await updateBookHighlightColor(book.id, highlightColor)
+      }
+    }
+  }
+
+  useEffect(() => {
+    updateHighlightColor()
+  }, [highlightColor]);
 
   return (
     <section className={styles.container} >

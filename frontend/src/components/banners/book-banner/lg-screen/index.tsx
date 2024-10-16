@@ -21,7 +21,7 @@ export default function LargeScreenBanner({ book }: Props) {
 
   const imgRef = useRef<HTMLImageElement>(null);
   const [width, setWidth] = useState<number | null>(null);
-  const [highlightColor, setHighlightColor] = useState(book.highlightColor)
+  const [highlightColor, setHighlightColor] = useState<string | null>(book.highlightColor)
   const [coverImage, setCoverImage] = useState<string | null>(null)
 
   useEffect(() => {
@@ -39,13 +39,17 @@ export default function LargeScreenBanner({ book }: Props) {
     })
   }, [book.coverImage])
 
-  useEffect(() => {
-    const timeoutId = setTimeout(async () => {
+  async function updateHighlightColor() {
+    if (highlightColor) {
       if (highlightColor !== book.highlightColor && isValidHex(highlightColor)) {
+        book.highlightColor = highlightColor
         await updateBookHighlightColor(book.id, highlightColor)
       }
-    }, 300);
-    return () => clearTimeout(timeoutId);
+    }
+  }
+
+  useEffect(() => {
+    updateHighlightColor()
   }, [highlightColor]);
 
   return (
