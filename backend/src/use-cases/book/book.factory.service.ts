@@ -24,17 +24,17 @@ export class BookFactoryService {
   updateNewBook(updateBookDto: UpdateBookDto) {
     const book = new Book()
     book.title = updateBookDto.title
-    book.isbn_10 = updateBookDto.isbn_10
-    book.isbn_13 = updateBookDto.isbn_13
+    book.isbn_10 = updateBookDto.isbn_10 || null
+    book.isbn_13 = updateBookDto.isbn_13 || null
     book.totalPages = updateBookDto.totalPages
     book.pagesRead = updateBookDto.pagesRead
-    book.publicationDate = updateBookDto.publicationDate
-    book.description = updateBookDto.description
+    book.publicationDate = updateBookDto.publicationDate || null
+    book.description = updateBookDto.description || null
     book.status = updateBookDto.status
-    book.coverImage = updateBookDto.coverImage
-    book.highlightColor = updateBookDto.highlightColor
-    book.language = updateBookDto.language
-
+    book.coverImage = updateBookDto.coverImage || null
+    book.highlightColor = updateBookDto.highlightColor || null
+    book.language = updateBookDto.language || null
+    book.publisherId = updateBookDto.publisherId || null
     return book
   }
 }

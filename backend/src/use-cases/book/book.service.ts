@@ -79,24 +79,25 @@ export class BookService {
   async updateBook(bookId: number, updateBookDto: UpdateBookDto) {
     const book = this.bookFactory.updateNewBook(updateBookDto)
 
-    const publisher = await this.publisherService.getPublisherByName(
-      updateBookDto.publisher,
-    )
+    if (updateBookDto.publisher) {
+      const publisher = await this.publisherService.getPublisherByName(
+        updateBookDto.publisher,
+      )
 
-    if (!publisher) {
-      await this.publisherService.createPublisher({
-        name: updateBookDto.publisher,
-      })
+      if (!publisher) {
+        await this.publisherService.createPublisher({
+          name: updateBookDto.publisher,
+        })
+      }
     }
 
     await this.bookAuthorService.deleteRelationByBookId(bookId)
-    await this.bookCategoryService.deleteRelationByBookId(bookId)
+    this.bookAuthorService.createRelation(bookId, updateBookDto.author)
 
-    await this.bookAuthorService.createRelation(bookId, updateBookDto.author)
-    await this.bookCategoryService.createRelation(
-      bookId,
-      updateBookDto.category,
-    )
+    if (updateBookDto.category) {
+      await this.bookCategoryService.deleteRelationByBookId(bookId)
+      this.bookCategoryService.createRelation(bookId, updateBookDto.category)
+    }
 
     return this.book.update(bookId, book)
   }
