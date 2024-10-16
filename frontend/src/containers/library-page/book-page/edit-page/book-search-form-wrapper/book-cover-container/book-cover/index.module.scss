@@ -1,0 +1,11 @@
+@use 'styles/global-sizes';
+@use 'styles/mixins';
+
+.coverImage {
+  height: 190px;
+  border-radius: global-sizes.$book-cover-radius;
+  
+  @include mixins.media-query(md){
+    height: 300px;
+  }
+}
