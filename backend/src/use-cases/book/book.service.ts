@@ -121,8 +121,13 @@ export class BookService {
   }
 
   async deleteBook(bookId: number) {
+    const book = await this.getBookById(bookId.toString())
+
     await this.bookAuthorService.deleteRelationByBookId(bookId)
-    await this.bookCategoryService.deleteRelationByBookId(bookId)
+
+    if (book.categories) {
+      await this.bookCategoryService.deleteRelationByBookId(bookId)
+    }
     return await this.book.delete(bookId)
   }
 }
