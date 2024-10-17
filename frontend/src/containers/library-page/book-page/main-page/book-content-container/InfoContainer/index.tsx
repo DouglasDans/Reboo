@@ -47,6 +47,13 @@ export default function InfoContainer({ book }: Props) {
               <span className={styles.itemValue}>{`${book.isbn_10 || ''}${book.isbn_10 && book.isbn_13 ? ', ' : ''}${book.isbn_13 || ''}`}</span>
             </div>
           )}
+
+          {book.language && (
+            <div className={styles.infoItem}>
+              <span className={styles.itemTitle}>Idioma</span>
+              <span className={styles.itemValue}>{book.language}</span>
+            </div>
+          )}
         </div>
 
         {book.categories && book.categories.length !== 0 && (
