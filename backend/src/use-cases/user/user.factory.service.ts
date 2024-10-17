@@ -17,9 +17,6 @@ export class UserFactoryService {
     user.profileImage = createUserDto.profileImage
     user.googleId = createUserDto.google_id
     user.password = await this.authService.hashPassword(createUserDto.password)
-
-    console.log(user.password)
-
     return user
   }
   updateNewUser(updateUserDto: UpdateUserDto) {
