@@ -142,7 +142,7 @@ export class PrismaBookRepository implements BookRepository {
         coverImage: item.coverImage,
         highlightColor: item.highlightColor,
         language: item.language,
-        publisherId: (item as Book).id ? (item as Book).id : undefined,
+        publisherId: item.publisherId,
       },
     })
   }
