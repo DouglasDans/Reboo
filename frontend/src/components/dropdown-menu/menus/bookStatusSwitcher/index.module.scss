@@ -1,4 +1,5 @@
 @use 'styles/global-sizes';
+@use 'styles/mixins';
 
 .container {
   display: flex;
@@ -15,6 +16,10 @@
       flex-wrap: wrap;
       width: 400px;
       gap: global-sizes.$gap-items-sm-size;
+
+      @include mixins.media-query(lg){
+        width: 100%;
+      }
     }
   }
 }

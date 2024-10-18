@@ -1,9 +1,16 @@
 @use 'styles/global-sizes';
+@use 'styles/mixins';
 
 .container{
   display: flex;
   gap: global-sizes.$gap-items-sm-size;
   flex-direction: column;
+
+  @include mixins.media-query(lg){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   & .input{
     width: 200px !important;
