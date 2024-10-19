@@ -1,3 +1,5 @@
+"use server"
+
 import { rebooApiService } from "@/services/rebooAPI"
 import { BookDataRequest } from "@/services/rebooAPI/api.types"
 import { redirect } from "next/navigation"

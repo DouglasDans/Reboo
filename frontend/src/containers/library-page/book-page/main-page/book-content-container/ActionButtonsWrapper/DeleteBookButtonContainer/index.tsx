@@ -1,6 +1,6 @@
 'use client'
 
-import { deleteBook } from '@/actions/book/deleteBook'
+import { deleteBook } from '@/actions/book.action'
 import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
 import { BookDataContext } from '@/context/book/BookDataProvider'
