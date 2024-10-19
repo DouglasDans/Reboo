@@ -1,6 +1,4 @@
-import UserStatsCard from '@/components/cards/user-stats-card'
 import styles from './index.module.scss'
-import Icon from '@/components/icon'
 import StatsInDevelopment from '@/components/stats-in-development'
 
 export default function StatsCardsWrapper() {
