@@ -6,10 +6,10 @@ import { BookURLParamsContext } from '@/context/book/BookURLParamsProvider'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { getHighlightColorFromCoverImage, isValidImageUrl } from './index.utils'
 import Button from '@/components/buttons/button'
-import { GoogleBookResponse } from '@/services/GoogleBooksAPI/api.types'
+import { URLBookData } from '@/containers/library-page/book-page/index.types'
 
 export default function BookUploadForm() {
-  const urlParams = useContext(BookURLParamsContext) as GoogleBookResponse
+  const urlParams = useContext(BookURLParamsContext) as URLBookData
 
   const searchParams = useSearchParams()
   const pathname = usePathname()

@@ -8,11 +8,11 @@ import Icon from '@/components/icon'
 import DropdownCardMenu from '@/components/dropdown-menu'
 import BookColorPickerMenu from '@/components/dropdown-menu/menus/BookColorPickerMenu'
 import BookUploadMenu from '@/components/dropdown-menu/menus/BookUploadMenu'
-import { GoogleBookResponse } from '@/services/GoogleBooksAPI/api.types'
 import BookCover from './book-cover'
+import { URLBookData } from '../../../index.types'
 
 export default function BookCoverContainer() {
-  const urlParams = useContext(BookURLParamsContext) as GoogleBookResponse
+  const urlParams = useContext(BookURLParamsContext) as URLBookData
   return (
     <div className={styles.editImgContainer}>
       <div className={styles.dropdownButtonsContainer}>
