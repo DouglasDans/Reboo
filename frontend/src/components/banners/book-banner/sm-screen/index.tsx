@@ -17,7 +17,7 @@ type Props = {
 }
 
 export default function SmallScreenBanner({ book }: Props) {
-  const [highlightColor, setHighlightColor] = useState(book.highlightColor)
+  const [highlightColor, setHighlightColor] = useState<string | null>(book.highlightColor)
 
   async function updateHighlightColor() {
     if (highlightColor) {
@@ -34,7 +34,10 @@ export default function SmallScreenBanner({ book }: Props) {
 
   return (
     <section className={styles.container} >
-      <div style={{ backgroundColor: highlightColor }} className={styles.bannerContent}>
+      <div
+        className={styles.backgroundBanner}
+        style={(highlightColor ? { backgroundColor: highlightColor } : {})}
+      >
         <img src={book.coverImage || "/book-image-placeholder.png"} className={styles.coverImage} alt="" />
         <div className={styles.content}>
           <div>

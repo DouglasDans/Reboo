@@ -54,7 +54,10 @@ export default function LargeScreenBanner({ book }: Props) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.backgroundBanner} style={{ backgroundColor: highlightColor }}>
+      <div
+        className={styles.backgroundBanner}
+        style={(highlightColor ? { backgroundColor: highlightColor } : {})}
+      >
 
         {coverImage && <img ref={imgRef} src={coverImage} className={styles.coverImage} alt="" style={{ opacity: (width ? 1 : 0) }} />}
 
