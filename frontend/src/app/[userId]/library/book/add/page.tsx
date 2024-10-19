@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Adicionar Novo Livro",
 }
 
-export default function page({ searchParams }: Params) {
+export default function page(searchParams: URLSearchParams) {
   return (
     <BookURLParamsProvider value={searchParams}>
       <BookSearchAndCoverWrapper />

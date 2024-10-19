@@ -3,7 +3,7 @@
 import { createContext, ReactNode } from "react"
 
 interface Props {
-  value: string
+  value: URLSearchParams
   children: ReactNode
 }
 
