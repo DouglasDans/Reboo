@@ -1,10 +1,7 @@
-import Icon from '@/components/icon'
 import styles from './index.module.scss'
 import ResourceItem from './item'
 
-type Props = {}
-
-export default function LandingResourcesContainer({ }: Props) {
+export default function LandingResourcesContainer() {
   return (
     <section className={styles.container}>
       <h1>Uma nova forma de gerenciar seus livros!</h1>

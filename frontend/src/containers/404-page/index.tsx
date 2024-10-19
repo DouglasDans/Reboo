@@ -4,9 +4,7 @@ import Button from '@/components/buttons/button'
 import Icon from '@/components/icon'
 import Image from 'next/image'
 
-type Props = {}
-
-export default function Page404Container({ }: Props) {
+export default function Page404Container() {
   return (
     <div className={styles.container}>
       <div className={styles.icon}>

@@ -1,10 +1,7 @@
-import UserStatsCard from '@/components/cards/user-stats-card'
 import styles from './index.module.scss'
 import StatsInDevelopment from '@/components/stats-in-development'
 
-type Props = {}
-
-export default function StatsWrapper({ }: Props) {
+export default function StatsWrapper() {
   return (
     <div className={styles.container}>
       <h5>Estatísticas do Livro</h5>
