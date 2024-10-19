@@ -1,4 +1,5 @@
 import StatsInDevelopment from "@/components/stats-in-development"
+import { Metadata } from "next"
 
 type Props = {}
 
