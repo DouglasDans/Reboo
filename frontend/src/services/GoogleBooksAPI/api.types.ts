@@ -22,11 +22,20 @@ export interface GoogleBookResponse {
   pageCount: number
   categories: Array<string>
   language: string
-  imageLinks: any
+  imageLinks: ImageLinksResponse
   refreshForm?: boolean
 }
 
 export interface GoogleISBNResponse {
   type: string
   identifier: string
+}
+
+export interface ImageLinksResponse {
+  smallThumbnail: string
+  thumbnail: string
+  small: string
+  medium: string
+  large: string
+  extraLarge: string
 }

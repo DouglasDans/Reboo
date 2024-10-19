@@ -3,10 +3,11 @@
 import Link from "next/link"
 import styles from "./index.module.scss"
 import { usePathname } from "next/navigation"
+import { ReactNode } from "react"
 
 type Props = {
   title: string
-  icon: any
+  icon: ReactNode
   href: string
 }
 

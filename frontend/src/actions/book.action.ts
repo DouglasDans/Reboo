@@ -1,10 +1,11 @@
 import { rebooApiService } from "@/services/rebooAPI"
+import { BookDataRequest } from "@/services/rebooAPI/api.types"
 import { redirect } from "next/navigation"
 
 export async function createBook(formData: FormData) {
   "use server"
 
-  const bookData = {
+  const bookData: BookDataRequest = {
     userId: Number.parseInt(formData.get("bookUser") as string),
     title: formData.get("bookName") as string,
     totalPages: Number.parseInt(formData.get("bookTotalPages") as string),
@@ -22,7 +23,7 @@ export async function createBook(formData: FormData) {
       ? (formData.get("bookHighlightColor") as string)
       : null,
     coverImage: formData.get("bookCoverImage")
-      ? formData.get("bookCoverImage")
+      ? (formData.get("bookCoverImage") as string)
       : null,
     language: formData.get("bookLanguage")
       ? (formData.get("bookLanguage") as string)
@@ -59,7 +60,8 @@ export async function createBook(formData: FormData) {
 export default async function updateBook(formData: FormData) {
   "use server"
 
-  const bookData = {
+  const bookData: BookDataRequest = {
+    userId: Number.parseInt(formData.get("bookUser") as string),
     id: formData.get("bookId") as string,
     title: formData.get("bookName") as string,
     totalPages: Number.parseInt(formData.get("bookTotalPages") as string),
@@ -77,7 +79,7 @@ export default async function updateBook(formData: FormData) {
       ? (formData.get("bookHighlightColor") as string)
       : null,
     coverImage: formData.get("bookCoverImage")
-      ? formData.get("bookCoverImage")
+      ? (formData.get("bookCoverImage") as string)
       : null,
     language: formData.get("bookLanguage")
       ? (formData.get("bookLanguage") as string)
@@ -106,9 +108,10 @@ export default async function updateBook(formData: FormData) {
       : null,
   }
 
-  const book = await rebooApiService.updateBook(parseInt(bookData.id), bookData)
-
-  redirect("../../book/" + book.id)
+  if (bookData.id) {
+    const book = await rebooApiService.updateBook(parseInt(bookData.id), bookData)
+    redirect("../../book/" + book.id)
+  }
 }
 
 export async function deleteBook(bookId: number) {
