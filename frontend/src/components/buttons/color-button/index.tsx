@@ -14,7 +14,7 @@ export default function ColorButton({
   value,
   decorator,
   image,
-  bgcolor,
+  // bgcolor,
   disabled,
   onClick
 }: Props) {
