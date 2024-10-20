@@ -1,0 +1,30 @@
+# 1. Usa a imagem oficial do Node.js como base
+FROM node:lts-alpine AS base
+
+# 2. Define o diretório de trabalho dentro do container
+WORKDIR /app
+
+# 3. Copia o package.json e o package-lock.json para o diretório de trabalho
+COPY package.json package-lock.json ./
+
+# 4. Instala as dependências do projeto
+RUN npm install --production
+
+# 5. Copia o restante do código da aplicação para o diretório de trabalho
+COPY . .
+
+# 6. Gera a build da aplicação Next.js
+RUN npm run build
+
+# 7. Usa uma imagem mais leve para rodar a aplicação em produção
+FROM node:lts-alpine AS runner
+
+WORKDIR /app
+
+COPY --from=base /app/node_modules ./node_modules
+COPY --from=base /app/.next ./.next
+COPY --from=base /app/package.json ./package.json
+
+# 8. Define a porta em que o container vai rodar
+EXPOSE 3000
+
