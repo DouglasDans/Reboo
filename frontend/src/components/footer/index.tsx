@@ -12,16 +12,16 @@ export default function Footer() {
 
       <div className={styles.linkIcons}>
         <Link href={"https://discord.com/users/684092812312313927"}>
-          <Image className={styles.linkIcon} src={"/discord-icon.svg"} width={30} height={30} alt='ícone do discord.' />
+          <Image className={styles.linkIcon} src={"/icons/discord-icon.svg"} width={30} height={30} alt='ícone do discord.' />
         </Link>
         <Link href={"https://github.com/DouglasDans/Reboo"}>
-          <Image className={styles.linkIcon} src={"/github-icon.svg"} width={30} height={30} alt='ícone do github.' />
+          <Image className={styles.linkIcon} src={"/icons/github-icon.svg"} width={30} height={30} alt='ícone do github.' />
         </Link>
         <Link href={"https://www.instagram.com/douglas.dans/"}>
-          <Image className={styles.linkIcon} src={"/instagram-icon.svg"} width={30} height={30} alt='ícone do instagram.' />
+          <Image className={styles.linkIcon} src={"/icons/instagram-icon.svg"} width={30} height={30} alt='ícone do instagram.' />
         </Link>
         <Link href={"https://www.linkedin.com/in/douglasdans/"}>
-          <Image className={styles.linkIcon} src={"/linkedin-icon.svg"} width={30} height={30} alt='ícone do linkedin.' />
+          <Image className={styles.linkIcon} src={"/icons/linkedin-icon.svg"} width={30} height={30} alt='ícone do linkedin.' />
         </Link>
       </div>
     </div>
