@@ -1,8 +1,10 @@
+import withImage from 'next-images';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-}
+};
 
-export default nextConfig
+export default withImage(nextConfig);

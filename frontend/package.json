@@ -18,6 +18,7 @@
     "jsonwebtoken": "^9.0.2",
     "material-symbols": "^0.22.2",
     "next": "^14.2.15",
+    "next-images": "^1.8.5",
     "node-vibrant": "^3.1.6",
     "react": "^18.3.1",
     "react-colorful": "^5.6.1",
