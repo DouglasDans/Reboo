@@ -62,12 +62,12 @@ export default function RegisterPage() {
             <Button fullWidth>Registrar</Button>
           </div>
 
-          <h6>Ou</h6>
+          {/* <h6>Ou</h6>
 
           <Button variant='secondary' fullWidth>
-            <Image src={"/google-icon.svg"} alt='Logo do Google' height={20} width={20} />
+            <Image src={"/icons/google-icon.svg"} alt='Logo do Google' height={20} width={20} />
             Registrar com Google
-          </Button>
+          </Button> */}
         </form>
       </div>
     </div>
